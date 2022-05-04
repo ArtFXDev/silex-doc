@@ -16,6 +16,20 @@ const config = {
   organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
 
+  i18n: {
+    defaultLocale: 'fr',
+    locales: ['en', 'fr'],
+    localeConfigs: {
+      en: {
+        htmlLang: 'en-GB',
+      },
+      // Vous pouvez omettre une locale (par exemple, fr) si vous n'avez pas besoin de modifier les paramètres par défaut.
+      fa: {
+        direction: 'rtl',
+      },
+    },
+  },
+
   presets: [
     [
       'classic',
@@ -40,7 +54,6 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
         title: 'My Site',
@@ -55,17 +68,21 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
-		  {
+          {
             type: 'doc',
             docId: 'quickstart',
             position: 'left',
-            label: 'Quickstart',
+            label: 'Tutorial',
           },
-		  {
+          {
             type: 'doc',
             docId: 'faq',
             position: 'left',
             label: 'FAQ',
+          },
+          {
+            type: 'localeDropdown',
+            position: 'right',
           },
         ],
       },
