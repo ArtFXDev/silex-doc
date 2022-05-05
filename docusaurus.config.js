@@ -6,15 +6,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
+  title: 'Silex Doc',
+  tagline: 'Documentation de Silex et de tout ce qui le concerne',
+  url: 'http://localhost:3000/docs/user/presentation',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  favicon: 'img/silex_logo.png',
+  organizationName: 'TDgang', // Usually your GitHub org/user name.
+  projectName: 'silex-doc', // Usually your repo name.
 
   i18n: {
     defaultLocale: 'fr',
@@ -56,23 +56,23 @@ const config = {
   themeConfig:
     ({
       navbar: {
-        title: 'My Site',
+        title: 'Silex Doc',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Silex',
+          src: 'img/silex_logo.png',
         },
         items: [
           {
             type: 'doc',
-            docId: 'silex',
+            docId: 'user/presentation',
             position: 'left',
-            label: 'Documentation',
+            label: 'Guide Utilisateur',
           },
           {
             type: 'doc',
-            docId: 'quickstart',
+            docId: 'td/presentation',
             position: 'left',
-            label: 'Tutorial',
+            label: 'TD',
           },
           {
             type: 'doc',
@@ -90,16 +90,50 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Guide Utilisateur',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/quickstart',
+                label: 'Présentation',
+                to: '/docs/user/presentation',
+              },
+              {
+                label: 'Installation',
+                to: '/docs/installation',
+              },
+              {
+                label: 'Action',
+                to: '/docs/user/action',
               },
             ],
           },
+           {
+            title: 'TD',
+            items: [
+              {
+                label: 'Présentation',
+                to: '/docs/td/presentation',
+              },
+              {
+                label: 'Installation',
+                to: '/docs/td/install',
+              },
+              {
+                label: '?',
+                to: '/docs/td/',
+              },
+            ],
+          },
+          {
+            title: 'FAQ',
+            items: [
+              {
+                label: 'faq',
+                to: '/docs/faq',
+              },
+            ],
+          }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} TD Silex, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
