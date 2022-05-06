@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Silex Doc',
   tagline: 'Documentation de Silex et de tout ce qui le concerne',
-  url: 'http://localhost:3000/docs/user/presentation',
+  url: 'http://localhost:3000',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -98,7 +98,7 @@ const config = {
               },
               {
                 label: 'Installation',
-                to: '/docs/installation',
+                to: '/docs/user/install',
               },
               {
                 label: 'Action',
@@ -116,10 +116,6 @@ const config = {
               {
                 label: 'Installation',
                 to: '/docs/td/install',
-              },
-              {
-                label: '?',
-                to: '/docs/td/',
               },
             ],
           },

@@ -21,5 +21,5 @@ sidebar_position: 30
 *Explication du conform Python dans Silex*
 
 ### Conform DCC
-*Explication du conform dans les DCC*<br/>
+*Explication du conform dans les DCC*
 *Si le conform est différent dans les DCC en faire une section pour chaque*

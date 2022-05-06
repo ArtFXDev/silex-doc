@@ -13,6 +13,7 @@ function HomepageHeader() {
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <img src={require('@site/static/img/silex_logo.png').default}/>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
