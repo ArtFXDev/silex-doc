@@ -18,3 +18,6 @@ sidebar_position: 10
 
 ### Comment faire pour que la FAQ soit plus lisible ?
 *Il faudrait faire ajouter du style*
+
+
+####REFAIRE LE FAQ 
