@@ -18,7 +18,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/user/presentation">
-            Test Silex Doc
+            Test Silex Doc 1
           </Link>
         </div>
       </div>
