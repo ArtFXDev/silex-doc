@@ -76,6 +76,12 @@ const config = {
           },
           {
             type: 'doc',
+            docId: 'it/presentation',
+            position: 'left',
+            label: 'IT',
+          },
+          {
+            type: 'doc',
             docId: 'faq',
             position: 'left',
             label: 'FAQ',
@@ -106,7 +112,7 @@ const config = {
               },
             ],
           },
-           {
+          {
             title: 'TD',
             items: [
               {
@@ -116,6 +122,15 @@ const config = {
               {
                 label: 'Installation',
                 to: '/docs/td/install',
+              },
+            ],
+          },
+          {
+            title: 'IT',
+            items: [
+              {
+                label: 'Présentation',
+                to: '/docs/it/presentation',
               },
             ],
           },
