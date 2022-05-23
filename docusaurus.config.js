@@ -107,8 +107,28 @@ const config = {
                 to: '/docs/user/install',
               },
               {
+                label: 'Shots and assets',
+                to: '/docs/user/shots-assets',
+              },
+              {
                 label: 'Action',
                 to: '/docs/user/action',
+              },
+              {
+                label: 'Actions in Maya',
+                to: '/docs/user/action-maya',
+              },
+              {
+                label: 'Actions in Houdini',
+                to: '/docs/user/action-houdini',
+              },
+              {
+                label: 'Actions in Nuke',
+                to: '/docs/user/action-nuke',
+              },
+              {
+                label: 'The render farm and tractor',
+                to: '/docs/user/renderfarm-tractor',
               },
             ],
           },
