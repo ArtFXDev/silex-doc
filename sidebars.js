@@ -12,8 +12,9 @@ module.exports = {
         }
     ],
     it: [
+        {
+        It: [
         'it/presentation',
-        'it/deploy',
         {
             Snapins: [
                 {
@@ -30,5 +31,7 @@ module.exports = {
                 }
             ]
         }
+    ]
+}
     ],
 };
