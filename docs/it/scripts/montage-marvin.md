@@ -10,7 +10,11 @@ C'est alias P: est du coup utilisé pour tout les paths dans les scenes du pipe,
 Coté render farm, il suffit de changer lors du rendu l'alias "P:" pointant par example sur le nas ANA.
 
 # Script de deploiement
+This script is for the snapin fog.
+We copy montage_marvin.bat to the startup directory of the local computer.
+All the scripts available in this folder will be executed on the startup. 
 ```py
+# montage_marvin.ps1
 #mount network
 New-PSDrive -Name S -Root \\prod.silex.artfx.fr\rez\ -PSProvider FileSystem
 
@@ -19,7 +23,9 @@ Copy-Item S:\windows\montage_marvin\montage_marvin.bat -destination "C:\Users\et
 ```
 
 # Contenu du Script
+We only add a row for the P: alias
 ```bat
+rem montage_marvin.bat
 @echo off
 net use * /delete /yes
 subst P: "D:\Pipeline"
