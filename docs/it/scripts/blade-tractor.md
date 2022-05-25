@@ -9,7 +9,7 @@ Ce scripts déploy le service tractor sur la machine local.
 
 # Contenu
 
-``` py
+```py
 # update_tractor_blade.ps1
 $fileA = "C:\Program Files\Pixar\Tractor-2.4\lib\python2.7\Lib\site-packages\tractor\apps\blade\TractorSiteStatusFilter.py"
 $fileB = "\\prod.silex.artfx.fr\rez\windows\TractorSiteStatusFilter.py"

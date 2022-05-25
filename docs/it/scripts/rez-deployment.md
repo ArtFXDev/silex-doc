@@ -16,11 +16,15 @@ Dans les releases python officiel embeddable, les installs ne comprennent pas le
 
 ## Installation de rez
 Dans chaque machine rez est installé dans C:/rez
-./ __install__ contient
+./ __install__ contient l'install local de rez
 ./ packages contient les packages locaux, ils sont également copié grace au scripts en local.
+Le path vers l'executable de rez est également ajouter à la variable d'environnement PATH.
+Le path vers le fichier de configuration rez est situé ici `\\192.168.2.112\rez\windows\config\rezconfig.py` et est ajouté à la variable REZ_CONFIG_FILE
+
 
 
 ## Scripts
+Scripts du snapin:
 ```py
 # rez-install.ps1
 #mount network
