@@ -14,7 +14,7 @@ module.exports = {
     it: [
         {
         It: [
-        'it/presentation',
+        'it/presentation', 'it/resilio',
         {
             Snapins: [
                 {
