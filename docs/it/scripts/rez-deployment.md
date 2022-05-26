@@ -25,10 +25,10 @@ Le path vers le fichier de configuration rez est situé ici `\\192.168.2.112\rez
 Scripts du snapin:
 ```py
 # rez-install.ps1
-#mount network
+# mount network
 New-PSDrive -Name S -Root \\prod.silex.artfx.fr\rez\ -PSProvider FileSystem
 
-#install rez if not exist
+# install rez if not exist
 Remove-Item -Recurse -Force "c:\rez"
 New-Item -ItemType Directory -Force -Path "c:\rez\__install__"
 Copy-Item S:\windows\rez-2.95.0 -destination "c:\rez\rez-2.95.0" -Recurse -Force
