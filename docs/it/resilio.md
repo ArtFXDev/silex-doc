@@ -39,5 +39,3 @@ Cette "procédure" fonctionne en cas de remplacement d'un disque de PFE5RN.
 |                |                               |
 |----------------|-------------------------------|
 |Adresse         |`http://172.16.69.2:8443`      |
-|User            |`td21`                         |
-|Password        |`S0usPocheHouX3442?`           |
