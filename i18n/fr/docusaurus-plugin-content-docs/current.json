@@ -1,0 +1,34 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.td.category.Coding workflow": {
+    "message": "Coding workflow",
+    "description": "The label for category Coding workflow in sidebar td"
+  },
+  "sidebar.td.category.Backend": {
+    "message": "Backend",
+    "description": "The label for category Backend in sidebar td"
+  },
+  "sidebar.td.category.CGWire": {
+    "message": "CGWire",
+    "description": "The label for category CGWire in sidebar td"
+  },
+  "sidebar.td.category.Silex": {
+    "message": "Silex",
+    "description": "The label for category Silex in sidebar td"
+  },
+  "sidebar.td.category.Architecture": {
+    "message": "Architecture",
+    "description": "The label for category Architecture in sidebar td"
+  },
+  "sidebar.it.category.It": {
+    "message": "It",
+    "description": "The label for category It in sidebar it"
+  },
+  "sidebar.it.category.Scripts": {
+    "message": "Scripts",
+    "description": "The label for category Scripts in sidebar it"
+  }
+}

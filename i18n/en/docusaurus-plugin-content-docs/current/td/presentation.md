@@ -1,9 +1,0 @@
----
-id: presentation
-title: Presentation
-sidebar_position: 10
----
-
-*Présentation de la section TD*
-*Expliquer ce qu'on va y trouver tout du long, à faire peut-être à la fin quand les sections en dessous seront complete*
-*Indiquer **en gras** que ce guide n'est pas fait pour les RN, ils peuvent le lire mais ça ne leur sera pas forcément **utile** :(*

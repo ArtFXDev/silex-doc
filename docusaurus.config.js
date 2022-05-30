@@ -6,8 +6,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Silex Doc",
-  tagline: "Documentation de Silex et de tout ce qui le concerne",
+  title: "Silex Docs",
+  tagline: "User guide for TD and artists",
   url: "http://localhost:3000",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -17,15 +17,14 @@ const config = {
   projectName: "silex-doc", // Usually your repo name.
 
   i18n: {
-    defaultLocale: "fr",
+    defaultLocale: "en",
     locales: ["en", "fr"],
     localeConfigs: {
       en: {
         htmlLang: "en-GB",
       },
-      // Vous pouvez omettre une locale (par exemple, fr) si vous n'avez pas besoin de modifier les paramètres par défaut.
-      fa: {
-        direction: "rtl",
+      fr: {
+        htmlLang: "fr-FR",
       },
     },
   },
@@ -56,35 +55,31 @@ const config = {
 
   themeConfig: {
     navbar: {
-      title: "Silex Doc",
+      title: "Silex Docs",
       logo: {
         alt: "Silex",
         src: "img/silex_logo.png",
       },
       items: [
         {
+          label: "User Guide",
           type: "doc",
           docId: "user/presentation",
-          position: "left",
-          label: "Guide Utilisateur",
         },
         {
+          label: "TD",
           type: "doc",
           docId: "td/presentation",
-          position: "left",
-          label: "TD",
         },
         {
+          label: "IT",
           type: "doc",
           docId: "it/presentation",
-          position: "left",
-          label: "IT",
         },
         {
+          label: "FAQ",
           type: "doc",
           docId: "faq",
-          position: "left",
-          label: "FAQ",
         },
         {
           type: "localeDropdown",
@@ -164,7 +159,7 @@ const config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} TD Silex, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} ArtFX TDs`,
     },
     prism: {
       theme: lightCodeTheme,
