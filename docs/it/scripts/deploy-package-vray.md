@@ -7,7 +7,6 @@ title: Deploy Package Vray
 Ce script copie simplement le contenu du plugin v-ray présent sur le 192.168.2.112 sur la machine local.
 Le lien entre le dossier sur la machine local et houdini est effectué grace au fichier .json a placé dans le dossier 'package' la où est isntallé houdini. 
 
-
 # Contenu
 ```py
 # deploy_package_vray.ps1

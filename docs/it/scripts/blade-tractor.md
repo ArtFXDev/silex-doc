@@ -5,7 +5,7 @@ title: Blade Tractor
 
 
 # Presentation
-Ce scripts déploy le service tractor sur la machine local.
+Ce script déploie le service tractor sur la machine local.
 
 # Contenu
 
@@ -40,7 +40,7 @@ if ($restart) {
 ```
 
 Attention, si ce script est lancé 2fois de suite sur une meme machine, le services tractor s'arrête !
-Dans ce cas, pour relacer le service tractor nous avons créé un second scripts
+Dans ce cas, pour relacer le service tractor nous avons créé un second scripts.
 
 ```py
 # reset_status.ps1

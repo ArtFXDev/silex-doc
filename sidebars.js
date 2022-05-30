@@ -14,7 +14,7 @@ module.exports = {
     it: [
         {
         It: [
-        'it/presentation', 'it/resilio',
+        'it/presentation', 'it/resilio', 'it/observium', 'it/portainer',
         {
             Scripts: [
                 {

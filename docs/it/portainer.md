@@ -1,5 +1,5 @@
 # Présentation
-Portainer est un outil graphique pour administrer et creer des containers sur la preprod et prod.
+Portainer est un outil graphique pour administrer et creer des containers docker sur la preprod et prod.
 
 # Preprod
 |                |                                        |
