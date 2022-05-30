@@ -3,6 +3,7 @@ id: montage-marvin
 title: Montage Marvin
 type: doc
 ---
+import CodeSnippet from '@site/src/components/codeSnippetComponent';
 
 # Montage Marvin
 Ce scripts à était modifier pour les PFE5RN, il est utilisé pour monter un alias "P:" pointant sur "D:/PIPELINE".
@@ -13,24 +14,21 @@ Coté render farm, il suffit de changer lors du rendu l'alias "P:" pointant par 
 Ce script est utilisé pour le snapin fog.
 Ont copy le fichier montage_marvin.bat dans le dossier de demarrage de la machine local.
 Toyut les scripts présent dans le dossier de demarrage sera executer au demarrage de la machine.
-```py
-# montage_marvin.ps1
-#mount network
-New-PSDrive -Name S -Root \\prod.silex.artfx.fr\rez\ -PSProvider FileSystem
 
-# Copy .bat
-Copy-Item S:\windows\montage_marvin\montage_marvin.bat -destination "C:\Users\etudiant\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup" -Force
-```
+
+<CodeSnippet 
+  rawUrl="https://raw.githubusercontent.com/ArtFXDev/silex_fog_snapin/main/montage_marvin/montage_marvin.ps1"
+  langage="python"
+  fileName="montage_marvin.ps1"
+/>
+
 
 # Contenu du Script
 Nous avons seulement ajouter la ligne de l'alias P:
-```bat
-rem montage_marvin.bat
-@echo off
-net use * /delete /yes
-subst P: "D:\Pipeline"
-net use Z: \\marvin\installers /USER:etudiant artfx2020 /persistent:yes
-rem net use P: \\localhost\PIPELINE /persistent:yes
-rem net use Y: \\marvin\WIP /USer:etudiant artfx2020 /persistent:yes
-exit 0
-```
+
+
+<CodeSnippet 
+  rawUrl="https://raw.githubusercontent.com/ArtFXDev/silex_fog_snapin/main/montage_marvin/Montage_marvin.bat"
+  langage="batch"
+  fileName="montage_marvin.bat"
+/>
