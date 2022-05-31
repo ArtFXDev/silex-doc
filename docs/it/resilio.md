@@ -4,24 +4,26 @@ title: Resilio
 ---
 
 # Présentation
+
 Resilio est l'outils de synchronisation entre tout les groupes et les nas.
 
 # Configuration
+
 L'eauipe IT va générer les fichiers de config depuis la console resilio, chaque fichiers de config peut avoir des variables pars example GROUP en clés et en valeur le noms du groupe.
 
 Avec cette technique l'association des machines dans chaque groupe sera automatique lors du déploiement sera "automatique".
 
-
 # Merge fichier .conf et .MSI
+
 Pour faciliter le deploiement avec fog, on a utilisé [ce script](https://github.com/ArtFXDev/silex_fog_snapin/blob/main/resilio/attach-sync-conf-to-msi.ps1) avec la commande `powershell.exe -ExecutionPolicy Bypass -Noprofile ./attach-sync-conf-to-msi.ps1 -MSIPath .\Resilio-Connect-Agent_x64.msi -SyncConfPath .\sync.conf`
 
 A la sortie de la commande cela donnera un seul .msi qu'ont peut déployer via un fog snapin.
 
 # Comment désinstaller proprement Resilio
+
 En supposant que vous avez déployer resilio avec FOG en tant que user SYSTEM.
 
 L'utilisation de PsExec est disponible uniquement avec une powershell démarrer en administrateur.
-
 
 1. Telecharger PsExec:
    - PsExec est trouvable ici [PsTools](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec)
@@ -36,6 +38,7 @@ L'utilisation de PsExec est disponible uniquement avec une powershell démarrer 
 Cette "procédure" fonctionne en cas de remplacement d'un disque de PFE5RN.
 
 # Accées
-|                |                               |
-|----------------|-------------------------------|
-|Adresse         |`http://172.16.69.2:8443`      |
+
+|         |                           |
+| ------- | ------------------------- |
+| Adresse | `http://172.16.69.2:8443` |
