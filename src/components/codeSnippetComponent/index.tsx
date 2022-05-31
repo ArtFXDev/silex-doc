@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { CodeBlock, vs2015  } from "react-code-blocks";
+import axios from "axios";
 
 export default function CodeSnippet(props) {
   const [data, setData] = useState("");
-  fetch(props.rawUrl)
-  .then(async data => {
-    setData(await data.text())
+  axios.get(props.rawUrl)
+  .then(data => {
+    setData(data.data)
   })
 
   return (
