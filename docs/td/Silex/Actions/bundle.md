@@ -3,6 +3,7 @@ id: bundle
 title: Bundle
 ---
 
+___
 
 ## Intro :
 
@@ -10,7 +11,6 @@ The **Bundle** action is implemented for *Maya* and *Houdini*. It is based on a 
 
 
 <u><b>Can be found in</b></u> : the <b>config\bundle\</b> folder of a DCC repository.
-
 
 ![](/img/bundle_location.png)
 

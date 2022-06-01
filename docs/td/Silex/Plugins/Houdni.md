@@ -3,6 +3,8 @@ id: houdini
 title: Houdini
 ---
 
+___
+
 ## Intro :
 
 <u><b>Repository</b></u> : *silex_houdini*
@@ -26,7 +28,7 @@ If you need to add new scripts when Maya launches, add another script to the **s
 # Startup scripts :
 
 1. Creates and populate the **Silex** shelf.
-2. Add shortcuts for saving. (Calls silex actions instead of Maya save.
+2. Add shortcuts for saving. (Calls silex actions instead of Maya save).
 
 
 

@@ -3,6 +3,8 @@ id: plugins
 title: Plugins
 ---
 
+___
+
 ## Intro :
 
 Silex uses different plugins. One for each DCC add to the pipeline.
