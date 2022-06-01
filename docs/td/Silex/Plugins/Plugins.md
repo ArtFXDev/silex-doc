@@ -1,6 +1,6 @@
 ---
 id: plugins
-title: Plugins info
+title: Plugins
 ---
 
 # Plugins

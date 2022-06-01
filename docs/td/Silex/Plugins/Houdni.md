@@ -5,7 +5,7 @@ title: Houdini
 
 # Houdini 
 
-<u><B>Repository</b></u> : *silex_houdini*
+<u><b>Repository</b></u> : *silex_houdini*
 
 ## Startup :
 
