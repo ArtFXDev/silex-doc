@@ -1,3 +1,8 @@
+---
+id: silex-plugins
+title: Plugins
+---
+
 # Plugins
 
 Silex uses different plugins. One for each DCC add to the pipeline.
