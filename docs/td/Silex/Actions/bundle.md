@@ -23,19 +23,15 @@ You just need to set the variable in your Windows and you can use the bundle fol
 
 ## Steps :
 
-<u>Step 1</u> :
-The bundle finds all references in the selected scene
+1. The bundle finds all references in the selected scene.
 
-<u>Step 2</u> :
-References are copied, one by one, into the export folder (By default, this folder will be created aside the scene), if a referenced file has references of its own, they will go through the same process.
-
+2. References are copied, one by one, into the export folder (By default, this folder will be created aside the scene), if a referenced file has references of its own, they will go through the same process.
 If a reference is not part of the pipeline file structure, or doesn't follow the same naming convention, the copied file will be renamed with a **Hashed** version.
 
-<u>Step 3</u> :
-References are repathed in the original scene with an environnement variable, **BUNDLE_ROOT** to the new location.
+
+3. References are repathed in the original scene with an environnement variable, **BUNDLE_ROOT** to the new location.
  
-<u>Step 4</u> :
-The scene is copied in the export folder.
+4. The scene is copied in the export folder.
 
 ## Warning :
 
@@ -47,3 +43,4 @@ ___
 <u><b>User documentation</b></u> : 
 
 [Bundle user documentation](../../../user/action.md)
+
