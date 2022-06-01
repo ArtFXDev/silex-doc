@@ -4,13 +4,15 @@ title: Bundle
 ---
 
 
-# Bundle
+## Intro :
 
 The **Bundle** action is implemented for *Maya* and *Houdini*. It is based on a concept similar to the **Conform** action, so i recommand reading [conform action](.\conform.md) too.
 
 
-<u><b>Can be found in</b></u> : the **config\bundle\\** folder of a DCC repository.
+<u><b>Can be found in</b></u> : the <b>config\bundle\</b> folder of a DCC repository.
 
+
+![](/img/bundle_location.png)
 
 ## Use :
 
@@ -35,11 +37,13 @@ References are repathed in the original scene with an environnement variable, **
 <u>Step 4</u> :
 The scene is copied in the export folder.
 
-## WARNING
+## Warning :
 
 Currently, there is no way to select a folder from the ui, so the the actions doesn't need to be specified an export directory, and will create its own folder in the same directory as the selected scene. if the scene is in a **publish** folder (Meaninbg, a folder that is being synchronised on the server), the newly created folder will be synchronised and fill memory.
 It is advized to copy the scene in a local drive before bundling it, so the new "BUNDLE folder" will be placed in the local drive as well.
 
 ___
 
-<u><b>User documentation</b></u> : [Bundle user documentation](../../../user/action.md)
+<u><b>User documentation</b></u> : 
+
+[Bundle user documentation](../../../user/action.md)
