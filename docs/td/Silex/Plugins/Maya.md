@@ -5,11 +5,7 @@ title: Maya
 
 # Maya 
 
-When you open maya from silex, the maya plugin is used. it add special features in a **Silex** shelf, and combines all features from silex in addition to the features specific to Maya.
-
-## Repository :
-
-silex-maya
+<u>**Repository**</u> : *silex_maya*
 
 ## Startup :
 
