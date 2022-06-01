@@ -1,5 +1,5 @@
 ---
-id: silex-plugins
+id: houdini
 title: Houdini
 ---
 

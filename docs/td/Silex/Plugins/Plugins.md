@@ -1,6 +1,6 @@
 ---
-id: silex-plugins
-title: Plugins
+id: plugins
+title: Plugins info
 ---
 
 # Plugins
