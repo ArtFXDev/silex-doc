@@ -1,7 +1,7 @@
 Snapin pour montage P: drive pour les projets 5RN.
 Seulement pour les machines de 5RN.
 
-## Why ?
+## Pourquoi ?
 
 Nous avons besoin de créé un aliase de drive P: monté sur D:/PIPELINE, pour que le repath soit transparent entre farm et machine local.
 Quand une tache est envoyé à une blade, la premiére commande éxécuté est celle du montage du P: sur tars ou ana, en fonction du projet.
