@@ -35,7 +35,7 @@ A repository basically countains commands and actions to be triggered in the DCC
 - startup
 
 
-<u>**Contents :**</u>
+<u><b>Contents :</b></u>
 
 *commands* : Contains the commands related to the DCC. Commands can call the DCC api (see : [command-definition](\..\Core\command-definition.md)), so some commands might have identical name in other other repositories, but the code is different.
 

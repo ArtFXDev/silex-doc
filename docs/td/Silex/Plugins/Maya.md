@@ -5,7 +5,7 @@ title: Maya
 
 # Maya 
 
-<u>**Repository**</u> : *silex_maya*
+<u><b>Repository</b></u> : *silex_maya*
 
 ## Startup :
 
