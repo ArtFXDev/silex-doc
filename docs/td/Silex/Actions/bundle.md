@@ -14,13 +14,15 @@ The **Bundle** action is implemented for *Maya* and *Houdini*. It is based on a 
 
 ![](/img/bundle_location.png)
 
+___
+
 ## Use :
 
 The **Bundle** action is similar to the *archive* function in maya, but instead of exporting the scene and it's references, it also **recursivly** finds all references in the referenced files. Tt then copies every references in a single folder with the scene, and repath everything with an environnement varaible : **BUNDLE_ROOT** to the this folder.
 
 You just need to set the variable in your Windows and you can use the bundle folder to render from external render farm or at home.
 
-
+___
 ## Steps :
 
 ### step 1 
@@ -39,6 +41,8 @@ References are repathed in the original scene with an environnement variable, **
 ### step 4
 The scene is copied in the export folder.
 
+
+___
 ## Warning :
 
 Currently, there is no way to select a folder from the ui, so the the actions doesn't need to be specified an export directory, and will create its own folder in the same directory as the selected scene. if the scene is in a **publish** folder (Meaninbg, a folder that is being synchronised on the server), the newly created folder will be synchronised and fill memory.

@@ -19,12 +19,12 @@ Houdini --> *silex_houdini*
 
 When you open a DCC from silex, the DCC's repositroy is used. It add special features in a **Silex** shelf, and combines all features from silex in addition to the features specific to the DCC.
 
-# In the belly of the repository :
+___
+## In the belly of the repository :
 
 A repository basically countains commands and actions to be triggered in the DCC.
 
-
-
+___
 ## Structure of the repository :
 
 

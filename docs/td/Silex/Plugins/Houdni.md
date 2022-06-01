@@ -9,6 +9,7 @@ ___
 
 <u><b>Repository</b></u> : *silex_houdini*
 
+___
 ## Startup :
 
 Every features are added at startup. 
@@ -24,8 +25,8 @@ The Houdini *123.py* and *456.py* scripts are in the **startup\script\\** folder
 
 If you need to add new scripts when Maya launches, add another script to the **startup\script\\** folder and **import** it in *123.py* or *456.py*.
 
-
-# Startup scripts :
+___
+## Startup scripts :
 
 1. Creates and populate the **Silex** shelf.
 2. Add shortcuts for saving. (Calls silex actions instead of Maya save).
