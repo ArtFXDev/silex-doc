@@ -3,3 +3,138 @@ id: action-definition
 title: Action definition
 sidebar_position: 30
 ---
+
+Actions are defined with YAML files
+
+## Where do I place my yaml ?
+
+Silex will look for acttion definitions using the ``SILEX_ACTION_CONFIG`` environment variable.
+The yaml must be under a category. The default category is the ``actions`` category. When calling an action, if you don't
+specify a category, silex will look for the yaml in the actions folder
+
+````
+📦config
+ ┗ 📂actions
+   ┗ 📜your_action.yml
+   📂action_category
+   ┗ 📜your_action.yml
+````
+
+## Action definition schema
+
+Action are organized in hierarchy. An action is composed of steps, a step is composed of commands and a command is composed of parameters. Each one of these entities
+share some attributes and have some specific.
+
+- The action holds steps, it's the top level entity with some global informations
+- The steps is here to group commands. They don't hold much data, they have a index attributes wich is very important. The order of execution depends on this index, using a key/value datastructure instead of a simple array allows to insert steps between others easly. When an action inherit from an other, it can insert a step by defining one with an index that sits between two other steps. That's why we usually increment the steps by 10 or 100 to allows potential insertions later
+- The command is linked to a piece of code to execute, it holds parameters and is responsible to call the code by providing the value of its parameters. It also holds the output o
+- The parameter can either store a raw value or be connected to a command output. It has a type and make sure that the provided type is right. Be carefull, for invalid types, silex will try to cast the value, it's usefull in most case but sometimes it can result into weird results.
+
+You must be carefull with YAML, one indentation can make your entire action wrong. Here is what an action definition should look like:
+
+
+````yml
+<action_name>:
+  # The label is just for display, you can omit it, in this case the name will be used (the key if this action)
+  label: "<string> (default: value in the key)"
+  # Specify if this action should be displayed on the UI, some actions don't need to have an interface with a pop up
+  hide: "<boolean> (default: false)"
+  # Little help that will be displayed on the UI
+  tooltip: "<string> || null (default: null)"
+
+  steps:
+    <step_name>:
+      # The label is just for display, you can omit it, in this case the name will be used (the key if this step)
+      label: "<string> (default: value in the key)"
+      # Specify if this step should be displayed on the UI
+      hide: "<boolean> (default: false)"
+      # Little help that will be displayed on the UI
+      tooltip: "<string> || null (default: null)"
+      # The index is used to define the order of execution, we usually increment 10 by 10 to be able to insert steps later if an other action inherit from this one
+      index: "<int> (default: 0)"
+
+      commands:
+        <command_name>:
+          # The label is just for display, you can omit it, in this case the name will be used (the key if this command)
+          label: "<string> (default: value in the key)"
+          # Specify if this command should be displayed on the UI
+          hide: "<boolean> (default: false)"
+          # Little help that will be displayed on the UI
+          tooltip: "<string> || null (default: null)"
+          # The path that lead to the python command to execute, the format is like a regular python import (ex: 'silex_plugin.commands.my_command.MyCommand'). See the Command definition page for more informations, see the command definition page)
+          path: "<string> (default: '')"
+          # Specify if the execution should stop before this command, and prompt the user for any parameter modifications
+          ask_user: "<boolean> (default: false)"
+
+          parameters:
+            <parameter_name>: 
+                # The label is just for display, you can omit it, in this case the name will be used (the key if this parameter)
+                label: "<string> (default: value in the key)"
+                # Specify if this parameter should be displayed on the UI
+                hide: "<boolean> (default: false)"
+                # Little help that will be displayed on the UI
+                tooltip: "<string> || null (default: null)"
+                # The default value of this parameter
+                value: "<any> (default: null)"
+````
+
+## Connections
+
+You can connect the output of a command into the input of a parameter. To do so, use the ``!command-output`` tag 
+with a string specifying the path of the command (ex: ``value: !command-output "<step_name>:<command_name>"``)
+If the command is returning a dictionnary, you can get a specific value of that dictionnary by addiing more keys to the path.
+For example, if the command returns ``{"foo": {"bar": "baz"}}`` you can access the ``baz`` string by setting the path to ``"<step_name>:<command_name>:foo:bar"``.
+We use dictionnaries as a way for commands to have multiple outputs, thats why it is always good to output a dictionnary in commands even if there
+is only one output, just in case we update it later with more outputs.
+
+## Inheritance
+
+Some actions are very similar, to avoid having to redo the same things over and over, you can use inheritance. To use inheritance, you must first understand how silex
+resolves an action from it's name. It uses the ``SILEX_ACTION_CONFIG`` environment variable, which consists of a list of path, just list the ``PATH`` variable.
+
+For example:
+
+- \\prod.silex.artfx.fr\rez\packages\test_pipe
+- \\prod.silex.artfx.fr\rez\packages\silex_maya
+- \\prod.silex.artfx.fr\rez\packages\silex_client
+
+Here, the context has silex_client loaded and 2 plugins, silex_maya and test_pipe. The order in which the plugins are loaded matters a lot. When silex looks for an action, it will look
+from top to bottom in the list. You must know this if you use inheritance because an action can **only inherit from an other action that is in the current level or under**.
+
+The syntax for inheritance is:
+
+````yml
+my_action: !inherit
+  # The name of the action you wan to inherit from. You can add a '.' in front of the name if you want silex to start looking for actions at the current level
+  # If you don't put a . silex will start looking for the action starting at the level under the current one.
+  parent: "<string> (default: null)"
+  # If you want to inherit of a specific part of the action, use the key to specify it
+  key: "<string> (default: <same value as the parent>)"
+  # The name of the category of the action you want to inherit from
+  category: "<string> (default: <same value as the current category>)"
+````
+
+You don't have to inherit from an entire action, a part of your action can inherit from a part of an other action.
+In the example above, the ``!inherit`` tag is used at the root key of the action. But you can also use it at the key of a step or a command. 
+If you do so, you must use the ``key`` option and use it to specify what part of the action you want to insert 
+(example: ``action_name.step_name`` if you want a step that inherit from a specific step)
+
+The use case for inheritance is usually to inherit from the action with the same name an customise its behaviour. For example,
+you can create one plugin per projects and customise the behaviour of some actions like changing some parameter values, redirect 
+commands to an other definition... You can also use it as a base action to reduce repetition.
+
+To override a value, only add the keys for the value you want to override. For example, we have here a vrscene action (a vrscene publish) 
+wich is customised for a certain project, we set the merge parameter to true (which is a hidden parameter) only for the contexts where that
+plugin is loaded.
+
+````yml
+vrscene: !inherit
+  parent: "vrscene"
+
+  steps:
+    move:
+      commands:
+        move:
+          parameters:
+            merge: true
+````
