@@ -3,6 +3,8 @@ id: maya
 title: Maya
 ---
 
+___
+
 ## Intro :
 
 <u><b>Repository</b></u> : *silex_maya*
