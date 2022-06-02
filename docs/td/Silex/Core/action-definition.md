@@ -138,3 +138,13 @@ vrscene: !inherit
           parameters:
             merge: true
 ````
+
+## Value overrides order
+
+From the point where the action is defined to the point where it is executed, some fields value can change in multiple ways. Where is the order in which a parameter value will me set:
+
+1. The default value of the parameter is set in the command definition
+2. It might then be overriden in the YAML definition of the action that uses that command
+3. When the action is created the value can then be modified with ``set_parameter`` or the ``--parameter`` argument
+4. When the action is executed, if the command is set to ``ask_user: true``, the user will update the value before execution
+4. Right after the user changes the value, the ``setup`` method is called which might set one last time the value. (see the command definition page)
