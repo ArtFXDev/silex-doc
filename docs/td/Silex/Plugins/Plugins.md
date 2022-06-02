@@ -1,9 +1,11 @@
 ---
-id: silex-plugins
+id: plugins
 title: Plugins
 ---
 
-# Plugins
+___
+
+## Intro :
 
 Silex uses different plugins. One for each DCC add to the pipeline.
 
@@ -17,12 +19,12 @@ Houdini --> *silex_houdini*
 
 When you open a DCC from silex, the DCC's repositroy is used. It add special features in a **Silex** shelf, and combines all features from silex in addition to the features specific to the DCC.
 
-# In the belly of the repository :
+___
+## In the belly of the repository :
 
 A repository basically countains commands and actions to be triggered in the DCC.
 
-
-
+___
 ## Structure of the repository :
 
 
@@ -35,7 +37,7 @@ A repository basically countains commands and actions to be triggered in the DCC
 - startup
 
 
-<u>**Contents :**</u>
+<u><b>Contents :</b></u> 
 
 *commands* : Contains the commands related to the DCC. Commands can call the DCC api (see : [command-definition](\..\Core\command-definition.md)), so some commands might have identical name in other other repositories, but the code is different.
 
