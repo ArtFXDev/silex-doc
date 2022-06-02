@@ -1,7 +1,7 @@
 ---
 id: core
 title: Core
-sidebar_position: 10
+sidebar_position: 20
 ---
 
 Silex core is responsible for the resolution and execution of actions. These actions represents what the user
@@ -20,7 +20,7 @@ Silex uses various technologies, make sure to learn about them before getting in
 ## Instalation
 
 Silex core can be installed with pip.
-```
+```bash
 # Simple global install
 $ pip install git+https://github.com/ArtFXDev/silex_client.git
 
