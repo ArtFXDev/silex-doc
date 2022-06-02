@@ -1,7 +1,7 @@
 ---
 id: context
 title: Context
-sidebar_position: 20
+sidebar_position: 10
 ---
 
 Silex is very context sensitive, the all point of actions is that the same action will depend of where you are executing it from. The context is defined by two factors :
