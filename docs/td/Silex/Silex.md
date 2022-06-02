@@ -1,6 +1,6 @@
 ---
-id: bundle
-title: Bundle
+id: silex
+title: Silex
 ---
 
 
