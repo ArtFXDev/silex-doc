@@ -13,9 +13,10 @@ Every scene sent to the renderfarm must be in a publish folder (wich is synchron
 
 The **Publish** action is the way to save your scenes and references in the **publish folder**. it exports multiple formats, checks that all references are in a publish folder and rename the exported file accordingly with the naming convention.
 
-The purpose of the **publish** is to ensure that every job submited to the *farm* is renderable, and all references and textures can be reached by any *blade* in the *farm*.
+The purpose of the **publish** is to ensure that every job submited to the *farm* is renderable, and all references and textures can be reached by any *blade* in the *farm*. For doing so, the action calls for the **Conform** action. If the references found in the scene are not conform to the pipeline, and cannot be access from the server, the **Publish** action will propose you to conform the these references.
 
-(see for more info on submiting jobs : [renderfarm](../../Renderfarm/renderfarm.md))
+(see for more info on submiting jobs : [Renderfarm](../../Renderfarm/renderfarm.md))
+(see for more info on submiting jobs : [Conform](./conform.md))
 ___
 
 ### Supported format
