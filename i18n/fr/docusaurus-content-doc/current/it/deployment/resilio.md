@@ -1,4 +1,3 @@
-
 Resilio est l'outils de synchronisation entre tout les groupes et les nas.
 
 # Configuration

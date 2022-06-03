@@ -3,47 +3,40 @@ id: plugins
 title: Plugins
 ---
 
-___
+---
 
 ## Intro :
 
 Silex uses different plugins. One for each DCC add to the pipeline.
 
-While the core of **Silex** is coded in the *silex_client* git repostory, each DCC has its own repository.
+While the core of **Silex** is coded in the [silex_client](../Client/client.md) git repostory, each DCC has its own repository.
 
+Maya --> _silex_maya_
 
-Maya --> *silex_maya*
+Houdini --> _silex_houdini_
 
-Houdini --> *silex_houdini*
+When you open a DCC from silex, the DCC's repositroy is used. It add special features in a **Silex** shelf, and combines all features from silex_client in addition to the features specific to the DCC.
 
+---
 
-When you open a DCC from silex, the DCC's repositroy is used. It add special features in a **Silex** shelf, and combines all features from silex in addition to the features specific to the DCC.
-
-___
 ## In the belly of the repository :
 
-A repository basically countains commands and actions to be triggered in the DCC.
+A repository basically contains commands and actions to be triggered in the DCC.
 
-___
-## Structure of the repository :
-
-
+### Structure of the repository :
 
 - silex_maya
-    - cli
-    - commands
-    - config
-    - utils
+  - commands
+  - config
+  - utils
 - startup
 
+<u><b>Contents :</b></u>
 
-<u><b>Contents :</b></u> 
+_silex_maya/commands_ : Contains the commands related to the DCC. [Commands](../Client/command-definition.md) can use the DCC api, so some [Commands](../Client/command-definition.md) can have identical name in other other plugins, but the code is different.
 
-*commands* : Contains the commands related to the DCC. Commands can call the DCC api (see : [command-definition](\..\Core\command-definition.md)), so some commands might have identical name in other other repositories, but the code is different.
+_silex_maya/config_ : This one contains **actions** (see : [action definition](../Client/action-definition.mdx)). Some actions, like the _publish_, requires multiple yaml for multiple purposes.
 
-*config* : This one contains **actions** (see : [action-definition](\..\Core\action-definition.md)). Some actions, like the *publish*, requires multiple yaml for multiple purposes.
+_silex_maya/utils_ : Contains constants, fonctions, wrappers... used in commands.
 
-*startup* : (see : [action-definition](.\Maya.md))
-
-
-
+_startup_ : It contains startup scripts exectuted in the DCC at startup, including The silex shelf for the DCC and the icons for tools.
