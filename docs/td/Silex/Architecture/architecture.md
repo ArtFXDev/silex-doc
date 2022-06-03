@@ -13,6 +13,7 @@ Those part of the Silex pipeline are available on the user machine.
 ### Silex desktop
 
 Silex desktop is the main user tool. It contains the user access to most silex services :
+
 - File manager
 - Artist DCC access and actions
 - Nimby (Not In My BackYard: prevent the renderfarm from using this computer)

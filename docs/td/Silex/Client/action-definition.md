@@ -8,17 +8,17 @@ Actions are defined with YAML files
 
 ## Where do I place my yaml ?
 
-Silex will look for acttion definitions using the ``SILEX_ACTION_CONFIG`` environment variable.
-The yaml must be under a category. The default category is the ``actions`` category. When calling an action, if you don't
+Silex will look for acttion definitions using the `SILEX_ACTION_CONFIG` environment variable.
+The yaml must be under a category. The default category is the `actions` category. When calling an action, if you don't
 specify a category, silex will look for the yaml in the actions folder
 
-````
+```
 📦config
  ┗ 📂actions
    ┗ 📜your_action.yml
    📂action_category
    ┗ 📜your_action.yml
-````
+```
 
 ## Action definition schema
 
@@ -31,8 +31,7 @@ Action are organized in hierarchy. An action is composed of steps, a step is com
 
 You must be carefull with YAML, one indentation can make your entire action wrong. Here is what an action definition should look like:
 
-
-````yml
+```yml
 <action_name>:
   # The label is just for display, you can omit it, in this case the name will be used (the key if this action)
   label: "<string> (default: value in the key)"
@@ -66,30 +65,30 @@ You must be carefull with YAML, one indentation can make your entire action wron
           ask_user: "<boolean> (default: false)"
 
           parameters:
-            <parameter_name>: 
-                # The label is just for display, you can omit it, in this case the name will be used (the key if this parameter)
-                label: "<string> (default: value in the key)"
-                # Specify if this parameter should be displayed on the UI
-                hide: "<boolean> (default: false)"
-                # Little help that will be displayed on the UI
-                tooltip: "<string> || null (default: null)"
-                # The default value of this parameter
-                value: "<any> (default: null)"
-````
+            <parameter_name>:
+              # The label is just for display, you can omit it, in this case the name will be used (the key if this parameter)
+              label: "<string> (default: value in the key)"
+              # Specify if this parameter should be displayed on the UI
+              hide: "<boolean> (default: false)"
+              # Little help that will be displayed on the UI
+              tooltip: "<string> || null (default: null)"
+              # The default value of this parameter
+              value: "<any> (default: null)"
+```
 
 ## Connections
 
-You can connect the output of a command into the input of a parameter. To do so, use the ``!command-output`` tag 
-with a string specifying the path of the command (ex: ``value: !command-output "<step_name>:<command_name>"``)
+You can connect the output of a command into the input of a parameter. To do so, use the `!command-output` tag
+with a string specifying the path of the command (ex: `value: !command-output "<step_name>:<command_name>"`)
 If the command is returning a dictionnary, you can get a specific value of that dictionnary by addiing more keys to the path.
-For example, if the command returns ``{"foo": {"bar": "baz"}}`` you can access the ``baz`` string by setting the path to ``"<step_name>:<command_name>:foo:bar"``.
+For example, if the command returns `{"foo": {"bar": "baz"}}` you can access the `baz` string by setting the path to `"<step_name>:<command_name>:foo:bar"`.
 We use dictionnaries as a way for commands to have multiple outputs, thats why it is always good to output a dictionnary in commands even if there
 is only one output, just in case we update it later with more outputs.
 
 ## Inheritance
 
 Some actions are very similar, to avoid having to redo the same things over and over, you can use inheritance. To use inheritance, you must first understand how silex
-resolves an action from it's name. It uses the ``SILEX_ACTION_CONFIG`` environment variable, which consists of a list of path, just list the ``PATH`` variable.
+resolves an action from it's name. It uses the `SILEX_ACTION_CONFIG` environment variable, which consists of a list of path, just list the `PATH` variable.
 
 For example:
 
@@ -102,7 +101,7 @@ from top to bottom in the list. You must know this if you use inheritance becaus
 
 The syntax for inheritance is:
 
-````yml
+```yml
 my_action: !inherit
   # The name of the action you wan to inherit from. You can add a '.' in front of the name if you want silex to start looking for actions at the current level
   # If you don't put a . silex will start looking for the action starting at the level under the current one.
@@ -111,22 +110,22 @@ my_action: !inherit
   key: "<string> (default: <same value as the parent>)"
   # The name of the category of the action you want to inherit from
   category: "<string> (default: <same value as the current category>)"
-````
+```
 
 You don't have to inherit from an entire action, a part of your action can inherit from a part of an other action.
-In the example above, the ``!inherit`` tag is used at the root key of the action. But you can also use it at the key of a step or a command. 
-If you do so, you must use the ``key`` option and use it to specify what part of the action you want to insert 
-(example: ``action_name.step_name`` if you want a step that inherit from a specific step)
+In the example above, the `!inherit` tag is used at the root key of the action. But you can also use it at the key of a step or a command.
+If you do so, you must use the `key` option and use it to specify what part of the action you want to insert
+(example: `action_name.step_name` if you want a step that inherit from a specific step)
 
 The use case for inheritance is usually to inherit from the action with the same name an customise its behaviour. For example,
-you can create one plugin per projects and customise the behaviour of some actions like changing some parameter values, redirect 
+you can create one plugin per projects and customise the behaviour of some actions like changing some parameter values, redirect
 commands to an other definition... You can also use it as a base action to reduce repetition.
 
-To override a value, only add the keys for the value you want to override. For example, we have here a vrscene action (a vrscene publish) 
+To override a value, only add the keys for the value you want to override. For example, we have here a vrscene action (a vrscene publish)
 wich is customised for a certain project, we set the merge parameter to true (which is a hidden parameter) only for the contexts where that
 plugin is loaded.
 
-````yml
+```yml
 vrscene: !inherit
   parent: "vrscene"
 
@@ -136,7 +135,7 @@ vrscene: !inherit
         move:
           parameters:
             merge: true
-````
+```
 
 ## Value overrides order
 
@@ -144,6 +143,6 @@ From the point where the action is defined to the point where it is executed, so
 
 1. The default value of the parameter is set in the command definition
 2. It might then be overriden in the YAML definition of the action that uses that command
-3. When the action is created the value can then be modified with ``set_parameter`` or the ``--parameter`` argument
-4. When the action is executed, if the command is set to ``ask_user: true``, the user will update the value before execution
-4. Right after the user changes the value, the ``setup`` method is called which might set one last time the value. (see the command definition page)
+3. When the action is created the value can then be modified with `set_parameter` or the `--parameter` argument
+4. When the action is executed, if the command is set to `ask_user: true`, the user will update the value before execution
+5. Right after the user changes the value, the `setup` method is called which might set one last time the value. (see the command definition page)

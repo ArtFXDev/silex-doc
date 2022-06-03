@@ -5,19 +5,23 @@ sidebar_position: 10
 ---
 
 ### Comment vous allez ?
-*En vrai ça va*
+
+_En vrai ça va_
 
 ### Pourquoi la doc est pas finit ?
-*C'est long à faire*
+
+_C'est long à faire_
 
 ### Les questions présentes sont-elles vraiment nécéssaire ?
-*Absolument pas, mais il faut bien faire des test*
+
+_Absolument pas, mais il faut bien faire des test_
 
 ### Pourquoi je ne peux pas faire une question de plus de ### ?
-*Parce que sinon elle n'est plus référencée comme une section à droite*
+
+_Parce que sinon elle n'est plus référencée comme une section à droite_
 
 ### Comment faire pour que la FAQ soit plus lisible ?
-*Il faudrait faire ajouter du style*
 
+_Il faudrait faire ajouter du style_
 
-####REFAIRE LE FAQ 
+####REFAIRE LE FAQ

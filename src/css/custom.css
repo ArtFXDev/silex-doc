@@ -17,7 +17,7 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #72d760;
   --ifm-color-primary-dark: #5cd147;
   --ifm-color-primary-darker: #51ce3b;
@@ -35,11 +35,12 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
-[data-theme='dark'] .docusaurus-highlight-code-line {
+[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
 @font-face {
-  font-family: 'Karrik';
-  src: local('Karrik'), local('Karrik-Regular'), url(/static/fonts/Karrik-Regular.woff2) format('woff2');
+  font-family: "Karrik";
+  src: local("Karrik"), local("Karrik-Regular"),
+    url(/static/fonts/Karrik-Regular.woff2) format("woff2");
 }

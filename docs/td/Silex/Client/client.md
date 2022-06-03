@@ -13,13 +13,14 @@ Silex uses various technologies, make sure to learn about them before getting in
 
 - Silex core is written in **python**. It can be used as a CLI tool or as a python library.
 - **Rez** is used for the context management. The use of rez allows to make some actions available or not according to the resolved context.
-- Silex client connects with ``silex-socket-service`` with the websocket protocol. For that, it uses the **socketio** library.
-- The connection with the ``CGWire`` database is made possible with ``aiogazu``, a simple python library that abstracts the HTTP queries of the backend
+- Silex client connects with `silex-socket-service` with the websocket protocol. For that, it uses the **socketio** library.
+- The connection with the `CGWire` database is made possible with `aiogazu`, a simple python library that abstracts the HTTP queries of the backend
 - Actions are defined using the **YAML** file format
 
 ## Installation
 
 Silex client can be installed with pip.
+
 ```bash
 # Simple global install
 $ pip install git+https://github.com/ArtFXDev/silex_client.git

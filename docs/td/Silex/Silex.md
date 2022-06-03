@@ -3,7 +3,6 @@ id: silex
 title: Silex
 ---
 
-
 ## Intro :
 
 generalités sur le pipeline

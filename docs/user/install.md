@@ -1,12 +1,10 @@
 ---
-
 id: install
 title: Installations
 sidebar_position: 20
-
 ---
 
-*Expliquer les manière d'intaller divers chose utile*
+_Expliquer les manière d'intaller divers chose utile_
 
 ## Install 1
 
@@ -15,6 +13,3 @@ sidebar_position: 20
 ## Install 3
 
 ## Install 4
-
-
-
