@@ -17,7 +17,7 @@ The purpose of the **publish** is to ensure that every job submited to the _farm
 
 (see for more info on submiting jobs : [Renderfarm](../../Renderfarm/renderfarm.md))
 
-(see for more info on submiting jobs : [Conform](./conform.md))
+(see for more info on conforming scenes : [Conform](./conform.md))
 
 ---
 
