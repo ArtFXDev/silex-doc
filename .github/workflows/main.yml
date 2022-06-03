@@ -33,9 +33,4 @@ jobs:
         with:
           # This part is also where you can pass other options, for example:
           prettier_options: --write **/*.{md,mdx,tsx,json,css}
-          only_changed: False
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          branch: 'pretty'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          only_changed: True
