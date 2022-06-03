@@ -39,9 +39,9 @@ A repository basically contains commands and actions to be triggered in the DCC.
 
 <u><b>Contents :</b></u> 
 
-*commands* : Contains the commands related to the DCC. Commands can call the DCC api (see : [command definition](\..\Core\command-definition.md)), so some commands might have identical name in other other repositories, but the code is different.
+*commands* : Contains the commands related to the DCC. Commands can call the DCC api (see : [command definition](\..\Client\command-definition.md)), so some commands might have identical name in other other repositories, but the code is different.
 
-*config* : This one contains **actions** (see : [action definition](\..\Core\action-definition.md)). Some actions, like the *publish*, requires multiple yaml for multiple purposes.
+*config* : This one contains **actions** (see : [action definition](\..\Client\action-definition.md)). Some actions, like the *publish*, requires multiple yaml for multiple purposes.
 
 *startup* : It cuntains startup scripts exectuted in the DCC at startup, including The silex shelf for the DCC and the icons for tools.
 
