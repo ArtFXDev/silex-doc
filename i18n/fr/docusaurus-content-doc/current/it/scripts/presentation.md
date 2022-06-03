@@ -3,6 +3,9 @@ id: presentation
 title: Présentation
 ---
 
+import { PROD_ROOT } from "@site/src/constants";
+
+
 # Presentation
 
 Outils deployés
@@ -20,7 +23,9 @@ Outils deployés
 - Configuration de nginx pour renvoyer vers les differents services
 
 Adresse samba :
-\\prod.silex.artfx.fr\rez
+<span>\\{PROD_ROOT}\rez</span>
+<br/>
+<br/>
 
 linux, windows : sert au deploiement
 packages : sert pour rez

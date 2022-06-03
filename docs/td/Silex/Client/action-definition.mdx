@@ -4,6 +4,9 @@ title: Action definition
 sidebar_position: 30
 ---
 
+import { PROD_ROOT } from "@site/src/constants";
+
+
 Actions are defined with YAML files
 
 ## Where do I place my yaml ?
@@ -92,9 +95,9 @@ resolves an action from it's name. It uses the `SILEX_ACTION_CONFIG` environment
 
 For example:
 
-- \\prod.silex.artfx.fr\rez\packages\test_pipe
-- \\prod.silex.artfx.fr\rez\packages\silex_maya
-- \\prod.silex.artfx.fr\rez\packages\silex_client
+- <span>\\{PROD_ROOT}\rez\packages\test_pipe</span>
+- <span>\\{PROD_ROOT}\rez\packages\silex_maya</span>
+- <span>\\{PROD_ROOT}\rez\packages\silex_client</span>
 
 Here, the context has silex_client loaded and 2 plugins, silex_maya and test_pipe. The order in which the plugins are loaded matters a lot. When silex looks for an action, it will look
 from top to bottom in the list. You must know this if you use inheritance because an action can **only inherit from an other action that is in the current level or under**.
