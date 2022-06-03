@@ -1,0 +1,102 @@
+---
+id: rez
+title: Rez
+---
+
+import { PROD_ROOT, PROD_SSH } from "@site/src/constants";
+
+---
+
+Rez is an environnmeent manager that allows us to launch DCCs in isolated contexts, include only the necessary libraries, define environnement variables specific to this environnement or define special cases for every team in the school.
+
+Every thing can be found in the documentation on GitHub : [https://github.com/AcademySoftwareFoundation/rez](https://github.com/AcademySoftwareFoundation/rez)
+
+<span>
+  In the pipeline, the REZ packeges are localized on the server in \\{PROD_ROOT}
+  \rez\\
+</span>
+
+<br />
+<br />
+
+<span>
+  The DCC packages and team packages can found in \\{PROD_ROOT}
+  \rez\packages\silex-rez\packages\\
+</span>
+
+<br />
+<br />
+
+- packeges
+  - 5rn
+  - dcc
+
+:::tip
+The team packages (5rn) are usually empty shells, but you can add specific tools or environnements to the team packeges to fill their specific needs
+
+**Example** :
+
+In this case, we link a new config to the SILEX_ACTION_CONFIG environnement variable so the team **Quit_smoking** has a special vrscene command specific to their needs.
+
+```
+# -*- coding: utf-8 -*-
+name = 'quit_smoking'
+version = '1.0'
+
+authors = ['ArtFx TD gang']
+
+variants = [["maya"], ["houdini"], ["nuke"], ["silex_client"], ["silex_maya"], ["silex_houdini"]]
+
+requires = [
+    'vray',
+    'aces',
+    "texturetotx",
+]
+
+timestamp = 1635410671
+
+vcs = 'git'
+
+format_version = 2
+
+def commands():
+    env.SILEX_ACTION_CONFIG.prepend("{root}/config")
+
+
+```
+
+:::
+
+The [Plugins](../Plugins/Plugins.md) repositories and [silex_client](../Client/client.md) can be found in :
+
+<span>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</span>
+
+<br />
+<br />
+
+- silex
+  - aiogazu
+  - silex_client
+  - silex_houdini
+  - silex_maya
+  - silex_nuke
+
+The repositories are the back bone of Silex. if you make any changes to the plugins or the [silex_client](../Client/client.md) you can connect to the prod server by ssh 
+
+<code>
+<span>ssh {PROD_SSH}</span>
+</code>
+
+<br/>
+<br/>
+
+Then update the the repositories using the git command :
+
+<code>
+git submodule update --remote
+</code>
+
+<br/>
+<br/>
+
+The student will be able to use the new features ! \_(^^)/
