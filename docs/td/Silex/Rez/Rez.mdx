@@ -5,7 +5,6 @@ title: Rez
 
 import { PROD_ROOT, PROD_SSH } from "@site/src/constants";
 
-
 ---
 
 Rez is an environnmeent manager that allows us to launch DCCs in isolated contexts, include only the necessary libraries, define environnement variables specific to this environnement or define special cases for every team in the school.
@@ -82,22 +81,20 @@ The [Plugins](../Plugins/Plugins.md) repositories and [silex_client](../Client/c
   - silex_maya
   - silex_nuke
 
-The repositories are the back bone of Silex. if you make any changes to the plugins or the [silex_client](../Client/client.md) you can connect to the prod server by ssh 
+The repositories are the back bone of Silex. if you make any changes to the plugins or the [silex_client](../Client/client.md) you can connect to the prod server by ssh
 
 <code>
-<span>ssh {PROD_SSH}</span>
+  <span>ssh {PROD_SSH}</span>
 </code>
 
-<br/>
-<br/>
+<br />
+<br />
 
 Then update the the repositories using the git command :
 
-<code>
-git submodule update --remote
-</code>
+<code>git submodule update --remote</code>
 
-<br/>
-<br/>
+<br />
+<br />
 
 The student will be able to use the new features ! \_(^^)/
