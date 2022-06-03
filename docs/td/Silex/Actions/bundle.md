@@ -9,7 +9,7 @@ title: Bundle
 
 The **Bundle** action is implemented for _Maya_ and _Houdini_. It is based on a concept similar to the **Conform** action, so i recommand reading [conform action](.\conform.md) too.
 
-<u><b>Can be found in</b></u> : the <b>config\bundle\</b> folder of a DCC repository.
+**The Bundle can be found in** the **config\bundle\\** folder of a DCC repository.
 
 ![](/img/bundle_location.png)
 
