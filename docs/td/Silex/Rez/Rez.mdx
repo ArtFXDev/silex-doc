@@ -1,38 +1,44 @@
 ---
 id: rez
-title : Rez
+title: Rez
 ---
 
-import {PROD_ROOT} from "@site/src/constants";
+import { PROD_ROOT } from "@site/src/constants";
 
-___
+---
 
-Rez is an environnmeent manager that allows us to launch DCCs in isolated contexts, include only the necessary libraries, define environnement variables specific to this environnement or define special cases for every team in the school. 
+Rez is an environnmeent manager that allows us to launch DCCs in isolated contexts, include only the necessary libraries, define environnement variables specific to this environnement or define special cases for every team in the school.
 
 Every thing can be found in the documentation on GitHub : [https://github.com/AcademySoftwareFoundation/rez](https://github.com/AcademySoftwareFoundation/rez)
 
+<span>
+  {" "}
+  In the pipeline, the REZ packeges are localized on the server in : \\{
+    PROD_ROOT
+  }\rez\\
+</span>
 
-<span> In the pipeline, the REZ packeges are localized on the server in : \\{PROD_ROOT}\rez\\</span>
+<br />
+<br />
 
-<br/>
-<br/>
+<span>
+  The DCC packages and team packages can found in : \\{PROD_ROOT}
+  \rez\packages\silex-rez\packages\\
+</span>
 
-<span>The DCC packages and team packages can found in : \\{PROD_ROOT}\rez\packages\silex-rez\packages\\</span>
-
-<br/>
-<br/>
+<br />
+<br />
 
 - packeges
-    - 5rn
-    - dcc
-
+  - 5rn
+  - dcc
 
 :::tip
 The team packages (5rn) are usually empty shells, but you can add specific tools or environnements to the team packeges to fill their specific needs
 
 **Example** :
 
-In this case, we link a new config to the SILEX_ACTION_CONFIG environnement variable so the  team **Quit_smoking** has a special vrscene command specific to their needs.
+In this case, we link a new config to the SILEX_ACTION_CONFIG environnement variable so the team **Quit_smoking** has a special vrscene command specific to their needs.
 
 ```
 # -*- coding: utf-8 -*-
@@ -60,24 +66,22 @@ def commands():
 
 
 ```
+
 :::
-
-
 
 The [Plugins](../Plugins/Plugins.md) repositories and [silex_client](../Client/client.md) can be found in :
 
 <span>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</span>
 
-<br/>
-<br/>
+<br />
+<br />
 
 - silex
-    - aiogazu
-    - silex_client
-    - silex_houdini
-    - silex_maya
-    - silex_nuke
-
+  - aiogazu
+  - silex_client
+  - silex_houdini
+  - silex_maya
+  - silex_nuke
 
 The repositories are the back bone of Silex. if you make any changes to the plugins or the [silex_client](../Client/client.md) you can connect to the prod server by ssh and update the the repositories using the git command :
 
@@ -86,7 +90,3 @@ git submodule update --remote
 ```
 
 This will update silex for all the school.
-
-
-
-
