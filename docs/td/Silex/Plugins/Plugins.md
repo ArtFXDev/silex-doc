@@ -33,9 +33,9 @@ A repository basically contains commands and actions to be triggered in the DCC.
 
 <u><b>Contents :</b></u>
 
-_silex_maya/commands_ : Contains the commands related to the DCC. [Commands](..\Client\command-definition.md) can use the DCC api, so some [Commands](..\Client\command-definition.md) can have identical name in other other plugins, but the code is different.
+_silex_maya/commands_ : Contains the commands related to the DCC. [Commands](../Client/command-definition.md) can use the DCC api, so some [Commands](../Client/command-definition.md) can have identical name in other other plugins, but the code is different.
 
-_silex_maya/config_ : This one contains **actions** (see : [action definition](..\Client\action-definition.md)). Some actions, like the _publish_, requires multiple yaml for multiple purposes.
+_silex_maya/config_ : This one contains **actions** (see : [action definition](../Client/action-definition.mdx)). Some actions, like the _publish_, requires multiple yaml for multiple purposes.
 
 _silex_maya/utils_ : Contains constants, fonctions, wrappers... used in commands.
 
