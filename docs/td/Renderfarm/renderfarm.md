@@ -51,5 +51,5 @@ The **engine** is the program running on the main server on the network. Its job
 ## What to read next
 
 - At ArtFX we are using [Tractor](./tractor) which is Pixar's render farm system.
-- See the [publish](../Silex/commonactions/publish) action to find how we submit jobs.
+- See the [Submit](../Silex/commonactions/submit) action to find how we submit jobs.
 - [Harvest](./harvest) is a statistics interface and API for Tractor.
