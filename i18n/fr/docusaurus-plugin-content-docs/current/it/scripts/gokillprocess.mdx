@@ -1,0 +1,50 @@
+---
+id: deploy-gokillprocess
+title: Deploy Go killprocess
+sidebar_position: 40
+---
+
+import CodeSnippet from "@site/src/components/codeSnippetComponent";
+
+## Presentation
+
+Gokillprocess permet de récupérer la listes des processus, services ainsi que de kill un processus via PID et redemarrer un service via le nom,
+à travers des requetes http.
+
+| descritpion           | route                                    | Verbe HTTP | Utilisation                        |
+| --------------------- | ---------------------------------------- | ---------- | ---------------------------------- |
+| Lister les processus  | `http://<TARGET_IP>:5119/processes`      | GET        |                                    |
+| Lister les services   | `http://<TARGET_IP>:5119/services`       | GET        |                                    |
+| Kill d'un processus   | `http://<TARGET_IP>:5119/kill/<PID>`     | POST       | PID dans l'url                     |
+| Redemarrer un service | `http://<TARGET_IP>:5119/restartservice` | POST       | Name dans body de la requetes post |
+
+Ce service est également utilisé pour kill les no free slots sur la farm.
+Pour tester vos requétes htpp vous pouvez utiliser l'outil [postman](https://www.postman.com).
+
+## Script de deploiement
+
+<CodeSnippet
+  rawUrl="https://raw.githubusercontent.com/ArtFXDev/silex_fog_snapin/main/gokillprocess/go-killprocess.ps1"
+  langage="python"
+  fileName="go-killprocess.ps1"
+/>
+
+## Ouverture de ports
+
+Pour fonctionner ce service a besoin d'avoir le port 5119 d'ouvert sur toute les machines.
+Ce script contient également d'autre ports, ceux-ci ne sont pas utile pour gokillprocess mais pour d'autre :
+
+| Service         | Port | protocole  |
+| --------------- | ---- | ---------- |
+| Go killprocess  | 5119 | TCP IN/OUT |
+| Silex Desktop   | 5118 | TCP IN/OUT |
+| Tractor service | 9005 | TCP IN/OUT |
+
+Remove-NetFirewallRule -DisplayName "silex-desktop.exe" est utile car lors de l'installation une popup apparait pour l'autorisation sur le pare-feu local,
+si cette popup est refuser, siles-desktop.exe est bloqué sur le parefeu local.
+
+<CodeSnippet
+  rawUrl="https://raw.githubusercontent.com/ArtFXDev/silex_fog_snapin/main/gokillprocess/go-killprocessopenport.ps1"
+  langage="powershell"
+  fileName="go-killprocessopenport.ps1"
+/>
