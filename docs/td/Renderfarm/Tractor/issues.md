@@ -75,7 +75,7 @@ We also had blades blocked because they were going NIMBY ON between the two comm
 
 See this thread for more information: https://renderman.pixar.com/forum/showthread.php?s=&threadid=45603
 
-Currently this problem is solved using a command wrapper I wrote in Rust (to learn the language, if you want too [do it in Python](https://github.com/ArtFXDev/silex-rez/tree/prod/packages/utils/command_wrapper) it shouldn't be to hard):
+Currently this problem is solved using a command wrapper I wrote in Rust (to learn the language, if you want too [do it in Python](https://github.com/ArtFXDev/silex-rez/tree/prod/packages/utils/command_wrapper) it shouldn't be too hard):
 
 https://github.com/johhnry/cmd-wrapper/
 
