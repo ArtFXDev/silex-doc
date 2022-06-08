@@ -67,7 +67,7 @@ export async function clearNoFreeSlots() {
 
 ## Running multiple commands on the same blade
 
-A task has multiple commands. You might think that one task means one computer and so commands are executed on the same blade, **you are wrong!**.
+A task has multiple commands. You might think that one task means one computer and so commands are executed on the same blade, **you are wrong!**
 
 Since we want to mount the project's NAS before doing any rendering we want to do this in two commands. For a long time we had issues because it was mounting the network drive on another machine and therefore it didn't have access to the published files...
 
