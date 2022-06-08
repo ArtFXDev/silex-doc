@@ -13,18 +13,18 @@ Silex is running an event loop in a secondary thread. This event loop is used to
   and reconnection automaticaly, but you will get a warning message in the silex UI. To prevent this, make sure to separate your action
   logic into multiple coroutines.
 
-- Some instructions can take times and are not awaitable (like system calls). To prevent this, 
+- Some instructions can take times and are not awaitable (like system calls). To prevent this,
   silex has the [execute_in_thread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) function.
-  Using [execute_in_thread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) will run 
+  Using [execute_in_thread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) will run
   the execution in a different thread and return a future with the result.
 
 ## Interaction with the DCCs
 
 Most DCCs do not handle mutlithreading very well, plus none of them are usable with asyncio. To make all the DCCs function awaitable, we made the class
-[ExecutionInThread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) a callable class so each DCC 
+[ExecutionInThread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) a callable class so each DCC
 can customise it to work with its threading features. (see the Silex Plugins page for more infos)
 
-For example, maya provides the method [`executeDefered` and `executeInMainThreadWithResult`](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Scripting/files/GUID-9B5AECBB-B212-4C92-959A-22599760E91A-htm.html) 
+For example, maya provides the method [`executeDefered` and `executeInMainThreadWithResult`](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Scripting/files/GUID-9B5AECBB-B212-4C92-959A-22599760E91A-htm.html)
 wich both takes a callable as a parameter.
 
 - `executeDefered` is not blocking, it's juste adding the callable to maya's own event loop without returning the result.
@@ -35,7 +35,7 @@ to do something else while waiting for the result, the websocket connection will
 
 That's why we use `executeDefered`. That way, the call is not blocking, but there is still a problem: how do we get the result ?
 
-The [ExecutionInThread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) class is actually 
+The [ExecutionInThread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) class is actually
 wrapping `executeDefered` into a function that returns an asyncio future storing the result.
 The future can then be awaited so the event loop will keep running on other tasks until the result is ready.
 

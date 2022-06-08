@@ -7,7 +7,6 @@ title: Maya
 
 ## Intro
 
-
 ### Startup
 
 Every features are added at startup.
