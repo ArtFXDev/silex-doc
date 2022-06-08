@@ -4,7 +4,7 @@ title: Command definition
 sidebar_position: 40
 ---
 
-Commands are defined as python classes that inherit from `CommandBase`
+Commands are defined as python classes that inherit from [`CommandBase`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/action/command_base.py)
 
 ## Where do I place my command ?
 
@@ -79,7 +79,7 @@ Here when the user will toggle the `use_current_context` parameter, the `task` p
 ## Parameter types
 
 The parameter type can be any class definition, `"type": str`, `"type": list`, `"type": int` are all valid types.
-However for more complex parameters like a dropdown or a file picker you can use some special parameters found in the parameter_types module.
+However for more complex parameters like a dropdown or a file picker you can use some special parameters found in the [parameter types module](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/parameter_types.py).
 
 ```python
 from silex_client.utils.parameter_types import SelectParameterMeta
@@ -93,7 +93,7 @@ class MyCommand(CommandBase):
 ```
 
 Here we use the SelectParameterMeta, wich is a dropdown that will return a string (the selected value). These parameters are different because they
-are actually functions that takes parameters.The full list won't be detailed here you can take a look at the parameter_types module for the full list of special parameters types.
+are actually functions that takes parameters.The full list won't be detailed here you can take a look at the [parameter types module](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/parameter_types.py) for the full list of special parameters types.
 
 ## Command inheritance
 

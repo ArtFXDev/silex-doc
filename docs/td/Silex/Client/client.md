@@ -11,11 +11,11 @@ can do from the context he is in.
 
 Silex uses various technologies, make sure to learn about them before getting into Silex.
 
-- Silex core is written in **Python**. It can be used as a CLI tool or as a Python library.
-- **Rez** is used for the context management. The use of rez allows to make some actions available or not according to the resolved context.
-- Silex client connects with [`silex-socket-service`](https://github.com/ArtFXDev/silex-socket-service) with the WebSocket protocol. For that, it uses the [**python-socketio**](https://python-socketio.readthedocs.io/en/latest/index.html) library.
-- The connection with the `CGWire` database is made possible with `aiogazu`, a simple python library that abstracts the HTTP queries of the backend.
-- Actions are defined using the **YAML** file format.
+- Silex core is written in [python](https://www.python.org/). It can be used as a CLI tool or as a Python library.
+- [Rez](https://github.com/AcademySoftwareFoundation/rez) is used for the context management. The use of rez allows to make some actions available or not according to the resolved context.
+- Silex client connects with [silex-socket-service](https://github.com/ArtFXDev/silex-socket-service) with the WebSocket protocol. For that, it uses the [python-socketio](https://python-socketio.readthedocs.io/en/latest/index.html) library.
+- The connection with the [CGWire](https://www.cg-wire.com/) database is made possible with [aiogazu](https://github.com/ArtFXDev/aiogazu), a simple python library that abstracts the HTTP queries of the backend.
+- Actions are defined using the [YAML](https://fr.wikipedia.org/wiki/YAML) file format.
 
 ## Installation
 
