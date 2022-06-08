@@ -26,10 +26,10 @@ specify a category, silex will look for the yaml in the actions folder
 
 Action are organized in hierarchy. An action is composed of steps, a step is composed of commands and a command is composed of parameters.
 
-- The ``action`` holds ``steps``, it's the top level entity with some global informations
-- The ``steps`` is here to group ``commands``. They don't hold much data, they have a index attributes wich is very important. The order of execution depends on this index, using a key/value datastructure instead of a simple array allows to insert steps between others easly. When an action inherit from an other, it can insert a step by defining one with an index that sits between two other steps. That's why we usually increment the steps by 10 or 100 to allows potential insertions later
-- The ``command`` is linked to a piece of code to execute, it holds ``parameters`` and is responsible to call the code by providing the value of its ``parameters``. It also holds the output of the execution
-- The ``parameter`` can either store a raw value or be connected to a ``command`` output. It has a type and make sure that the provided type is right. Be carefull, for invalid types, silex will try to cast the value, it's usefull in most case but sometimes it can result into weird results.
+- The `action` holds `steps`, it's the top level entity with some global informations
+- The `steps` is here to group `commands`. They don't hold much data, they have a index attributes wich is very important. The order of execution depends on this index, using a key/value datastructure instead of a simple array allows to insert steps between others easly. When an action inherit from an other, it can insert a step by defining one with an index that sits between two other steps. That's why we usually increment the steps by 10 or 100 to allows potential insertions later
+- The `command` is linked to a piece of code to execute, it holds `parameters` and is responsible to call the code by providing the value of its `parameters`. It also holds the output of the execution
+- The `parameter` can either store a raw value or be connected to a `command` output. It has a type and make sure that the provided type is right. Be carefull, for invalid types, silex will try to cast the value, it's usefull in most case but sometimes it can result into weird results.
 
 :::tip
 You must be carefull with YAML, one indentation can make your entire action wrong. And the error will be vey cryptic

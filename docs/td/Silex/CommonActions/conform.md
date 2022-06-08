@@ -7,7 +7,6 @@ The conform is used to move a file from outside of the pipeline into the pipelin
 It first check all the possible dependencies of that file (textures, references...)
 and make sure that the file and all its dependencies are accesible on the pipleine
 
-
 ## Goal
 
 The conform is different according to the type of file. We can split these filetypes into two categories :
@@ -27,17 +26,16 @@ The conform can be separated into 6 steps:
 5. Repath the dependencies to their new conformed path
 6. Move the file to its output location
 
-When you implement a new conform, you will have to implement the step ``3`` and ``4`` because the way these steps are
+When you implement a new conform, you will have to implement the step `3` and `4` because the way these steps are
 implemented is usually specific to each types of file.
 
-One important part is that on step ``4`` the conform calls an other conform on each dependencies of the file,
+One important part is that on step `4` the conform calls an other conform on each dependencies of the file,
 which makes the conform recursive.
 
 :::info
 In the case of a file type that cannot have external dependencies, these steps does not exists,
 that's why they are so easy to implement.
 :::
-
 
 ## Architecture
 
@@ -63,12 +61,11 @@ In this example we have a depht of 2 (a file that references an other file) but 
 other maya scene files, the depht might go very deep
 :::
 
-
 ## Write your own conform
 
 When you execute the conform action, the first step is to select the file you want to conform and then an appropriate conform will be inserted.
-When inserting the appropriate conform, the command will look for yaml files into the ``conform`` category. So your conform implementation
-needs to be in a ``conform`` folder of an ``SILEX_ACTION_CONFIG`` location (see the action definition section).
+When inserting the appropriate conform, the command will look for yaml files into the `conform` category. So your conform implementation
+needs to be in a `conform` folder of an `SILEX_ACTION_CONFIG` location (see the action definition section).
 
 The command can auto selecte the conform using the extention of the given file, for that to work your conform must have the same
 name as the extension it is made for. For example if you implement a conform for USD files you should organize your file like this:
@@ -81,10 +78,10 @@ name as the extension it is made for. For example if you implement a conform for
 
 ### File that cannot have external dependencies
 
-These files do not need any special treatment, all you have to do is inherit from the conform called ``default`` and
-override the ``output_type`` parameter of the ``build_output_path`` command:
+These files do not need any special treatment, all you have to do is inherit from the conform called `default` and
+override the `output_type` parameter of the `build_output_path` command:
 
-````yml
+```yml
 vdb: !inherit
   parent: ".default"
 
@@ -95,7 +92,7 @@ vdb: !inherit
           parameters:
             output_type:
               value: "vdb"
-````
+```
 
 ### File that might have external dependencies
 
