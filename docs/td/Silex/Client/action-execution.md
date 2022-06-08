@@ -15,7 +15,7 @@ If you installed silex core as a rez package, don't forget to execute this comma
 
 #### Task ID
 
-Some action behaves differently according to the context you are executing them from (for example, the publish will set the publish location using the current task defined in the context).
+Some action behaves differently according to the [context](./context.md) you are executing them from (for example, the publish will set the publish location using the current task defined in the context).
 You can specify the task using the `--task-id` argument with the ID if the entity in the cgwire database.
 
 #### Parameters

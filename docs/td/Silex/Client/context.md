@@ -4,7 +4,7 @@ title: Context
 sidebar_position: 10
 ---
 
-Silex is very context sensitive, the all point of actions is that the same action will depend of where you are executing it from. The context is defined by two factors :
+Silex is context sensitive, the all point of actions is that the same action will depend of where you are executing it from. The context is defined by two factors :
 
 - The rez environment , wich will define the available actions and commands.
 - The task ID, wich will define the variables stored in the context metadata like project name, task name, user name, shot name...
