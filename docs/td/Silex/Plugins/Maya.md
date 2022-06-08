@@ -21,7 +21,7 @@ The Maya _userSetup.py_ script is in the **startup** folder. It import and calls
   - load_plugins.py
   - userSetup.py
 
-If you need to add a new script at startup, add it to the **startup** folder and **import** it in _userSetup.py_. Silex uses [REZ](../Rez/Rez.mdx) environnement manager, and execute the scripts in the **startup** folder instead of the one localized in the Maya installation folder.
+If you need to add a new script at startup, add it to the **startup** folder and **import** it in _userSetup.py_. Silex uses [REZ](../../Workflow/Rez/Rez.mdx) environnement manager, and execute the scripts in the **startup** folder instead of the one localized in the Maya installation folder.
 
 ### Startup scripts :
 

@@ -7,9 +7,13 @@ import { PROD_ROOT, PROD_SSH } from "@site/src/constants";
 
 ---
 
-Rez is an environnmeent manager that allows us to launch DCCs in isolated contexts, include only the necessary libraries, define environnement variables specific to this environnement or define special cases for every team in the school.
+Rez is an environnmeent manager that allows us to launch DCCs in isolated contexts including only the necessary libraries, define environnement variables specific to this environnement or define special cases for every team in the school.
 
-Every thing can be found in the documentation on GitHub : [https://github.com/AcademySoftwareFoundation/rez](https://github.com/AcademySoftwareFoundation/rez)
+Every thing on REZ can be found in the documentation on GitHub : [https://github.com/AcademySoftwareFoundation/rez](https://github.com/AcademySoftwareFoundation/rez)
+
+___
+
+### Rez packeges and where to find them :
 
 <span>
   In the pipeline, the REZ packeges are localized on the server in \\{PROD_ROOT}
@@ -38,7 +42,7 @@ The team packages (5rn) are usually empty shells, it initially requires the rend
 
 In this case, we link a new config to the SILEX_ACTION_CONFIG environnement variable so the team **Quit_smoking** has a special vrscene [action YAML](../Client/action-definition.mdx) specific to their needs.
 
-```
+```python
 # -*- coding: utf-8 -*-
 name = 'quit_smoking'
 version = '1.0'
@@ -67,6 +71,39 @@ def commands():
 
 :::
 
+Here is an exemple of REZ package for the Maya [Plugin](../../Silex/Plugins/Maya.md) :
+
+```python title="dcc/maya/packege.py"
+name = "maya"
+version = "2022.0"
+
+requires = [
+    "python-3.7",
+]
+
+
+tools = [
+    "fcheck",
+    "imgcvt",
+    "maya",
+    "mayabatch",
+    "mayapy",
+    "rcc",
+    "uic",
+]
+
+variants = [
+    ["platform-windows"]
+]
+
+def commands():
+    import sys
+    sys.path.append(root)
+    import mayaenv
+    mayaenv.commands(env, root)
+
+```
+
 The [Plugins](../../Silex/Plugins/Plugins.md) repositories and [silex_client](../../Silex/Client/client.md) can be found in :
 
 <span>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</span>
@@ -80,6 +117,52 @@ The [Plugins](../../Silex/Plugins/Plugins.md) repositories and [silex_client](..
   - silex_houdini
   - silex_maya
   - silex_nuke
+
+  Here is an exemple of repository package.py :
+
+```python title="silex/silex_maya:package.py"
+# pylint: skip-file
+name = "silex_maya"
+version = "0.1.0"
+
+authors = ["ArtFx TD gang"]
+
+description = """
+    Set of python module and maya config to integrate maya in the silex pipeline
+    Part of the Silex ecosystem
+    """
+
+vcs = "git"
+
+build_command = "python {root}/script/build.py {install}"
+
+def commands():
+    """
+    Set the environment variables for silex_maya
+    """
+    env.SILEX_ACTION_CONFIG.prepend("{root}/silex_maya/config")
+    env.PYTHONPATH.append("{root}")
+    env.PYTHONPATH.append("{root}/startup")
+    env.XBMLANGPATH.append("{root}/startup/icons")
+
+    parser_module = ".".join(["silex_maya", "cli", "parser"])
+    alias("silex", f"mayapy -m {parser_module}")
+
+
+@late()
+def requires():
+    """
+    Manage versions
+    """
+    major = str(this.version.major)
+    silex_requirement = ["silex_client"]
+    if major in ["dev", "beta", "prod"]:
+        silex_requirement = [f"silex_client-{major}"]
+
+    return ["maya", "python-3.7"] + silex_requirement
+
+
+```
 
 ### Updating the repositories
 
