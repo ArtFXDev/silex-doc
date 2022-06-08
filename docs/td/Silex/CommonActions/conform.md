@@ -14,8 +14,10 @@ The conform is different according to the type of file. We can split these filet
 - The file that cannot have external file dependencies (like a PNG file)
 - The file that might have external file dependencies (like a houdini scene file)
 
+:::tip
 The first category is the simplest, there is almost mothing to do to implement a new file type
 that cannot have external file dependencies. However the first category needs special treatment.
+:::
 
 The conform can be separated into 6 steps:
 
