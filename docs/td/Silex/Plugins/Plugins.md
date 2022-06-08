@@ -41,21 +41,16 @@ _silex_maya/utils_ : Contains constants, fonctions, wrappers... used in commands
 
 _startup_ : It contains startup scripts exectuted in the DCC at startup, including The silex shelf for the DCC and the icons for tools.
 
-
 :::note
 You wil also find a package.py, wich is a [REZ](../../Workflow/Rez/Rez.mdx) package.
 :::
 
-___ 
+---
 
 ### Add a new plugin :
 
 To add a new dcc, it's easy. You need :
+
 1. A repository, as described previously, with its [REZ](../../Workflow/Rez/Rez.mdx) package.py.
 2. A [REZ](../../Workflow/Rez/Rez.mdx) package for the plugin (dcc) you want to implement.
 3. Add acces in the silex_front.
-
-
-
-
-
