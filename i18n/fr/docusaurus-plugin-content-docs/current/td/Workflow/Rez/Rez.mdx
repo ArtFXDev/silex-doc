@@ -1,0 +1,106 @@
+---
+id: rez
+title: Rez
+---
+
+import { PROD_ROOT, PROD_SSH } from "@site/src/constants";
+
+---
+
+Rez is an environnmeent manager that allows us to launch DCCs in isolated contexts, include only the necessary libraries, define environnement variables specific to this environnement or define special cases for every team in the school.
+
+Every thing can be found in the documentation on GitHub : [https://github.com/AcademySoftwareFoundation/rez](https://github.com/AcademySoftwareFoundation/rez)
+
+<span>
+  In the pipeline, the REZ packeges are localized on the server in \\{PROD_ROOT}
+  \rez\\
+</span>
+
+<br />
+<br />
+
+<span>
+  The DCC packages and team packages can be found in \\{PROD_ROOT}
+  \rez\packages\silex-rez\packages\\
+</span>
+
+<br />
+<br />
+
+- packeges
+  - 5rn
+  - dcc
+
+:::tip
+The team packages (5rn) are usually empty shells, it initially requires the render engine package used by the team and the aces config. But you can add specific tools or environnements to their specific needs.
+
+**Example** :
+
+In this case, we link a new config to the SILEX_ACTION_CONFIG environnement variable so the team **Quit_smoking** has a special vrscene [action YAML](../Client/action-definition.mdx) specific to their needs.
+
+```
+# -*- coding: utf-8 -*-
+name = 'quit_smoking'
+version = '1.0'
+
+authors = ['ArtFx TD gang']
+
+variants = [["maya"], ["houdini"], ["nuke"], ["silex_client"], ["silex_maya"], ["silex_houdini"]]
+
+requires = [
+    'vray',
+    'aces',
+    "texturetotx",
+]
+
+timestamp = 1635410671
+
+vcs = 'git'
+
+format_version = 2
+
+def commands():
+    env.SILEX_ACTION_CONFIG.prepend("{root}/config")
+
+
+```
+
+:::
+
+The [Plugins](../../Silex/Plugins/Plugins.md) repositories and [silex_client](../../Silex/Client/client.md) can be found in :
+
+<span>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</span>
+
+<br />
+<br />
+
+- silex
+  - aiogazu
+  - silex_client
+  - silex_houdini
+  - silex_maya
+  - silex_nuke
+
+### Updating the repositories
+
+The repositories are the back bone of Silex. If you make any changes to the plugins or the [silex_client](../../Silex/Client/client.md) you can connect to the prod server by ssh using :
+
+<code>
+  <span>ssh {PROD_SSH}</span>
+</code>
+
+<br />
+<br />
+
+Then update the the repositories using the git command :
+
+<code>git submodule update --remote</code>
+
+<br />
+<br />
+
+The student will be able to enjoy your awsome new features ! \_(^^)/
+
+### Beta and Prod
+
+In <span>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</span>, if you look in any of the silex_folder, you will be able to see a **beta** and a **prod** folder. they both contain the branch of the same name in the repository, and are updated according to these branches.

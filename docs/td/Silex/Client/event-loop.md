@@ -33,4 +33,8 @@ That's why we use `executeDefered`. That way, the call is not blocking, but ther
 The `ExecutionInThread` class is actually wrapping `executeDefered` into a function that returns an asyncio future storing the result.
 The future can then be awaited so the event loop will keep running on other tasks until the result is ready.
 
+:::info
+If you implement a new DCC that does not support asyncio in its API (which is most likely to happen), you will have to reimplement this `ExecutionInThread`
+class for the threading API of that DCC.
 For more details, checkout the implementation done for maya (https://github.com/ArtFXDev/silex_maya/blob/dev/silex_maya/utils/thread.py)
+:::

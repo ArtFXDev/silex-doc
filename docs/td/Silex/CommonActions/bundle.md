@@ -47,13 +47,12 @@ References are repathed in the original scene with an environnement variable, **
 
 The scene is copied in the export folder.
 
----
-
-## Warning :
+:::caution
 
 Currently, there is no way to select a folder from the ui, so the the actions doesn't need to be specified an export directory, and will create its own folder in the same directory as the selected scene. if the scene is in a **publish** folder (Meaninbg, a folder that is being synchronised on the server), the newly created folder will be synchronised and fill memory.
 
 It is advized to copy the scene in a local drive before bundling it, so the new "BUNDLE folder" will be placed in the local drive as well.
+:::
 
 ---
 

@@ -26,12 +26,16 @@ specify a category, silex will look for the yaml in the actions folder
 
 Action are organized in hierarchy. An action is composed of steps, a step is composed of commands and a command is composed of parameters.
 
-- The action holds steps, it's the top level entity with some global informations
-- The steps is here to group commands. They don't hold much data, they have a index attributes wich is very important. The order of execution depends on this index, using a key/value datastructure instead of a simple array allows to insert steps between others easly. When an action inherit from an other, it can insert a step by defining one with an index that sits between two other steps. That's why we usually increment the steps by 10 or 100 to allows potential insertions later
-- The command is linked to a piece of code to execute, it holds parameters and is responsible to call the code by providing the value of its parameters. It also holds the output of the execution
-- The parameter can either store a raw value or be connected to a command output. It has a type and make sure that the provided type is right. Be carefull, for invalid types, silex will try to cast the value, it's usefull in most case but sometimes it can result into weird results.
+- The `action` holds `steps`, it's the top level entity with some global informations
+- The `steps` is here to group `commands`. They don't hold much data, they have a index attributes wich is very important. The order of execution depends on this index, using a key/value datastructure instead of a simple array allows to insert steps between others easly. When an action inherit from an other, it can insert a step by defining one with an index that sits between two other steps. That's why we usually increment the steps by 10 or 100 to allows potential insertions later
+- The `command` is linked to a piece of code to execute, it holds `parameters` and is responsible to call the code by providing the value of its `parameters`. It also holds the output of the execution
+- The `parameter` can either store a raw value or be connected to a `command` output. It has a type and make sure that the provided type is right. Be carefull, for invalid types, silex will try to cast the value, it's usefull in most case but sometimes it can result into weird results.
 
-You must be carefull with YAML, one indentation can make your entire action wrong. Here is what an action definition should look like:
+:::tip
+You must be carefull with YAML, one indentation can make your entire action wrong. And the error will be vey cryptic
+:::
+
+Here is what an action definition should look like:
 
 ```yml
 <action_name>:
@@ -83,9 +87,13 @@ You must be carefull with YAML, one indentation can make your entire action wron
 You can connect the output of a command into the input of a parameter. To do so, use the `!command-output` tag
 with a string specifying the path of the command (ex: `value: !command-output "<step_name>:<command_name>"`)
 If the command is returning a dictionnary, you can get a specific value of that dictionnary by addiing more keys to the path.
+
 For example, if the command returns `{"foo": {"bar": "baz"}}` you can access the `baz` string by setting the path to `"<step_name>:<command_name>:foo:bar"`.
+
+:::info
 We use dictionnaries as a way for commands to have multiple outputs, thats why it is always good to output a dictionnary in commands even if there
 is only one output, just in case we update it later with more outputs.
+:::
 
 ## Inheritance
 
@@ -98,7 +106,7 @@ For example:
 - <span>\\{PROD_ROOT}\rez\packages\silex_maya</span>
 - <span>\\{PROD_ROOT}\rez\packages\silex_client</span>
 
-Here, the context has silex_client loaded and 2 plugins, silex_maya and test_pipe. The order in which the plugins are loaded matters a lot. When silex looks for an action, it will look
+Here, the [context](./context.md) has silex_client loaded and 2 plugins, silex_maya and test_pipe. The order in which the plugins are loaded matters a lot. When silex looks for an action, it will look
 from top to bottom in the list. You must know this if you use inheritance because an action can **only inherit from an other action that is in the current level or under**.
 
 The syntax for inheritance is:
@@ -119,9 +127,10 @@ In the example above, the `!inherit` tag is used at the root key of the action. 
 If you do so, you must use the `key` option and use it to specify what part of the action you want to insert
 (example: `action_name.step_name` if you want a step that inherit from a specific step)
 
-The use case for inheritance is usually to inherit from the action with the same name an customise its behaviour. For example,
-you can create one plugin per projects and customise the behaviour of some actions like changing some parameter values, redirect
-commands to an other definition... You can also use it as a base action to reduce repetition.
+:::info
+The use case for inheritance is usually to reduce repetition or customise the behaviour of an action for a specific [context](./context.md). For example,
+you can create a plugin for a projects and customise the behaviour of that action for the contexts that includes this project specifically.
+:::
 
 To override a value, only add the keys for the value you want to override. For example, we have here a vrscene action (a vrscene publish)
 wich is customised for a certain project, we set the merge parameter to true (which is a hidden parameter) only for the contexts where that

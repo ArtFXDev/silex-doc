@@ -91,22 +91,22 @@ const config = {
       style: "dark",
       links: [
         {
-          title: "Guide Utilisateur",
+          title: "User Guide",
           items: [
             {
-              label: "Présentation",
+              label: "Presentation",
               to: "/docs/user/presentation",
             },
             {
-              label: "Installation",
+              label: "Install",
               to: "/docs/user/install",
             },
             {
-              label: "Shots and assets",
+              label: "Shots & assets",
               to: "/docs/user/shots-assets",
             },
             {
-              label: "Action",
+              label: "Silex Action",
               to: "/docs/user/action",
             },
             {
@@ -131,12 +131,32 @@ const config = {
           title: "TD",
           items: [
             {
-              label: "Présentation",
+              label: "Presentation",
               to: "/docs/td/presentation",
             },
             {
-              label: "Installation",
+              label: "Install Silex",
               to: "/docs/td/install",
+            },
+            {
+              label: "Coding Workflow",
+              to: "/docs/td/workflow",
+            },
+            {
+              label: "Backend",
+              to: "/docs/td/backend/CGWire/zou",
+            },
+            {
+              label: "Renderfarm",
+              to: "/docs/td/renderfarm",
+            },
+            {
+              label: "Silex",
+              to: "/docs/td/silex",
+            },
+            {
+              label: "Design Guidelines",
+              to: "/docs/td/design",
             },
           ],
         },
