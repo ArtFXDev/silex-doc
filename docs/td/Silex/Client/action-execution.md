@@ -37,7 +37,7 @@ To get more information about the silex client CLI, use `silex action --help`
 
 ## Executing actions from Python
 
-When executing an action from a dcc (with a shelf button) you wan to execute the action from python:
+When executing an action from a dcc (with a shelf button) you want to execute the action from python:
 
 ```python
 from silex_client.action.action_query import ActionQuery
@@ -53,7 +53,7 @@ action (for more informations see the action definition page)
 
 #### Methods
 
-Executing an action from python is mutch more flexible because the ActionQuery object gives you control on the execution at runtime.
+Executing an action from python is much more flexible because the ActionQuery object gives you control on the execution at runtime.
 Here is a list of usefull methods on the ActionQuery, they can be used while the action is executing.
 
 ```python

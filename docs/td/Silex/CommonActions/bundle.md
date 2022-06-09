@@ -17,7 +17,7 @@ The **Bundle** action is implemented for _Maya_ and _Houdini_. It is based on a 
 
 ## Use :
 
-The **Bundle** action is similar to the _archive_ function in maya, but instead of exporting the scene and it's references, it also **recursivly** finds all references in the referenced files. Tt then copies every references in a single folder with the scene, and repath everything with an environnement varaible : **BUNDLE_ROOT** to the this folder.
+The **Bundle** action is similar to the _archive_ function in maya, but instead of exporting the scene and it's references, it also **recursively** finds all references in the referenced files, then copies every references in a single folder with the scene, and repath everything with an environnement variable : **BUNDLE_ROOT** to the this folder.
 
 You just need to set the variable in your Windows and you can use the bundle folder to render from external render farm or at home.
 
@@ -45,9 +45,9 @@ The scene is copied in the export folder.
 
 :::caution
 
-Currently, there is no way to select a folder from the ui, so the the actions doesn't need to be specified an export directory, and will create its own folder in the same directory as the selected scene. if the scene is in a **publish** folder (Meaninbg, a folder that is being synchronised on the server), the newly created folder will be synchronised and fill memory.
+Currently, there is no way to select a folder from the ui, so the the actions doesn't need to be specified an export directory, and will create its own folder in the same directory as the selected scene. if the scene is in a **publish** folder (Meaning, a folder that is being synchronised on the server), the newly created folder will be synchronised and fill memory.
 
-It is advized to copy the scene in a local drive before bundling it, so the new "BUNDLE folder" will be placed in the local drive as well.
+It is advised to copy the scene in a local drive before bundling it, so the new "BUNDLE folder" will be placed in the local drive as well.
 :::
 
 ---

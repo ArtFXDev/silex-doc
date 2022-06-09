@@ -9,7 +9,7 @@ Silex is running an event loop in a secondary thread. This event loop is used to
 ## Problems you might encounter
 
 - Since the silex actions and the websocket connection are running in the same event loop, if an action is holding the attention
-  of the event loop for too long, the websocket connection might break. It's actually not a problem since socketio handles disonnection
+  of the event loop for too long, the websocket connection might break. It's actually not a problem since socketio handles disconnection
   and reconnection automaticaly, but you will get a warning message in the silex UI. To prevent this, make sure to separate your action
   logic into multiple coroutines.
 

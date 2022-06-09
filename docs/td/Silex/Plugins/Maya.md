@@ -11,7 +11,7 @@ title: Maya
 
 Every features are added at startup.
 
-The Maya _userSetup.py_ script is in the **startup** folder. It import and calls multiple scripts localized in the same root.
+The Maya _userSetup.py_ script is in the **startup** folder. It imports and calls multiple scripts localized in the same root.
 
 - startup
   - create_shelf.py
@@ -25,4 +25,4 @@ If you need to add a new script at startup, add it to the **startup** folder and
 
 1. _create_shelf.py_ : Creates and populate the **Silex** shelf.
 2. _custom_save.py_ : Add shortcuts for saving. (Calls silex actions instead of Maya save)
-3. _load_plugins.py_ : Load necessary plungins.
+3. _load_plugins.py_ : Load necessary plugins.
