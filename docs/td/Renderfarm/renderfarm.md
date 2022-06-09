@@ -1,7 +1,7 @@
 ---
 id: renderfarm
 title: Renderfarm
-sidebar_position: 10
+sidebar_position: 60
 ---
 
 # Render farm

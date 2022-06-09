@@ -8,15 +8,16 @@ An action is a set of instructions that will be executed sequentially. To learn 
 
 ## Executing actions from CLI
 
-#### Execution
-
 This is the simplest way of executing an action. Once silex is installed, run `silex action <action-name>`.
-If you installed silex core as a rez package, don't forget to execute this command in the rez environment: `rez env silex_client -- silex action <action-name>`
+
+:::tip
+If you installed silex client as a rez package, don't forget to execute this command in the rez environment: `rez env silex_client -- silex action <action-name>`
+:::
 
 #### Task ID
 
 Some action behaves differently according to the [context](./context.md) you are executing them from (for example, the publish will set the publish location using the current task defined in the context).
-You can specify the task using the `--task-id` argument with the ID if the entity in the cgwire database.
+You can specify the task using the `--task-id` argument with the ID if the entity in the [CGWire](https://www.cg-wire.com/) database.
 
 #### Parameters
 

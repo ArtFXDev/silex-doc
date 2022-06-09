@@ -1,7 +1,7 @@
 ---
 id: install
 title: Install silex
-sidebar_position: 10
+sidebar_position: 20
 ---
 
 # Ask right on github artfxdev and account on kitsu

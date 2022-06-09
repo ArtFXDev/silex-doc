@@ -3,10 +3,6 @@ id: bundle
 title: Bundle
 ---
 
-:::note
-Actions are defined with YAML files. for more info see : [Action definition](../Client/action-definition.mdx)
-:::
-
 ---
 
 ## Intro :
