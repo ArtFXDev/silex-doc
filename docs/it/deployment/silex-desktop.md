@@ -1,8 +1,14 @@
-Silex Desktop est le client du pipeline.
-Avec ce logiciel on peut executer des actions du pipeline ArtFX sur chaque dcc.
-Ouvrir des scenes, publish, conform etc.
+---
+id: silex-desktop
+title: Silex Desktop
+sidebar_position: 40
+---
 
-## Comment deployer ?
+Silex Desktop est le client du pipeline.
+Avec ce logiciel on peut exécuter des actions du pipeline ArtFX sur chaque dcc.
+Ouvrir des scènes, publish, conform etc.
+
+## Comment déployer ?
 
 ```
 📦silex-desktop
@@ -10,10 +16,10 @@ Ouvrir des scenes, publish, conform etc.
  ┗ 📜SilexDesktopDeploymentFog.png // screenshot des snapin
 ```
 
-Quand ce snapin sera executé sur une machine d'ArtFX, une erreur apparaitra.
+Quand ce snapin sera exécuté sur une machine d'ArtFX, une erreur apparaîtra.<br/>
 C'est un comportement normal.
 
-L'erreur apparait parceque les snapin fog sont executé en tant qu'utilisateur system, mais l'application installé s'install dans %appdata%/local. L'utilisateur system n'ayant pas d'%appdata% une erreur apparait.
-Mais comme l'installer de l'application l'install pour tous les utilisateur, l'utilisateur "etudiant" disposera quand meme de Silex Desktop.
+L'erreur apparaît parce que les snapin fog sont exécutés en tant qu'utilisateur system, mais l'application installée s'installe dans **_%appdata%/local_**.<br/> L'utilisateur system n'ayant pas **_d'%appdata%_** une erreur apparaît.<br/>
+Mais comme l'installer de l'application l'install pour tous les utilisateurs, l'utilisateur "etudiant" disposera quand meme de Silex Desktop.
 
-Cet executable est a utilisé lors du premier deploiement, aprés l'installation Silex-Desktop va chercher la derniére mise a jour displonible depuis GitHub et ce mettra à jour automatiquement.
+Cet exécutable est a utilisé lors du premier déploiement, après l'installation Silex-Desktop va chercher la dernière mise à jour disponible depuis GitHub et se mettra à jour automatiquement.

@@ -1,14 +1,15 @@
 ---
 id: deploy-gokillprocess
 title: Deploy Go killprocess
+sidebar_position: 40
 ---
 
 import CodeSnippet from "@site/src/components/codeSnippetComponent";
 
-## Presentation
+## Présentation
 
-Gokillprocess permet de récupérer la listes des processus, services ainsi que de kill un processus via PID et redemarrer un service via le nom,
-à travers des requetes http.
+Gokillprocess permet de récupérer la liste des processus, services ainsi que de kill un processus via PID et redémarrer un service via le nom,
+à travers des requêtes http.
 
 | descritpion           | route                                    | Verbe HTTP | Utilisation                        |
 | --------------------- | ---------------------------------------- | ---------- | ---------------------------------- |
@@ -18,9 +19,9 @@ Gokillprocess permet de récupérer la listes des processus, services ainsi que 
 | Redemarrer un service | `http://<TARGET_IP>:5119/restartservice` | POST       | Name dans body de la requetes post |
 
 Ce service est également utilisé pour kill les no free slots sur la farm.
-Pour tester vos requétes htpp vous pouvez utiliser l'outil [postman](https://www.postman.com).
+Pour tester vos requêtes http vous pouvez utiliser l'outil [postman](https://www.postman.com).
 
-## Script de deploiement
+## Script de déploiement
 
 <CodeSnippet
   rawUrl="https://raw.githubusercontent.com/ArtFXDev/silex_fog_snapin/main/gokillprocess/go-killprocess.ps1"
@@ -30,8 +31,8 @@ Pour tester vos requétes htpp vous pouvez utiliser l'outil [postman](https://ww
 
 ## Ouverture de ports
 
-Pour fonctionner ce service a besoin d'avoir le port 5119 d'ouvert sur toute les machines.
-Ce script contient également d'autre ports, ceux-ci ne sont pas utile pour gokillprocess mais pour d'autre :
+Pour fonctionner ce service a besoin d'avoir le port 5119 d'ouvert sur toutes les machines.
+Ce script contient également d'autres ports, ceux-ci ne sont pas utiles pour gokillprocess mais pour d'autres :
 
 | Service         | Port | protocole  |
 | --------------- | ---- | ---------- |
@@ -39,8 +40,8 @@ Ce script contient également d'autre ports, ceux-ci ne sont pas utile pour goki
 | Silex Desktop   | 5118 | TCP IN/OUT |
 | Tractor service | 9005 | TCP IN/OUT |
 
-Remove-NetFirewallRule -DisplayName "silex-desktop.exe" est utile car lors de l'installation une popup apparait pour l'autorisation sur le pare-feu local,
-si cette popup est refuser, siles-desktop.exe est bloqué sur le parefeu local.
+Remove-NetFirewallRule -DisplayName "silex-desktop.exe" est utile car lors de l'installation un pop-up apparaît pour l'autorisation sur le pare-feu local,
+si ce pop-up est refusé, siles-desktop.exe est bloqué sur le pare-feu locale.
 
 <CodeSnippet
   rawUrl="https://raw.githubusercontent.com/ArtFXDev/silex_fog_snapin/main/gokillprocess/go-killprocessopenport.ps1"

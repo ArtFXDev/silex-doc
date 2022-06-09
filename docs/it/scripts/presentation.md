@@ -1,12 +1,13 @@
 ---
 id: presentation
-title: Presentation
+title: Présentation
 type: doc
+sidebar_position: 10
 ---
 
-# Présentation et details des scripts utilisé lors du déploiement
+# Présentation et détails des scripts utilisés lors du déploiement
 
-Cette documentation details le fonctionnement de chaque scripts.
+Cette documentation détails le fonctionnement de chaque script.
 
-La plus part des scripts ont était créé dans la logique de pouvoir être redéployer.
-Seul certain fichiers comme la blade tractor ne posséde pas ce comportement, ce qui nous à obligé à récréé un snapin de `reset_status.ps1` pour redémarrer le services en cas de redéploiement par example.
+La plupart des scripts ont était créé dans la logique de pouvoir être redéployé.<br/>
+Seuls certains fichiers comme la blade tractor ne possède pas ce comportement, ce qui nous a obligé à récréer un snapin de `reset_status.ps1` pour redémarrer les services en cas de redéploiement par exemple.

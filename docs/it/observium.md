@@ -1,15 +1,13 @@
 ---
 id: observium
 title: Observium
-sidebar_position: 10
+sidebar_position: 40
 ---
 
-# Observium
+Observium est utilisé pour voir l'état des serveurs/nas, voir l'état des équipements réseau.
+Utile pour voir la saturation et les limites de l'infrastructure réseau.
 
-Observium est utilisé pour voir l'état des serveurs/nas, voir l'etat des équipement réseau.
-Utile pour voir la saturation et les limite de l'infrastructure réseau.
-
-# Accées
+## Accès
 
 |         |                       |
 | ------- | --------------------- |
