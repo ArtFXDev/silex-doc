@@ -7,7 +7,7 @@ The conform is used to move a file from outside of the pipeline into the pipelin
 It first check all the possible dependencies of that file (textures, references...)
 and make sure that the file and all its dependencies are accesible on the pipleine
 
-## Goal
+## Purpose
 
 The conform is different according to the type of file. We can split these filetypes into two categories :
 
