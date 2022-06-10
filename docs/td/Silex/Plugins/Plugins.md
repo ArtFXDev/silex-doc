@@ -25,6 +25,8 @@ A repository basically contains commands and actions to be triggered in the DCC.
 
 ### Structure of the repository :
 
+Here is an exemple with the maya repository:
+
 - silex_maya
   - commands
   - config
