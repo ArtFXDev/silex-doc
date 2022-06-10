@@ -7,13 +7,9 @@ import { PROD_ROOT, PROD_SSH } from "@site/src/constants";
 
 ---
 
-Rez is an environnmeent manager that allows us to launch DCCs in isolated contexts including only the necessary libraries, define environnement variables specific to this environnement or define special cases for every team in the school.
+Rez is an environment manager that allows us to launch DCCs in isolated contexts, include mandatory libraries only, define environment variables specific to this environment or define special cases for each team in the school.
 
-Every thing on REZ can be found in the documentation on GitHub : [https://github.com/AcademySoftwareFoundation/rez](https://github.com/AcademySoftwareFoundation/rez)
-
----
-
-### Rez packeges and where to find them :
+Everything can be found in the documentation on GitHub : [https://github.com/AcademySoftwareFoundation/rez](https://github.com/AcademySoftwareFoundation/rez)
 
 <span>
   In the pipeline, the REZ packeges are localized on the server in \\{PROD_ROOT}
@@ -31,7 +27,7 @@ Every thing on REZ can be found in the documentation on GitHub : [https://github
 <br />
 <br />
 
-- packeges
+- packages
   - 5rn
   - dcc
 
@@ -169,7 +165,7 @@ def requires():
 
 ### Updating the repositories
 
-The repositories are the back bone of Silex. If you make any changes to the plugins or the [silex_client](../../Silex/Client/client.md) you can connect to the prod server by ssh using :
+The rez repositories are the back bone of Silex. If you make any changes to the plugins or the [silex_client](../../Silex/Client/client.md) you can connect to the prod server by ssh using :
 
 <code>
   <span>ssh {PROD_SSH}</span>
@@ -189,4 +185,4 @@ The student will be able to enjoy your awsome new features ! \_(^^)/
 
 ### Beta and Prod
 
-In <span>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</span>, if you look in any of the silex_folder, you will be able to see a **beta** and a **prod** folder. they both contain the branch of the same name in the repository, and are updated according to these branches.
+In <span>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</span>, if you look in any of the silex_folder, you will be able to see a **beta** and a **prod** folder. They both contain the branch of the same name in the repository, and are updated according to these branches.

@@ -11,7 +11,7 @@ title: Houdini
 
 Every features and tools are added at startup.
 
-The Houdini _123.py_ and _456.py_ scripts are in the **startup\script\\** folder. _123.py_ imports and calls multiple scripts localized in the same root. _456.py_ currently improts _123.py_.
+The Houdini _123.py_ and _456.py_ scripts are in the **startup\script\\** folder. _123.py_ imports and calls multiple scripts localized in the same root. _456.py_ currently imports _123.py_.
 
 - startup
   - scripts

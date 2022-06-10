@@ -4,8 +4,8 @@ title: Conform
 ---
 
 The conform is used to move a file from outside of the pipeline into the pipeline.
-It first check all the possible dependencies of that file (textures, references...)
-and make sure that the file and all its dependencies are accesible on the pipleine
+It first checks all the possible dependencies of that file (textures, references...)
+and make sure that the file and all its dependencies are accessible on the pipeline.
 
 ## Purpose
 
@@ -15,7 +15,7 @@ The conform is different according to the type of file. We can split these filet
 - The file that might have external file dependencies (like a houdini scene file)
 
 :::tip
-The first category is the simplest, there is almost mothing to do to implement a new file type
+The first category is the simplest, there is almost nothing to do to implement a new file type
 that cannot have external file dependencies. However the first category needs special treatment.
 :::
 
@@ -55,12 +55,12 @@ This is an example of the Maya conform:
 :::info
 In this example we only see that one png conform has been inserted for simplicity. In reality, one png conform will
 be inserted for each png that needs to be conformed. Same goes for all the external dependencies like VDBs, alembics...
-The final action might end up very big for big scenes will a lot of dependencies.
+The final action might end up very big for big scenes with a lot of dependencies.
 :::
 
 :::caution
-In this example we have a depht of 2 (a file that references an other file) but since maya scene files can reference
-other maya scene files, the depht might go very deep
+In this example we have a depth of 2 (a file that references an other file) but since maya scene files can reference
+other maya scene files, the depht might go very deep.
 :::
 
 ## Write your own conform

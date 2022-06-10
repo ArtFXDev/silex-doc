@@ -6,9 +6,9 @@ sidebar_position: 20
 
 # Ask right on github artfxdev and account on kitsu
 
-ArtfxDev is the organisation that holds silex repositories. You need to be member of the organisation and pipeline developer to get the applications rights.
+ArtfxDev is the organisation that holds Silex repositories. You need to be member of the organisation and pipeline developer to get the applications rights.
 
-Kitsu is the silex database, you need an acciount on it, and to be registered as a member of the TEST_PIPE project. Then connect to : http://kitsu.prod.silex.artfx.fr
+Kitsu is the Silex database, you need an acciount on it, and to be registered as a member of the TEST_PIPE project. Then connect to : http://kitsu.prod.Silex.artfx.fr
 
 # Install python and rez
 
@@ -28,7 +28,7 @@ Add to path:
 C:\rez\__install__\Scripts\rez
 ```
 
-Set a REZ_CONFIG_FILE environment variable to `\\prod.silex.artfx.fr/rez/windows/config/rezconfig.py`
+Set a REZ_CONFIG_FILE environment variable to `\\prod.Silex.artfx.fr/rez/windows/config/rezconfig.py`
 
 Close terminal and reopen it still with admin rights. Install basic packages with:
 
@@ -42,16 +42,16 @@ Create a `packages` folder in the `c:/rez` folder. Go into this folder.
 
 Create a file named `.rez` in it.
 
-Use this command to clone silex utils (from `c:/rez/packages`).
+Use this command to clone Silex utils (from `c:/rez/packages`).
 
 ```
-git clone --recurse-submodules -j8 git@github.com:ArtFXDev/silex-rez.git
+git clone --recurse-submodules -j8 git@github.com:ArtFXDev/Silex-rez.git
 ```
 
 Then use this to install rez dependancies for rez client:
 
 ```
-rez pip -i git+https://github.com/ArtFXDev/silex_client.git
+rez pip -i git+https://github.com/ArtFXDev/Silex_client.git
 ```
 
 Go to \\192.168.2.112\rez\windows\config, open the rezconfig.py, copy everything except the caching part, paste it in the config file in your rez installation folder, for instance: C:\rez\_\_install\_\_\Lib\site-packages\rez\rezconfig.py
@@ -60,7 +60,7 @@ Close the admin terminal and reopen a normal rights terminal.
 
 If you have an error saying python is not found, remove the C:\rez\packages\python folder, then launch ` rez bind -i C:/rez/packages python` with admin priviledges.
 
-# Install silex desktop
+# Install Silex desktop
 
 Install nodejs through scoop
 
@@ -79,15 +79,15 @@ scoop install nodejs-lts
 scoop install yarn
 ```
 
-Git repo: https://github.com/ArtFXDev/silex-desktop
+Git repo: https://github.com/ArtFXDev/Silex-desktop
 
 Clone the repo:
 
 ```
-git clone https://github.com/ArtFXDev/silex-desktop
+git clone https://github.com/ArtFXDev/Silex-desktop
 ```
 
-Create a .npmrc file in the silex-desktop root folder with that content:
+Create a .npmrc file in the Silex-desktop root folder with that content:
 
 ```
 //npm.pkg.github.com/:_authToken=<YOUR_GITHUB_TOKEN>
@@ -105,11 +105,11 @@ Install dependencies with yarn:
 yarn install
 ```
 
-This will automatically install silex-socket-service
+This will automatically install Silex-socket-service
 
 # Run and test
 
-In the silex desktop folder, run silex with:
+In the Silex desktop folder, run Silex with:
 
 ```
 yarn start
@@ -120,5 +120,5 @@ Then connect to the app.
 You can also test an action in the terminal with:
 
 ```
-rez env silex_client -- silex action tester -c dev
+rez env Silex_client -- Silex action tester -c dev
 ```

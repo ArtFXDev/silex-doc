@@ -32,7 +32,7 @@ Action are organized in hierarchy. An action is composed of steps, a step is com
 - The `parameter` can either store a raw value or be connected to a `command` output. It has a type and make sure that the provided type is right. Be carefull, for invalid types, silex will try to cast the value, it's usefull in most case but sometimes it can result into weird results.
 
 :::tip
-You must be carefull with YAML, one indentation can make your entire action wrong. And the error will be vey cryptic
+You must be carefull with YAML, one indentation can make your entire action wrong. And the error will be very cryptic
 :::
 
 Here is what an action definition should look like:
@@ -133,7 +133,7 @@ you can create a plugin for a projects and customise the behaviour of that actio
 :::
 
 To override a value, only add the keys for the value you want to override. For example, we have here a vrscene action (a vrscene publish)
-wich is customised for a certain project, we set the merge parameter to true (which is a hidden parameter) only for the contexts where that
+which is customised for a certain project, we set the merge parameter to true (which is a hidden parameter) only for the contexts where that
 plugin is loaded.
 
 ```yml
@@ -150,7 +150,7 @@ vrscene: !inherit
 
 ## Value overrides order
 
-From the point where the action is defined to the point where it is executed, some fields value can change in multiple ways. Where is the order in which a parameter value will me set:
+From the point where the action is defined to the point where it is executed, some fields value can change in multiple ways. Here is the order in which a parameter value will me set:
 
 1. The default value of the parameter is set in the command definition
 2. It might then be overriden in the YAML definition of the action that uses that command
