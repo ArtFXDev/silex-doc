@@ -56,3 +56,48 @@ To add a new dcc, it's easy. You need :
 1. A repository, as described previously, with its [REZ](../../Workflow/Rez/Rez.mdx) package.py.
 2. A [REZ](../../Workflow/Rez/Rez.mdx) package for the plugin (dcc) you want to implement.
 3. Add acces in the silex_front.
+
+Here is the silex_maya package.py as an exemple :
+
+``` python title="silex_maya/package.py"
+# pylint: skip-file
+name = "silex_maya"
+version = "0.1.0"
+
+authors = ["ArtFx TD gang"]
+
+description = """
+    Set of python module and maya config to integrate maya in the silex pipeline
+    Part of the Silex ecosystem
+    """
+
+vcs = "git"
+
+build_command = "python {root}/script/build.py {install}"
+
+
+def commands():
+    """
+    Set the environment variables for silex_maya
+    """
+    env.SILEX_ACTION_CONFIG.prepend("{root}/silex_maya/config")
+    env.PYTHONPATH.append("{root}")
+    env.PYTHONPATH.append("{root}/startup")
+    env.XBMLANGPATH.append("{root}/startup/icons")
+
+    parser_module = ".".join(["silex_maya", "cli", "parser"])
+    alias("silex", f"mayapy -m {parser_module}")
+
+
+@late()
+def requires():
+    major = str(this.version.major)
+    silex_requirement = ["silex_client"]
+    if major in ["dev", "beta", "prod"]:
+        silex_requirement = [f"silex_client-{major}"]
+
+    return ["maya", "python-3.7"] + silex_requirement
+
+```
+
+You can find out more details in the [REZ](../../Workflow/Rez/Rez.mdx) documentation.
