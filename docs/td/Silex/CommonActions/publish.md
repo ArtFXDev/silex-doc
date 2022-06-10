@@ -20,9 +20,13 @@ The purpose of the **publish** is to ensure that every job submited to the [Rend
 ### Step by step use of the publish :
 
 1- Select a publish type.
+
 2- Select or tipe a filename
+
 3- Process parameters specific to the command calld for the chosen publish type.
+
 4- The comand export the scene or the eselection in a temporary folder.
+
 5- A **move** command from silex_client is called to move the exported file to the right location.
 
 ---
