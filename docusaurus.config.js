@@ -2,7 +2,7 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const darkCodeTheme = require("prism-react-renderer/themes/nightOwl");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -37,14 +37,12 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl:
-            "https://github.com/ArtFXDev/silex-doc/edit/main",
+          editUrl: "https://github.com/ArtFXDev/silex-doc/edit/main",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            "https://github.com/ArtFXDev/silex-doc/edit/main",
+          editUrl: "https://github.com/ArtFXDev/silex-doc/edit/main",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
