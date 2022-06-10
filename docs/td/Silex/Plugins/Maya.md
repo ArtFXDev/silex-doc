@@ -5,7 +5,7 @@ title: Maya
 
 [Repository](https://github.com/ArtFXDev/silex_houdini)
 
-## Intro
+---
 
 ### Startup
 

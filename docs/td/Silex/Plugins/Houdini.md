@@ -7,8 +7,6 @@ title: Houdini
 
 ---
 
-## Intro
-
 ### Startup
 
 Every features and tools are added at startup.

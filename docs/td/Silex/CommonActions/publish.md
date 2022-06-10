@@ -39,7 +39,7 @@ The publish allows you to export in a wide range of formats. you can find the li
 
 ---
 
-## Yummy YAMLs :
+## Yummy YAMLs : 🎂
 
 The publish [YAML](../Client/action-definition.mdx) file in the [silex_client](../Client/client.md) calls for other [YAML](../Client/action-definition.mdx)s from the **command/config/publish** folder in the plugin repositories. In here, [YAML](../Client/action-definition.mdx)s have the same name as the extension associated to the publish type.
 
@@ -250,11 +250,11 @@ publish: !inherit
 
 The build_output_path.py command returns the output path of the publish following the naming convention.
 
-## Write your own publish :
+## Write your own publish : 🏆
 
 Usually, to implement a new publish, you can write a new command to export your format and use this YAML example as a template. You only need change the command in the **Export** step to the name of your new export command.
 
-:::tip
+:::tip 🦉
 In many cases, a command will export the published file to a temporary folder passed from the build_output_path, and then, will need to pass on to the move step the newly created file(s) so the move function can copy it/them to the finale location.
 **So, the command requirements are :**
 1- take an export directory as parameter
@@ -263,4 +263,4 @@ In many cases, a command will export the published file to a temporary folder pa
 
 If you want, you can costumize this publish template by adding or deleting steps.
 
-If you havn't read the documentation on the YAML definition, you can click here [action definition](../Client/action-definition.mdx).
+If you havn't read the documentation on the YAML definition, you can click here [action definition](../Client/action-definition.mdx). 🧭

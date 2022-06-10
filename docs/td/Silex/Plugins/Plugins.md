@@ -19,7 +19,7 @@ When you open a DCC from silex, the DCC's repositroy is used. It add special fea
 
 ---
 
-## In the belly of the repository :
+## In the belly of the repository : 🐋
 
 A repository basically contains commands and actions to be triggered in the DCC.
 
@@ -49,7 +49,7 @@ You wil also find a package.py, wich is a [REZ](../../Workflow/Rez/Rez.mdx) pack
 
 ---
 
-### Add a new plugin :
+### Add a new plugin : 🏆
 
 To add a new dcc, it's easy. You need :
 
@@ -57,7 +57,7 @@ To add a new dcc, it's easy. You need :
 2. A [REZ](../../Workflow/Rez/Rez.mdx) package for the plugin (dcc) you want to implement.
 3. Add acces in the silex_front.
 
-Here is the silex_maya package.py as an example :
+Here is the **silex_maya** package.py as an example :
 
 ```python title="silex_maya/package.py"
 # pylint: skip-file
@@ -100,4 +100,4 @@ def requires():
 
 ```
 
-You can find out more details in the [REZ](../../Workflow/Rez/Rez.mdx) documentation.
+You can find out more details in the [REZ](../../Workflow/Rez/Rez.mdx) documentation. 🧭
