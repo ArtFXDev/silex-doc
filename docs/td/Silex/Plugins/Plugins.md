@@ -25,7 +25,7 @@ A repository basically contains commands and actions to be triggered in the DCC.
 
 ### Structure of the repository :
 
-Here is an exemple with the maya repository:
+Here is an example with the maya repository:
 
 - silex_maya
   - commands
@@ -57,7 +57,7 @@ To add a new dcc, it's easy. You need :
 2. A [REZ](../../Workflow/Rez/Rez.mdx) package for the plugin (dcc) you want to implement.
 3. Add acces in the silex_front.
 
-Here is the silex_maya package.py as an exemple :
+Here is the silex_maya package.py as an example :
 
 ```python title="silex_maya/package.py"
 # pylint: skip-file

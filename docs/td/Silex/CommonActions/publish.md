@@ -43,7 +43,7 @@ The publish allows you to export in a wide range of formats. you can find the li
 
 The publish [YAML](../Client/action-definition.mdx) file in the [silex_client](../Client/client.md) calls for other [YAML](../Client/action-definition.mdx)s from the **command/config/publish** folder in the plugin repositories. In here, [YAML](../Client/action-definition.mdx)s have the same name as the extension associated to the publish type.
 
-For exemple, in [silex_maya](../Plugins/Maya.md) in **command/config/publish** :
+For instance, in [silex_maya](../Plugins/Maya.md) in **command/config/publish** :
 
 - publish
   - abc.yaml
@@ -172,11 +172,11 @@ ma:
               hide: true
 ```
 
-As you can see, there multiple steps that the publish go throught, like the conform check, as mentioned before, and the preview capture.
+As you can see, there multiple steps that the publish goes throught, like the conform check, as mentioned before, and the preview capture.
 
-Somtime, y can see path with a **setup** root, like : `"setup:build_output_path:directory"`
+Sometime, you can see a path with a **setup** root like : `"setup:build_output_path:directory"`
 
-This refers to the publish YAML file in the [silex_client](../Client/client.md) repo, that calls the this YAML file in the plugin repo. in the xcase of ouur exemple, before executing the ma.yaml file, the publish file execute a bunch of other commands, the most important of wich is the **build_output_path**
+This refers to the publish.yaml file in the [silex_client](../Client/client.md) repository, that calls this the specific YAML (in this case ma.yaml) in the plugin repository. In the case of our example, before executing the ma.yaml file, the publish file executes a bunch of other commands, the most important of wich is the **build_output_path**.
 
 Here is the publish.yaml in **silex_lcient/command/config/action/** :
 
@@ -252,7 +252,7 @@ The build_output_path.py command returns the output path of the publish followin
 
 ## Write your own publish :
 
-Usually, to implement a new publish, you can write a new command to export your format and use this YAML exemple as a template. You only need change the command in the **Export** step to the name of your new export command.
+Usually, to implement a new publish, you can write a new command to export your format and use this YAML example as a template. You only need change the command in the **Export** step to the name of your new export command.
 
 :::tip
 In many cases, a command will export the published file to a temporary folder passed from the build_output_path, and then, will need to pass on to the move step the newly created file(s) so the move function can copy it/them to the finale location.

@@ -10,7 +10,7 @@ Resilio est l'outil de synchronisation entre tous les groupes et les nas.
 
 ## Configuration
 
-L'équipe IT va générer les fichiers de config depuis la console resilio, chaque fichier de config peut avoir des variables par exemple GROUP en clés et en valeur le nom du groupe.
+L'équipe IT va générer les fichiers de config depuis la console resilio, chaque fichier de config peut avoir des variables par example GROUP en clés et en valeur le nom du groupe.
 
 Avec cette technique l'association des machines dans chaque groupe sera automatique lors du déploiement sera "automatique".
 
