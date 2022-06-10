@@ -11,11 +11,11 @@ The publish is one of the most improtant action in Silex.
 
 Every scene sent to the renderfarm must be in a publish folder (wich is synchronised with the server : see [Silex itrodution](../Silex.md)) as well as its references. This way, the _blades_ (computers in the renderfarm) can access all the files needed for rendering.
 
-## Purpose : 
+## Purpose :
 
 The **Publish** action is the way to save your scenes and references in the **publish folder**. it exports multiple formats, checks that all references are in a publish folder and rename the exported file accordingly with the naming convention.
 
-The purpose of the **publish** is to ensure that every job submited to the [Renderfarm](../../Renderfarm/renderfarm.md) is renderable, and all references and textures can be reached by any _blade_ on the network. For doing so, the action calls for the  [Conform](./conform.md) action. If the references found in the scene need to be [Conform](./conform.md) to the pipeline, and cannot be access from the server, the **Publish** action will propose you to conform these references.
+The purpose of the **publish** is to ensure that every job submited to the [Renderfarm](../../Renderfarm/renderfarm.md) is renderable, and all references and textures can be reached by any _blade_ on the network. For doing so, the action calls for the [Conform](./conform.md) action. If the references found in the scene need to be [Conform](./conform.md) to the pipeline, and cannot be access from the server, the **Publish** action will propose you to conform these references.
 
 ---
 
@@ -33,15 +33,15 @@ The publish allows you to export in a wide range of formats. you can find the li
 
 1- Select a publish type.
 2- Select or tipe a filename
-3- Process parameters specific to the command calld for the chosen publish type. 
+3- Process parameters specific to the command calld for the chosen publish type.
 4- The comand export the scene or the eselection in a temporary folder.
 5- A **move** command from silex_client is called to move the exported file to the right location.
 
----  
+---
 
 ## Yummy YAMLs :
 
-The publish [YAML](../Client/action-definition.mdx) file in the [silex_client](../Client/client.md) calls for other [YAML](../Client/action-definition.mdx)s from the **command/config/publish** folder in the plugin repositories. In here,  [YAML](../Client/action-definition.mdx)s have the same name as the extension associated to the publish type.
+The publish [YAML](../Client/action-definition.mdx) file in the [silex_client](../Client/client.md) calls for other [YAML](../Client/action-definition.mdx)s from the **command/config/publish** folder in the plugin repositories. In here, [YAML](../Client/action-definition.mdx)s have the same name as the extension associated to the publish type.
 
 For exemple, in [silex_maya](../Plugins/Maya.md) in **command/config/publish** :
 
@@ -53,16 +53,13 @@ For exemple, in [silex_maya](../Plugins/Maya.md) in **command/config/publish** :
   - ...
   - xgen.yaml
 
-
 A publish [YAML](../Client/action-definition.mdx) looks like this :
 
 ```yaml title="ma.yaml"
-
-# the root has to have the same name as the YAML file. 
+# the root has to have the same name as the YAML file.
 ma:
   steps:
-
-    # Look for references and check that everything is conform. 
+    # Look for references and check that everything is conform.
     # If not, use conform action
     check_references:
       label: "Check references"
@@ -109,7 +106,6 @@ ma:
               value: !command-output "check_references:conform_references"
               hide: true
 
-    
     # Export in the proper format, in a temporary folder next to the final location.
     export:
       label: "Export"
@@ -174,16 +170,15 @@ ma:
             preview_path:
               value: !command-output "preview:capture_preview:thumbnail"
               hide: true
-
 ```
 
 As you can see, there multiple steps that the publish go throught, like the conform check, as mentioned before, and the preview capture.
 
-Somtime, y can see path with a **setup** root, like : ```"setup:build_output_path:directory"```
+Somtime, y can see path with a **setup** root, like : `"setup:build_output_path:directory"`
 
 This refers to the publish YAML file in the [silex_client](../Client/client.md) repo, that calls the this YAML file in the plugin repo. in the xcase of ouur exemple, before executing the ma.yaml file, the publish file execute a bunch of other commands, the most important of wich is the **build_output_path**
 
-Here is the publish.yaml in **silex_lcient/command/config/action/** : 
+Here is the publish.yaml in **silex_lcient/command/config/action/** :
 
 ```yaml title="publish.yaml"
 publish: !inherit
@@ -251,7 +246,6 @@ publish: !inherit
       commands:
         add_silex_coins:
           path: "silex_client.commands.user.silex_coins.AddSilexCoinsCommand"
-
 ```
 
 The build_output_path.py command returns the output path of the publish following the naming convention.
@@ -270,7 +264,3 @@ In many cases, a command will export the published file to a temporary folder pa
 If you want, you can costumize this publish template by adding or deleting steps.
 
 If you havn't read the documentation on the YAML definition, you can click here [action definition](../Client/action-definition.mdx).
-
-
-
-
