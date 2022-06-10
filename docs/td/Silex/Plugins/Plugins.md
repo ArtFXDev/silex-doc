@@ -59,7 +59,7 @@ To add a new dcc, it's easy. You need :
 
 Here is the silex_maya package.py as an exemple :
 
-``` python title="silex_maya/package.py"
+```python title="silex_maya/package.py"
 # pylint: skip-file
 name = "silex_maya"
 version = "0.1.0"
