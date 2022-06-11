@@ -255,7 +255,7 @@ The problem is that [creating two commands on Tractor is causing issues...](../.
 
 So we use a helper to wrap the command with the mount command. To do that we first need to use the [`CommandBuilder`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/command_builder.py#L5) class that uses the [builder pattern](https://doc.rust-lang.org/1.0.0/style/ownership/builders.html):
 
-```python
+```python title="silex_client/commands/farm/natron_render_tasks.py"
 # highlight-next-line
 from silex_client.utils import command_builder, farm
 
@@ -361,7 +361,7 @@ Now the thing is that our submitter only renders the same scene and same frames 
 
 First we need the user to select his project file in the submitter. For that we specify a `parameters` dictionnary and use the `TaskFileParameterMeta` parameter type:
 
-```python
+```python title="silex_client/commands/farm/natron_render_tasks.py"
 # highlight-next-line
 from silex_client.utils.parameter_types import TaskFileParameterMeta
 
@@ -392,7 +392,8 @@ In the interface it will show a file explorer component so the user can select h
 
 Then we use that parameter in the command code:
 
-```python
+```python title="silex_client/commands/farm/natron_render_tasks.py"
+# highlight-next-line
 scene_file: pathlib.Path = parameters["scene_file"]
 
 command = (
@@ -400,6 +401,7 @@ command = (
         "natronrenderer", rez_packages=["natron"], delimiter=None
     )
     .param("w", ["Write1", r"P:\test_pipe\test\render\out.####.exr", "1-10"])
+    # highlight-next-line
     .value(scene_file.as_posix())
 )
 ```
@@ -693,6 +695,180 @@ chunk_cmd.param("w", [write_node, output_path, chunk_range])
 
 Now it works perfectly!! 👌👌
 
+<details><summary>Final <code>natron.yml</code> action definition file</summary>
+
+<p>
+
+```yml
+natron:
+  label: "Submit Natron scene"
+  steps:
+    build_output_path:
+      label: "Build output path"
+      index: 10
+      commands:
+        select_extension:
+          label: "Output extension"
+          path: "silex_client.commands.select_list.SelectList"
+          parameters:
+            param_name: "Output extension"
+            parameters_list:
+              - "exr"
+              - "png"
+              - "jpg"
+              - "tiff"
+
+        build_output_path:
+          label: "Build output path"
+          path: "silex_client.commands.build_output_path.BuildOutputPath"
+          ask_user: true
+          parameters:
+            create_temp_dir: false
+            create_output_dir: false
+            output_type:
+              value: !command-output "build_output_path:select_extension"
+              hide: true
+            use_current_context:
+              value: true
+              hide: true
+            name:
+              value: "render"
+
+    natron_render:
+      label: "Setup render parameters"
+      index: 20
+      commands:
+        build_natron_tasks:
+          path: "silex_client.commands.farm.natron_render_tasks.NatronRenderTasksCommand"
+          label: "Natron Job parameters"
+          ask_user: true
+          parameters:
+            output_directory:
+              value: !command-output "build_output_path:build_output_path:directory"
+            output_filename:
+              value: !command-output "build_output_path:build_output_path:file_name"
+            output_extension:
+              value: !command-output "build_output_path:select_extension"
+
+        submit_to_tractor:
+          label: "Submit"
+          path: "silex_client.commands.farm.submit_to_tractor.SubmitToTractorCommand"
+          ask_user: true
+          parameters:
+            tasks:
+              value: !command-output "natron_render:build_natron_tasks:tasks"
+            job_title:
+              value: !command-output "natron_render:build_natron_tasks:file_name"
+            job_tags:
+              value:
+                - "natron"
+```
+
+</p>
+</details>
+
+<details><summary>Final <code>natron_render_tasks.py</code> command file</summary>
+
+<p>
+
+```python
+from __future__ import annotations
+
+import logging
+import pathlib
+import typing
+from typing import Any, Dict, List
+
+from fileseq import FrameSet
+from silex_client.action.command_base import CommandBase
+from silex_client.utils import command_builder, farm, frames
+from silex_client.utils.parameter_types import TaskFileParameterMeta
+
+# Forward references
+if typing.TYPE_CHECKING:
+    from silex_client.action.action_query import ActionQuery
+
+
+class NatronRenderTasksCommand(CommandBase):
+    """
+    Construct Natron render commands
+    See: https://natron.readthedocs.io/en/rb-2.5/devel/natronexecution.html
+    """
+
+    parameters = {
+        "scene_file": {
+            "label": "Project file",
+            "type": TaskFileParameterMeta(extensions=[".ntp"]),
+        },
+        "output_directory": {"type": pathlib.Path, "hide": True},
+        "output_filename": {"type": str, "hide": True},
+        "output_extension": {"type": str, "hide": True},
+        "frame_range": {
+            "label": "Frame range",
+            "type": FrameSet,
+            "value": "1-50x1",
+        },
+        "task_size": {
+            "label": "Task size",
+            "tooltip": "Number of frames per computer",
+            "type": int,
+            "value": 10,
+        },
+        "write_node": {"type": str, "value": "Write1"},
+    }
+
+    @CommandBase.conform_command()
+    async def __call__(
+        self,
+        parameters: Dict[str, Any],
+        action_query: ActionQuery,
+        logger: logging.Logger,
+    ):
+        output_directory: pathlib.Path = parameters["output_directory"]
+        output_filename: str = parameters["output_filename"]
+        output_extension: str = parameters["output_extension"]
+
+        scene_file: pathlib.Path = parameters["scene_file"]
+        write_node: str = parameters["write_node"]
+        frame_range: FrameSet = parameters["frame_range"]
+        task_size: int = parameters["task_size"]
+
+        output_path = (
+            output_directory
+            / write_node
+            / f"{output_filename}_{write_node}.####.{output_extension}"
+        )
+
+        natron_cmd = command_builder.CommandBuilder(
+            "natronrenderer", rez_packages=["natron"], delimiter=None
+        )
+
+        tasks: List[farm.Task] = []
+        frame_chunks = frames.split_frameset(frame_range, task_size)
+
+        for chunk in frame_chunks:
+            # Copy the initial command
+            chunk_cmd = natron_cmd.deepcopy()
+
+            chunk_range = str(chunk).replace("x", ":")
+            chunk_cmd.param("w", [write_node, output_path, chunk_range])
+            chunk_cmd.value(scene_file.as_posix())
+
+            command = farm.wrap_with_mount(
+                chunk_cmd, action_query.context_metadata["project_nas"]
+            )
+
+            task = farm.Task(str(chunk))
+            task.addCommand(command)
+            tasks.append(task)
+
+        return {"tasks": tasks, "file_name": scene_file.stem}
+```
+
+</p>
+
+</details>
+
 ## Go further 🚀
 
 Some ideas to improve the submitter:
@@ -704,3 +880,5 @@ Some ideas to improve the submitter:
 - Go through the node graph and construct a dependency graph of the write nodes and construct that for Tractor. In fact write nodes can be used as read nodes
 
 - When a read node can't find a file, Natron will not return a return code that is different from `0`. So there's an error in the render but Tractor sees it as finished. You can either [add it into custom error messages in the blade code](https://github.com/ArtFXDev/tractor-blade-patch#bladetractorsitestatusfilterpy) or file an issue on GitHub to ask why.
+
+  > See this thread about Natron return code: https://discuss.pixls.us/t/error-while-rendering-rendering-failed-return-code-is-0/31155
