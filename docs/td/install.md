@@ -4,15 +4,23 @@ title: Install silex
 sidebar_position: 20
 ---
 
-# Ask right on github artfxdev and account on kitsu
+Before installing Silex applications and front-end, the back-end needs no be setup and in production. We will start with this step.
+
+## Deploy Back-end
+
+TODO
+
+## Install Front-end
+
+### Ask right on github artfxdev and account on Zou
 
 ArtfxDev is the organisation that holds Silex repositories. You need to be member of the organisation and pipeline developer to get the applications rights.
 
-Kitsu is the Silex database, you need an acciount on it, and to be registered as a member of the TEST_PIPE project. Then connect to : http://kitsu.prod.Silex.artfx.fr
+Zou is the Silex database. It is a premade database extracted from the CGWire project. You need an account on it, and to be registered as a member of the TEST_PIPE project. Then connect to : http://kitsu.prod.Silex.artfx.fr
 
-# Install python and rez
+### Install python and rez
 
-For 2021-2022 pipeline, python 3.7.x is needed. You can find it here : https://www.python.org/downloads/windows/
+For 2021-2022 pipeline, python 3.7.x is needed. You can find it here : https://www.python.org/downloads/windows/. Do not install python in a 'Program Files' folder or in any folder with a space in its name. Rez does not support them.
 
 Download Rez 2.95.0 source release from https://github.com/nerdvegas/rez/releases
 
@@ -30,13 +38,15 @@ C:\rez\__install__\Scripts\rez
 
 Set a REZ_CONFIG_FILE environment variable to `\\prod.Silex.artfx.fr/rez/windows/config/rezconfig.py`
 
+If this file does not exist on the production server, you can find it here and recreate it: https://github.com/ArtFXDev/silex-rez/blob/prod/rezconfig.py
+
 Close terminal and reopen it still with admin rights. Install basic packages with:
 
 ```
 rez bind -i C:/rez/packages --quickstart
 ```
 
-# Configure rez
+### Configure rez
 
 Create a `packages` folder in the `c:/rez` folder. Go into this folder.
 
@@ -60,7 +70,7 @@ Close the admin terminal and reopen a normal rights terminal.
 
 If you have an error saying python is not found, remove the C:\rez\packages\python folder, then launch ` rez bind -i C:/rez/packages python` with admin priviledges.
 
-# Install Silex desktop
+### Install Silex desktop
 
 Install nodejs through scoop
 
@@ -107,7 +117,7 @@ yarn install
 
 This will automatically install Silex-socket-service
 
-# Run and test
+## Run and test
 
 In the Silex desktop folder, run Silex with:
 
