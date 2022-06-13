@@ -54,5 +54,49 @@
   "copyright": {
     "message": "Copyright © 2022 ArtFX TDs",
     "description": "The footer copyright"
+  },
+  "link.title.User Guide": {
+    "message": "User Guide",
+    "description": "The title of the footer links column with title=User Guide in the footer"
+  },
+  "link.item.label.Presentation": {
+    "message": "Presentation",
+    "description": "The label of footer link with label=Presentation linking to /docs/td/presentation"
+  },
+  "link.item.label.Install": {
+    "message": "Install",
+    "description": "The label of footer link with label=Install linking to /docs/user/install"
+  },
+  "link.item.label.Shots & assets": {
+    "message": "Shots & assets",
+    "description": "The label of footer link with label=Shots & assets linking to /docs/user/shots-assets"
+  },
+  "link.item.label.Silex Action": {
+    "message": "Silex Action",
+    "description": "The label of footer link with label=Silex Action linking to /docs/user/action"
+  },
+  "link.item.label.Install Silex": {
+    "message": "Install Silex",
+    "description": "The label of footer link with label=Install Silex linking to /docs/td/install"
+  },
+  "link.item.label.Coding Workflow": {
+    "message": "Coding Workflow",
+    "description": "The label of footer link with label=Coding Workflow linking to /docs/td/workflow"
+  },
+  "link.item.label.Backend": {
+    "message": "Backend",
+    "description": "The label of footer link with label=Backend linking to /docs/td/backend/CGWire/zou"
+  },
+  "link.item.label.Renderfarm": {
+    "message": "Renderfarm",
+    "description": "The label of footer link with label=Renderfarm linking to /docs/td/renderfarm"
+  },
+  "link.item.label.Silex": {
+    "message": "Silex",
+    "description": "The label of footer link with label=Silex linking to /docs/td/silex"
+  },
+  "link.item.label.Design Guidelines": {
+    "message": "Design Guidelines",
+    "description": "The label of footer link with label=Design Guidelines linking to /docs/td/design"
   }
 }
