@@ -7,15 +7,27 @@ title: Publish
 
 ## Intro:
 
-The publish is one of the most improtant action in Silex.
+The publish is one of the most improtant actions in Silex.
 
-Every scene sent to the renderfarm must be in a publish folder (wich is synchronised with the server : see [Silex itrodution](../Silex.md)) as well as its references. This way, the _blades_ (computers in the renderfarm) can access all the files needed for rendering.
+Every scene sent to the renderfarm must be in a publish folder (which is synchronised with the server : see [Silex introdution](../Silex.md)) as well as its references. This way, the _blades_ (computers in the renderfarm) can access all the files needed for rendering.
 
 ## Purpose :
 
-The **Publish** action is the way to save your scenes and references in the **publish folder**. it exports multiple formats, checks that all references are in a publish folder and rename the exported file accordingly with the naming convention.
+The **Publish** action is the way to save your scenes and references in the **publish folder**. it exports multiple formats, checks that all references are in a publish folder and renames the exported file accordingly with the naming convention.
 
-The purpose of the **publish** is to ensure that every job submited to the [Renderfarm](../../Renderfarm/renderfarm.md) is renderable, and all references and textures can be reached by any _blade_ on the network. For doing so, the action calls for the [Conform](./conform.md) action. If the references found in the scene need to be [Conform](./conform.md) to the pipeline, and cannot be access from the server, the **Publish** action will propose you to conform these references.
+The purpose of the **publish** is to ensure that every job submited to the [Renderfarm](../../Renderfarm/renderfarm.md) is renderable, and all references and textures can be reached by any _blade_ on the network. For doing so, the action calls for the [Conform](./conform.md) action. If the references found in the scene need to be [conformed](./conform.md) to the pipeline, and cannot be accessed from the server. The **Publish** action will prompt you to [conform](./conform.md) these references.
+
+### Step by step use of the publish :
+
+1- Select a publish type.
+
+2- Select or type a filename
+
+3- Process parameters specific to the command called for the chosen publish type.
+
+4- The comand exports the scene or the selection in a temporary folder.
+
+5- A **move** command from silex_client is called to move the exported file to the right location.
 
 ---
 
@@ -27,23 +39,11 @@ The publish allows you to export in a wide range of formats. you can find the li
   - config
     - publish
 
-(see for more info on repository architacture : [Plugins](../Plugins/Plugins.md))
-
-### Step by step use of the publish :
-
-1- Select a publish type.
-
-2- Select or type a filename
-
-3- Process parameters specific to the command called for the chosen publish type.
-
-4- The command export the scene or the selection in a temporary folder.
-
-5- A **move** command from silex_client is called to move the exported file to the right location.
+(see for more info on repository architecture : [Plugins](../Plugins/Plugins.md)) 🧭
 
 ---
 
-## Yummy YAMLs : 🎂
+### Yummy YAMLs : 🎂
 
 The publish [YAML](../Client/action-definition.mdx) file in the [silex_client](../Client/client.md) calls for other [YAML](../Client/action-definition.mdx)s from the **command/config/publish** folder in the plugin repositories. In here, [YAML](../Client/action-definition.mdx)s have the same name as the extension associated to the publish type.
 
@@ -57,7 +57,7 @@ For instance, in [silex_maya](../Plugins/Maya.md) in **command/config/publish** 
   - ...
   - xgen.yaml
 
-A publish [YAML](../Client/action-definition.mdx) looks like this :
+A publish [YAML](../Client/action-definition.mdx) file looks like this :
 
 ```yaml title="ma.yaml"
 # the root has to have the same name as the YAML file.
@@ -176,7 +176,7 @@ ma:
               hide: true
 ```
 
-As you can see, there multiple steps that the publish goes throught, like the conform check, as mentioned before, and the preview capture.
+As you can see, there are multiple steps that the publish goes through, like the conform check, as mentioned before, and the preview capture.
 
 Sometime, you can see a path with a **setup** root like : `"setup:build_output_path:directory"`
 
@@ -252,19 +252,21 @@ publish: !inherit
           path: "silex_client.commands.user.silex_coins.AddSilexCoinsCommand"
 ```
 
-The build_output_path.py command returns the output path of the publish following the naming convention.
+The **build_output_path.py** command returns the output path of the publish following the naming convention.
 
 ## Write your own publish : 🏆
 
-Usually, to implement a new publish, you can write a new command to export your format and use this YAML example as a template. You only need change the command in the **Export** step to the name of your new export command.
+Usually, to implement a new publish, you can write a new [command](../Client/command-definition.md) to export your format and use this YAML example as a template. You only need to change the [command](../Client/command-definition.md) in the **Export** step to the name of your new export [command](../Client/command-definition.md).
 
 :::tip 🦉
-In many cases, a command will export the published file to a temporary folder passed from the build_output_path, and then, will need to pass on to the move step the newly created file(s) so the move function can copy it/them to the finale location.
+In many cases, a command will export the published file to a temporary folder passed from the **build_output_path**. Afterwards, it will need to pass the newly created file(s) to the move step so the move function can copy it/them to the final location.
 **So, the command requirements are :**
-1- take an export directory as parameter
-2- return the list of all file in the temporary folder.
+
+1- Take an export directory as a parameter.
+
+2- Return the list of all files in the temporary folder.
 :::
 
-If you want, you can costumize this publish template by adding or deleting steps.
+If you want, you can customize this publish template by adding or deleting steps.
 
 If you havn't read the documentation on the YAML definition, you can click here [action definition](../Client/action-definition.mdx). 🧭

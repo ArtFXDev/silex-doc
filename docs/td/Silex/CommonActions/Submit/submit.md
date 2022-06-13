@@ -4,7 +4,7 @@ title: Submit
 
 **Submit** is the action of launching a job on the [render farm](../../Renderfarm).
 
-## Goal
+## Purpose
 
 The goal of the submitter is to be able to launch render jobs with **different render engines** and tools.
 

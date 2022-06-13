@@ -105,3 +105,7 @@ If you check the yaml files of the default conform, you will see that they are a
 These steps are only to store globaly the conformed files, and prevent conforming the same file again if it is
 referenced multiple times.
 :::
+
+:::caution
+The **.ass conform** action is using a Maya Arnold api wich is only accessible from Maya. So **.ass** files need to be conform from the shelf of an open maya scene !
+:::
