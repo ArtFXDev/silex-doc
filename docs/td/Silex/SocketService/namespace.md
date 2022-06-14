@@ -14,7 +14,7 @@ In simple way : Namespaces in like a route for your request, to sort them.
  ┃ ┗ 📜ui.js
 ```
 
-To add a new namespaces your have create a file .js under the namespaces directory of the project, in the files structure example we have 4 namespaces:
+To add a new namespaces your have create a .js file under the namespaces directory of the project. In the file structure example, we have 4 namespaces:
 
 - /dcc
 - /dcc/action
@@ -39,15 +39,15 @@ this will simply return the output object of io.of("/ui")
 // listeners/dcc.js
 
 /** NAMEPSACE  */
-const dccNamespace = require("../namespaces/dcc/dcc")              <== Import Here
+const dccNamespace = require("../namespaces/dcc/dcc")              // <== Import Here
 const dccActionNamespace = require("../namespaces/dcc/action")
 
 
 module.exports = function (io) {
-  dccNamespace(io).on("connection", function (socket) {            <== Use Here
+  dccNamespace(io).on("connection", function (socket) {            // <== Use Here
     dccRoomJoin(socket)
     ...
 ```
 
-**side client for Namespace connection**:
+**Client side for Namespace connection**:
 clientDcc = new Client(`http://localhost:${port}/dcc`)

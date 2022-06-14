@@ -1,4 +1,5 @@
 Event are not a socket.io object, it's just custom object to structure this app.
+
 An event contains the "real" code executed, is the main core of each behaviour.
 
 ## File structure

@@ -1,5 +1,6 @@
-They are automatically execute from index.js.
-So, if you want to add a new listeners, you just have to create a new.js files under listener directory
+Link between routes and events. They are automatically executed from index.js.
+
+So, if you want to add a new listeners, you just have to create a new js files under the listener directory.
 
 ## Files structure
 
@@ -13,18 +14,18 @@ So, if you want to add a new listeners, you just have to create a new.js files u
 ## Code Example
 
 ```javascript
-module.exports = function (io) {                                  // <== the code start here
+module.exports = function (io) {                                  // <== the code starts here
   myNamespace(io).on("connection", function (socket) {            // <== dccNamespace(io)... will be executed by index.js
-    myevent(socket)                                               // On "connection"event, we execute on socket object all the bellow events
+    myevent(socket)                                               // On "connection" event, we execute on socket object all below events
     mySecondEvent(socket, io)
     myLastEvent(socket, io)
   })
 ```
 
-**Second example with a real usage :**
+**Second example with a real usage:**
 
 ```javascript
-/** NAMEPSACE  */
+/** NAMESPACE  */
 const dccNamespace = require("../namespaces/dcc/dcc");
 const dccActionNamespace = require("../namespaces/dcc/action");
 
