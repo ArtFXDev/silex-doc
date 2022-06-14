@@ -4,8 +4,7 @@ title: General presentation
 sidebar_position: 10
 ---
 
-
-WebSocket server is a bridge between DCCs and frontend. 
+WebSocket server is a bridge between DCCs and frontend.
 
 DCCs and Silex desktop frontend interface need to communicate in realtime, and we use a socket server to achieve that. You can figure a socket server as a chat room, where each client is connected anc can send requests. Because Silex desktop frontend and DCCs are connected on the same socket service, they can interact.
 
