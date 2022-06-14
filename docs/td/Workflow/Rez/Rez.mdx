@@ -7,21 +7,21 @@ import { PROD_ROOT, PROD_SSH } from "@site/src/constants";
 
 ---
 
-Rez is an environment manager that allows us to launch DCCs in isolated contexts, include mandatory libraries only, define environment variables specific to this environment or define special cases for each team in the school.
+Rez is an environment manager that allows us to launch DCCs in isolated contexts including mandatory libraries only, define environment variables specific to this environment or define special cases for each team in the school.
 
 Everything can be found in the documentation on GitHub : [https://github.com/AcademySoftwareFoundation/rez](https://github.com/AcademySoftwareFoundation/rez)
 
 <span>
-  In the pipeline, the REZ packeges are localized on the server in \\{PROD_ROOT}
-  \rez\\
+  In the pipeline, the REZ packages are localized on the server in <code>\\{PROD_ROOT}
+  \rez\ </code>
 </span>
 
 <br />
 <br />
 
 <span>
-  The DCC packages and team packages can be found in \\{PROD_ROOT}
-  \rez\packages\silex-rez\packages\\
+  The DCC packages and team packages can be found in <code>\\{PROD_ROOT}
+  \rez\packages\silex-rez\packages\</code>
 </span>
 
 <br />
@@ -69,7 +69,7 @@ def commands():
 
 Here is an example of REZ package for the Maya [Plugin](../../Silex/Plugins/Maya.md) :
 
-```python title="dcc/maya/packege.py"
+```python title="dcc/maya/package.py"
 name = "maya"
 version = "2022.0"
 
@@ -102,7 +102,7 @@ def commands():
 
 The [Plugins](../../Silex/Plugins/Plugins.md) repositories and [silex_client](../../Silex/Client/client.md) can be found in :
 
-<span>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</span>
+<span><code>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</code></span>
 
 <br />
 <br />
@@ -185,4 +185,5 @@ The student will be able to enjoy your awsome new features ! \_(^^)/
 
 ### Beta and Prod
 
-In <span>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</span>, if you look in any of the silex_folder, you will be able to see a **beta** and a **prod** folder. They both contain the branch of the same name in the repository, and are updated according to these branches.
+<span>In <code>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</code></span>, if you look in any of the silex_folder, you will be able to see a **beta** and a **prod** folder. They both contain the branch of the same name in the repository, and are updated according to these branches.
+    
