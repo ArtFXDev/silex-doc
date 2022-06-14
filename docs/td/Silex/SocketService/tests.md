@@ -1,4 +1,4 @@
-[Mocha](https://mochajs.org/#hooks) are used tu make unit test
+[Mocha](https://mochajs.org/#hooks) is used tu make unit tests.
 
 ## Files Structure
 
@@ -12,8 +12,7 @@
  ┗ 📜index.js
 ```
 
-Mocha command in package.json scan and execute all files in /test,
-so to create a new test, you just have to create your new testfile.js under /test.
+Mocha command in package.json scans and executes all files in /test. Therefore, to create a new test, you just have to create your new testfile.js under /test.
 
 /index.js is used to start main app before all tests.
 

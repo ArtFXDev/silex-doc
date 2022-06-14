@@ -1,7 +1,8 @@
 For explanation about namespace usage for Socket.io see: [Socket.io/rooms](https://socket.io/docs/v4/rooms/)
-Rooms are used here to split socket ui client and soccket client dcc
 
-You can broadcast event to all client present in rooms, very usefull.
+Rooms are used here to split socket ui client and socket DCC client.
+
+You can broadcast event to all client present in rooms, which is very useful.
 
 ## File Structure
 
