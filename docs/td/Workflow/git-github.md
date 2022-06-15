@@ -39,3 +39,26 @@ feature-branch1 -> dev -> beta -> prod
 8. When the changes are good to go, make a pull request from `dev` to `beta`
 9. Beta testers use that feature
 10. Finally merge `beta` into `prod` so everyone can use it
+
+## GitHub docker registry
+
+In order to use the images in the [deployment repository](https://github.com/ArtFXDev/silex-deploy) using `docker-compose`, there's a GitHub action on some repositories **to build an image automatically when a tag is pushed**.
+
+To create and push a tag, and do the following:
+
+```shell
+$ git tag v<version> # Use semantic versionning
+$ git push origin <branch> --tags
+```
+
+:::tip
+Make sure the tag version matches any `package.json` version.
+
+Also use [semantic versionning](https://semver.org/) (semver).
+:::
+
+It will build the image and publish it on the GitHub Docker registry:
+
+![](/img/docker_build.png)
+
+Then you can **pull the latest images** to update the containers.
