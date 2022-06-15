@@ -55,7 +55,6 @@ This section displays your account avatar, the nimby status, access to the list 
 
 ![](../../../static/img/user_guide/home_page/silex_home_page_running_software.PNG)
 
-
 4- Nimby : allows you to turn on/off the [nimby](nimby.md).
 
 5- Account profile
@@ -82,4 +81,3 @@ This menu gives you acces to all the service on Silex.
 - **Harvest** : This will redirect you to [Harvest](../harvest/harvest.md), a statistic tool relaying different information on the renderfarm.
 
 - **Ticket** : Access to the ticket system. see with the TDs if they are using it.
-
