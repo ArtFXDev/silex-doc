@@ -1,7 +1,7 @@
 ---
 id: iterface
 title: Iterface
-sidebar_position: 10
+sidebar_position: 30
 ---
 
 ## Home page
@@ -47,7 +47,7 @@ This section displays your account avatar, the nimby status, access to the list 
 
 ![](../../../static/img/user_guide/home_page/silex_home_page_frame_top.png)
 
-1- Hamberger menu : Gives you acces to all the service on Silex.
+1- Hamberger menu.
 
 2- Update bottun : reload the interface (usefull if some nexley created files don't show or if new features don't appear) You can use the **very precious** CTRL + R shortcut to trigger the same result.
 
@@ -55,6 +55,38 @@ This section displays your account avatar, the nimby status, access to the list 
 
 ![](../../../static/img/user_guide/home_page/silex_home_page_running_software.PNG)
 
+<<<<<<< Updated upstream
 4- Nimby : allows you to turn on/off the [nimby](nimby.md)
 
 5-
+=======
+4-  Nimby : allows you to turn on/off the [nimby](nimby.md).
+
+5- Account profile
+
+![](../../../static/img/user_guide/home_page/silex_home_page_profile.PNG)
+
+
+
+## Hamburger menu :
+
+This menu gives you acces to all the service on Silex.
+
+![](../../../static/img/user_guide/home_page/silex_home_page_hamburger.PNG)
+
+
+- **Home** : home page 
+
+- **Project explorer** : This is a [file explorer](file-explorer.md) that let you browse through the files in your projects.
+- **Actions** : This shows all running [actions](../basic-concepts/actions.md) on you computer. 
+
+- **Statistics** : This represents the rendered frames progression of each team through the year. Try and reach the top ass fast as you can :)
+
+- **Arcade** : Here you can find flappy-bird like games, inspired by promo2022 movies. plays them to get some silex coins ! (But not to much)
+
+- **Tractor** : Tractor is the school [renderfarm](../renderfarm/renderfarm.md).
+
+- **Harvest** :  This will redirect you to [Harvest](../harvest/harvest.md), a statistic tool relaying different information on the renderfarm.
+
+- **Ticket** : Access to the ticket system. see with the TDs if they are using it.
+>>>>>>> Stashed changes
