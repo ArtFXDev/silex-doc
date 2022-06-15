@@ -10,6 +10,9 @@ DCCs and Silex desktop frontend interface need to communicate in realtime, and w
 
 In order to achieve Separation of Concerns, it is neither the Silex desktop frontend nor the DCCs that accomplish file actions, but the Silexsocket Service itself.
 
+Silex Socket Service use Socket-io library.
+Socket-io is a protocol that use WebSocket.
+
 ## Get Started
 
 On standalone :
