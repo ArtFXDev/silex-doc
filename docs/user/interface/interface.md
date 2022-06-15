@@ -58,15 +58,13 @@ This section displays your account avatar, the nimby status, access to the list 
 <<<<<<< Updated upstream
 4- Nimby : allows you to turn on/off the [nimby](nimby.md)
 
-5-
-=======
-4-  Nimby : allows you to turn on/off the [nimby](nimby.md).
+# 5-
+
+4- Nimby : allows you to turn on/off the [nimby](nimby.md).
 
 5- Account profile
 
 ![](../../../static/img/user_guide/home_page/silex_home_page_profile.PNG)
-
-
 
 ## Hamburger menu :
 
@@ -74,11 +72,10 @@ This menu gives you acces to all the service on Silex.
 
 ![](../../../static/img/user_guide/home_page/silex_home_page_hamburger.PNG)
 
-
-- **Home** : home page 
+- **Home** : home page
 
 - **Project explorer** : This is a [file explorer](file-explorer.md) that let you browse through the files in your projects.
-- **Actions** : This shows all running [actions](../basic-concepts/actions.md) on you computer. 
+- **Actions** : This shows all running [actions](../basic-concepts/actions.md) on you computer.
 
 - **Statistics** : This represents the rendered frames progression of each team through the year. Try and reach the top ass fast as you can :)
 
@@ -86,7 +83,7 @@ This menu gives you acces to all the service on Silex.
 
 - **Tractor** : Tractor is the school [renderfarm](../renderfarm/renderfarm.md).
 
-- **Harvest** :  This will redirect you to [Harvest](../harvest/harvest.md), a statistic tool relaying different information on the renderfarm.
+- **Harvest** : This will redirect you to [Harvest](../harvest/harvest.md), a statistic tool relaying different information on the renderfarm.
 
 - **Ticket** : Access to the ticket system. see with the TDs if they are using it.
->>>>>>> Stashed changes
+  > > > > > > > Stashed changes
