@@ -1,5 +1,5 @@
 {
-  "link.title.Guide Utilisateur": {
+  "link.title.User Guide": {
     "message": "Guide Utilisateur",
     "description": "The title of the footer links column with title=Guide Utilisateur in the footer"
   },
@@ -54,10 +54,6 @@
   "copyright": {
     "message": "Copyright © 2022 ArtFX TDs",
     "description": "The footer copyright"
-  },
-  "link.title.User Guide": {
-    "message": "User Guide",
-    "description": "The title of the footer links column with title=User Guide in the footer"
   },
   "link.item.label.Presentation": {
     "message": "Presentation",

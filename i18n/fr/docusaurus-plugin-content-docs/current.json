@@ -52,11 +52,11 @@
     "description": "The label for category Tractor in sidebar td"
   },
   "sidebar.it.category.deployment": {
-    "message": "deployment",
-    "description": "The label for category deployment in sidebar it"
+    "message": "Deployment",
+    "description": "Le nom pour la catégorie déploiement dans la barre latérale"
   },
   "sidebar.it.category.scripts": {
-    "message": "scripts",
-    "description": "The label for category scripts in sidebar it"
+    "message": "Scripts",
+    "description": "Le nom pour la catégorie scripts dans la barre latérale"
   }
 }

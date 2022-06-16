@@ -3,6 +3,10 @@
     "message": "Silex Docs",
     "description": "The title in the navbar"
   },
+  "item.label.User Guide": {
+    "message": "Guide utilisateur",
+    "description": "Navbar item with label User Guide"
+  },
   "item.label.TD": {
     "message": "TD",
     "description": "Navbar item with label TD"
@@ -14,9 +18,5 @@
   "item.label.FAQ": {
     "message": "FAQ",
     "description": "Navbar item with label FAQ"
-  },
-  "item.label.User Guide": {
-    "message": "Guide utilisateur",
-    "description": "Navbar item with label User Guide"
   }
 }
