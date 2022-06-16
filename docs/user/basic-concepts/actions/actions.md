@@ -1,5 +1,5 @@
 ---
 id: actions
 title: Actions
-sidebar_position: 40
+sidebar_position: 10
 ---

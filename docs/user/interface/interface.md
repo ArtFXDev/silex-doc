@@ -37,7 +37,7 @@ If you are a specialist, you probably have multiple projects on the left. If you
 
 ### The middle part :
 
-This is a quick access to the _hamberger_ menu on the top left corner (in yellow on the picture). On the right side, you can also access the [conform](../actions/conform.md) action for simple files like textures. ( ⚠️ This conform action will not work with Houdini and Maya files ⚠️ )
+This is a quick access to the _hamberger_ menu on the top left corner (in yellow on the picture). On the right side, you can also access the [conform](../basic-concepts/actions/actions.md) action for simple files like textures. ( ⚠️ This conform action will not work with Houdini and Maya files ⚠️ )
 
 ![](../../../static/img/user_guide/home_page/silex_home_page_frame_middle.png)
 
@@ -75,7 +75,7 @@ This menu gives you acces to all the services on Silex.
 - **Home** : home page
 
 - **Project explorer** : This is a [file explorer](file-explorer.md) that let you browse through the files in your projects.
-- **Actions** : This shows all running [actions](../basic-concepts/actions.md) on you computer.
+- **Actions** : This shows all running [actions](../basic-concepts/actions/actions.md) on you computer.
 
 - **Statistics** : This represents the rendered frames progression of each team through the year. Try and reach the top ass fast as you can 📈.
 

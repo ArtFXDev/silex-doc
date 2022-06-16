@@ -21,7 +21,7 @@ For specialists students with multiple projects, you can also switch projects.
 
 ## Browsing through files :
 
-When you click on a sequences, you will get "inside" it et access your shots. exactly like a windows file explorer.
+When you click on a sequences, you will get "inside" it et access your shots. exly like a windows file explorer.
 
 ![](../../../static/img/user_guide/file_explorer/file_explorer_structure.PNG)
 
@@ -38,7 +38,7 @@ And Pull a published file from the __Publish__ to the __Work__ folder :
 ![](../../../static/img/user_guide/file_explorer/file_explorer_pull.PNG)
 
 
-(for more info on work and publish, see : [work-and-publish](../basic-concepts/work-and-publish.md))
+(for more info on work and publish, see : [workflow](../basic-concepts/workflow.md))
 
 
 In the __Work__ folder, you can either open a new scene or an already existing one.
