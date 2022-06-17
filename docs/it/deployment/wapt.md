@@ -1,8 +1,8 @@
-
 WAPT sera le nouvelle outil de déploiement pour déployer des paquets sur les machines,
 il remplacera les snapins FOG.
 
 ## Créé un package
+
 Pour créé un nouveau paquet il faut aller dans l'onglet 'dépot privé' dans l'interface wapt puis cliquer sur "générer un modéle de paquet".
 
 ![](/img/it/wapt_packages/wapt_packages_create_menu.PNG)
@@ -37,8 +37,8 @@ def install():
     print(p_out)
 ```
 
-
 ## Mettre a jour un package
+
 Une fois vos modification effectué, vous pouvez mettre à jour le paquet en cliquant sur "importer un paquet" puis "construire et importer un paquet dans le depot".
 
 ![](/img/it/wapt_packages/wapt_packages_import_package_menu.PNG)
@@ -50,8 +50,8 @@ Une fois l'import effectué il faut cliquer en haut a gauche sur "Actualiser les
 
 ![](/img/it/wapt_packages/wapt_packages_import_package_version.PNG)
 
-
 ## Mettre a jour une machine
+
 Une fois que vous avez créé et/ou mis à jour un paquet, pour lancer son execution il faut se rendre dans l'onglet "inventaire" dans la barre de recherche, mettre la machine sur laquelle ont veut lancer la mise à jour.
 
 ![](/img/it/wapt_packages/wapt_packages_register_package_in_computer_menu.PNG)
