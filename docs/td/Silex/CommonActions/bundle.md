@@ -54,4 +54,4 @@ It is advised to copy the scene in a local drive before bundling it, so the new 
 
 <u><b>User documentation</b></u> :
 
-[Bundle user documentation](../../../user/action.md)
+[Bundle user documentation](@site/docs/user/actions/actions.md)
