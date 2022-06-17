@@ -165,6 +165,30 @@ const config = {
               label: "Présentation",
               to: "/docs/it/presentation",
             },
+            {
+              label: "Resilio",
+              to: "/docs/it/resilio",
+            },
+            {
+              label: "Portainer",
+              to: "/docs/it/portainer",
+            },
+            {
+              label: "Observium",
+              to: "/docs/it/observium",
+            },
+            {
+              label: "Zammad",
+              to: "/docs/it/zammad",
+            },
+            {
+              label: "Deployment",
+              to: "/docs/it/deployment/pipeline-drive",
+            },
+            {
+              label: "Scripts",
+              to: "/docs/it/scripts/presentation",
+            },
           ],
         },
         {
