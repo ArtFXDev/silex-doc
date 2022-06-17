@@ -1,16 +1,16 @@
 ---
 id: install
-title: Install Silex
+title: Installer Silex
 sidebar_position: 20
 ---
 
 # Ask right on github artfxdev and account on kitsu
 
-ArtfxDev is the organisation that holds Silex repositories. You need to be member of the organisation and pipeline developer to get the applications rights.
+ArtfxDev est l'organisation qui détient les repositories Silex . Vous devez être membre de l'organisation et développeur pipeline pour obtenir les droits des applications.
 
-Kitsu is the Silex database, you need an account on it, and to be registered as a member of the TEST_PIPE project. Then connect to : http://kitsu.prod.Silex.artfx.fr
+Kitsu est la bade de données Silex, vous avez avoir un compte, et être inscrit comme membre du projet TEST_PIPE. Connectez-vous ensuite à : http://kitsu.prod.Silex.artfx.fr
 
-# Install python and rez
+# Installer python et rez
 
 For 2021-2022 pipeline, python 3.7.x is needed. You can find it here : https://www.python.org/downloads/windows/
 

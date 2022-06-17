@@ -18,10 +18,6 @@
     "message": "IT",
     "description": "Navbar item with label IT"
   },
-  "item.label.Deployment": {
-    "message": "Déploiement",
-    "description": "Navbar item with label IT"
-  },
 
   "item.label.FAQ": {
     "message": "FAQ",
