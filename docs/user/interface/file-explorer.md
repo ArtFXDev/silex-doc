@@ -1,4 +1,43 @@
 ---
 id: file-explorer
 title: File-explorer
+sidebar_position: 10
 ---
+
+The file explorer allows you to browse your projects.
+
+Here is what it looks like :
+
+![](../../../static/img/user_guide/file_explorer/file_explorer_shots.PNG)
+
+This is the view of your sequences but you can also access yours assets in the menu :
+
+![](../../../static/img/user_guide/file_explorer/file_explorer_assets.PNG)
+
+For specialists students with multiple projects, you can also switch projects.
+
+![](../../../static/img/user_guide/file_explorer/file_explorer_projects.PNG)
+
+## Browsing through files :
+
+When you click on a sequences, you will get "inside" it et access your shots. exly like a windows file explorer.
+
+![](../../../static/img/user_guide/file_explorer/file_explorer_structure.PNG)
+
+when selecting a **Shot** or an **Asset**, however, you will see a window displayed on you screen. This window shoews the content of your work and publish folder, as well as a capture of you scene (If you took one when publishing it)
+
+![](../../../static/img/user_guide/file_explorer/file_explorer_work.PNG)
+
+you can switch from the **Work** folder to the **Publish** folder here :
+
+![](../../../static/img/user_guide/file_explorer/file_explorer_switch_publish.PNG)
+
+And Pull a published file from the **Publish** to the **Work** folder :
+
+![](../../../static/img/user_guide/file_explorer/file_explorer_pull.PNG)
+
+(for more info on work and publish, see : [workflow](../basic-concepts/workflow.md))
+
+In the **Work** folder, you can either open a new scene or an already existing one.
+
+![](../../../static/img/user_guide/file_explorer/file_explorer_open_scene.PNG)
