@@ -63,3 +63,83 @@ As mentioned before, the [publish tool](./actions/publish.md) exports the scene 
 
 ## workflow exemple step by step :
 
+Before geting into it, you need to read the documentation on the [interface](../interface/interface.md) and the [file explorer](../interface/file-explorer.md)
+
+__Let's create a scenario :__
+
+You are making on a car asset in Maya and you work with lookDev artist and a render/lighting specialist.
+
+First you need to create the task and asset. Go to asset in the [file explorer](../interface/file-explorer.md), and add a task __Props__ category if it does'nt exists.
+
+1 :
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_click_asset.PNG)
+
+2 :
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_new_asset.PNG)
+
+3 :
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_select_asset_type.PNG)
+
+Give it a name et click __create__. The access the new asset and create a new __prop__. Call it Car
+
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_new_props.PNG)
+
+
+Click on the new __Prop__.
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_click_car.PNG)
+
+Click on Modeling (or create the task if it doesn't exist by clicking on the plus buto)
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_click_modeling.PNG)
+
+Open a new scene
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_open_scene.PNG)
+
+
+Then work on your modeling and save using the [save](./actions/save.md) action in the silex shelf, and the [save increment](./actions/save.md).
+
+Every time you save, your scene will be saved in the __Work__ folder. 
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_work.PNG)
+
+Now, you need to tranfer this work to the lookDev artist. That's where the [Publish action](./actions/publish.md) enters in the ring 🥊🥊.
+
+in the Silex shelf, click on publish. eand fallow the instruction in the documentation here : [Publish](./actions/publish.md)
+
+When it's done, you can switch to the publish section in Silex.
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_publish.PNG)
+
+You can see all the publish files here, the artists in your project can see them too 🤩. awsome right ?
+The files is in the __Publish__ folder, so it is synchronized on the server and other students have access to it.
+
+Now, the lokkDev artist can pull the published scene in his own work folder, on his own computer. he just needs to click on the pull button of the published file :
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_pull.PNG)
+
+
+and now, he can open it from the work folder to work on it.
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_open_pulled_scene.PNG)
+
+
+⚠️ IF YOU WORK WITH REFERENCES (wich is probably the case in this example) YOU CAN REFERENCE THE PUBLISHED FILE WITHOUT PULLING IT TO THE WORK FOLDER. THIS WAY, IF A NEW VERSION IS PPUBLISHED, IT WILL OVERRIDE THE REFERENCE AND THE LOKKDEV ARTIST ONLY NEED TO RELOAD THE REFERENCE IN HIS SCENE.⚠️
+
+:::tip
+- If the files don't show on the interface, before calling a TD try to use CTRL + R to reload the display. you can also click on the reload button here 
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_reload.PNG)
+
+- If you whant to open the work folder in the windows explorer, you can access it by truning the "More details..." button ON, and clicking here :
+
+![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_open_work.PNG)
+
+:::
+
+If you need to change your model and give a new version, you can publish the new scene and it will override the one in the publish
