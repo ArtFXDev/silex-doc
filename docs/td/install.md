@@ -4,13 +4,13 @@ title: Install Silex
 sidebar_position: 20
 ---
 
-# Ask right on github artfxdev and account on kitsu
+## Ask right on github artfxdev and account on kitsu
 
 ArtfxDev is the organisation that holds Silex repositories. You need to be member of the organisation and pipeline developer to get the applications rights.
 
 Kitsu is the Silex database, you need an account on it, and to be registered as a member of the TEST_PIPE project. Then connect to : http://kitsu.prod.Silex.artfx.fr
 
-# Install python and rez
+## Install python and rez
 
 For 2021-2022 pipeline, python 3.7.x is needed. You can find it here : https://www.python.org/downloads/windows/
 
@@ -36,7 +36,7 @@ Close terminal and reopen it still with admin rights. Install basic packages wit
 rez bind -i C:/rez/packages --quickstart
 ```
 
-# Configure rez
+## Configure rez
 
 Create a `packages` folder in the `c:/rez` folder. Go into this folder.
 
@@ -60,7 +60,7 @@ Close the admin terminal and reopen a normal rights terminal.
 
 If you have an error saying python is not found, remove the C:\rez\packages\python folder, then launch ` rez bind -i C:/rez/packages python` with admin priviledges.
 
-# Install Silex desktop
+## Install Silex desktop
 
 Install nodejs through scoop
 
@@ -107,7 +107,7 @@ yarn install
 
 This will automatically install Silex-socket-service
 
-# Run and test
+## Run and test
 
 In the Silex desktop folder, run Silex with:
 

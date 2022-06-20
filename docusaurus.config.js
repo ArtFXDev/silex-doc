@@ -167,7 +167,7 @@ const config = {
           title: "FAQ",
           items: [
             {
-              label: "faq",
+              label: "FAQ",
               to: "/docs/faq",
             },
           ],
