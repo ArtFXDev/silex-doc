@@ -1,0 +1,201 @@
+---
+id: rez
+title: Rez
+---
+
+import { PROD_ROOT, PROD_SSH } from "@site/src/constants";
+
+---
+
+Rez is an environment manager that allows us to launch DCCs in isolated contexts including mandatory libraries only, define environment variables specific to this environment or define special cases for each team in the school.
+
+Everything can be found in the documentation on GitHub : [https://github.com/AcademySoftwareFoundation/rez](https://github.com/AcademySoftwareFoundation/rez)
+
+<span>
+  In the pipeline, the REZ packages are localized on the server in{" "}
+  <code>
+    \\{PROD_ROOT}
+    \rez\{" "}
+  </code>
+</span>
+
+<br />
+<br />
+
+<span>
+  The DCC packages and team packages can be found in{" "}
+  <code>
+    \\{PROD_ROOT}
+    \rez\packages\silex-rez\packages\
+  </code>
+</span>
+
+<br />
+<br />
+
+- packages
+  - 5rn
+  - dcc
+
+:::tip 🦉
+The team packages (5rn) are usually empty shells, they initially requires the render engine package used by the team and the aces config. But you can add specific tools or environnements to their specific needs.
+
+**Example** :
+
+In this case, we link a new config to the SILEX_ACTION_CONFIG environnement variable so the team **Quit_smoking** has a special vrscene [action YAML](../../Silex/Client/action-definition.mdx) specific to their needs.
+
+```python
+# -*- coding: utf-8 -*-
+name = 'quit_smoking'
+version = '1.0'
+
+authors = ['ArtFx TD gang']
+
+variants = [["maya"], ["houdini"], ["nuke"], ["silex_client"], ["silex_maya"], ["silex_houdini"]]
+
+requires = [
+    'vray',
+    'aces',
+    "texturetotx",
+]
+
+timestamp = 1635410671
+
+vcs = 'git'
+
+format_version = 2
+
+def commands():
+    env.SILEX_ACTION_CONFIG.prepend("{root}/config")
+
+
+```
+
+:::
+
+Here is an example of REZ package for the Maya [Plugin](../../Silex/Plugins/Maya.md) :
+
+```python title="dcc/maya/package.py"
+name = "maya"
+version = "2022.0"
+
+requires = [
+    "python-3.7",
+]
+
+
+tools = [
+    "fcheck",
+    "imgcvt",
+    "maya",
+    "mayabatch",
+    "mayapy",
+    "rcc",
+    "uic",
+]
+
+variants = [
+    ["platform-windows"]
+]
+
+def commands():
+    import sys
+    sys.path.append(root)
+    import mayaenv
+    mayaenv.commands(env, root)
+
+```
+
+The [Plugins](../../Silex/Plugins/Plugins.md) repositories and [silex_client](../../Silex/Client/client.md) can be found in :
+
+<span>
+  <code>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</code>
+</span>
+
+<br />
+<br />
+
+- silex
+
+  - aiogazu
+  - silex_client
+  - silex_houdini
+  - silex_maya
+  - silex_nuke
+
+  Here is an example of repository package.py :
+
+  The SILEX_ACTION_CONFIG environnement variable is explained in the [Action definition](../../Silex/Client/action-definition.mdx) doctumentation.
+
+```python title="silex/silex_maya:package.py"
+# pylint: skip-file
+name = "silex_maya"
+version = "0.1.0"
+
+authors = ["ArtFx TD gang"]
+
+description = """
+    Set of python module and maya config to integrate maya in the silex pipeline
+    Part of the Silex ecosystem
+    """
+
+vcs = "git"
+
+build_command = "python {root}/script/build.py {install}"
+
+def commands():
+    """
+    Set the environment variables for silex_maya
+    """
+    env.SILEX_ACTION_CONFIG.prepend("{root}/silex_maya/config")
+    env.PYTHONPATH.append("{root}")
+    env.PYTHONPATH.append("{root}/startup")
+    env.XBMLANGPATH.append("{root}/startup/icons")
+
+    parser_module = ".".join(["silex_maya", "cli", "parser"])
+    alias("silex", f"mayapy -m {parser_module}")
+
+
+@late()
+def requires():
+    """
+    Manage versions
+    """
+    major = str(this.version.major)
+    silex_requirement = ["silex_client"]
+    if major in ["dev", "beta", "prod"]:
+        silex_requirement = [f"silex_client-{major}"]
+
+    return ["maya", "python-3.7"] + silex_requirement
+
+
+```
+
+### Updating the repositories
+
+The rez repositories are the back bone of Silex. If you make any changes to the plugins or the [silex_client](../../Silex/Client/client.md) you can connect to the prod server by ssh using :
+
+<code>
+  <span>ssh {PROD_SSH}</span>
+</code>
+
+<br />
+<br />
+
+Then update the the repositories using the git command :
+
+<code>git submodule update --remote</code>
+
+<br />
+<br />
+
+The student will be able to enjoy your awsome new features ! \_(^^)/
+
+### Beta and Prod
+
+<span>
+  In <code>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</code>
+</span>
+, if you look in any of the silex_folder, you will be able to see a **beta** and
+a **prod** folder. They both contain the branch of the same name in the repository,
+and are updated according to these branches.

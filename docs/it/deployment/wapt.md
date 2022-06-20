@@ -1,3 +1,9 @@
+---
+id: silex-desktop
+title: Silex Desktop
+sidebar_position: 40
+---
+
 WAPT sera le nouvel outil de déploiement pour déployer des paquets sur les machines, il remplacera les snapins FOG.
 
 ## Créé un package
