@@ -48,7 +48,7 @@ Une fois vos modifications effectué, vous pouvez mettre à jour le paquet en cl
 
 ![](/img/it/wapt_packages/wapt_packages_import_package_menu.PNG)
 
-Un explorateur va s'ouvrir et vous devrez sélectionner votre dossier local du paquet. *(par défaut situé sous 'C:\waptdev').*
+Un explorateur va s'ouvrir et vous devrez sélectionner votre dossier local du paquet. _(par défaut situé sous 'C:\waptdev')._
 
 Une fois l'import effectué il faut cliquer en haut à gauche sur "Actualiser les paquets disponibles" et vous devrez voir votre numéro de version s'incrémenter.
 
