@@ -1,27 +1,7 @@
 {
-  "link.title.Guide Utilisateur": {
+  "link.title.User Guide": {
     "message": "Guide Utilisateur",
     "description": "The title of the footer links column with title=Guide Utilisateur in the footer"
-  },
-  "link.title.TD": {
-    "message": "TD",
-    "description": "The title of the footer links column with title=TD in the footer"
-  },
-  "link.title.IT": {
-    "message": "IT",
-    "description": "The title of the footer links column with title=IT in the footer"
-  },
-  "link.title.FAQ": {
-    "message": "FAQ",
-    "description": "The title of the footer links column with title=FAQ in the footer"
-  },
-  "link.item.label.Présentation": {
-    "message": "Présentation",
-    "description": "The label of footer link with label=Présentation linking to /docs/it/presentation"
-  },
-  "link.item.label.Installation": {
-    "message": "Installation",
-    "description": "The label of footer link with label=Installation linking to /docs/td/install"
   },
   "link.item.label.Shots and assets": {
     "message": "Shots and assets",
@@ -47,22 +27,6 @@
     "message": "The render farm and tractor",
     "description": "The label of footer link with label=The render farm and tractor linking to /docs/user/renderfarm-tractor"
   },
-  "link.item.label.faq": {
-    "message": "faq",
-    "description": "The label of footer link with label=faq linking to /docs/faq"
-  },
-  "copyright": {
-    "message": "Copyright © 2022 ArtFX TDs",
-    "description": "The footer copyright"
-  },
-  "link.title.User Guide": {
-    "message": "User Guide",
-    "description": "The title of the footer links column with title=User Guide in the footer"
-  },
-  "link.item.label.Presentation": {
-    "message": "Presentation",
-    "description": "The label of footer link with label=Presentation linking to /docs/td/presentation"
-  },
   "link.item.label.Install": {
     "message": "Install",
     "description": "The label of footer link with label=Install linking to /docs/user/install"
@@ -74,6 +38,15 @@
   "link.item.label.Silex Action": {
     "message": "Silex Action",
     "description": "The label of footer link with label=Silex Action linking to /docs/user/action"
+  },
+
+  "link.title.TD":{
+    "message": "TD",
+    "description": "The title of the footer links column with title=TD in the footer"
+  },
+  "link.item.label.Installation": {
+    "message": "Installation",
+    "description": "The label of footer link with label=Installation linking to /docs/td/install"
   },
   "link.item.label.Install Silex": {
     "message": "Install Silex",
@@ -98,5 +71,56 @@
   "link.item.label.Design Guidelines": {
     "message": "Design Guidelines",
     "description": "The label of footer link with label=Design Guidelines linking to /docs/td/design"
+  },
+  "link.item.label.Presentation": {
+    "message": "Presentation",
+    "description": "The label of footer link with label=Presentation linking to /docs/td/presentation"
+  },
+
+  "link.title.IT": {
+    "message": "IT",
+    "description": "The title of the footer links column with title=IT in the footer"
+  },
+  "link.item.label.Présentation": {
+    "message": "Présentation",
+    "description": "The label of footer link with label=Présentation linking to /docs/it/presentation"
+  },
+  "link.item.label.Resilio": {
+    "message": "Résilio",
+    "description": "The label of footer link with label=Resilio linking to /docs/it/resilio"
+  },
+  "link.item.label.Portainer": {
+    "message": "Portainer",
+    "description": "The label of footer link with label=Portainer linking to /docs/it/portainer"
+  },
+  "link.item.label.Observium": {
+    "message": "Observium",
+    "description": "The label of footer link with label=Observium linking to /docs/it/observium"
+  },
+  "link.item.label.Zammad": {
+    "message": "Zammad",
+    "description": "The label of footer link with label=Présentation linking to /docs/it/zammad"
+  },
+  "link.item.label.Deployment": {
+    "message": "Déploiment",
+    "description": "The label of footer link with label=Présentation linking to /docs/it/deployment/pipeline-drive"
+  },
+  "link.item.label.Scripts": {
+    "message": "Scripts",
+    "description": "The label of footer link with label=Scripts linking to /docs/it/scripts/presentation"
+  },
+
+  "link.title.FAQ": {
+    "message": "FAQ",
+    "description": "The title of the footer links column with title=FAQ in the footer"
+  },
+  "link.item.label.faq": {
+    "message": "faq",
+    "description": "The label of footer link with label=faq linking to /docs/faq"
+  },
+
+  "copyright": {
+    "message": "Copyright © 2022 ArtFX TDs",
+    "description": "The footer copyright"
   }
 }

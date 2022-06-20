@@ -3,6 +3,7 @@
     "message": "Next",
     "description": "The label for version current"
   },
+
   "sidebar.td.category.Coding workflow": {
     "message": "Coding workflow",
     "description": "The label for category Coding workflow in sidebar td"
@@ -51,12 +52,13 @@
     "message": "Tractor",
     "description": "The label for category Tractor in sidebar td"
   },
+
   "sidebar.it.category.deployment": {
-    "message": "deployment",
-    "description": "The label for category deployment in sidebar it"
+    "message": "Déploiment",
+    "description": "The label for category Deployment in sidebar it"
   },
   "sidebar.it.category.scripts": {
-    "message": "scripts",
-    "description": "The label for category scripts in sidebar it"
+    "message": "Scripts",
+    "description": "The label for category Scripts in sidebar it"
   }
 }

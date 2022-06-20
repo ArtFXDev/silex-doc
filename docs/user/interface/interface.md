@@ -4,7 +4,7 @@ title: Interface
 sidebar_position: 30
 ---
 
-## Home page 
+## Home page
 
 ![](../../../static/img/user_guide/silex_logo.png)
 
@@ -41,7 +41,7 @@ This is a quick access to the _hamberger_ menu on the top left corner (in yellow
 
 ![](../../../static/img/user_guide/home_page/silex_home_page_frame_middle.png)
 
-This icones represent different applications you can acces in Silex. They will be explained in the dedicated subsections at the __end__ of this document.
+This icones represent different applications you can acces in Silex. They will be explained in the dedicated subsections at the **end** of this document.
 
 ### The top bar :
 
@@ -56,7 +56,6 @@ This section displays your account avatar, the nimby status, access to the list 
 3- List of running software :
 
 ![](../../../static/img/user_guide/home_page/silex_home_page_running_software.PNG)
-
 
 4- Nimby : allows you to turn on/off the [nimby](nimby.md).
 
@@ -86,4 +85,3 @@ This menu gives you acces to all the services on Silex.
 - **Harvest** : This will redirect you to [Harvest](../harvest/harvest.md). A statistic tool relaying different information on the renderfarm.
 
 - **Ticket** : Access to the ticket system. see with the TDs if they are using it.
-

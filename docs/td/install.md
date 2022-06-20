@@ -1,6 +1,6 @@
 ---
 id: install
-title: Install silex
+title: Install Silex
 sidebar_position: 20
 ---
 
@@ -8,7 +8,7 @@ sidebar_position: 20
 
 ArtfxDev is the organisation that holds Silex repositories. You need to be member of the organisation and pipeline developer to get the applications rights.
 
-Kitsu is the Silex database, you need an acciount on it, and to be registered as a member of the TEST_PIPE project. Then connect to : http://kitsu.prod.Silex.artfx.fr
+Kitsu is the Silex database, you need an account on it, and to be registered as a member of the TEST_PIPE project. Then connect to : http://kitsu.prod.Silex.artfx.fr
 
 # Install python and rez
 

@@ -4,7 +4,6 @@ title: File-explorer
 sidebar_position: 10
 ---
 
-
 The file explorer allows you to browse your projects.
 
 Here is what it looks like :
@@ -25,29 +24,20 @@ When you click on a sequences, you will get "inside" it et access your shots. ex
 
 ![](../../../static/img/user_guide/file_explorer/file_explorer_structure.PNG)
 
-when selecting a __Shot__ or an __Asset__, however, you will see a window displayed on you screen. This window shoews the content of your work and publish folder, as well as a capture of you scene (If you took one when publishing it)
+when selecting a **Shot** or an **Asset**, however, you will see a window displayed on you screen. This window shoews the content of your work and publish folder, as well as a capture of you scene (If you took one when publishing it)
 
 ![](../../../static/img/user_guide/file_explorer/file_explorer_work.PNG)
 
-you can switch from the __Work__ folder to the __Publish__ folder here :
+you can switch from the **Work** folder to the **Publish** folder here :
 
 ![](../../../static/img/user_guide/file_explorer/file_explorer_switch_publish.PNG)
 
-And Pull a published file from the __Publish__ to the __Work__ folder :
+And Pull a published file from the **Publish** to the **Work** folder :
 
 ![](../../../static/img/user_guide/file_explorer/file_explorer_pull.PNG)
 
-
 (for more info on work and publish, see : [workflow](../basic-concepts/workflow.md))
 
-
-In the __Work__ folder, you can either open a new scene or an already existing one.
+In the **Work** folder, you can either open a new scene or an already existing one.
 
 ![](../../../static/img/user_guide/file_explorer/file_explorer_open_scene.PNG)
-
-
-
-
-
-
-
