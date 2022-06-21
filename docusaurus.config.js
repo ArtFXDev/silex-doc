@@ -67,7 +67,7 @@ const config = {
         {
           label: "TD",
           type: "doc",
-          docId: "td/presentation",
+          docId: "td/introduction",
         },
         {
           label: "IT",
