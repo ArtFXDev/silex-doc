@@ -4,6 +4,8 @@ title: Installer Silex
 sidebar_position: 20
 ---
 
+---
+
 ## Ask right on github artfxdev and account on kitsu
 
 ArtfxDev est l'organisation qui détient les repositories Silex. Vous devez être membre de l'organisation et développeur pipeline pour obtenir les droits des applications.
