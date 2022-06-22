@@ -1,27 +1,28 @@
 ---
 id: action-execution
-title: Action execution
+title: Exécution d'action
 sidebar_position: 20
 ---
+---
 
-An action is a set of instructions that will be executed sequentially. To learn more about them, read the user guide page about actions.
+Une action est un ensemble d'instructions qui seront exécutées séquentiellement. Pour en savoir plus à leur sujet, lisez la page du guide de l'utilisateur sur les actions.
 
-## Executing actions from CLI
+## Exécution des actions à partir de CLI
 
-This is the simplest way of executing an action. Once silex is installed, run `silex action <action-name>`.
+C'est la façon la plus simple d'exécuter une action. Une fois Silex installé, exécutez `silex action <action-name>`.
 
 :::tip
-If you installed silex client as a rez package, don't forget to execute this command in the rez environment: `rez env silex_client -- silex action <action-name>`
+Si vous avez installé le client Silex en tant que package Rez, n'oubliez pas d'exécuter cette commande dans l'environnement Rez: `rez env silex_client -- silex action <action-name>`
 :::
 
 #### Task ID
 
-Some action behaves differently according to the [context](./context.md) you are executing them from (for example, the publish will set the publish location using the current task defined in the context).
-You can specify the task using the `--task-id` argument with the ID if the entity in the [CGWire](https://www.cg-wire.com/) database.
+Certaines actions se comportent différement selon le [contexte](./context.md) à partir duquel vous les exécutez (par exemple, le publish définira l'emplacement de publication en utilisant la tâche courante définie dans le contexte).
+Vous pouvez spécifier la tâche en utilisant l'argument `--task-id` avec l'ID si l'entité est dans la base de données [CGWire](https://www.cg-wire.com/).
 
-#### Parameters
+#### Paramètres
 
-Silex actions sometimes prompt the user with parameters. You can set parameters ahead with the `--parameters` argument. The expected value is `<parameter-path>=<parameter-value>` the parameter will be automaticaly casted into the expected parameter type. To set multiple parameters just use this argument multiple times.
+Les actions Silex sometimes prompt the user with parameters. You can set parameters ahead with the `--parameters` argument. The expected value is `<parameter-path>=<parameter-value>` the parameter will be automaticaly casted into the expected parameter type. To set multiple parameters just use this argument multiple times.
 
 #### Batch mode
 

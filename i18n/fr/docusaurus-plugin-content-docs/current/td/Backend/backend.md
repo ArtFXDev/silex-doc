@@ -3,6 +3,7 @@ id: backend
 title: Backend
 sidebar_position: 50
 ---
+---
 
 The backend of Silex is composed of multiple services that can be deployed using the [`silex-deploy`](https://github.com/ArtFXDev/silex-deploy) repository.
 

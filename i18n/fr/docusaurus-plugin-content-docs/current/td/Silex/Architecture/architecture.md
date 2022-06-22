@@ -1,56 +1,57 @@
 ---
 id: silex-architecture
 title: Architecture
-sidebar_position: 5
+sidebar_position: 10
+---
 ---
 
 ![](/img/silex/silex_architecture.png)
 
-## User space
+## Espace utilisateur
 
-Those part of the Silex pipeline are available on the user machine.
+Ces parties du pipeline Silex sont disponible sur la machine utilisateur.
 
 ### Silex desktop
 
-Silex desktop is the main user tool. It contains the user access to most silex services :
+Silex desktop est le principal outil utilisateur. Il contient l'accès utilisateur à la plupart des sercives Silex :
 
-- File manager
-- Artist DCC access and actions
-- Nimby (Not In My BackYard: prevent the renderfarm from using this computer)
-- Harvest film stats
+- Gestionnaire de fichiers
+- Accès et action de l'artiste sur les DCC
+- Nimby (Not In My BackYard: empêche la renderfarm d'utiliser cet ordinateur)
+- Harvest, statistiques des films
 
-It communicates both with the backend in order to execute database requests and with the silex socket service to ensure communication with the DCC.
+Il communique à la fois avec le backend pour exécuter les requêtes de base de données et avec le service de socket silex pour assurer la communication avec le DCC.
 
-It is an electron application which displayed content coms from the Front server.
+Il s'agit d'une application électronique qui affiche le contenu à partir du serveur Front.
 
-### Silex socket service
+### Service Silex socket
 
-Silex socket service allows real time communication between Silex desktop and DCC, through silex client actions.
+Le service de socket Silex permet une communication en temps réel entre le Silex desktop et les DCC, via les actions client Silex.
 
-### Silex client
+### Client Silex
 
-Silex client is a configurable action system, that can launch standalone actions, usually through Rez scripts, or DCC actions thanks to plugins.
+Silex client est un système d'action configurable, qui peut lancer des actions autonomes, généralement via des scripts Rez, ou des actions DCC  grâce à des plugins.
 
 ### Rez packages
 
-Rez create specific and configurable work environments. The Rez packages are loaded to ensure the creation of this environment. When launching DCCs though silex, artists use each time a specific Rez environment.
+Rez crée des environnements de travail spécifiques et configurables. Les packages Rez sont chargés pour assurer la création de cet environnement. Lors du lancement d'un DCCs par Silex, les artistes utilisent chaque fois un environnement Rez spécifique.
 
 ### Aiogazu
 
-Aiogazu is a python library that abstracts the HTTP routes of the database. It is a fork of Gazu, that has been made asynchronous.
+Aiogazu est une bibliothèque python qui résume les routes HTTP de la base de données. C'est un fork de Gazu, qui a été rendue asynchrone.
 
 ## Backend
 
-### Front server (silex front end)
+### Serveur Front (Silex front end)
 
-This server is targeted by Silex desktop. It is a react application that contains the displayed content of Silex Desktop.
+Ce serveur est ciblé par Silex desktop. C'est une application React qui contient le contenu affiché de Silex Desktop.
 
-It authentificates on the CG Wire database. Most queries goes throught the GraphQL adaptor instead of attacking directly the database.
+Il authentifie la base de données CG Wire. La plupart des requêtes passent par l'adaptateur GraphQL au lieu d'attaquer directement la base de données.
 
-### Production tracking database
+### Base de données du suivi de la production
 
-This database contains all the production data, which is used by the Silex front.
+Cette base de données contient toutes les données de production, qui est utilisé par le front Silex.
 
-### GraphQL adaptor
+### Adaptateur GraphQL
 
-GraphQL serves as an API to ease queries in a database. Queries can be configured. It is the main tool to get data from the DB.
+GraphQL sert d'API pour faciliter les requêtes dans une base de données. Les requêtes (Queries) peuvent être configurées. C'est l'outil principal pour obtenir des données de la base de données.

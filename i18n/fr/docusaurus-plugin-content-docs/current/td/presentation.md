@@ -3,7 +3,6 @@ id: presentation
 title: Présentation
 sidebar_position: 10
 ---
-
 ---
 
 _Présentation de la section TD_
