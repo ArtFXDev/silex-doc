@@ -4,6 +4,8 @@ title: Rez
 sidebar_position: 30
 ---
 
+---
+
 Rez est utilisé pour composer des environnements virtuels à la volée.
 
 ## Pourquoi Rez?

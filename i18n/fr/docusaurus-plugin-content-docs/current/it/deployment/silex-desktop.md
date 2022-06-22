@@ -4,6 +4,8 @@ title: Silex Desktop
 sidebar_position: 40
 ---
 
+---
+
 Silex Desktop est le client du pipeline.
 Avec ce logiciel on peut exécuter des actions du pipeline ArtFX sur chaque dcc.
 Ouvrir des scènes, publish, conform etc.

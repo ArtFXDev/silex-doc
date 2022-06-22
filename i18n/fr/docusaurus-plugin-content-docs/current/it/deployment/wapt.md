@@ -1,7 +1,7 @@
 ---
-id: silex-desktop
-title: Silex Desktop
-sidebar_position: 40
+id: wapt
+title: Wapt
+sidebar_position: 50
 ---
 
 ---

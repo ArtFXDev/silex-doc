@@ -4,6 +4,8 @@ title: Resilio
 sidebar_position: 20
 ---
 
+---
+
 Resilio est l'outil de synchronisation entre tous les groupes et les nas.
 
 ## Accès

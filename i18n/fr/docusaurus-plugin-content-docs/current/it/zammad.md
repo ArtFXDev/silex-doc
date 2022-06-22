@@ -4,6 +4,8 @@ title: Zammad
 sidebar_position: 50
 ---
 
+---
+
 Zammad est l'outil utilisé pour le suivi des tickets.
 
 |         |                             |
