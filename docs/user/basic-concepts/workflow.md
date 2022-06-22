@@ -34,9 +34,9 @@ FURTHERMORE ! To be able to render a scene on the [renderfarm](../renderfarm/ren
 (there will be a full, step by step, example later.)
 :::
 
-## context + tasks
+## Context and Tasks
 
-Another important concept in Silex, is the concept of **task** and **context**.
+Another important concept in Silex is the concept of **task** and **context**.
 
 ![](../../../static/img/user_guide/workflow/workflow_tasks.PNG)
 
