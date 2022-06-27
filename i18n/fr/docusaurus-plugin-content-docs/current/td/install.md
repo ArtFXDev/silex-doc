@@ -3,6 +3,7 @@ id: install
 title: Installer Silex
 sidebar_position: 20
 ---
+
 ---
 
 ## Demande de droit github artfxdev et compte sur kitsu
