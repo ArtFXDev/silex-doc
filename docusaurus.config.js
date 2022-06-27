@@ -102,7 +102,7 @@ const config = {
           items: [
             {
               label: "Presentation",
-              to: "/docs/td/presentation",
+              to: "/docs/td/introduction",
             },
             {
               label: "Install Silex",
