@@ -106,7 +106,7 @@ const config = {
             },
             {
               label: "Install Silex",
-              to: "/docs/td/install",
+              to: "/docs/td/getting-started",
             },
             {
               label: "Coding Workflow",

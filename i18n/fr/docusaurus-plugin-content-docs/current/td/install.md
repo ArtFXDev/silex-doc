@@ -21,7 +21,7 @@ Téléchargez la version source de Rez 2.95.0 depuis https://github.com/nerdvega
 Ouvrir un interpréteur de commande (shell) en mode admin et installer Rez avec:
 
 ```
-python ./install.py -v C:/rez/__install__
+python ./getting-started.py -v C:/rez/__install__
 ```
 
 Ajouter le chemin (path):
