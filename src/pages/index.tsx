@@ -40,8 +40,8 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`${siteConfig.title}`}
+      description="Silex is the name of ArtFX's pipeline for VFX/3D short films."
     >
       <HomepageHeader />
       <main></main>

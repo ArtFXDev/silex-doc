@@ -38,7 +38,7 @@ FURTHERMORE ! To be able to render a scene on the [renderfarm](../renderfarm/ren
 
 Another important concept in Silex, is the concept of **task** and **context**.
 
-![](../../../static/img/user_guide/workflow/workflow_tasks.PNG)
+![](/img/user_guide/workflow/workflow_tasks.png)
 
 Here in this picture, we just clicked on the shot 330 (ass you can see in the red). Inside you can see all the different **tasks** assigned to this shot. (**Tasks** are the equivalent of departements in a vfx/3D studio 🦉)
 
@@ -46,7 +46,7 @@ For exemple : Layout, lookdev...
 
 You can add a new custom task to the list by clicking on the "+" button near the shot name. Then fill in the pop up window :
 
-![](../../../static/img/user_guide/workflow/workflow_custom_task.PNG)
+![](/img/user_guide/workflow/workflow_custom_task.png)
 
 :::caution
 The list of tasks is defined by the supervisors before the project begins.
@@ -70,37 +70,37 @@ First you need to create the task and asset. Go to asset in the [file explorer](
 
 1 :
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_click_asset.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_click_asset.png)
 
 2 :
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_new_asset.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_new_asset.png)
 
 3 :
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_select_asset_type.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_select_asset_type.png)
 
 Give it a name et click **create**. The access the new asset and create a new **prop**. Call it Car
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_new_props.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_new_props.png)
 
 Click on the new **Prop**.
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_click_car.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_click_car.png)
 
 Click on Modeling (or create the task if it doesn't exist by clicking on the plus buto)
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_click_modeling.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_click_modeling.png)
 
 Open a new scene
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_open_scene.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_open_scene.png)
 
 Then work on your modeling and save using the [save](./actions/save.md) action in the silex shelf, and the [save increment](./actions/save.md).
 
 Every time you save, your scene will be saved in the **Work** folder.
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_work.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_work.png)
 
 Now, you need to tranfer this work to the lookDev artist. That's where the [Publish action](./actions/publish.md) enters in the ring 🥊🥊.
 
@@ -108,18 +108,18 @@ in the Silex shelf, click on publish. eand fallow the instruction in the documen
 
 When it's done, you can switch to the publish section in Silex.
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_publish.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_publish.png)
 
 You can see all the publish files here, the artists in your project can see them too 🤩. awsome right ?
 The files is in the **Publish** folder, so it is synchronized on the server and other students have access to it.
 
 Now, the lokkDev artist can pull the published scene in his own work folder, on his own computer. he just needs to click on the pull button of the published file :
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_pull.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_pull.png)
 
 and now, he can open it from the work folder to work on it.
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_open_pulled_scene.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_open_pulled_scene.png)
 
 ⚠️ IF YOU WORK WITH REFERENCES (wich is probably the case in this example) YOU CAN REFERENCE THE PUBLISHED FILE WITHOUT PULLING IT TO THE WORK FOLDER. THIS WAY, IF A NEW VERSION IS PPUBLISHED, IT WILL OVERRIDE THE REFERENCE AND THE LOKKDEV ARTIST ONLY NEED TO RELOAD THE REFERENCE IN HIS SCENE.⚠️
 
@@ -127,11 +127,11 @@ and now, he can open it from the work folder to work on it.
 
 - If the files don't show on the interface, before calling a TD try to use CTRL + R to reload the display. you can also click on the reload button here
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_reload.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_reload.png)
 
 - If you whant to open the work folder in the windows explorer, you can access it by truning the "More details..." button ON, and clicking here :
 
-![](../../../static/img/user_guide/workflow/tutorial/workflow_tutrorial_open_work.PNG)
+![](/img/user_guide/workflow/tutorial/workflow_tutrorial_open_work.png)
 
 :::
 
