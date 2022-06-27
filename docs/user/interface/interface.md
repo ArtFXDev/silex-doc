@@ -6,7 +6,7 @@ sidebar_position: 30
 
 ## Home page
 
-![](../../../static/img/user_guide/silex_logo.png)
+![](/img/silex_logo.png)
 
 ---
 
@@ -17,7 +17,7 @@ Welcome to Silex, a pipeline application which gives you access to the render fa
 When opening silex, you just need to connect with your kitsu acount.
 after that, the home page will be displayed.
 
-![](../../../static/img/user_guide/home_page/silex_home_page.PNG)
+![](/img/user_guide/home_page/silex_home_page.png)
 
 There are three main parts to this home page.
 
@@ -25,7 +25,7 @@ There are three main parts to this home page.
 
 It displays shortcuts to shots / assets / projects :
 
-![](../../../static/img/user_guide/home_page/silex_home_page_frame_bottom.png)
+![](/img/user_guide/home_page/silex_home_page_frame_bottom.png)
 
 - The **left** side is for the project your are a part of. By clicking on one of them, you will be redirected to the [file explorer](file-explorer.md) within silex, where you will be able to browse through the project.
 
@@ -39,7 +39,7 @@ If you are a specialist, you probably have multiple projects on the left. If you
 
 This is a quick access to the _hamberger_ menu on the top left corner (in yellow on the picture). On the right side, you can also access the [conform](../basic-concepts/actions/actions.md) action for simple files like textures. ( ⚠️ This conform action will not work with Houdini and Maya files ⚠️ )
 
-![](../../../static/img/user_guide/home_page/silex_home_page_frame_middle.png)
+![](/img/user_guide/home_page/silex_home_page_frame_middle.png)
 
 This icones represent different applications you can acces in Silex. They will be explained in the dedicated subsections at the **end** of this document.
 
@@ -47,7 +47,7 @@ This icones represent different applications you can acces in Silex. They will b
 
 This section displays your account avatar, the nimby status, access to the list of currently running applications, an update button and the hamberger menu (previously mentioned).
 
-![](../../../static/img/user_guide/home_page/silex_home_page_frame_top.png)
+![](/img/user_guide/home_page/silex_home_page_frame_top.png)
 
 1- Hamberger menu.
 
@@ -55,13 +55,13 @@ This section displays your account avatar, the nimby status, access to the list 
 
 3- List of running software :
 
-![](../../../static/img/user_guide/home_page/silex_home_page_running_software.PNG)
+![](/img/user_guide/home_page/silex_home_page_running_software.png)
 
 4- Nimby : allows you to turn on/off the [nimby](nimby.md).
 
 5- Account profile :
 
-![](../../../static/img/user_guide/home_page/silex_home_page_profile.PNG)
+![](/img/user_guide/home_page/silex_home_page_profile.png)
 
 Silex has coins system. points you can gather when publishing, conforming...
 
@@ -69,7 +69,7 @@ Silex has coins system. points you can gather when publishing, conforming...
 
 This menu gives you acces to all the services on Silex.
 
-![](../../../static/img/user_guide/home_page/silex_home_page_hamburger.PNG)
+![](/img/user_guide/home_page/silex_home_page_hamburger.png)
 
 - **Home** : home page
 

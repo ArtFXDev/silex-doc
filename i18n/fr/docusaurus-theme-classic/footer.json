@@ -29,7 +29,7 @@
   },
   "link.item.label.Install": {
     "message": "Install",
-    "description": "The label of footer link with label=Install linking to /docs/user/install"
+    "description": "The label of footer link with label=Install linking to /docs/user/getting-started"
   },
   "link.item.label.Shots & assets": {
     "message": "Shots & assets",
@@ -46,11 +46,11 @@
   },
   "link.item.label.Presentation": {
     "message": "Présentation",
-    "description": "The label of footer link with label=Presentation linking to /docs/td/presentation"
+    "description": "The label of footer link with label=Presentation linking to /docs/td/introduction"
   },
   "link.item.label.Install Silex": {
     "message": "Installer Silex",
-    "description": "The label of footer link with label=Install Silex linking to /docs/td/install"
+    "description": "The label of footer link with label=Install Silex linking to /docs/td/getting-started"
   },
   "link.item.label.Coding Workflow": {
     "message": "Coding Workflow",

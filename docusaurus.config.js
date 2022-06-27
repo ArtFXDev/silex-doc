@@ -67,7 +67,7 @@ const config = {
         {
           label: "TD",
           type: "doc",
-          docId: "td/presentation",
+          docId: "td/introduction",
         },
         {
           label: "IT",
@@ -102,11 +102,11 @@ const config = {
           items: [
             {
               label: "Presentation",
-              to: "/docs/td/presentation",
+              to: "/docs/td/introduction",
             },
             {
               label: "Install Silex",
-              to: "/docs/td/install",
+              to: "/docs/td/getting-started",
             },
             {
               label: "Coding Workflow",
