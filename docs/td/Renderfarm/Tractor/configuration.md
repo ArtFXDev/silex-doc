@@ -93,7 +93,7 @@ Also change the configuration to retrieve the logs in the `tractor.config` file 
 Specify Administrator, Wrangler and ValidLogins.
 
 - `Administrator` -> can reload the configuration on the interface
-- `Wrangler` -> can modify others' jobs (useful for team's tech lead)
+- `Wrangler` -> can modify others jobs (useful for team's tech lead)
 - `ValidLogins` -> for NIMBY authentication
 
 :::info
