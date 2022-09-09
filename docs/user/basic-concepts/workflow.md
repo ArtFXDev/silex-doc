@@ -53,7 +53,7 @@ You can add a new custom task to the list by clicking on the "+" button near the
 The list of tasks is defined by the supervisors before the project begins.
 :::
 
-Now, let's say you are a layout artist. Afetr selecting your Shot or Asset in the explorer, you can select the task **Layout**, and [open a new scene](../interface/file-explorer.md) from the launch window. the new scene is now open in a **Context** specific to this task. this means that the [tools in the Silex shelf](./actions/actions.md) will take into acount that your are in a layout scene in for the shot you selected. In other terms, Silex KNOWS where you are, and will use it for publishing files.
+Now, let's say you are a layout artist. After selecting your Shot or Asset in the explorer, you can select the task **Layout**, and [open a new scene](../interface/file-explorer.md) from the launch window. the new scene is now open in a **Context** specific to this task. this means that the [tools in the Silex shelf](./actions/actions.md) will take into acount that your are in a layout scene in for the shot you selected. In other terms, Silex KNOWS where you are, and will use it for publishing files.
 
 As mentioned before, the [publish tool](./actions/publish.md) exports the scene or the selection into a publish folder. Since you work in a **Layout** scene, if you use the [publish tool](./actions/publish.md), the exported files will be accessible in the publish folder. You will be able to access it ONLY in this particular task, in this particular shot.
 
