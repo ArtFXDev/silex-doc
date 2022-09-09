@@ -1,5 +1,5 @@
 ---
-id: Silex-architecture
+id: silex-architecture
 title: Architecture
 sidebar_position: 5
 ---
