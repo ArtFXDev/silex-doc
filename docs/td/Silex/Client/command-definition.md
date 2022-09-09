@@ -62,7 +62,7 @@ class MyCommand(CommandBase):
 
 The three availables methods take all the same three parameters:
 
-- parameter: A dictionnary holding the name and a **copy** of the parameter value (The fact that it is a copy is very important).
+- parameter: A dictionary holding the name and a **copy** of the parameter value (The fact that it is a copy is very important).
 - action_query: The action query that is calling this command, you can acccess all the commands from it
 - logger: Use this logger instead of the global one. This logger will store the logs into the command itself and show it to the user in the UI's debug section
 
@@ -93,9 +93,8 @@ class MyCommand(CommandBase):
 ```
 
 Here we use the SelectParameterMeta, wich is a dropdown that will return a string (the selected value). These parameters are different because they
-are actually functions that takes parameters.The full list won't be detailed here you can take a look at the [parameter types module](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/parameter_types.py) for the full list of special parameters types.
+are actually functions that take parameters. The full list won't be detailed here, you can take a look at the [parameter types module](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/parameter_types.py) for the full list of special parameter types.
 
 ## Command inheritance
 
-It is possible to inherit from an other command. It works just like normal inheritance in python exepts that the parameter will be merged
-with the parameters of the children. For the method overrides, you can just use `super()` like in normal python inheritance.
+It is possible to inherit from an other command. It works just like normal inheritance in python exept that the parameter will be merged with the parameters of the children. For the method overrides, you can just use `super()` like in normal python inheritance.

@@ -41,7 +41,7 @@ The `No Free Slots` issue is a classic in ArtFX's pipeline history (hi Sylvain a
 
 By default every blade on the farm has a max slot capacity of `1` which means it can only run up to `1` task concurrently. When it happens, the `note` field of the blade changes to `no free slots (1)` which means that the blade can't accept another task.
 
-The issue we saw rising was blades that had the no free slots thing even thought **no tasks were running on the blade**.
+The issue we saw rising was blades that had the no free slots thing even though **no tasks were running on the blade**.
 
 We hard fixed that by killing specific process names on the affected blades in [Harvest](../harvest):
 

@@ -13,9 +13,9 @@ Every scene sent to the renderfarm must be in a publish folder (which is synchro
 
 ## Purpose :
 
-The **Publish** action is the way to save your scenes and references in the **publish folder**. it exports multiple formats, checks that all references are in a publish folder and renames the exported file accordingly with the naming convention.
+The **Publish** action is the way to save your scenes and references in the **publish folder**. It exports multiple formats, checks that all references are in a publish folder and renames the exported file accordingly with the naming convention.
 
-The purpose of the **publish** is to ensure that every job submited to the [Renderfarm](../../Renderfarm/renderfarm.md) is renderable, and all references and textures can be reached by any _blade_ on the network. For doing so, the action calls for the [Conform](./conform.md) action. If the references found in the scene need to be [conformed](./conform.md) to the pipeline, and cannot be accessed from the server. The **Publish** action will prompt you to [conform](./conform.md) these references.
+The purpose of the **publish** is to ensure that every job submited to the [Renderfarm](../../Renderfarm/renderfarm.md) is renderable, and all references and textures can be reached by any _blade_ on the network. For doing so, the action calls for the [Conform](./conform.md) action. If the references found in the scene need to be [conformed](./conform.md) to the pipeline, and cannot be accessed from the server, the **Publish** action will prompt you to [conform](./conform.md) these references.
 
 ### Step by step use of the publish :
 
@@ -178,7 +178,7 @@ ma:
 
 As you can see, there are multiple steps that the publish goes through, like the conform check, as mentioned before, and the preview capture.
 
-Sometime, you can see a path with a **setup** root like : `"setup:build_output_path:directory"`
+Sometimes, you can see a path with a **setup** root like : `"setup:build_output_path:directory"`
 
 This refers to the publish.yaml file in the [silex_client](../Client/client.md) repository, that calls this the specific YAML (in this case ma.yaml) in the plugin repository. In the case of our example, before executing the ma.yaml file, the publish file executes a bunch of other commands, the most important of wich is the **build_output_path**.
 
@@ -269,4 +269,4 @@ In many cases, a command will export the published file to a temporary folder pa
 
 If you want, you can customize this publish template by adding or deleting steps.
 
-If you havn't read the documentation on the YAML definition, you can click here [action definition](../Client/action-definition.mdx). 🧭
+If you haven't read the documentation on the YAML definition, you can click here [action definition](../Client/action-definition.mdx). 🧭

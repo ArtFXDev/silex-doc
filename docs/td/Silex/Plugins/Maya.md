@@ -9,7 +9,7 @@ title: Maya
 
 ### Startup
 
-Every features are added at startup.
+Every feature are added at startup.
 
 The Maya _userSetup.py_ script is in the **startup** folder. It imports and calls multiple scripts localized in the same root.
 

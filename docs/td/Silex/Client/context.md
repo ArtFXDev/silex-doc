@@ -4,14 +4,14 @@ title: Context
 sidebar_position: 10
 ---
 
-Silex is context sensitive, the all point of actions is that the same action will depend of where you are executing it from. The context is defined by two factors :
+Silex is context sensitive, the whole point of actions is that the same action will depend on where you are executing it from. The context is defined by two factors :
 
-- The rez environment , wich will define the available actions and commands.
-- The task ID, wich will define the variables stored in the context metadata like project name, task name, user name, shot name...
+- The rez environment, wich will decide the available actions and commands.
+- The task ID, wich will decide the variables stored in the context metadata like project name, task name, user name, shot name...
 
 ## The rez environment
 
-Silex can load plugins dynamically thanks to rez. Each plugins will register a list of actions and commands. The order is important because registed actions can override and inherit from child actions.
+Silex can load plugins dynamically thanks to rez. Each plugin will register a list of actions and commands. The order is important because registed actions can override and inherit from child actions.
 
 ## The task ID
 

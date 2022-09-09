@@ -1,6 +1,6 @@
 Link between routes and events. They are automatically executed from index.js.
 
-So, if you want to add a new listeners, you just have to create a new js files under the listener directory.
+So, if you want to add a new listener, you just have to create a new js files under the listener directory.
 
 ## Files structure
 

@@ -8,7 +8,7 @@ Silex is running an event loop in a secondary thread. This event loop is used to
 
 ## Problems you might encounter
 
-- Since the silex actions and the websocket connection are running in the same event loop, if an action is holding the attention
+- Since the Silex actions and the websocket connection are running in the same event loop, if an action is holding the attention
   of the event loop for too long, the websocket connection might break. It's actually not a problem since socketio handles disconnection
   and reconnection automaticaly, but you will get a warning message in the silex UI. To prevent this, make sure to separate your action
   logic into multiple coroutines.
@@ -24,14 +24,14 @@ Most DCCs do not handle mutlithreading very well, plus none of them are usable w
 [ExecutionInThread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) a callable class so each DCC
 can customise it to work with its threading features. (see the Silex Plugins page for more infos)
 
-For example, maya provides the method [`executeDefered` and `executeInMainThreadWithResult`](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Scripting/files/GUID-9B5AECBB-B212-4C92-959A-22599760E91A-htm.html)
+For example, Maya provides the method [`executeDefered` and `executeInMainThreadWithResult`](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Scripting/files/GUID-9B5AECBB-B212-4C92-959A-22599760E91A-htm.html)
 wich both takes a callable as a parameter.
 
-- `executeDefered` is not blocking, it's juste adding the callable to maya's own event loop without returning the result.
+- `executeDefered` is not blocking, it's juste adding the callable to Maya's own event loop without returning the result.
 - `executeInMainThreadWithResult` is blocking, the call will block the event loop until the function is executed and then return the result.
 
 In our case, we don't want to to use `executeInMainThreadWithResult`, since it is blocking, if the command takes time there is no way for the event loop
-to do something else while waiting for the result, the websocket connection will break, and if other actions are running at the same time they will all be stuck.
+to do something else while waiting for the result, the websocket connection will break, and if other actions are running at the same time they will all be stuck 😔
 
 That's why we use `executeDefered`. That way, the call is not blocking, but there is still a problem: how do we get the result ?
 

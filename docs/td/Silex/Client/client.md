@@ -5,7 +5,7 @@ sidebar_position: 20
 ---
 
 Silex client is responsible for the resolution and execution of actions. These actions represents what the user
-can do from the context he is in.
+can do from the context he or she is in.
 
 ## Technologies used
 

@@ -52,7 +52,7 @@ The blade store and sends logs and status update to the engine.
 
 ### Engine
 
-The **engine** is the program running on the main server on the network. Its job is to receive jobs orders dispatch tasks to the connected blades. It handles priority, logs and a database where it stores information about what is happenning.
+The **engine** is the program running on the main server on the network. Its job is to receive job orders dispatch tasks to the connected blades. It handles priority, logs and a database where it stores information about what is happenning.
 
 ## What to read next
 
