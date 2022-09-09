@@ -16,6 +16,11 @@ $ yarn start
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
+If docusaurus is not recognised as an internal or external command:
+
+```
+$ yarn add docusaurus
+```
 ### Build
 
 ```
