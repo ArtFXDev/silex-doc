@@ -8,7 +8,7 @@ sidebar_position: 10
 
 ### What is a Work folder ? :
 
-The Work folder is accessible from the interface as you can see [here](../interface/file-explorer.md). 
+The Work folder is accessible from the interface as you can see [here](../interface/file-explorer.md).
 This is a free space for you to save scenes in progress. It's a folder that is not backuped on the server, and only exists in your computer. This is where you save your scene and incremented versions.
 
 ### A pick in the Publish folder :
