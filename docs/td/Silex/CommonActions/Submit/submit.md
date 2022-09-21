@@ -151,7 +151,7 @@ vray:
 
 The steps are:
 
-1. We launch the action defined by `submit.yml`. This is the base action
+1. We launch the action defined by `submit.yml`. This is the base action.
 2. `append_submit_actions` is using the [`InsertAction`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/insert_action.py#L21) command to insert the appropriate submitter based on the user input. We specify the `submit` category to look at the [`config/submit/xxxx.yml`](https://github.com/ArtFXDev/silex_client/tree/dev/silex_client/config/submit) submitter action definitions.
 3. The submitter is inserted and we build the output path of the image files for the render
 4. `build_vray_tasks` constructs tasks and commands based on the `task_size` and other user input. It returns a list of tasks in an [abstract data model](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/farm.py).

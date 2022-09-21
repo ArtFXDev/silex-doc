@@ -10,7 +10,7 @@ Actions are defined with YAML files
 
 ## Where do I place my yaml ?
 
-Silex will look for acttion definitions using the `SILEX_ACTION_CONFIG` environment variable.
+Silex will look for action definitions using the `SILEX_ACTION_CONFIG` environment variable.
 The yaml must be under a category. The default category is the `actions` category. When calling an action, if you don't
 specify a category, silex will look for the yaml in the actions folder
 
@@ -24,15 +24,15 @@ specify a category, silex will look for the yaml in the actions folder
 
 ## Action definition schema
 
-Action are organized in hierarchy. An action is composed of steps, a step is composed of commands and a command is composed of parameters.
+Actions are organized in hierarchy. An action is composed of steps, a step is composed of commands and a command is composed of parameters.
 
-- The `action` holds `steps`, it's the top level entity with some global informations
+- The `action` holds `steps`, it's the top level entity with some global information
 - The `steps` is here to group `commands`. They don't hold much data, they have a index attributes wich is very important. The order of execution depends on this index, using a key/value datastructure instead of a simple array allows to insert steps between others easly. When an action inherit from an other, it can insert a step by defining one with an index that sits between two other steps. That's why we usually increment the steps by 10 or 100 to allows potential insertions later
 - The `command` is linked to a piece of code to execute, it holds `parameters` and is responsible to call the code by providing the value of its `parameters`. It also holds the output of the execution
 - The `parameter` can either store a raw value or be connected to a `command` output. It has a type and make sure that the provided type is right. Be carefull, for invalid types, silex will try to cast the value, it's usefull in most case but sometimes it can result into weird results.
 
 :::tip
-You must be carefull with YAML, one indentation can make your entire action wrong. And the error will be very cryptic
+You must be carefull with YAML, one indentation can make your entire action wrong. And the error will be very cryptic.
 :::
 
 Here is what an action definition should look like:
@@ -65,7 +65,7 @@ Here is what an action definition should look like:
           hide: "<boolean> (default: false)"
           # Little help that will be displayed on the UI
           tooltip: "<string> || null (default: null)"
-          # The path that lead to the python command to execute, the format is like a regular python import (ex: 'silex_plugin.commands.my_command.MyCommand'). See the Command definition page for more informations, see the command definition page)
+          # The path that lead to the python command to execute, the format is like a regular python import (ex: 'silex_plugin.commands.my_command.MyCommand'). See the Command definition page for more information, see the command definition page)
           path: "<string> (default: '')"
           # Specify if the execution should stop before this command, and prompt the user for any parameter modifications
           ask_user: "<boolean> (default: false)"
@@ -86,18 +86,18 @@ Here is what an action definition should look like:
 
 You can connect the output of a command into the input of a parameter. To do so, use the `!command-output` tag
 with a string specifying the path of the command (ex: `value: !command-output "<step_name>:<command_name>"`)
-If the command is returning a dictionnary, you can get a specific value of that dictionnary by addiing more keys to the path.
+If the command is returning a dictionnary, you can get a specific value of that dictionary by adding more keys to the path.
 
 For example, if the command returns `{"foo": {"bar": "baz"}}` you can access the `baz` string by setting the path to `"<step_name>:<command_name>:foo:bar"`.
 
 :::info
-We use dictionnaries as a way for commands to have multiple outputs, thats why it is always good to output a dictionnary in commands even if there
+We use dictionaries as a way for commands to have multiple outputs, thats why it is always good to output a dictionnary in commands even if there
 is only one output, just in case we update it later with more outputs.
 :::
 
 ## Inheritance
 
-Some actions are very similar, to avoid having to redo the same things over and over, you can use inheritance. To use inheritance, you must first understand how silex
+Some actions are very similar, to avoid having to redo the same things over and over, you can use inheritance. To use inheritance, you must first understand how Silex
 resolves an action from it's name. It uses the `SILEX_ACTION_CONFIG` environment variable, which consists of a list of path, just list the `PATH` variable.
 
 For example:
@@ -113,8 +113,8 @@ The syntax for inheritance is:
 
 ```yml
 my_action: !inherit
-  # The name of the action you wan to inherit from. You can add a '.' in front of the name if you want silex to start looking for actions at the current level
-  # If you don't put a . silex will start looking for the action starting at the level under the current one.
+  # The name of the action you wan to inherit from. You can add a '.' in front of the name if you want Silex to start looking for actions at the current level
+  # If you don't put a . Silex will start looking for the action starting at the level under the current one.
   parent: "<string> (default: null)"
   # If you want to inherit of a specific part of the action, use the key to specify it
   key: "<string> (default: <same value as the parent>)"

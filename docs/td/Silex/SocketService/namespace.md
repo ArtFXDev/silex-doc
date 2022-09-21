@@ -1,6 +1,6 @@
-For explanation about namespace usage for Socket.io see: [Socket.io/namespaces](https://socket.io/docs/v4/namespaces/)
+For explanations about namespace usage for Socket.io see: [Socket.io/namespaces](https://socket.io/docs/v4/namespaces/)
 
-In simple way : Namespaces in like a route for your request, to sort them.
+Simply put : Namespaces are like a route for your request, to sort them.
 
 ## Files Structure
 
@@ -14,7 +14,7 @@ In simple way : Namespaces in like a route for your request, to sort them.
  ┃ ┗ 📜ui.js
 ```
 
-To add a new namespaces your have create a .js file under the namespaces directory of the project. In the file structure example, we have 4 namespaces:
+To add a new namespace you have to create a .js file under the namespaces directory of the project. In the file structure example, we have 4 namespaces:
 
 - /dcc
 - /dcc/action

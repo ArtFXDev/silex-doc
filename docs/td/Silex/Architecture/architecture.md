@@ -4,28 +4,28 @@ title: Architecture
 sidebar_position: 5
 ---
 
-![](/img/silex/silex_architecture.png)
+![](/img/Silex/silex_architecture.png)
 
 ## User space
 
-Those part of the Silex pipeline are available on the user machine.
+Those parts of the Silex pipeline are available on the user machine.
 
 ### Silex desktop
 
-Silex desktop is the main user tool. It contains the user access to most silex services :
+Silex desktop is the main user tool. It contains the user access to most Silex services :
 
 - File manager
 - Artist DCC access and actions
 - Nimby (Not In My BackYard: prevent the renderfarm from using this computer)
 - Harvest film stats
 
-It communicates both with the backend in order to execute database requests and with the silex socket service to ensure communication with the DCC.
+It communicates both with the backend in order to execute database requests and with the Silex socket service to ensure communication with the DCC.
 
 It is an electron application which displayed content coms from the Front server.
 
 ### Silex socket service
 
-Silex socket service allows real time communication between Silex desktop and DCC, through silex client actions.
+Silex socket service allows real time communication between Silex desktop and DCC, through Silex client actions.
 
 ### Silex client
 
@@ -33,7 +33,7 @@ Silex client is a configurable action system, that can launch standalone actions
 
 ### Rez packages
 
-Rez create specific and configurable work environments. The Rez packages are loaded to ensure the creation of this environment. When launching DCCs though silex, artists use each time a specific Rez environment.
+Rez create specific and configurable work environments. The Rez packages are loaded to ensure the creation of this environment. When launching DCCs though Silex, artists use each time a specific Rez environment.
 
 ### Aiogazu
 
@@ -41,7 +41,7 @@ Aiogazu is a python library that abstracts the HTTP routes of the database. It i
 
 ## Backend
 
-### Front server (silex front end)
+### Front server (Silex front end)
 
 This server is targeted by Silex desktop. It is a react application that contains the displayed content of Silex Desktop.
 

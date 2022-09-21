@@ -16,16 +16,16 @@ If you installed silex client as a rez package, don't forget to execute this com
 
 #### Task ID
 
-Some action behaves differently according to the [context](./context.md) you are executing them from (for example, the publish will set the publish location using the current task defined in the context).
+Some actions behave differently according to the [context](./context.md) you are executing them from (for example, the publish will set the publish location using the current task defined in the context).
 You can specify the task using the `--task-id` argument with the ID if the entity in the [CGWire](https://www.cg-wire.com/) database.
 
 #### Parameters
 
-Silex actions sometimes prompt the user with parameters. You can set parameters ahead with the `--parameters` argument. The expected value is `<parameter-path>=<parameter-value>` the parameter will be automaticaly casted into the expected parameter type. To set multiple parameters just use this argument multiple times.
+Silex actions sometimes prompt the user with parameters. You can set parameters ahead with the `--parameters` argument. The expected value is `<parameter-path>=<parameter-value>` the parameter will be automaticaly cast into the expected parameter type. To set multiple parameters just use this argument multiple times.
 
 #### Batch mode
 
-Sometimes you want to execute actions in headless mode (on the renderfarm or on ssh), in this case you don't have access to the silex UI and when the user will be prompted, the action execution will be stuck waiting for an input in the UI. To prevent that you can use `--batch` to tell silex to not try to connect to the UI via websocket. All the parameters that require a user input will keep their default values.
+Sometimes you want to execute actions in headless mode (on the renderfarm or on ssh), in this case you don't have access to the Silex UI and when the user will be prompted, the action execution will be stuck waiting for an input in the UI. To prevent that you can use `--batch` to tell silex to not try to connect to the UI via websocket. All the parameters that require a user input will keep their default values.
 
 #### Categories
 

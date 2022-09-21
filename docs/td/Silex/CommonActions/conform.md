@@ -5,7 +5,7 @@ title: Conform
 
 The conform is used to move a file from outside of the pipeline into the pipeline.
 It first checks all the possible dependencies of that file (textures, references...)
-and make sure that the file and all its dependencies are accessible on the pipeline.
+and makes sure that the file and all its dependencies are accessible on the pipeline.
 
 ## Purpose
 
@@ -16,7 +16,7 @@ The conform is different according to the type of file. We can split these filet
 
 :::tip
 The first category is the simplest, there is almost nothing to do to implement a new file type
-that cannot have external file dependencies. However the first category needs special treatment.
+that cannot have external file dependencies. However the second category needs special treatment.
 :::
 
 The conform can be separated into 6 steps:
@@ -29,7 +29,7 @@ The conform can be separated into 6 steps:
 6. Move the file to its output location
 
 When you implement a new conform, you will have to implement the step `3` and `4` because the way these steps are
-implemented is usually specific to each types of file.
+implemented is usually specific to each type of file.
 
 One important part is that on step `4` the conform calls an other conform on each dependencies of the file,
 which makes the conform recursive.
@@ -45,12 +45,12 @@ This is an example of the Maya conform:
 
 ![](/img/silex/vray_conform_action.jpg)
 
-- The user execute the conform and select a maya scene file.
-- The maya conform is inserted, and the output path of that maya scene is built
-- We find all the dependencies of that maya scene that are not on the pipeline
-- For each one of these dependencies, we insert an other conform for each dependencies (only one PNG conform is shown here)
-- We gather all the new path and repath all the dependencies of the maya scene to make them point to their new location
-- We copy the maya scene file to its new location and rename it correctly
+- The user execute the conform and select a Maya scene file.
+- The Maya conform is inserted, and the output path of that Maya scene is built
+- We find all the dependencies of that Maya scene that are not on the pipeline
+- For each one of these dependencies, we insert another conform for each dependency (only one PNG conform is shown here)
+- We gather all the new path and repath all the dependencies of the Maya scene to make them point to their new location
+- We copy the Maya scene file to its new location and rename it correctly
 
 :::info
 In this example we only see that one png conform has been inserted for simplicity. In reality, one png conform will
@@ -59,8 +59,8 @@ The final action might end up very big for big scenes with a lot of dependencies
 :::
 
 :::caution
-In this example we have a depth of 2 (a file that references an other file) but since maya scene files can reference
-other maya scene files, the depht might go very deep.
+In this example we have a depth of 2 (a file that references another file) but since Maya scene files can reference
+other Maya scene files, the depht might go very deep.
 :::
 
 ## Write your own conform

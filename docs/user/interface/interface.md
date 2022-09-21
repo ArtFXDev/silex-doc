@@ -14,7 +14,7 @@ Hello newbies ! 🖖
 
 Welcome to Silex, a pipeline application which gives you access to the render farm and allows you to browse through your shots and assets, and many other things ! (you'll see, it's very fun)
 
-When opening silex, you just need to connect with your kitsu acount.
+When opening Silex, you just need to connect with your Kitsu acount.
 after that, the home page will be displayed.
 
 ![](/img/user_guide/home_page/silex_home_page.png)
@@ -27,7 +27,7 @@ It displays shortcuts to shots / assets / projects :
 
 ![](/img/user_guide/home_page/silex_home_page_frame_bottom.png)
 
-- The **left** side is for the project your are a part of. By clicking on one of them, you will be redirected to the [file explorer](file-explorer.md) within silex, where you will be able to browse through the project.
+- The **left** side is for the project your are a part of. By clicking on one of them, you will be redirected to the [file explorer](file-explorer.md) within Silex, where you will be able to browse through the project.
 
 - The **center** and the **right** side, are shortcuts to the recently opend tasks and scenes.
 
@@ -45,7 +45,7 @@ This icones represent different applications you can acces in Silex. They will b
 
 ### The top bar :
 
-This section displays your account avatar, the nimby status, access to the list of currently running applications, an update button and the hamberger menu (previously mentioned).
+This section displays your account avatar, the Nimby status, access to the list of currently running applications, an update button and the hamberger menu (previously mentioned).
 
 ![](/img/user_guide/home_page/silex_home_page_frame_top.png)
 
@@ -63,7 +63,7 @@ This section displays your account avatar, the nimby status, access to the list 
 
 ![](/img/user_guide/home_page/silex_home_page_profile.png)
 
-Silex has coins system. points you can gather when publishing, conforming...
+Silex has a coin system. They're points you can gather when publishing, conforming...
 
 ## Hamburger menu :
 
@@ -76,9 +76,9 @@ This menu gives you acces to all the services on Silex.
 - **Project explorer** : This is a [file explorer](file-explorer.md) that let you browse through the files in your projects.
 - **Actions** : This shows all running [actions](../basic-concepts/actions/actions.md) on you computer.
 
-- **Statistics** : This represents the rendered frames progression of each team through the year. Try and reach the top ass fast as you can 📈.
+- **Statistics** : This represents the rendered frames progression of each team through the year. Try and reach the top as fast as you can 📈.
 
-- **Arcade** : Here you can find flappy-bird like games, inspired by promo2022 movies. Play them to win some silex coins ! (But not to much)
+- **Arcade** : Here you can find flappy-bird like games, inspired by promo2022 movies. Play them to win some Silex coins ! (But not to much)
 
 - **Tractor** : Tractor is the school [renderfarm](../renderfarm/renderfarm.md).
 

@@ -12,7 +12,7 @@
  ┗ 📜index.js
 ```
 
-Mocha command in package.json scans and executes all files in /test. Therefore, to create a new test, you just have to create your new testfile.js under /test.
+the Mocha command in package.json scans and executes all files in /test. Therefore, to create a new test, you just have to create your new testfile.js under /test.
 
 /index.js is used to start main app before all tests.
 

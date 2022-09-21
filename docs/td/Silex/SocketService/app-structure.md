@@ -1,6 +1,6 @@
 The app structure is pretty simple.
 
-Entry point is /index.js, he will scan and execute all .js files under /src/listeners
+Entry point is /index.js, it will scan and execute all .js files under /src/listeners
 
 ```
 📦src

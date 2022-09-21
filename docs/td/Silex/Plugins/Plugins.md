@@ -7,7 +7,7 @@ title: Plugins
 
 ## Intro :
 
-Silex uses different plugins. One for each DCC add to the pipeline.
+Silex uses different plugins. One for each DCC added to the pipeline.
 
 While the core of **Silex** is coded in the [silex_client](../Client/client.md) git repostory, each DCC has its own repository.
 

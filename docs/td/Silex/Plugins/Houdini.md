@@ -24,5 +24,5 @@ If you need to add a new script at startup, add it to the **startup\script\\** f
 
 ### Startup scripts
 
-1. Creates and populate the **Silex** shelf.
+1. Creates and populates the **Silex** shelf.
 2. Add shortcuts for saving. (Calls silex actions instead of Maya save).

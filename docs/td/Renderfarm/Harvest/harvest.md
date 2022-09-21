@@ -14,7 +14,7 @@ Harvest consists of two main repositories:
 
 ## API
 
-Harvest have a REST API accessible at http://harvest.preprod.silex.artfx.fr/api/, here are the current routes:
+Harvest has a REST API accessible at http://harvest.preprod.silex.artfx.fr/api/, here are the current routes:
 
 ```json
 {

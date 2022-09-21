@@ -124,7 +124,7 @@ Write1 ==> Rendering finished
 
 ## Create the action ✔️
 
-When the user clicks on the [`Submit`](../Submit) action, it launches the action defined by [`silex_client/config/action/submit.yml`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/config/action/submit.yml) which then inserts the proper submit action for the choosen software.
+When the user clicks on the [`Submit`](../Submit) action, it launches the action defined by [`silex_client/config/action/submit.yml`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/config/action/submit.yml) which then inserts the proper submit action for the chosen software.
 
 ### Simple action
 

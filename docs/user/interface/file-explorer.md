@@ -10,25 +10,25 @@ Here is what it looks like :
 
 ![](/img/user_guide/file_explorer/file_explorer_shots.png)
 
-This is the view of your sequences but you can also access yours assets in the menu :
+This is the view of your sequences but you can also access your assets in the menu :
 
 ![](/img/user_guide/file_explorer/file_explorer_assets.png)
 
-For specialists students with multiple projects, you can also switch projects.
+For specialist students with multiple projects, you can also switch projects.
 
 ![](/img/user_guide/file_explorer/file_explorer_projects.png)
 
 ## Browsing through files :
 
-When you click on a sequences, you will get "inside" it et access your shots. exly like a windows file explorer.
+When you click on a sequence, you will get "inside" it et access your shots. Exactly like a Windows file explorer.
 
 ![](/img/user_guide/file_explorer/file_explorer_structure.png)
 
-when selecting a **Shot** or an **Asset**, however, you will see a window displayed on you screen. This window shoews the content of your work and publish folder, as well as a capture of you scene (If you took one when publishing it)
+when selecting a **Shot** or an **Asset**, however, you will see a window displayed on you screen. This window shows the content of your work and publish folder, as well as a screen shot of you scene (If you took one when publishing it)
 
 ![](/img/user_guide/file_explorer/file_explorer_work.png)
 
-you can switch from the **Work** folder to the **Publish** folder here :
+You can switch from the **Work** folder to the **Publish** folder here :
 
 ![](/img/user_guide/file_explorer/file_explorer_switch_publish.png)
 
