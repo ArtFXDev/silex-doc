@@ -1,6 +1,6 @@
 ---
 id: silex-actions-client
-title: Seuveur client
+title: Serveur client
 sidebar_position: 10
 ---
 
