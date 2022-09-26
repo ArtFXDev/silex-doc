@@ -122,13 +122,11 @@ Dans l'exemple ci-dessous, le tag `!inherit` est utilisée à la racine de l'act
 Si vous le faites, vous devez utiliser l'option `key` et l'utiliser pour spécifier quelle partie de l'action vous voulez insérer (exemple: `action_name.step_name` si vous voulez une étape qui hérite d'une étape spécifique)
 
 :::info
-Le cas d'utilisation pour l'héritage est généralement de réduire la répétition [context](./context.md). For example,
-you can create a plugin for a projects and customise the behaviour of that action for the contexts that includes this project specifically.
+Le cas d'utilisateur pour l'héritage est généralement de réduire la répétition ou de personnaliser le comportement d'une action pour un [contexte](./context.md) spécifique. Par exemple, vous pouvez créer un plugin pour un projet et personnaliser le comportement de cette action pour les contextes qui incluent spécifiquement ce projet.
 :::
 
-To override a value, only add the keys for the value you want to override. For example, we have here a vrscene action (a vrscene publish)
-which is customised for a certain project, we set the merge parameter to true (which is a hidden parameter) only for the contexts where that
-plugin is loaded.
+Pour override une valeur, ajoutez seulement les keys pour la valeur que vous voulez override. Par exemple, nous avons ici une action vrscene (un publish vrscene)
+qui est personnalisée pour un certain projet, nous définissions le paramètre merge à true (ui est un paramètre caché) uniquement pour les contextes où ce plugin est chargé.
 
 ```yml
 vrscene: !inherit
@@ -142,12 +140,12 @@ vrscene: !inherit
             merge: true
 ```
 
-## Value overrides order
+## Ordre d'override de valeur
 
-From the point where the action is defined to the point where it is executed, some fields value can change in multiple ways. Here is the order in which a parameter value will me set:
+Du point où l'action est définie au point où elle est exécutée, la valeur de certains champs peut changer de multiples façons. Voici l'ordre dans lequel une valeur de paramètre sera définie :
 
-1. The default value of the parameter is set in the command definition
-2. It might then be overriden in the YAML definition of the action that uses that command
-3. When the action is created the value can then be modified with `set_parameter` or the `--parameter` argument
-4. When the action is executed, if the command is set to `ask_user: true`, the user will update the value before execution
-5. Right after the user changes the value, the `setup` method is called which might set one last time the value. (see the command definition page)
+1. La valeur par défaut du paramètre est définie dans la définition de la commande
+2. Il peut alors overriden dans la définition YAML de l'action qui uilise cette commande
+3. Lorsque l'action est créée, la valeur peut alors être modifiée avec l'argument `set_parameter` ou `--parameter`
+4. Lorsque l'action est exécutée, si la commande est définie sur `ask_user: true`, l'utilisateur mettra à jour la valeur avant l'exécution
+5. Juste après que l'utilisateur change la valeur, la méthode `setup` est appelée qui pourrait définir une dernière fois la valeur. (voir la page de définition de la commande)

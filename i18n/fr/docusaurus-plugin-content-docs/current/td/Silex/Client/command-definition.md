@@ -1,15 +1,14 @@
 ---
 id: command-definition
-title: Command definition
+title: Définition de commande
 sidebar_position: 40
 ---
 
-Commands are defined as python classes that inherit from [`CommandBase`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/action/command_base.py)
+Les commandes sont définies comme des classes python qui héritent de [`CommandBase`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/action/command_base.py)
 
-## Where do I place my command ?
+## Où dois-je placer mes commandes ?
 
-Anywhere you want as long as it is importable by python. So to make your class importable, you must add the root folder to the `PYTHONPATH` environment variable,
-just like a regular python library. However, we use a convention just for organisation purpose:
+Où vous voulez tant que c'est importable par python. Donc pour rendre votre classe importable, vous devez ajouter le dossier racine à la variable d'environnement `PYTHONPATH`, comme une bibliothèque python normale. Cependant, nous utilisons une convention uniquement à des fins d'organisation :
 
 ```
 📦my_plugin
