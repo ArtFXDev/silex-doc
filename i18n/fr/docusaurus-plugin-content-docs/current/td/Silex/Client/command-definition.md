@@ -19,10 +19,10 @@ Où vous voulez tant que c'est importable par python. Donc pour rendre votre cla
    ┃ ┗ 📜your_command.py
 ```
 
-## Command definition schema
+## Schéma de définition des commandes
 
-The following command definition does not have type hints for simplification. In production, you should type every parameters.
-All the attributes/methods overrides that are defined are optional, if you don't implement them they will just do nothing or have empty values
+La définition de commande suivante n'a pas d'indice de type pour simplifier. En production, vous devez taper tous les paramètres.
+Tous les attributs/méthodes qui sont définis sont optionnels, si vous ne les implémentez pas, ils ne feront rien et auront des valeurs vides
 
 ```python
 from silex_client.action.command_base import CommandBase
@@ -32,40 +32,40 @@ class MyCommand(CommandBase):
     Small description about my command
     """
 
-    # The parameters attribute defines the list of parameters of the command
+    # L’attribut parameters définit la liste des paramètres de la commande
     parameters = {
         "my_parameter": {
-            # The label is just for display, you can omit it, in this case the name will be used (the key if this command)
+            # Le label est juste pour l'affichage, vous pouvez l’omettre, dans ce cas le nom sera utilisé (la key de cette commande)
             "label": "<string> (default: value in the key)",
-            # The expected value type for this parameter (see the parameter types section)
+            # Le type de valeur attendu pour ce paramètre (voir la section types de paramètres plus bas)
             "type": "<type> (default: NoneType)",
-            # The default value for this parameter
+            # La valeur par défaut de ce paramètre
             "value": "<any> (default: None)",
-            # Little help that will be displayed on the UI
+            # Un peu d’aide qui sera affichée sur l’interface utilisateur
             "tooltip": "<string> || null (default: null)"
-            # Specify if this parameter should be displayed on the UI
+            # Préciser si ce paramètre doit être affiché sur l’interface utilisateur
             hide: "<boolean> (default: false)"
         },
     }
 
     @CommandBase.conform_command()
     async def __call__(self, parameters, action_query, logger):
-        # Code to run when the command will be executed
+        # Code à exécuter lorsque la commande sera exécutée
 
     async def undo(self, parameters, action_query, logger):
-        # Code to run when the command is undo
+        # Code à exécuter lorsque la commande est annulée
 
     async def setup(self, parameters, action_query, logger):
-        # Code to run every time a parameter changes
+        # Code à exécuter chaque fois qu’un paramètre change
 ```
 
-The three availables methods take all the same three parameters:
+Les trois méthodes disponibles prennent les mêmes trois paramètres :
 
-- parameter: A dictionnary holding the name and a **copy** of the parameter value (The fact that it is a copy is very important).
-- action_query: The action query that is calling this command, you can acccess all the commands from it
-- logger: Use this logger instead of the global one. This logger will store the logs into the command itself and show it to the user in the UI's debug section
+- parameter: Un dictionnaire contenant le nom et une **copie** de la valeur du paramètre (Le fait qu'il s'agisse d'une copie est très important).
+- action_query: La requête d'action qui appelle cette commande, vous pouvez accéder à toutes les commandes de celui-ci
+- logger: Utilisez cet enregistreur au lieu de l'enregistreur global. Cet enregistreur stocke les logs dans la commande elle-même et l'affiche à l'utilisateur dans la section de debug de l'interface utilisateur
 
-The setup method, must be fast to execute, it is used for post processing user inputs or dynamically change some values according the the input. For example:
+La méthode de configuration, doit être rapide à exécuter, il est utilisé pour les entrées utilisateur de post-traitement ou pour modifier dynamiquement certaines valeurs en fonction de l'entrée. Par exemple :
 
 ```python
 async def setup(self, parameters, action_query, logger):
@@ -73,12 +73,12 @@ async def setup(self, parameters, action_query, logger):
     task_parameter.hide = parameters.["use_current_context"]
 ```
 
-Here when the user will toggle the `use_current_context` parameter, the `task` parameter will hide dynamically
+Ici, lorsque l'utilisateur bascule sur le paramètre `use_current_context`, le paramètre `task` se cachera dynamiquement
 
-## Parameter types
+## Types de paramètres
 
-The parameter type can be any class definition, `"type": str`, `"type": list`, `"type": int` are all valid types.
-However for more complex parameters like a dropdown or a file picker you can use some special parameters found in the [parameter types module](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/parameter_types.py).
+Le type de paramètre peut être n'importe quelle définition de classe, `"type": str`, `"type": list`, `"type": int` sont tous des types valides.
+Cependant, pour des paramètres plus complexes comme un menu déroulant ou un sélecteur de fichiers, vous pouvez utiliser certains paramètres spéciaux trouvés dans le [module des types de paramètres](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/parameter_types.py).
 
 ```python
 from silex_client.utils.parameter_types import SelectParameterMeta
@@ -91,10 +91,8 @@ class MyCommand(CommandBase):
     }
 ```
 
-Here we use the SelectParameterMeta, wich is a dropdown that will return a string (the selected value). These parameters are different because they
-are actually functions that takes parameters.The full list won't be detailed here you can take a look at the [parameter types module](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/parameter_types.py) for the full list of special parameters types.
+Ici nous utilisons le SelectParameterMeta, qui est une liste déroulante qui renvoie un string (la valeur sélectionnée). Ces paramètres sont différents car ce sont en fait des fonctions qui prennent des paramètres. La liste complète ne sera pas détaillée ici, vous pouvez jeter un oeil au [module des types de paramètres](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/parameter_types.py) pour la liste complète des types de paramètres spéciaux.
 
-## Command inheritance
+## Héritage de commande
 
-It is possible to inherit from an other command. It works just like normal inheritance in python exepts that the parameter will be merged
-with the parameters of the children. For the method overrides, you can just use `super()` like in normal python inheritance.
+Il est possible d'hériter d'une autre commande. Il fonctionne comme un héritage normal en python, sauf que le paramètre sera fusionné (merge) avec les paramètres des enfants. Pour les overrides de méthode, vous pouvez simplement utiliser `super()` comme dans l'héritage python normal.
