@@ -2,27 +2,27 @@
 title: Submit
 ---
 
-**Submit** is the action of launching a job on the [render farm](../../../Renderfarm).
+**Submit** est l'action de lancer un job sur la [render farm](../../../Renderfarm).
 
-## Purpose
+## Objectif
 
-The goal of the submitter is to be able to launch render jobs with **different render engines** and tools.
+Le but du submitter est de pouvoir lancer des jobs de rendu avec **différents moteur de rendu (render engines)** et outils.
 
-It must be **flexible** enough to construct different kind of commands used for rendering.
+Il doit être suffisamment **flexible** pour construire différents types de commandes utilisées pour le rendu.
 
-We currently support:
+Nous soutenons actuellement :
 
 - V-Ray `.vrscene` files
 - Blender `.blend` files
-- [Husk](https://www.sidefx.com/docs/houdini/ref/utils/husk.html) (render USD files with Houdini's Karma or other Hydra delegate)
-- [Kick](https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=36110428) (Arnold command line) `.ass` sequences
+- [Husk](https://www.sidefx.com/docs/houdini/ref/utils/husk.html) (rendu fichier USD avec Houdini Karma ou un autre délégué Hydra)
+- [Kick](https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=36110428) (ligne de commande Arnold) `.ass` sequences
 - Houdini scenes `.hip*`
 - Maya scenes `.ma/mb`
 - Nuke scripts `.nk`
 
 ## Architecture
 
-This is an example of the **V-Ray** submitter:
+Voici  un exemple d'un submitter de **V-Ray** :
 
 ![](/img/silex/vray_submit_action.jpg)
 
