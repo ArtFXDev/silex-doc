@@ -1,20 +1,20 @@
 ---
-title: Implement your own submitter
+title: Implémenter notre propre submitter
 ---
 
-In this tutorial we'll be implementing our own submitter in Silex for the compositing software [Natron](https://natrongithub.github.io/).
+Dans ce tutoriel, nous allons implémenter notre propre submitter dans Silex pour le logiciel de composition [Natron](https://natrongithub.github.io/).
 
-Natron is an **open source compositing software** very similar to Nuke. The goal is to submit compositing scenes and output images with a write node.
+Natron est un **logiciel de compositing open source** très similaire à Nuke. Le but est de submit des scène de  compositing et des images de sortie avec un node d'écriture.
 
-## Rez package and executable
+## Paquet Rez et exécutable
 
-The first thing to do is to make sure that the **same version** of Natron will be used everywhere on the farm. This is useful because we don't want inconsistencies between renders.
+La première chose à faire est de s'assurer que la **même version** de Natron sera utilisée partout sur la farm. Ceci est utile car nous ne voulons pas d'incohérences entre les rendus.
 
-To do that we need to add a `natron` [Rez](../../../Workflow/Rez) package.
+Pour ce faire, nous devons ajouter un paquet `natron` [Rez](../../../Workflow/Rez).
 
-First [download Natron's executable](https://github.com/NatronGitHub/Natron/releases/download/v2.4.3/Natron-2.4.3-Windows-x86_64.zip) for Windows. Currently the latest version is `2.4.3`.
+[Téléchargez d'abord l'exécutable de Natron](https://github.com/NatronGitHub/Natron/releases/download/v2.4.3/Natron-2.4.3-Windows-x86_64.zip) pour Windows. Actuellement, la dernière version est `2.4.3`.
 
-**We will put the executable on the network** so it's not necessary to install it on every machine. It's fine since it's not that big and runs on the render farm.
+**Nous mettrons l'exécutable dans le réseau** afin qu'il nesoit pas nécessaire de l'installer sur chaque machine. C'est bien puisqu'il n'est pas si grand et fonctionne sur la render farm.
 
 Then create a package in `\\rez-network-location\silex-rez\packages\dcc`:
 
