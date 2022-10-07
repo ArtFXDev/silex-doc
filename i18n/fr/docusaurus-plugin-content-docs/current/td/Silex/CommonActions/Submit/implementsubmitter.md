@@ -407,16 +407,16 @@ command = (
 ```
 
 :::info
-Notice that we specified the type `scene_file: pathlib.Path`. Parameters are automatically casted in their own types when given to a command.
+Notez que nous avons spécifié le type `scene_file: pathlib.Path`. Les paramètres sont automatiquement cast dans leurs propres typess lorsqu'ils sont données à une commande.
 :::
 
 :::caution
-Use [`PurePath.as_posix()`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.as_posix) method to convert any Windows path into standard POSIX path with **forward slashes**. This can cause issues on the farm when parsing the command otherwise.  
+Utilisez la méthode [`PurePath.as_posix()`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.as_posix) pour convertir un chemin Windows en chemin POSIX standard avec des **slashes**. Cela peut causer des problèmes sur la farm lors de l'analyse de la commande autrement.  
 :::
 
-#### Image output path
+#### Chemin de sortie d'image
 
-Now that we can provide the scene, the rendered image destination will depend on the task the same way. For that we use the [`BuildOutputPath`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/build_output_path.py#L28) command. We need to add it to the YAML action definition:
+Maintenant que nous pouvons fournir la scène, la destination de l'image rendue dépendra de la task de la même manière. Pour cela, nous utilisons la commande [`BuildOutputPath`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/build_output_path.py#L28). Nous devons l'ajouter à la définition de l'action YAML :
 
 ```yaml title="silex_client/config/submit/natron.yml"
 natron:
@@ -458,7 +458,7 @@ natron:
     # ...
 ```
 
-It will first ask for an extension and then build the path. Use it by connecting outputs and inputs with the YAML `!command-output` directive:
+Il va d'abord demande une extension, puis construire le chemin. Utilisez-le en connectant les sorties et les entrées avec la directive YAML `!command-output` :
 
 ```yaml title="silex_client/config/submit/natron.yml"
 natron:
@@ -541,7 +541,7 @@ class NatronRenderTasksCommand(CommandBase):
         return {"tasks": [task], "file_name": scene_file.stem}
 ```
 
-Which will result in this output path (by selecting `png` for example):
+Ce qui donnera ce chemin de sortie (en sélectionnant `png` par exemple) :
 
 ```
 P:\test_pipe\shots\s03\p060\layout_main\publish\v000\png\render\Write1\test_pipe_s03_p060_layout_main_publish_v000_render_Write1.####.png
