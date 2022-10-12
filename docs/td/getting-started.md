@@ -58,7 +58,7 @@ Rez is the package environment resolver, to install it clone it from GitHub:
 ```shell
 $ git clone https://github.com/AcademySoftwareFoundation/rez
 $ cd rez
-$ python ./getting-started.py -v C:/rez/__install__ # -v specify the installation directory
+$ python ./install.py -v C:/rez/__install__ # specify the installation directory, -v : verbose
 ```
 
 Then add that path to the `$PATH` environment variable so the executable is recognized:
