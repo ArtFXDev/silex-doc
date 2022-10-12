@@ -9,7 +9,7 @@ The backend of Silex is composed of multiple services that can be deployed using
 
 ## Deployment
 
-We use [Docker](https://www.docker.com/) to package applications as isolated containers and [`docker-compose`](https://docs.docker.com/compose/) to define a **multi-container application stack**.
+We use [Docker](https://www.docker.com/) to package applications as isolated containers and [`docker compose`](https://docs.docker.com/compose/) to define a **multi-container application stack**.
 
 This is great because deploying most of the Silex backend applications is as simple as (see details [here](https://github.com/ArtFXDev/silex-deploy)):
 
