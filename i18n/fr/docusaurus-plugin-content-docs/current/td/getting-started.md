@@ -58,7 +58,7 @@ Rez est le résolveur d'environnement de paquet, pour l'installer cloner le GitH
 ```shell
 $ git clone https://github.com/AcademySoftwareFoundation/rez
 $ cd rez
-$ python ./getting-started.py -v C:/rez/__install__ # -v spécifie le répertoire d'installation
+$ python ./install.py -v C:/rez/__install__ # spécifie le répertoire d'installation, -v : verbose
 ```
 
 Ajoutez ensuite ce chemin à la variable d'environnement `$PATH` afin que l'exécutable soit reconnu :

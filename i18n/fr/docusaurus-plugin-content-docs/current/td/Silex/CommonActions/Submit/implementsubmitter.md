@@ -547,17 +547,17 @@ Ce qui donnera ce chemin de sortie (en sélectionnant `png` par exemple) :
 P:\test_pipe\shots\s03\p060\layout_main\publish\v000\png\render\Write1\test_pipe_s03_p060_layout_main_publish_v000_render_Write1.####.png
 ```
 
-### Frame range splitting
+### Fractionnement de la plage de frame
 
-The last thing to do is to use the full power of a render farm: **parallelization**.
+La dernière chose à faire est d'utiliser toute la puissance de la render farm: **la parallélisation**.
 
-In short: spread the computation over multiple computers and make them run **simultaneously**.
+En bref : répartir le calcul sur plusieurs ordinateurs et les faire fonctionner **simultanément**.
 
-To do that we need to **split the frame range** the artist wants to render, let's say `1-500` into chunks of frames. Like `10` frames on each computer.
+Pour ce faire, nous devons **diviser la plage de frame** que l'artiste veut rendre, disons `1-500` dans des morceaux de frames. Comme `10` frames sur chaque ordinateur.
 
-To represent frame range expressions, we use the `FrameSet` class from the [Fileseq](https://github.com/justinfx/fileseq/) Python library. It allows representing complex range expressions like `1-10, 50-80x2` (with paddings...).
+Pour représenter les expressions de plage de frame , nous utilisons la classe `FrameSet` de la bibliothèque [Fileseq](https://github.com/justinfx/fileseq/) Python. Il permet de représenter des expressions de range complexes comme `1-10, 50-80x2` (avec des paddings...).
 
-We provide a `FrameSet` parameter and a `task_size` which will define the **number of frames per task/computer**:
+Nous fournissons un paramètre `FrameSet` et un `task_size` qui définira le **nombre de frames par task/ordinateur**:
 
 ```python title="silex_client/commands/farm/natron_render_tasks.py"
 from __future__ import annotations
@@ -642,7 +642,7 @@ class NatronRenderTasksCommand(CommandBase):
         frame_chunks = frames.split_frameset(frame_range, task_size)
 
         for chunk in frame_chunks:
-            # Copy the initial command
+            # Copier la commande initiale
             chunk_cmd = natron_cmd.deepcopy()
 
             chunk_cmd.param("w", [write_node, output_path, str(chunk)])
@@ -663,39 +663,39 @@ class NatronRenderTasksCommand(CommandBase):
 ![](/img/natron_frame_split.png)
 
 :::tip
-We use [`frames.split_frameset`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/frames.py#L16) to split a `FrameSet` expression into equal chunks.
+Nous utilisons [`frames.split_frameset`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/frames.py#L16) pour diviser une expression `FrameSet` en morceaux égaux.
 :::
 
 :::info
-Notice that we used `action_query.context_metadata["project_nas"]` in the `wrap_with_mount` function call. **The project NAS is stored in the action context** so we use that instead of an explicit value.
+Notez que nous avons utilisé `action_query.context_metadata["project_nas"]` dans l'appel de fonction `wrap_with_mount`. **Le NAS du projet est stocké dans le contexte d'action**, donc nous l'utilisons au lieu d'une valeur explicite.
 :::
 
 #### Handling frame padding
 
-When using a frame range with a frame padding: `1-10x2` and a task size of `3` will give `["1-5x2", "7,9"]` but the issue is that **Natron doesn't understand** `-w Write1 out.###.exr 1-5x2 ...`.
+Lorsque vous utilisez une plage de frame avec un frame padding : `1-10x2` et une taille de task de `3` qui donnera `["1-5x2", "7,9"]` mais le problème est que **Natron ne comprends pas** `-w Write1 out.###.exr 1-5x2 ...`.
 
-Using `rez env natron -- natronrenderer -h`, we can see the syntax required:
+En utilisant `rez env natron -- natronrenderer -h`, nous pouvons voir la syntaxe requise :
 
-> One or more frame ranges, separated by commas.
-> Each frame range must be one of the following:
+> Une ou plusieurs plage de frame, séparées par des virgules.
+> Chaque plage de frame doit être l'une des suivantes :
 >
-> - &lt;frame> (a single frame number, e.g. 57)
-> - &lt;firstFrame>-&lt;lastFrame> (e.g. 10-40)
-> - &lt;firstFrame>-&lt;lastFrame>:&lt;frameStep> (e.g. 1-10:2 would render 1,3,5,7,9)
->   Examples:
+> - &lt;frame> (un seul numéro de frame, ex. 57)
+> - &lt;firstFrame>-&lt;lastFrame> (ex. 10-40)
+> - &lt;firstFrame>-&lt;lastFrame>:&lt;frameStep> (ex. 1-10:2 rendrait 1,3,5,7,9)
+>   Exemples:
 >   1-10:1,20-30:2,40-50
 >   1329,2450,123,1-10:2
 
-So we can easily replace any `x` character by `:` in `1-50x2` -> `1-50:2`.
+Ainsi, nous pouvons facilement remplacer n'importe quel caractère `x` par `:` en `1-50x2` -> `1-50:2`.
 
 ```python title="silex_client/commands/farm/natron_render_tasks.py"
 chunk_range = str(chunk).replace("x", ":")
 chunk_cmd.param("w", [write_node, output_path, chunk_range])
 ```
 
-Now it works perfectly!! 👌👌
+Maintenant, il fonctionne parfaitement!! 👌👌
 
-<details><summary>Final <code>natron.yml</code> action definition file</summary>
+<details><summary>Fichier final de définition d'action<code>natron.yml</code></summary>
 
 <p>
 
@@ -767,7 +767,7 @@ natron:
 </p>
 </details>
 
-<details><summary>Final <code>natron_render_tasks.py</code> command file</summary>
+<details><summary>Fichier de commande <code>natron_render_tasks.py</code> final</summary>
 
 <p>
 
@@ -847,7 +847,7 @@ class NatronRenderTasksCommand(CommandBase):
         frame_chunks = frames.split_frameset(frame_range, task_size)
 
         for chunk in frame_chunks:
-            # Copy the initial command
+            # Copier la commande initiale
             chunk_cmd = natron_cmd.deepcopy()
 
             chunk_range = str(chunk).replace("x", ":")
@@ -869,16 +869,16 @@ class NatronRenderTasksCommand(CommandBase):
 
 </details>
 
-## Go further 🚀
+## Aller plus loin 🚀
 
-Some ideas to improve the submitter:
+Quelques idées pour améliorer le submitter :
 
-- Handle multiple write nodes. Use subtasks to achieve this in Tractor. See the [V-Ray submitter with render layers](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/farm/vray_render_tasks.py#L103) for a complete example.
+- Gérez plusieurs nodes d'écriture. Utilisez des subtasks pour atteindre cet objectif dans Tractor. Voyez le [submitter V-Ray avec les render layers](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/farm/vray_render_tasks.py#L103) pour un exemple complet.
 
-- Once the `.ntp` project file is selected, open it in background and fill the `write_node` parameter with all the write nodes in the scene. We did that [in the Houdini submitter](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/farm/houdini_render_tasks.py#L235).
+- Une fois le fichier projet `.ntp` sélectionné, ouvrez-le en arrière-plan et remplissez le paramètre `write_node` avec tous les nodes d'écriture de la scène. Nous l'avons fait [dans le submitter Houdini](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/farm/houdini_render_tasks.py#L235).
 
-- Go through the node graph and construct a dependency graph of the write nodes and construct that for Tractor. In fact write nodes can be used as read nodes
+- Parcourez le graphique des nodes et construisez un graphique de dépendance des nodes d'écriture et construisez-le pour Tractor. En fait, les nodes d'écriture peuvent être utilisés comme nodes de lecture
 
-- When a read node can't find a file, Natron will not return a return code that is different from `0`. So there's an error in the render but Tractor sees it as finished. You can either [add it into custom error messages in the blade code](https://github.com/ArtFXDev/tractor-blade-patch#bladetractorsitestatusfilterpy) or file an issue on GitHub to ask why.
+- Quand un node de lecture ne peut trouver un fichier, Natron ne retournera pas un code de retour différent de `0`. Il y a donc une erreur dans le rendu mais Tractor le voit comme terminé. Vous pouvez soit [l'ajouter dans des messages d'erreur personnalisées dans le code blade](https://github.com/ArtFXDev/tractor-blade-patch#bladetractorsitestatusfilterpy) ou déposer un problème sur GitHub pour demander pourquoi.
 
-  > See this thread about Natron return code: https://discuss.pixls.us/t/error-while-rendering-rendering-failed-return-code-is-0/31155
+  > Voir ce fil sur le code de retour de Natron : https://discuss.pixls.us/t/error-while-rendering-rendering-failed-return-code-is-0/31155
