@@ -132,7 +132,7 @@ Clonez d'abord le dépôt [`silex-rez`](https://github.com/ArtFXDev/silex-rez) p
 $ mkdir D:\rez\dev_packages
 $ cd D:\rez\dev_packages
 $ New-Item -ItemType File -Name .rez # Dites à Rez de chercher dans ce répertoire
-$ git clone --recurse-submodules -j8 git@github.com:ArtFXDev/silex-rez.git # Cloner récursivement
+$ git clone --recurse-submodules -j8 https://github.com/ArtFXDev/silex-rez.git # Cloner récursivement
 ```
 
 Maintenant, la résolution de `houdini` en tant que package devrait utiliser la version locale:
@@ -154,7 +154,7 @@ $ cd D:\rez\dev_packages
 $ mkdir silex; cd silex
 $ New-Item -ItemType File -Name .rez
 $ mkdir silex_client; cd silex_client
-$ git clone git@github.com:ArtFXDev/silex_client.git dev.1.0.0
+$ git clone https://github.com/ArtFXDev/silex_client.git dev.1.0.0
 ```
 
 Cela clonera une version locale de `silex_client` dans un dossier de version `dev`, de sorte que vous devriez avoir cette structure :
