@@ -7,15 +7,15 @@ title: Plugins
 
 ## Intro :
 
-Silex uses different plugins. One for each DCC add to the pipeline.
+Silex utilise différents plugins. Un pour chaque DCC ajouter au pipeline.
 
-While the core of **Silex** is coded in the [silex_client](../Client/client.md) git repostory, each DCC has its own repository.
+Alors que le noyau de **Silex** est codé dans le repository git [silex_client](../Client/client.md), chaque DCC a son propre repository.
 
 Maya --> _silex_maya_
 
 Houdini --> _silex_houdini_
 
-When you open a DCC from silex, the DCC's repositroy is used. It add special features in a **Silex** shelf, and combines all features from silex_client in addition to the features specific to the DCC.
+Lorsque vous ouvrez un DCC à partir de silex, le repository du DCC's est utilisé. Il ajoute des features spéciales dans un shelf **Silex**, et combine toutes les features de  silex_client en plus des features spécifique au DCC.
 
 ---
 
