@@ -19,13 +19,13 @@ Lorsque vous ouvrez un DCC à partir de silex, le repository du DCC's est utilis
 
 ---
 
-## In the belly of the repository : 🐋
+## Dans le ventre du repository : 🐋
 
-A repository basically contains commands and actions to be triggered in the DCC.
+Un repository contient essentiellement des commandes et des actions à déclencher dans le DCC.
 
-### Structure of the repository :
+### Structure du repository :
 
-Here is an example with the maya repository:
+Voici un exemple avec le repository maya :
 
 - silex_maya
   - commands
@@ -33,11 +33,11 @@ Here is an example with the maya repository:
   - utils
 - startup
 
-<u><b>Contents :</b></u>
+<u><b>Contenu :</b></u>
 
-_silex_maya/commands_ : Contains the commands related to the DCC. [Commands](../Client/command-definition.md) can use the DCC api, so some [Commands](../Client/command-definition.md) can have identical name in other other plugins, but the code is different.
+_silex_maya/commands_ : Contient les commandes relatives au DCC. Les [commandes](../Client/command-definition.md) peuvent utiliser l'API DCC, donc certaines [commandes](../Client/command-definition.md) peuvent avoir un nom identique dans d'autres plugins, mais le code est différent.
 
-_silex_maya/config_ : This one contains **actions** (see : [action definition](../Client/action-definition.mdx)). Some actions, like the _publish_, requires multiple yaml for multiple purposes.
+_silex_maya/config_ : Celui-ci contient des **actions** (voir : [définition des actions](../Client/action-definition.mdx)). Some actions, like the _publish_, requires multiple yaml for multiple purposes.
 
 _silex_maya/utils_ : Contains constants, fonctions, wrappers... used in commands.
 
