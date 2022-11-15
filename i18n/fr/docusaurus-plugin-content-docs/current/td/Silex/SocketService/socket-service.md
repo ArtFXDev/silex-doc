@@ -1,32 +1,32 @@
 ---
 id: socket-service
-title: General presentation
+title: Présentation générale
 sidebar_position: 10
 ---
 
-WebSocket server is a bridge between DCCs and frontend.
+WebSocket serveur est un pont entre DCCs et frontend.
 
-DCCs and Silex desktop frontend interface need to communicate in realtime, and we use a socket server to achieve that. You can figure a socket server as a chat room, where each client is connected anc can send requests. Because Silex desktop frontend and DCCs are connected on the same socket service, they can interact.
+Les interfaces DCCs et Silex doivent communiquer en temps réel, et nous utilisons un serveur socket pour cela. Vous pouvez imaginer un serveur socket comme une chat room, où chaque client est connecté et peut envoyer des requêtes. Comme Silex desktop frontend et les DCCs sont connectés sur le même service de socket, ils peuvent intéragir.
 
-In order to achieve Separation of Concerns, it is neither the Silex desktop frontend nor the DCCs that accomplish file actions, but the Silexsocket Service itself.
+Afin de réaliser la Séparation des Préoccupations (Separation of Concerns), ce n'est ni l'interface de bureau Silex ni les DCCs qui effectuent les actions de fichier, mais le Service Silexsocket lui-même.
 
-Silex Socket Service use Socket-io library.
-Socket-io is a protocol that use WebSocket.
+Silex Socket Service utilise la bibliothèque Socket-io.
+Socket-io est un protocole qui utilise WebSocket.
 
-## Get Started
+## Pour commencer
 
-On standalone :
+En autonome :
 
-- get latest release
+- obtenir la dernière version
 - `yarn`
 - `yarn start`
 
-In desktop project:
+Dans le projet du bureau :
 
-- Create .npmrc next to package.json and put that in:
+- Créez .npmrc à côté de package.json et mettez ça dans :
 - ```
   //npm.pkg.github.com/:_authToken=<YOUR_GITHUB_TOKEN>  # only if your repository is private
   @ArtFXDev:registry=https://npm.pkg.github.com/
   ```
-  **Dont forget to replace <YOUR_GITHUB_TOKEN> with your github access token**, ref : [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)
+  **Ne pas oublier de remplacer <YOUR_GITHUB_TOKEN> par votre token d'accès github**, réf : [ici](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)
 - `npm install @artfxdev/silex-socket-service`

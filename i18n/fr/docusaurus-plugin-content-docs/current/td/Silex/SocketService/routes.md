@@ -1,4 +1,10 @@
-## Apps Socket Routing structure
+---
+id: routes
+title: Routes
+sidebar_position: 70
+---
+
+## Structure de Routing Apps Socket
 
 ```
 📦namespaces
