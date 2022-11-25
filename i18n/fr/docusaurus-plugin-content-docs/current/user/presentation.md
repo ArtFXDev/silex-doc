@@ -1,5 +1,5 @@
 ---
 id: presentation
-title: Presentation
+title: Présentation
 sidebar_position: 10
 ---
