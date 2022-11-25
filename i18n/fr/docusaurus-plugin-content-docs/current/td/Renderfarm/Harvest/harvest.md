@@ -5,16 +5,16 @@ sidebar_position: 15
 
 ![](https://github.com/ArtFXDev/harvest-ui/blob/main/img/harvest_home_page.png?raw=true)
 
-Harvest is a statistics dashboard and API for [Pixar's Tractor render farm](../Tractor).
+Harvest est un tableau de bord de statistiques et API pour la [render farm de Tractor de Pixar](../Tractor).
 
-Harvest consists of two main repositories:
+Harvest se compose de deux repositories principaux :
 
-- The front-end application written in React: [`harvest-ui`](https://github.com/ArtFXDev/harvest-ui)
-- The backend API written in Typescript with [Prisma](https://www.prisma.io/): [`harvest-api`](https://github.com/ArtFXDev/harvest-api)
+- L'application front-end écrite dans React: [`harvest-ui`](https://github.com/ArtFXDev/harvest-ui)
+- L'API backend écrite en Typescript avec [Prisma](https://www.prisma.io/): [`harvest-api`](https://github.com/ArtFXDev/harvest-api)
 
 ## API
 
-Harvest have a REST API accessible at http://harvest.preprod.silex.artfx.fr/api/, here are the current routes:
+Harvest a une API REST accessible à http://harvest.preprod.silex.artfx.fr/api/, voici les routes actuels :
 
 ```json
 {

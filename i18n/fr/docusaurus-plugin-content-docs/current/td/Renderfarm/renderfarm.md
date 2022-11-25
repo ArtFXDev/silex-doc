@@ -41,7 +41,7 @@ rez env vray test_pipe -- vray
 ```
 
 :::tip
-La commande ci-dessus utilise [Rez](https://github.com/nerdvegas/rez/) qui est utilisé pour résoudre les **environnements** dynamiquement en définissant les **packages** et les variables d'environnement. Il est très utile dans une configuration de render farm puisque nous avons divers software packages et différentes **versions**.
+La commande ci-dessus utilise [Rez](https://github.com/nerdvegas/rez/) qui est utilisé pour résoudre les **environnements**dynamiquement en définissant les **packages** et les variables d'environnement. Il est très utile dans une configuration de render farm puisque nous avons divers software packages et différentes **versions**.
 :::
 
 ### Blade
