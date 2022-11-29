@@ -6,68 +6,68 @@ sidebar_position: 10
 
 ## publish / work
 
-### What is a Work folder ? :
+### Qu'est-ce qu'un dossier Work ? :
 
-The Work folder is accessible from the interface as you can see [here](../interface/file-explorer.md).
-This is a free space for you to save scenes in progress. It's a folder that is not backuped on the server, and only exists in your computer. This is where you save your scene and incremented versions.
+Le dossier Work est accessible depuis l'interface comme vous pouvez le voir [ici](../interface/file-explorer.md).
+Il s'agit d'un espace libre pour enregistrer les scènes en cours. C'est un dossier qui n'est pas sauvegardé(backup) sur le serveur, et n'existe que dans votre ordinateur. C'est là que vous enregistrez votre scène et les versions incrémentées.
 
-### A pick in the Publish folder :
+### Un choix dans le dossier Publish :
 
-The **Publish** is probably the most important concept to grasp in a pipeline. When a scene is published, it means the scene is "finished", or in it's "final version" and ready for the next stage in the pipeline. This goes for every departement, but a published file is a little bit more than that and if we want to understand what it really is, we need more knowledge on how it works.
+Le **Publish** est probablement le concept le plus important à saisir dans un pipeline. Quand une scène est publish, cela signifie que la scène est "finie", ou dans sa "version final" et prête pour la prochaine étape dans le pipeline. Cela vaut pour tous les departement, mais un dossier publish est un peu lus que cela et si nous voulons comprendre ce qu'il en est vraiment, nous avons besoin de plus de connaissances sur son fonctionnement.
 
-This is important knowledge to have, and will be useful for other concepts and services on Silex or in other pipelines. So read carefully 👀.
+Il s'agit de connaissances importantes à avoir, et sera utile pour d'autres concepts et services sur Silex ou dans d'autres pipelines. Alors lisez attentivement 👀.
 
-You see, working in a pipeline usually means, **working with a server**. To keep it simple, I'll go straight to the point and try to avoid unnecessary details. In Silex, we use a server "connected"" to every computer in school ( there are actually 2 servers, but for the sake of this explaination, let's say there is only one ok ? :) ). Since the server is accessible by every computers in Artfx, every files stored in it can be accessed from **anywhere** 🌍
+Travaillez dans un pipeline signifie généralement, **travailler avec un serveur**. Pour que ce soit simple, je vais aller droit au but et essayer d'éviter les détails inutiles. Dans Silex, nous utilisons un serveur "connecté" à tous les ordinateurs de l'école ( il y a en fait 2 serveurs, mais pour cette explication, disons qu'il n'y en a qu'un seul ok ? :) ). Puisque le serveur est accessible par tous les ordinateurs dans Artfx, tous les fichiers stockés dans celui-ci peuvent être accessible de **n'importe où** 🌍
 
-When you put a file in a **publish** folder, this folder is synchronised on the server and can be accessed by any computer. Got it ? So this also means that the [renderfarm](../renderfarm/renderfarm.md) knows where the file is and can render it in the case of Maya scene, Houdini scene, vrscene ...
+Lorsque vous mettez un fichier dans un dossier de **publish**, ce dossier est synchronisé sur le serveur et peut être consulté par n'importe quel ordinateur. Vous comprenez ? Cela signifie aussi que la [renderfarm](../renderfarm/renderfarm.md) sait où se trouve le fichier et peut le rendre dans le cas de la scène Maya, de la scène Houdini, vrscene...
 
-( I encourage reading the documentation on the [renderfarm](../renderfarm/renderfarm.md) 🚜 for more details. )
+( J'encourage la lecture de la documentation sur la [renderfarm](../renderfarm/renderfarm.md) 🚜 pour plus détails. )
 
-FURTHERMORE ! To be able to render a scene on the [renderfarm](../renderfarm/renderfarm.md), we also need every textures or references to be accessible on the server. This is the tricky part, and the [publish tool](./actions/publish.md) ensures that every files linked, in any way, to the published file is also copied on the server. That's a second important aspect of the **Publish**.
+EN OUTRE ! Pour pouvoir rendre une scène sur la [renderfarm](../renderfarm/renderfarm.md), il faut aussi que toutes les textures ou références soient accessible sur le serveur. C'est la partie délicate, et [l'outil de publish](./actions/publish.md) assure que tous les fichiers liés, de quelque façon que ce soit, au fichier publish est également copié sur le serveur. C'est un deuxième aspect important du **Publish**.
 
 :::note
-<u>So, to summerize :</u>
+<u>Donc, pour résumer :</u>
 
-- A published file (a file exported to the publish folder by Silex's [publish tool](./actions/publish.md)) is accessible **anywhere** as well as it's references, textures, etc... .
+- Un fichier publish (un fichier exporté vers le dossier de publish par [l'outil de publish](./actions/publish.md)Silex) est accessible **partout** ainsi que ses références, textures, etc... .
 
-- A published file is only the finale version of your work.
+- Un fichier publish n'est que la version finale de votre travail.
 
-(there will be a full, step by step, example later.)
+(il y aura une, étape par étape complète, exemple plus loin.)
 :::
 
-## Context and Tasks
+## Contexte et Tasks
 
-Another important concept in Silex is the concept of **task** and **context**.
+Un autre concept important dans Silex est le concept de **task** et de **contexte**.
 
 ![](/img/user_guide/workflow/workflow_tasks.png)
 
-Here in this picture, we just clicked on the shot 330 (as you can see in the red). Inside you can see all the different **tasks** assigned to this shot. (**Tasks** are the equivalent of departements in a vfx/3D studio 🦉)
+Ici dans cette photo, nous venons de cliquer sur le shot 330 (comme vous pouvez le voir dans le rouge). A l'intérieur, vous pouvez voir toutes les différentes **tasks** assignées à ce shot. (Les **tasks** sont l'équivalent de departements dans un studio vfx/3D 🦉)
 
-For exemple : Layout, lookdev...
+Par exemple : Layout, lookdev...
 
-You can add a new custom task to the list by clicking on the "+" button near the shot name. Then fill in the pop up window :
+Vous pouvez ajouter une nouvelle task personnalisée à la liste en cliquant sur le bouton "+" près du nom du shot. Remplissez ensuite la fenêtre pop up window :
 
 ![](/img/user_guide/workflow/workflow_custom_task.png)
 
 :::caution
-The list of tasks is defined by the supervisors before the project begins.
+La liste des tasks est définie par les superviseurs avant le début du projet.
 :::
 
-Now, let's say you are a layout artist. After selecting your Shot or Asset in the explorer, you can select the task **Layout**, and [open a new scene](../interface/file-explorer.md) from the launch window. the new scene is now open in a **Context** specific to this task. this means that the [tools in the Silex shelf](./actions/actions.md) will take into acount that your are in a layout scene in for the shot you selected. In other terms, Silex KNOWS where you are, and will use it for publishing files.
+Disons que vous êtes layout artist. Après avoir sélectionné votre Shot ou Asset dans l'exploreur, vous pouvez sélectionner la task **Layout**, et [ouvrir une nouvelle scène](../interface/file-explorer.md) dans la fenêtre de lancement. La nouvelle scène est maintenant ouverte dans un **Contexte** spécifique à cette task. Cela signifie qque les [outils du shelf Silex](./actions/actions.md) prendrons en compte que vous êtes dans une scène de layout pour le shot que vous avez sélectionnée. En d'autres termes, Silex SAIT où vous êtes et l'utilisera pour publishing des fichiers.
 
-As mentioned before, the [publish tool](./actions/publish.md) exports the scene or the selection into a publish folder. Since you work in a **Layout** scene, if you use the [publish tool](./actions/publish.md), the exported files will be accessible in the publish folder. You will be able to access it ONLY in this particular task, in this particular shot.
+Comme mentionné précédemment, [l'outil de publish](./actions/publish.md) exporte la scène ou la sélection dans un dossier publish. Puisque vous travaillez dans une scène de **Layout**, si vous utilisez [l'outil de publish](./actions/publish.md), les fichiers exportés seront accessibles dans le dossier de publish. Vous pourrez y accéder SEULEMENT dans cette task particulière, dans ce shot particulier.
 
-( To see published files, se the related section in [Browsing through files](../interface/file-explorer.md) )
+( Pour voir les fichiers publiés, voir la section correspondante dans [Parcourir les fichiers](../interface/file-explorer.md) )
 
-## workflow exemple step by step :
+## Exemple de workflow étape par étape :
 
-Before getting into it, you need to read the documentation on the [interface](../interface/interface.md) and the [file explorer](../interface/file-explorer.md)
+Avant d'entrer dans le vif du sujet, vous devez lire la documentation sur l'[interface](../interface/interface.md) et [l'explorateur de fichiers](../interface/file-explorer.md)
 
-**Let's create a scenario :**
+**Créons un scénario :**
 
-You are making a car asset in Maya and you work with a lookDev artist and a render/lighting specialist.
+Vous fabriquez une car asset dans Maya et vous travaillez avec un artiste lookDev et un spécialiste du render/lighting.
 
-First you need to create the task and asset. Go to asset in the [file explorer](../interface/file-explorer.md), and add a task **Props** category if it doesn't exist.
+Vous devez d'abord créer la task et l'asset. Allez à l'asset dans [l'explorateur de fichiers](../interface/file-explorer.md), et ajoutez une catégorie de **Props** de task si elle n'existe pas.
 
 1 :
 
@@ -81,59 +81,59 @@ First you need to create the task and asset. Go to asset in the [file explorer](
 
 ![](/img/user_guide/workflow/tutorial/workflow_tutrorial_select_asset_type.png)
 
-Give it a name and click **create**. The access the new asset and create a new **prop**. Call it Car.
+Donnez-lui un nom et cliquez sur **créer**. L'accès au nouveau asset et créer un nouveau **prop**. Appelez-le Car.
 
 ![](/img/user_guide/workflow/tutorial/workflow_tutrorial_new_props.png)
 
-Click on the new **Prop**.
+Cliquez sur le nouveau **Prop**.
 
 ![](/img/user_guide/workflow/tutorial/workflow_tutrorial_click_car.png)
 
-Click on Modeling (or create the task if it doesn't exist by clicking on the plus button)
+Cliquez sur Modeling (ou créez la task si elle n'existe pas en cliquant sur le button "+")
 
 ![](/img/user_guide/workflow/tutorial/workflow_tutrorial_click_modeling.png)
 
-Open a new scene
+Ouvrir une nouvelle scène
 
 ![](/img/user_guide/workflow/tutorial/workflow_tutrorial_open_scene.png)
 
-Then work on your modeling and save using the [save](./actions/save.md) action in the silex shelf, and the [save increment](./actions/save.md).
+Ensuite, travaillez sur votre modeling et enregistrez en utilisant l'action [save (enregistrer)](./actions/save.md) dans le shelf silex, et [l'incrément save](./actions/save.md).
 
-Every time you save, your scene will be saved in the **Work** folder.
+Chaque fois que vous sauvegardez, votre scène sera enregistrée dans le dossier **Work**.
 
 ![](/img/user_guide/workflow/tutorial/workflow_tutrorial_work.png)
 
-Now, you need to tranfer this work to the lookDev artist. That's where the [Publish action](./actions/publish.md) enters the ring 🥊🥊.
+Maintenant, vous devez tranférer ce work à l'artiste lookDev. C'est là que l'[action Publish](./actions/publish.md) entre dans le ring 🥊🥊.
 
-In the Silex shelf, click on publish, and follow the instructions in the documentation here : [Publish](./actions/publish.md)
+Dans le shelf Silex, cliquez sur Publish, et suivez les instructions dans la documentation ici : [Publish](./actions/publish.md)
 
-When it's done, you can switch to the publish section in Silex.
+Lorsque c'est fait, vous pouvez passer à la section de publish dans Silex.
 
 ![](/img/user_guide/workflow/tutorial/workflow_tutrorial_publish.png)
 
-You can see all the publish files here, the artists in your project can see them too 🤩. Awsome right ?
-The files are in the **Publish** folder, so it is synchronized on the server and other students have access to it.
+Vous pouvez voir tous les fichiers de publish ici, les artistes de votre projet peuvent les voir aussi 🤩. Incroyable pas vrai ?
+Les fichiers sont dans le dossier **Publish**, il est donc synchronisé sur le serveur et kes autres étudiants y ont accès.
 
-Now, the lookDev artist can pull the published scene in his own work folder, on his own computer. he just needs to click on the pull button of the published file :
+Maintenant, le lookDev artiste peut prendre la scène publish dans son propre dossier work, sur son propre ordinateur. Il suffit de cliquer sur le bouton d'import du fichier publish :
 
 ![](/img/user_guide/workflow/tutorial/workflow_tutrorial_pull.png)
 
-and now, he can open it from the work folder to work on it.
+Et maintenant, il peut l'ouvrir à partir du dossier work pour travailler dessus.
 
 ![](/img/user_guide/workflow/tutorial/workflow_tutrorial_open_pulled_scene.png)
 
-⚠️ IF YOU WORK WITH REFERENCES (wich is probably the case in this example) YOU CAN REFERENCE THE PUBLISHED FILE WITHOUT PULLING IT TO THE WORK FOLDER. THIS WAY, IF A NEW VERSION IS PPUBLISHED, IT WILL OVERRIDE THE REFERENCE AND THE LOOKDEV ARTIST ONLY NEED TO RELOAD THE REFERENCE IN HIS SCENE.⚠️
+⚠️ SI VOUS TRAVAILLEZ AVEC DES REFERENCES (ce qui est probablement le cas dans cette exemple), VOUS POUVEZ REFERENCER LE FICHIER PUBLISH SANS LE DEPLACER DANS LE DOSSIER WORK. DE CETTE FACON, SI UNE NOUVELLE VERSION EST PUBLISH, ELLE REMPLACEMENT LA REFERENCE ET L'ARTISTE LOOKDEV N'AURA QU'A RECHARGER LA REFERENCE DANS SA SCENE.⚠️
 
 :::tip
 
-- If the files don't show on the interface, before calling a TD try to use CTRL + R to reload the display. You can also click on the reload button here.
+- Si les fichiers ne s'affichent pas sur l'interface, avant d'appeler un TD essayez d'utiliser CTRL + R pour recharger l'affichage. Vous pouvez également cliquer sur le bouton recharger ici.
 
 ![](/img/user_guide/workflow/tutorial/workflow_tutrorial_reload.png)
 
-- If you whant to open the work folder in the windows explorer, you can access it by turning the "More details..." button ON, and clicking here :
+- Si vous souhaitez ouvrir le dossier work dans l'explorateur Windows, vous pouvez y accéder en activant le bouton "More details..." ON, en cliquant ici :
 
 ![](/img/user_guide/workflow/tutorial/workflow_tutrorial_open_work.png)
 
 :::
 
-If you need to change your model and give a new version, you can publish the new scene and it will override the one in the publish
+Si vous avez besoin de changer votre model et de donner une nouvelle version, vous pouvez publish la nouvelle scène et il remplacera celle dans le publish
