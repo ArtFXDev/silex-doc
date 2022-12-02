@@ -4,7 +4,7 @@ title: Implémenter notre propre submitter
 
 Dans ce tutoriel, nous allons implémenter notre propre submitter dans Silex pour le logiciel de composition [Natron](https://natrongithub.github.io/).
 
-Natron est un **logiciel de compositing open source** très similaire à Nuke. Le but est de submit des scène de  compositing et des images de sortie avec un node d'écriture.
+Natron est un **logiciel de compositing open source** très similaire à Nuke. Le but est de submit des scène de compositing et des images de sortie avec un node d'écriture.
 
 ## Paquet Rez et exécutable
 
@@ -245,7 +245,7 @@ Selon le NAS où se trouvent les fichiers du projet, **nous devons monter un lec
 
 #### Wrapping avec la commande mount
 
-Pour monter le lecteur réseau, nous utilisons le [package Rez](https://github.com/ArtFXDev/silex-rez/blob/prod/packages/utils/mount_render_drive/1.0.0/platform-windows/mount_rd.ps1)  :
+Pour monter le lecteur réseau, nous utilisons le [package Rez](https://github.com/ArtFXDev/silex-rez/blob/prod/packages/utils/mount_render_drive/1.0.0/platform-windows/mount_rd.ps1) :
 
 ```shell
 $ rez env mount_render_drive -- mount_rd_drive ana

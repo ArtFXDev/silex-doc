@@ -37,7 +37,7 @@ Il semble résoudre ce problème J'ai posté : https://renderman.pixar.com/forum
 
 ## Le problème `"No Free Slots"`
 
-Le  `No Free Slots` question est un classique dans l'histoire du pipeline ArtFX (salut Sylvain et Bruno).
+Le `No Free Slots` question est un classique dans l'histoire du pipeline ArtFX (salut Sylvain et Bruno).
 
 Par défaut, chaque blade de la farm a une capacité de slot maximale de `1` ce qui signifie qu'elle ne peut exécuter `1` task simultanément. Lorsque cela se produit, le champ de `note` de la blade passe à `no free slots (1) / aucun slot libre (1)`, ce qui signifie que la blade ne peut pas accepter une autre task.
 
@@ -65,7 +65,7 @@ export async function clearNoFreeSlots() {
 }
 ```
 
-## Exécution de plusieurs commandes sur la même  blade
+## Exécution de plusieurs commandes sur la même blade
 
 Une task a plusieurs commandes. Vous pourriez penser qu'une task signifie un ordinateur et ainsi les commandes sont exécutées sur la même blade, **vous avez tort !**
 

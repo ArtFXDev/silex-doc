@@ -25,7 +25,7 @@ Le yaml doit être dans une catégorie. La catégorie par défaut est la catégo
 
 L'action est organisée en hiérarchie. Uneaction est composée d'étapes, une étape est composée de commandes et une commande est composée de paramètres.
 
--  L'`action` contient des `étapes`, c'est l'entité de niveau supérieur avec quelques informations globales
+- L'`action` contient des `étapes`, c'est l'entité de niveau supérieur avec quelques informations globales
 - Les `étapes` sont ici pour grouper les `commandes`. Ils ne détiennent pas beaucoup de données, ils ont un index attributs qui est très important. L'ordre d'exécution dépend de cet index, l'utilisation d'une structure de données clé/valeur au lieu d'un simple tableau permet d'insérer facilement des étapes entre les autres. Lorsqu'une action hérite d'une autre, elle peut insérer une étape en la définissant avec un index qui se trouve entre deux autres étapes. C'est pourquoi nous augmentons habituellement les étapes de 10 ou 100 pour permettre des insertions potentielles plus tard
 - La `commande` est liée à un morceau de code à exécuter, elle contient des `paramètres` et est responsable d'appeler le code en fournissant la valeur de ses `paramètres`. Il contient également la sortie de l'exécution
 - Le `paramètre` peut soit stocker une valeur brute ou être connecté à une sortie de `commande`. Il a un type et assure-vous que le type fourni est correct. Atention, pour les types invalides, silex va essayer de lancer la valeur, il est utile dans la plupart des cas, mais parfois il peut se traduire par des résultats étranges.

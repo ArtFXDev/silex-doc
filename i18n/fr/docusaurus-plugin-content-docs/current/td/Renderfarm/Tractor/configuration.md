@@ -29,7 +29,7 @@ Quelques paramètres utiles à modifier :
 Décrit les profils de blade (groupe d'ordinateurs).
 
 :::info
-Les profils sont exclusifs et attribués de haut en bas. Utilisez la liste `Provides`  pour attribuer plusieurs tags(étiquettes) aux blades.
+Les profils sont exclusifs et attribués de haut en bas. Utilisez la liste `Provides` pour attribuer plusieurs tags(étiquettes) aux blades.
 :::
 
 Voici un exemple d'un profil correspondant aux blades qui ont un GPU `NVIDIA` :

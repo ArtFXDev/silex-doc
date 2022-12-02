@@ -256,7 +256,7 @@ La commande **build_output_path.py** retourne le chemin de sortie du publish en 
 
 ## Rédigez votre propre publish : 🏆
 
-Habituellement, pour implémenter un nouveau publish, vous pouvez écrire une nouvelle [commande](../Client/command-definition.md) pour exporter votre format et utiliser cet exemple YAML comme template. Vous n'avez qu'à changer la [commande](../Client/command-definition.md) dans l'étape **Export**  pour le nom de votre nouvelle [commande](../Client/command-definition.md) d'export.
+Habituellement, pour implémenter un nouveau publish, vous pouvez écrire une nouvelle [commande](../Client/command-definition.md) pour exporter votre format et utiliser cet exemple YAML comme template. Vous n'avez qu'à changer la [commande](../Client/command-definition.md) dans l'étape **Export** pour le nom de votre nouvelle [commande](../Client/command-definition.md) d'export.
 
 :::tip 🦉
 Dans de nombreux cas, une commande exportera le fichier published vers un dossier temporaire passé à partir du chemin **build_output_path**. Par la suite, il devra passer le ou les fichiers nouvellement crées à l'étape de déplacement afin que la fonction de déplacement puisse les copier à l'emplacement final.

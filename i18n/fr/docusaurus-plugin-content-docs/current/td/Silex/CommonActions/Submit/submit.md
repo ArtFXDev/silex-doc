@@ -22,7 +22,7 @@ Nous soutenons actuellement :
 
 ## Architecture
 
-Voici  un exemple d'un submitter de **V-Ray** :
+Voici un exemple d'un submitter de **V-Ray** :
 
 ![](/img/silex/vray_submit_action.jpg)
 
