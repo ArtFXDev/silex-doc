@@ -1,43 +1,43 @@
 ---
 id: file-explorer
-title: File-explorer
+title: Explorateur de fichiers
 sidebar_position: 10
 ---
 
-The file explorer allows you to browse your projects.
+L'explorateur de fichiers vous permet de parcourir vos projets.
 
-Here is what it looks like :
+Voici à quoi cela ressemble :
 
 ![](/img/user_guide/file_explorer/file_explorer_shots.png)
 
-This is the view of your sequences but you can also access your assets in the menu :
+C'est la vue de vos séquences mais vous pouvez aussi accéder à vos assets dans le menu :
 
 ![](/img/user_guide/file_explorer/file_explorer_assets.png)
 
-For specialist students with multiple projects, you can also switch projects.
+Pour les étudiants spécialisés avec plusieurs projets, vous pouvez également changer de projets.
 
 ![](/img/user_guide/file_explorer/file_explorer_projects.png)
 
-## Browsing through files :
+## Parcourir les fichiers :
 
-When you click on a sequence, you will get "inside" it et access your shots. Exactly like a Windows file explorer.
+Lorsque vous cliquez sur une séquence, vous serez "à l'intérieur" et accéderez à vos shots. Exactement comme un explorateur de fichiers Windows.
 
 ![](/img/user_guide/file_explorer/file_explorer_structure.png)
 
-when selecting a **Shot** or an **Asset**, however, you will see a window displayed on you screen. This window shows the content of your work and publish folder, as well as a screen shot of you scene (If you took one when publishing it)
+Lors de la sélection d'un **Shot** ou d'un **Asset**, une fenêtre s'affiche sur votre écran. Cette fenêtre affiche le contenu de votre fichier work et publish, ainsi qu'une capture d'écran de votre scène (si vous en avez pris une lors du publish)
 
 ![](/img/user_guide/file_explorer/file_explorer_work.png)
 
-You can switch from the **Work** folder to the **Publish** folder here :
+Vous pouvez passer du dossier **Work** au dossier **Publish** ici :
 
 ![](/img/user_guide/file_explorer/file_explorer_switch_publish.png)
 
-And Pull a published file from the **Publish** to the **Work** folder :
+Et Pull un fichier publish du dossier **Publish** dans le dossier **Work** (si jamais vous n'avez pas d'arbo rendering par exemple, pour continuer à travailler sur cette task) :
 
 ![](/img/user_guide/file_explorer/file_explorer_pull.png)
 
-(for more info on work and publish, see : workflow)
+(pour plus d'informations sur le work et publish, voir : workflow)
 
-In the **Work** folder, you can either open a new scene or an already existing one.
+Dans le dossier **Work**, vous pouvez ouvrir une nouvelle scène ou une scène déjà existante.
 
 ![](/img/user_guide/file_explorer/file_explorer_open_scene.png)

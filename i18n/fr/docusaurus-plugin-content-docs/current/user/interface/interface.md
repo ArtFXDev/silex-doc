@@ -4,84 +4,85 @@ title: Interface
 sidebar_position: 30
 ---
 
-## Home page
+## Page d'accueil
 
 ![](/img/silex_logo.png)
 
 ---
 
-Hello newbies ! 🖖
+Salut les newbies ! 🖖
 
-Welcome to Silex, a pipeline application which gives you access to the render farm and allows you to browse through your shots and assets, and many other things ! (you'll see, it's very fun)
+Bienvenue sur Silex, une application pipeline qui vous donne accès à la render farm et vous permet de parcourir vos shots et vos assets, et bien d'autres choses ! (vous verrez, c'est très amusant)
 
-When opening Silex, you just need to connect with your Kitsu acount.
-after that, the home page will be displayed.
+Lors de l'ouverture de Silex, il vous suffit de vous connecter à votre compte Kitsu.
+Après cela, la page d'accueil sera affichée.
 
 ![](/img/user_guide/home_page/silex_home_page.png)
 
-There are three main parts to this home page.
+Cette page d'accueil comporte trois parties principales.
 
-### The bottom part :
+### La partie inférieure :
 
-It displays shortcuts to shots / assets / projects :
+Il affiche les raccourcis vers les shots / assets / projets :
 
 ![](/img/user_guide/home_page/silex_home_page_frame_bottom.png)
 
-- The **left** side is for the project your are a part of. By clicking on one of them, you will be redirected to the [file explorer](file-explorer.md) within Silex, where you will be able to browse through the project.
+- Le côté **gauche** est pour le projet dont vous faites partie. En cliquant sur l'un d'eux, vous serez redirigé vers l'[explorateur de fichiers](file-explorer.md) dans Silex, où vous pourrez parcourir le projet.
 
-- The **center** and the **right** side, are shortcuts to the recently opend tasks and scenes.
+- Le **centre** et le côté **droit**, sont des raccourcis vers les tasks et les scènes récemment ouvertes.
 
 :::tip
-If you are a specialist, you probably have multiple projects on the left. If you ever need to be added to another project during the year, go and ask a TD to add you to a group (They are very nice, you'll see).
+Si vous êtes un spécialiste, vous avez probablement plusieurs projets sur la gauche. Si vous avez besoin d'être ajouté à un autre projet au cours de l'année, allez demander à un TD de vous ajouter à un groupe (Ils sont très gentils, vous verrez).
 :::
 
-### The middle part :
+### La partie centrale :
 
-This is a quick access to the _hamberger_ menu on the top left corner (in yellow on the picture). On the right side, you can also access the [conform](../basic-concepts/actions/actions.md) action for simple files like textures. ( ⚠️ This conform action will not work with Houdini and Maya files ⚠️ )
+Il s'agit d'un accès rapide au menu _hamburger_ en haut à gauche (en jaune sur l'image). Sur le côté droit, vous pouvez également accéder à l'action [conforme](../basic-concepts/actions/actions.md) pour les fichiers simple comme les textures. ( ⚠️Cette action conform ne fonctionnera pas avec les fichiers Houdini et Maya ⚠️ )
 
 ![](/img/user_guide/home_page/silex_home_page_frame_middle.png)
 
-This icones represent different applications you can acces in Silex. They will be explained in the dedicated subsections at the **end** of this document.
+Ces icones représente différentes applications accessibles dans Silex. Elles seront expliquées dans les sous-sections dédiées à la **fin** de ce document.
 
-### The top bar :
+### La barre supérieure :
 
-This section displays your account avatar, the Nimby status, access to the list of currently running applications, an update button and the hamberger menu (previously mentioned).
+Cette section affiche votre avatar de compte, le statut Nimby, l'accès à la liste des applications en cours d'exécution, un bouton de mise à jour et le menu hamuerger (précédemment mentionné).
 
 ![](/img/user_guide/home_page/silex_home_page_frame_top.png)
 
-1- Hamberger menu.
+1- Menu Hamburger.
 
-2- Update button : Reload the interface (useful if some newly created files don't show or if new features don't appear). You can use the **very precious** CTRL + R [shortcut](../shortcuts.md) to trigger the same result.
+2- Bouton de mise à jour : Recharger l'interface (utile si certains fichiers nouvellement créés ne s'affichent pas ou si de nouvelles fonctionnalités n'apparaissent pas). Vous pouvez utiliser le **très précieux** [raccourci](../shortcuts.md) CTRL + R pour déclencher le même résultat.
 
-3- List of running software :
+3- Liste des logiciels en cours d'exécution :
 
 ![](/img/user_guide/home_page/silex_home_page_running_software.png)
 
-4- Nimby : allows you to turn on/off the [nimby](nimby.md).
+4- Nimby : permet d'activer/d'éteindre le [nimby](nimby.md).
 
-5- Account profile :
+5- Profil du compte :
 
 ![](/img/user_guide/home_page/silex_home_page_profile.png)
 
-Silex has a coin system. They're points you can gather when publishing, conforming...
+Silex a un système de pièce. Ce sont des points que vous pouvez recueillir lors du publish, du conform...
 
-## Hamburger menu :
+## Menu hamburger :
 
-This menu gives you acces to all the services on Silex.
+Ce menu vous donne accès à tous les services sur Silex.
 
 ![](/img/user_guide/home_page/silex_home_page_hamburger.png)
 
-- **Home** : home page
+- **Accueil** : Page d'accueil
 
-- **Project explorer** : This is a [file explorer](file-explorer.md) that let you browse through the files in your projects.
-- **Actions** : This shows all running [actions](../basic-concepts/actions/actions.md) on you computer.
+- **Explorateur de projets** : Il s'agit d'un [explorateur de fichiers](file-explorer.md) qui vous permet de parcourir les fichiers de vos projets.
 
-- **Statistics** : This represents the rendered frames progression of each team through the year. Try and reach the top as fast as you can 📈.
+- **Actions** : Affiche toutes les [actions](../basic-concepts/actions/actions.md) en cours sur votre ordinateur.
 
-- **Arcade** : Here you can find flappy-bird like games, inspired by promo2022 movies. Play them to win some Silex coins ! (But not to much)
+- **Statistiques** : Cela représente la progression des frames rendues de chaque équipe tout au long de l'année. Essayez d'atteindre le sommet aussi vite que possible 📈.
 
-- **Tractor** : Tractor is the school [renderfarm](../renderfarm/renderfarm.md).
+- **Arcade** : Ici vous pouvez trouver des jeux de type flappy-bird, inspirés par les films de la promo2022. Jouez y pour gagner des Silex coins ! (Mais pas trop non plus)
 
-- **Harvest** : This will redirect you to [Harvest](../harvest/harvest.md). A statistic tool relaying different information on the renderfarm.
+- **Tractor** : Tractor est la [renderfarm](../renderfarm/renderfarm.md) de l'école.
 
-- **Ticket** : Access to the ticket system. see with the TDs if they are using it.
+- **Harvest** : Vous serez redirigé vers [Harvest](../harvest/harvest.md). Un outil statistique relatant différentes informations sur la renderfarm.
+
+- **Ticket** : Accès au système de ticket. Voir avec les TDs s'ils l'utilisent.
