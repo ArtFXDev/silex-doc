@@ -1,6 +1,6 @@
 ---
 id: trouble-shooting
-title: Trouble shotting steps
+title: Mesures de dépannage
 ---
 
-## OH dear ! we are in trouble...
+## Mon Dieu ! Nous avons des ennuis ...
