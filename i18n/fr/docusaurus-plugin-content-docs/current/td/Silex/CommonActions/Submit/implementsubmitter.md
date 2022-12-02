@@ -1,22 +1,22 @@
 ---
-title: Implement your own submitter
+title: Implémenter notre propre submitter
 ---
 
-In this tutorial we'll be implementing our own submitter in Silex for the compositing software [Natron](https://natrongithub.github.io/).
+Dans ce tutoriel, nous allons implémenter notre propre submitter dans Silex pour le logiciel de composition [Natron](https://natrongithub.github.io/).
 
-Natron is an **open source compositing software** very similar to Nuke. The goal is to submit compositing scenes and output images with a write node.
+Natron est un **logiciel de compositing open source** très similaire à Nuke. Le but est de submit des scène de  compositing et des images de sortie avec un node d'écriture.
 
-## Rez package and executable
+## Paquet Rez et exécutable
 
-The first thing to do is to make sure that the **same version** of Natron will be used everywhere on the farm. This is useful because we don't want inconsistencies between renders.
+La première chose à faire est de s'assurer que la **même version** de Natron sera utilisée partout sur la farm. Ceci est utile car nous ne voulons pas d'incohérences entre les rendus.
 
-To do that we need to add a `natron` [Rez](../../../Workflow/Rez) package.
+Pour ce faire, nous devons ajouter un paquet `natron` [Rez](../../../Workflow/Rez).
 
-First [download Natron's executable](https://github.com/NatronGitHub/Natron/releases/download/v2.4.3/Natron-2.4.3-Windows-x86_64.zip) for Windows. Currently the latest version is `2.4.3`.
+[Téléchargez d'abord l'exécutable de Natron](https://github.com/NatronGitHub/Natron/releases/download/v2.4.3/Natron-2.4.3-Windows-x86_64.zip) pour Windows. Actuellement, la dernière version est `2.4.3`.
 
-**We will put the executable on the network** so it's not necessary to install it on every machine. It's fine since it's not that big and runs on the render farm.
+**Nous mettrons l'exécutable dans le réseau** afin qu'il nesoit pas nécessaire de l'installer sur chaque machine. C'est bien puisqu'il n'est pas si grand et fonctionne sur la render farm.
 
-Then create a package in `\\rez-network-location\silex-rez\packages\dcc`:
+Puis créer un package dans `\\rez-network-location\silex-rez\packages\dcc`:
 
 ```
 natron
@@ -54,49 +54,49 @@ def commands(env, root):
 ```
 
 :::tip
-We use `env.PATH.prepend` here because we want the executable to take priority over a local installed version.
+Nous utilisons `env.PATH.prepend` ici parce que nous voulons que l'exécutable ait priorité sur une version installée localement.
 :::
 
 :::info
-`platform-windows` is an implicit package, that's why we use a variant in the package so it's resolved automatically when we say `rez env natron` on Windows. It will add to the path the executable path on the network.
+`platform-windows` est un package implicite, c'est pourquoi nous utilisons une variante dans le package afin qu'il soit résolu automatiquement lorsque nous disons `rez env natron` sur Windows. Il ajoutera au chemin le chemin exécutable sur le réseau.
 :::
 
-Now you should be able to launch Natron's GUI with:
+Vous devriez maintenant pouvoir lancer l'interface graphique de Natron avec :
 
 ```shell
 $ rez env natron -- natron
 ```
 
-## Command line usage 🖥️
+## Utilisation de la ligne de commande 🖥️
 
-Next step is to see how Natron can be used as a **command line tool** without an interface.
+La prochaine étape consiste à voir comment Natron peut-être utilisé comme **outil de ligne de commande** sans interface.
 
-Check the documentation: https://natron.readthedocs.io/en/rb-2.5/devel/natronexecution.html
+Consultez la documentation : https://natron.readthedocs.io/en/rb-2.5/devel/natronexecution.html
 
-> Natron has 3 different execution modes:
+> Natron dispose de 3 modes d'exécution différents :
 >
-> - The execution of Natron projects (.ntp)
-> - The execution of Python scripts that contain commands for Natron
-> - An interpreter mode where commands can be given directly to the Python interpreter
+> - L'exécution des projets Natron (.ntp)
+> - L'exécution de scripts Python contenant des commandes pour Natron
+> - Une mode interpréteur où les commandes peuvent être données directement à l'interpréteur Python
 
-We can see that there is a special `NatronRenderer` executable that does `Natron -background` automatically. It's perfect since we want to do batch rendering on the farm.
+Nous pouvons voir qu'il y a un exécutable spécial `NatronRenderer` qui fait automatiquement `Natron -background`. C'est parfait puisqu'on veut faire du batch rendering sur la farm.
 
-A basic command would be:
+Une commande de base serait :
 
 ```
 $ rez env natron -- natronrenderer -w WriteNode out.####.exr 1-10 project.ntp
 ```
 
-We need to specify:
+Nous devons préciser :
 
-- The name of the **write node** (`WriteNode`)
-- The **destination path** of the rendered images (`out.####.exr`). Notice the four `#` to indicate the frame numbering like `out.0001.exr`.
-- The **frame range** to render (`1-10`)
-- The **scene** to render (`project.ntp`)
+- Le nom du **node d'écriture** (`WriteNode`)
+- Le **chemin de destination** des images rendues (`out.####.exr`). Remarquez les quatre `#` pour indiquer la numérotation des frames comme `out.0001.exr`.
+- La **plage de frames** à rendre (`1-10`)
+- La **scène** à rendre (`project.ntp`)
 
 <hr />
 
-With a real world example (download test file [here](/files/natron_test_project.ntp)):
+Avec un exemple réel (télécharger le fichier de test [ici](/files/natron_test_project.ntp)):
 
 ![](/img/natron_test_project.png)
 
@@ -122,15 +122,15 @@ Write1 ==> Frame: 10, Progress: 100.0%, 13.1 Fps, Time Remaining: 0 second
 Write1 ==> Rendering finished
 ```
 
-## Create the action ✔️
+## Création de l'action ✔️
 
-When the user clicks on the [`Submit`](../Submit) action, it launches the action defined by [`silex_client/config/action/submit.yml`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/config/action/submit.yml) which then inserts the proper submit action for the choosen software.
+Lorsque l'utilisateur clique sur l'action [`Submit`](../Submit), il lance l'action définie par [`silex_client/config/action/submit.yml`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/config/action/submit.yml) qui insère ensuite l'action de submit appropriée pour le logiciel choisi.
 
-### Simple action
+### Action simple
 
-First we are going to define a new action in the `silex_client/config/submit` directory.
+Nous allons d'abord définir une nouvelle action dans le répertoire `silex_client/config/submit`.
 
-This is going to be a simple action without user input. We will just create tasks and give them to the command `SubmitToTractorCommand`:
+Cela va être une action simple sans entrée de l'utilisateur. Nous allons juste créer des tasks et les donner à la commande `SubmitToTractorCommand` :
 
 ```yaml title="silex_client/config/submit/natron.yml"
 natron:
@@ -186,23 +186,23 @@ class NatronRenderTasksCommand(CommandBase):
         action_query: ActionQuery,
         logger: logging.Logger,
     ):
-        # Use the command we used earlier with Rez
+        # Utilisez la commande utilisée précédemment avec Rez
         command = r"rez env natron -- natronrenderer -w Write1 P:\test_pipe\test\render\out.####.exr 1-10 P:\test_pipe\test\project.ntp"
 
-        # Create a farm Task by passing a list of arguments
+        # Créer une Task de farm en passant une liste d'arguments
         tasks = [farm.Task("1-10", argv=command.split(" "))]
 
-        # Returning the results from the command
+        # Renvoyer les résultats de la commande
         return {"tasks": tasks, "file_name": "project.ntp"}
 ```
 
 :::info
-Notice that the Natron scene was put on the `P:` drive because it needs to be synchronized in order for the **computers on the farm to have access to the files**.
+Remarquez que la scène Natron a été mise sur le lecteur `P:` parce qu'elle doit être syncronisée pour que les **ordinateurs de la farm aient accès aux fichiers**.
 :::
 
-For now we manually provide a command that will be executed in a single task on the farm. We use the [`silex_client.utils.farm.Task`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/farm.py#L21) class that directly accepts a list of arguments and will create a command.
+Pour l'instant, nous fournissons manuellement une commande qui sera exécutée en une seule task sur la farm. Nous utilisons la classe [`silex_client.utils.farm.Task`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/farm.py#L21) qui accepte directement une liste d'arguments et crée une commande.
 
-It's equivalent to:
+Cela équivaut à :
 
 ```python
 task = farm.Task("1-10")
@@ -210,15 +210,15 @@ task.addCommand(farm.Command(argv=command.split(" ")))
 tasks = [task]
 ```
 
-#### Launching the job
+#### Lancement du job
 
-After launching a `Submit` action (from the Maya shelf for example), press `Continue` until the action is over.
+Après avoir lancer une action `Submit` (depuis le shelf Maya par exemple), appuyer sur `Continuer` jusqu'à ce que l'action soit terminée.
 
-If everything goes well, go to the [Tractor dashboard](http://tractor/tv) to see the result:
+Si tout se passe bien, rendez-vous sur le [tableau de bord de Tractor](http://tractor/tv) pour voir le résultat :
 
 ![](/img/farm_test_natron.png)
 
-Double clicking on the Task (red rectangle), you get something like this:
+En double-cliquant sur la Task (rectangle rouge), vous obtenez quelque chose comme ceci :
 
 ```s
 ====[2022/06/08 11:54:23 /J8451/T1/C1.2/jhenry@i7-mk8-2017-38 on md12-2021-002 ]====
@@ -235,25 +235,25 @@ Info: init.py script not loaded (this is not an error)
 Loading PyPlugs...
 ```
 
-:::danger Why is there an error?
+:::danger Pourquoi y a-t-il une erreur ?
 
-There's an _error_ because the computer on the farm (`md12-2021-002`) **can't access files** on the `P:` drive.
+Il y a une _error_ parce que l'ordinateur de la farm (`md12-2021-002`) **ne peut pas accéder aux fichiers** sur le lecteur `P:`.
 
-Depending on the NAS where the project files are, **we need to mount a network drive pointing to that location**.
+Selon le NAS où se trouvent les fichiers du projet, **nous devons monter un lecteur réseau pointant vers cet emplacement**.
 
 :::
 
-#### Wrapping with the mount command
+#### Wrapping avec la commande mount
 
-To mount the network drive, we use the following [Rez package](https://github.com/ArtFXDev/silex-rez/blob/prod/packages/utils/mount_render_drive/1.0.0/platform-windows/mount_rd.ps1):
+Pour monter le lecteur réseau, nous utilisons le [package Rez](https://github.com/ArtFXDev/silex-rez/blob/prod/packages/utils/mount_render_drive/1.0.0/platform-windows/mount_rd.ps1)  :
 
 ```shell
 $ rez env mount_render_drive -- mount_rd_drive ana
 ```
 
-The problem is that [creating two commands on Tractor is causing issues...](../../../Renderfarm/Tractor/issues#running-multiple-commands-on-the-same-blade)
+Le problème est que la [création de dex commandes sur Tractor cause des problèmes...](../../../Renderfarm/Tractor/issues#running-multiple-commands-on-the-same-blade)
 
-So we use a helper to wrap the command with the mount command. To do that we first need to use the [`CommandBuilder`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/command_builder.py#L5) class that uses the [builder pattern](https://doc.rust-lang.org/1.0.0/style/ownership/builders.html):
+Nous utilisons donc un helper pour wrap la commande avec la commande mount. Pour cela, nous devons d'abord utiliser la classe [`CommandBuilder`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/command_builder.py#L5) qui utilise le [modèle du builder](https://doc.rust-lang.org/1.0.0/style/ownership/builders.html) :
 
 ```python title="silex_client/commands/farm/natron_render_tasks.py"
 # highlight-next-line
@@ -290,13 +290,13 @@ class NatronRenderTasksCommand(CommandBase):
         # highlight-end
 ```
 
-Which results in the following command:
+Il en résulte la commande suivante :
 
 ```shell
 $ rez env cmd_wrapper -- cmd-wrapper "--pre=\"rez env mount_render_drive -- mount_rd_drive ana\"" "--cmd=\"rez env natron -- natronrenderer -w Write1 P:\\test_pipe\\test\\render\\out.####.exr 1-10 P:\\test_pipe\\test\\project.ntp\""
 ```
 
-and the logs:
+et les logs :
 
 ```
 ====[2022/06/08 14:10:23 /J8459/T1/C1.1/jhenry@i7-mk8-2017-38 on md7-2016-048 ]====
@@ -351,15 +351,15 @@ Write1 ==> Rendering finished
 ====[2022/06/08 14:10:33 process complete, exit code: 0]====
 ```
 
-It works!!!! 🎉🎉🎉
+Ça fonctionne!!!! 🎉🎉🎉
 
-### Adding parameters
+### Ajout de paramètres
 
-#### Single parameter
+#### Paramètre unique
 
-Now the thing is that our submitter only renders the same scene and same frames all the time... 🤔
+Le fait est que notre submitter ne fait que la même scène et les même frames tout le temps... 🤔
 
-First we need the user to select his project file in the submitter. For that we specify a `parameters` dictionnary and use the `TaskFileParameterMeta` parameter type:
+Il faut d'abord que l'utilisateur sélectionne son fichier de projet dans le submitter. Pour cela on spécifie un dictionnaire de `paramètres` et on utilise le type de paramètre `TaskFileParameterMeta` :
 
 ```python title="silex_client/commands/farm/natron_render_tasks.py"
 # highlight-next-line
@@ -386,11 +386,11 @@ class NatronRenderTasksCommand(CommandBase):
     # highlight-end
 ```
 
-In the interface it will show a file explorer component so the user can select his scene to submit. **It only shows `.ntp` files as specified in the parameter type**.
+Dans l'intercace, il affiche un composant d'explorateur de fichier afin que l'utilisateur puisse sélectionner sa scène à submit. **Il affiche seulement les fichiers `.ntp` comme spécifié dans le type de paramètre**.
 
 ![](/img/natron_file_explorer.png)
 
-Then we use that parameter in the command code:
+Ensuite, nous utilisons ce paramètre dans la commande de code :
 
 ```python title="silex_client/commands/farm/natron_render_tasks.py"
 # highlight-next-line
@@ -407,16 +407,16 @@ command = (
 ```
 
 :::info
-Notice that we specified the type `scene_file: pathlib.Path`. Parameters are automatically casted in their own types when given to a command.
+Notez que nous avons spécifié le type `scene_file: pathlib.Path`. Les paramètres sont automatiquement cast dans leurs propres typess lorsqu'ils sont données à une commande.
 :::
 
 :::caution
-Use [`PurePath.as_posix()`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.as_posix) method to convert any Windows path into standard POSIX path with **forward slashes**. This can cause issues on the farm when parsing the command otherwise.  
+Utilisez la méthode [`PurePath.as_posix()`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.as_posix) pour convertir un chemin Windows en chemin POSIX standard avec des **slashes**. Cela peut causer des problèmes sur la farm lors de l'analyse de la commande autrement.  
 :::
 
-#### Image output path
+#### Chemin de sortie d'image
 
-Now that we can provide the scene, the rendered image destination will depend on the task the same way. For that we use the [`BuildOutputPath`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/build_output_path.py#L28) command. We need to add it to the YAML action definition:
+Maintenant que nous pouvons fournir la scène, la destination de l'image rendue dépendra de la task de la même manière. Pour cela, nous utilisons la commande [`BuildOutputPath`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/build_output_path.py#L28). Nous devons l'ajouter à la définition de l'action YAML :
 
 ```yaml title="silex_client/config/submit/natron.yml"
 natron:
@@ -458,7 +458,7 @@ natron:
     # ...
 ```
 
-It will first ask for an extension and then build the path. Use it by connecting outputs and inputs with the YAML `!command-output` directive:
+Il va d'abord demande une extension, puis construire le chemin. Utilisez-le en connectant les sorties et les entrées avec la directive YAML `!command-output` :
 
 ```yaml title="silex_client/config/submit/natron.yml"
 natron:
@@ -541,23 +541,23 @@ class NatronRenderTasksCommand(CommandBase):
         return {"tasks": [task], "file_name": scene_file.stem}
 ```
 
-Which will result in this output path (by selecting `png` for example):
+Ce qui donnera ce chemin de sortie (en sélectionnant `png` par exemple) :
 
 ```
 P:\test_pipe\shots\s03\p060\layout_main\publish\v000\png\render\Write1\test_pipe_s03_p060_layout_main_publish_v000_render_Write1.####.png
 ```
 
-### Frame range splitting
+### Fractionnement de la plage de frame
 
-The last thing to do is to use the full power of a render farm: **parallelization**.
+La dernière chose à faire est d'utiliser toute la puissance de la render farm: **la parallélisation**.
 
-In short: spread the computation over multiple computers and make them run **simultaneously**.
+En bref : répartir le calcul sur plusieurs ordinateurs et les faire fonctionner **simultanément**.
 
-To do that we need to **split the frame range** the artist wants to render, let's say `1-500` into chunks of frames. Like `10` frames on each computer.
+Pour ce faire, nous devons **diviser la plage de frame** que l'artiste veut rendre, disons `1-500` dans des morceaux de frames. Comme `10` frames sur chaque ordinateur.
 
-To represent frame range expressions, we use the `FrameSet` class from the [Fileseq](https://github.com/justinfx/fileseq/) Python library. It allows representing complex range expressions like `1-10, 50-80x2` (with paddings...).
+Pour représenter les expressions de plage de frame , nous utilisons la classe `FrameSet` de la bibliothèque [Fileseq](https://github.com/justinfx/fileseq/) Python. Il permet de représenter des expressions de range complexes comme `1-10, 50-80x2` (avec des paddings...).
 
-We provide a `FrameSet` parameter and a `task_size` which will define the **number of frames per task/computer**:
+Nous fournissons un paramètre `FrameSet` et un `task_size` qui définira le **nombre de frames par task/ordinateur**:
 
 ```python title="silex_client/commands/farm/natron_render_tasks.py"
 from __future__ import annotations
@@ -642,7 +642,7 @@ class NatronRenderTasksCommand(CommandBase):
         frame_chunks = frames.split_frameset(frame_range, task_size)
 
         for chunk in frame_chunks:
-            # Copy the initial command
+            # Copier la commande initiale
             chunk_cmd = natron_cmd.deepcopy()
 
             chunk_cmd.param("w", [write_node, output_path, str(chunk)])
@@ -663,39 +663,39 @@ class NatronRenderTasksCommand(CommandBase):
 ![](/img/natron_frame_split.png)
 
 :::tip
-We use [`frames.split_frameset`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/frames.py#L16) to split a `FrameSet` expression into equal chunks.
+Nous utilisons [`frames.split_frameset`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/frames.py#L16) pour diviser une expression `FrameSet` en morceaux égaux.
 :::
 
 :::info
-Notice that we used `action_query.context_metadata["project_nas"]` in the `wrap_with_mount` function call. **The project NAS is stored in the action context** so we use that instead of an explicit value.
+Notez que nous avons utilisé `action_query.context_metadata["project_nas"]` dans l'appel de fonction `wrap_with_mount`. **Le NAS du projet est stocké dans le contexte d'action**, donc nous l'utilisons au lieu d'une valeur explicite.
 :::
 
 #### Handling frame padding
 
-When using a frame range with a frame padding: `1-10x2` and a task size of `3` will give `["1-5x2", "7,9"]` but the issue is that **Natron doesn't understand** `-w Write1 out.###.exr 1-5x2 ...`.
+Lorsque vous utilisez une plage de frame avec un frame padding : `1-10x2` et une taille de task de `3` qui donnera `["1-5x2", "7,9"]` mais le problème est que **Natron ne comprends pas** `-w Write1 out.###.exr 1-5x2 ...`.
 
-Using `rez env natron -- natronrenderer -h`, we can see the syntax required:
+En utilisant `rez env natron -- natronrenderer -h`, nous pouvons voir la syntaxe requise :
 
-> One or more frame ranges, separated by commas.
-> Each frame range must be one of the following:
+> Une ou plusieurs plage de frame, séparées par des virgules.
+> Chaque plage de frame doit être l'une des suivantes :
 >
-> - &lt;frame> (a single frame number, e.g. 57)
-> - &lt;firstFrame>-&lt;lastFrame> (e.g. 10-40)
-> - &lt;firstFrame>-&lt;lastFrame>:&lt;frameStep> (e.g. 1-10:2 would render 1,3,5,7,9)
->   Examples:
+> - &lt;frame> (un seul numéro de frame, ex. 57)
+> - &lt;firstFrame>-&lt;lastFrame> (ex. 10-40)
+> - &lt;firstFrame>-&lt;lastFrame>:&lt;frameStep> (ex. 1-10:2 rendrait 1,3,5,7,9)
+>   Exemples:
 >   1-10:1,20-30:2,40-50
 >   1329,2450,123,1-10:2
 
-So we can easily replace any `x` character by `:` in `1-50x2` -> `1-50:2`.
+Ainsi, nous pouvons facilement remplacer n'importe quel caractère `x` par `:` en `1-50x2` -> `1-50:2`.
 
 ```python title="silex_client/commands/farm/natron_render_tasks.py"
 chunk_range = str(chunk).replace("x", ":")
 chunk_cmd.param("w", [write_node, output_path, chunk_range])
 ```
 
-Now it works perfectly!! 👌👌
+Maintenant, il fonctionne parfaitement!! 👌👌
 
-<details><summary>Final <code>natron.yml</code> action definition file</summary>
+<details><summary>Fichier final de définition d'action<code>natron.yml</code></summary>
 
 <p>
 
@@ -767,7 +767,7 @@ natron:
 </p>
 </details>
 
-<details><summary>Final <code>natron_render_tasks.py</code> command file</summary>
+<details><summary>Fichier de commande <code>natron_render_tasks.py</code> final</summary>
 
 <p>
 
@@ -847,7 +847,7 @@ class NatronRenderTasksCommand(CommandBase):
         frame_chunks = frames.split_frameset(frame_range, task_size)
 
         for chunk in frame_chunks:
-            # Copy the initial command
+            # Copier la commande initiale
             chunk_cmd = natron_cmd.deepcopy()
 
             chunk_range = str(chunk).replace("x", ":")
@@ -869,16 +869,16 @@ class NatronRenderTasksCommand(CommandBase):
 
 </details>
 
-## Go further 🚀
+## Aller plus loin 🚀
 
-Some ideas to improve the submitter:
+Quelques idées pour améliorer le submitter :
 
-- Handle multiple write nodes. Use subtasks to achieve this in Tractor. See the [V-Ray submitter with render layers](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/farm/vray_render_tasks.py#L103) for a complete example.
+- Gérez plusieurs nodes d'écriture. Utilisez des subtasks pour atteindre cet objectif dans Tractor. Voyez le [submitter V-Ray avec les render layers](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/farm/vray_render_tasks.py#L103) pour un exemple complet.
 
-- Once the `.ntp` project file is selected, open it in background and fill the `write_node` parameter with all the write nodes in the scene. We did that [in the Houdini submitter](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/farm/houdini_render_tasks.py#L235).
+- Une fois le fichier projet `.ntp` sélectionné, ouvrez-le en arrière-plan et remplissez le paramètre `write_node` avec tous les nodes d'écriture de la scène. Nous l'avons fait [dans le submitter Houdini](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/farm/houdini_render_tasks.py#L235).
 
-- Go through the node graph and construct a dependency graph of the write nodes and construct that for Tractor. In fact write nodes can be used as read nodes
+- Parcourez le graphique des nodes et construisez un graphique de dépendance des nodes d'écriture et construisez-le pour Tractor. En fait, les nodes d'écriture peuvent être utilisés comme nodes de lecture
 
-- When a read node can't find a file, Natron will not return a return code that is different from `0`. So there's an error in the render but Tractor sees it as finished. You can either [add it into custom error messages in the blade code](https://github.com/ArtFXDev/tractor-blade-patch#bladetractorsitestatusfilterpy) or file an issue on GitHub to ask why.
+- Quand un node de lecture ne peut trouver un fichier, Natron ne retournera pas un code de retour différent de `0`. Il y a donc une erreur dans le rendu mais Tractor le voit comme terminé. Vous pouvez soit [l'ajouter dans des messages d'erreur personnalisées dans le code blade](https://github.com/ArtFXDev/tractor-blade-patch#bladetractorsitestatusfilterpy) ou déposer un problème sur GitHub pour demander pourquoi.
 
-  > See this thread about Natron return code: https://discuss.pixls.us/t/error-while-rendering-rendering-failed-return-code-is-0/31155
+  > Voir ce fil sur le code de retour de Natron : https://discuss.pixls.us/t/error-while-rendering-rendering-failed-return-code-is-0/31155

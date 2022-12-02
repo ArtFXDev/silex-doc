@@ -7,51 +7,51 @@ title: Bundle
 
 ## Intro :
 
-The **Bundle** action is implemented for _Maya_ and _Houdini_. It is based on a concept similar to the **Conform** action, so i recommand reading [conform action](./conform.md) too.
+L'action **Bundle** est mise en oeuvre pour _Maya_ et _Houdini_. Il est basé sur un concept similaire à l'action **Conform**, je recommande donc de lire également [l'action conform](./conform.md).
 
-**The Bundle can be found in** the **config\bundle\\** folder of a DCC repository.
+**Le Bundle se trouve dans** le dossier **config\bundle\\** du repository DCC.
 
 ![](/img/bundle_location.png)
 
 ---
 
-## Use :
+## Utilisation :
 
-The **Bundle** action is similar to the _archive_ function in maya, but instead of exporting the scene and it's references, it also **recursively** finds all references in the referenced files, then copies every references in a single folder with the scene, and repath everything with an environnement variable : **BUNDLE_ROOT** to the this folder.
+L'action **Bundle** est similaire à la fonction _archive_ dans maya, mais au lie d'exporter la scène et ses références, elle trouve aussi **récursivement** toutes les références dans les fichiers référencés, puis copie toutes les références dans un seul dossier avec la scène, et refait tout avec une variable d'environnement : **BUNDLE_ROOT** dans ce dossier.
 
-You just need to set the variable in your Windows and you can use the bundle folder to render from external render farm or at home.
+Vous avez juste besoin de définir la variable dans votre Windows et vous pouvez utiliser le dossier bundle pour rendre à partir de la render farm externe ou à la maison.
 
 ---
 
-## Steps :
+## Étapes :
 
-### step 1
+### étape 1
 
-The bundle finds all references in the selected scene.
+Le bundle trouve toutes les références dans la scène sélectionnée.
 
-### step 2
+### étape 2
 
-References are copied, one by one, into the export folder (By default, this folder will be created aside the scene), if a referenced file has references of its own, they will go through the same process.
+Les références sont copiées, une par une, dans le dossier d'exportation (Par défaut, ce dossier sera créé en dehirs de la scène), si un fichier référencé a des références propre, ils passeront par le même processus.
 
-If a reference is not part of the pipeline file structure, or doesn't follow the same naming convention, the copied file will be renamed with a **Hashed** version.
+Si une référence ne fait pas partie de la structure du fichier pipeline, ou ne suit pas la même convention d'appelation, le fichier copié sera renommé avec une version **Hashed**.
 
-### step 3
+### étape 3
 
-References are repathed in the original scene with an environnement variable, **BUNDLE_ROOT** to the new location.
+Les références sont sont repensées dans la scène d'origine avec une variable d'environnement, **BUNDLE_ROOT** vers le nouvel emplacement.
 
-### step 4
+### étape 4
 
-The scene is copied in the export folder.
+La scène est copiée dans le dossier export.
 
 :::caution
 
-Currently, there is no way to select a folder from the ui, so the the actions doesn't need to be specified an export directory, and will create its own folder in the same directory as the selected scene. if the scene is in a **publish** folder (Meaning, a folder that is being synchronised on the server), the newly created folder will be synchronised and fill memory.
+Actuellement, il n'y a aucun moyen de sélectionner un dossier dans l'interface utilisateur, donc les actions n'ont pas besoin d'être spécifiées un répertoire d'exportation, et créera son propre dossier dans le même répertoire que la scène sélectionnée. Si la scène est dans un dossier de **publish** (Signifiant, un dossier qui est synchronisé sur le serveur), le dossier nouvellement créé sera synchronisé et remplira la mémoire.
 
-It is advised to copy the scene in a local drive before bundling it, so the new "BUNDLE folder" will be placed in the local drive as well.
+Il est conseillé de copier la scène dans un lecteur local avant de la bundling, de sorte que le nouveau "dossier BUNDLE" sera également placé dans le lecteur local.
 :::
 
 ---
 
-<u><b>User documentation</b></u> :
+<u><b>Documentation utilisateur</b></u> :
 
-[Bundle user documentation](@site/docs/user/basic-concepts/actions/actions.md)
+[Bundle documentation utilisateur](@site/docs/user/basic-concepts/actions/actions.md)

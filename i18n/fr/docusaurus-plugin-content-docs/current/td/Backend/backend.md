@@ -5,13 +5,13 @@ sidebar_position: 50
 ---
 ---
 
-The backend of Silex is composed of multiple services that can be deployed using the [`silex-deploy`](https://github.com/ArtFXDev/silex-deploy) repository.
+Le backend de Silex est composé de plusieurs services qui peuvent être déployés à l'aide du repository [`silex-deploy`](https://github.com/ArtFXDev/silex-deploy).
 
-## Deployment
+## Déploiement
 
-We use [Docker](https://www.docker.com/) to package applications as isolated containers and [`docker-compose`](https://docs.docker.com/compose/) to define a **multi-container application stack**.
+Nous utilisons [Docker](https://www.docker.com/) pour package les applications comme conteneurs isolés et [`docker compose`](https://docs.docker.com/compose/) pour définir une **pile d'applications multi-containeurs**.
 
-This is great because deploying most of the Silex backend applications is as simple as (see details [here](https://github.com/ArtFXDev/silex-deploy)):
+C'est génial car le déploiement de la plupart des applications Silex backend est aussi simple que (voir détails [ici](https://github.com/ArtFXDev/silex-deploy)):
 
 ```shell
 $ git clone https://github.com/ArtFXDev/silex-deploy.git
@@ -19,7 +19,7 @@ $ cd silex-deploy
 $ docker-compose --env-file .env up -d
 ```
 
-_(and aditionnal configuration...)_
+_(et la configuration aditionnale...)_
 
 ## Services
 

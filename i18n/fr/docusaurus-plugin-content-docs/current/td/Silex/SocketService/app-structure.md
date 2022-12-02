@@ -1,6 +1,12 @@
-The app structure is pretty simple.
+---
+id: app-structure
+title: Structure App
+sidebar_position: 20
+---
 
-Entry point is /index.js, he will scan and execute all .js files under /src/listeners
+La structure d'app est assez simple.
+
+Le point d'entrée est /index.js, il va scanner et exécuter tous les fichiers .js sous /src/listeners
 
 ```
 📦src

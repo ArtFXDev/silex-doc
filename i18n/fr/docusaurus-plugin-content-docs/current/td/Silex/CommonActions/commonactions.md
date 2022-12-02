@@ -1,25 +1,22 @@
 ---
 id: commonactions
-title: Common Actions
+title: Actions Communes
 sidebar_position: 30
 ---
 
-Some actions are common to all DCCs. They are implemented in `Silex Client` directly, and then
-customised for each DCCs thanks to the context.
+Certaines actions sont communes à tous les DCCs. Elles sont mise en œuvre directement dans `Silex Client`, puis personnalisées pour chaque DCCs grâce au contexte.
 
 :::info
-Actions are defined with YAML files. If you don't know how to defined an action yet see the [action definition page](../Client/action-definition.mdx)
+Les actions sont définies avec les fichiers YAML. Si vous ne savez pas comment définir une action, consultez la [page de définition des actions](../Client/action-definition.mdx)
 :::
 
-## Action insertion
+## Insertion d'action
 
-One common point to these actions is that they all insert actions at runtime
-using the [insert action command](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/insert_action.py).
-This command will resolve the specified actions and insert all of its steps and commands right after the current step.
-This allows to have an action that dynamically adapt while its executing.
+Un point commun à ces actions est qu'elles insèrent toutes des actions à l'exécution en utilisant la [commande insert action](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/insert_action.py).
+Cette commande résoudra les actions spécifiées et insérera toutes ses étapes et commandes juste après l'étape en cours.
+Cela permet d'avoir une action qui s'adapte dynamiquement lors de son exécution.
 
 ![](/img/silex/silex_insert_action.gif)
 
-To separate the actions that are meant to be inserted and the ones to be executed directly, we use [categories](../Client/action-definition.mdx#where-do-i-place-my-yaml-).
-For example, the publish action will allow the user to insert an action among the possible ones present in the `publish` category. You can make some publishes accesible
-in some [contexts](../Client/context.md) or not by defining your publishes in the plugin you want.
+Pour séparer les actionsà insérer et celles à exécuter directement, nous utilisons des [catégories](../Client/action-definition.mdx#where-do-i-place-my-yaml-).
+Par exemple, l'action publish permettra à l'utilisateur d'insérer une action parmi les possibles présent dans la catégorie `publish`. Vous pouvez rendre certaines publishes accessible dans certains [contextes](../Client/context.md) ou non en définissant vos publishes dans le plugin que vous souhaitez.

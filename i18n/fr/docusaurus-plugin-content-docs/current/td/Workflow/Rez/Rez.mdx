@@ -136,8 +136,8 @@ version = "0.1.0"
 authors = ["ArtFx TD gang"]
 
 description = """
-    Set of python module and maya config to integrate maya in the silex pipeline
-    Part of the Silex ecosystem
+   Ensemble de module python et de configuration maya pour intégrer maya dans le pipeline silex
+    Partie de l’écosystème Silex
     """
 
 vcs = "git"
@@ -146,7 +146,7 @@ build_command = "python {root}/script/build.py {install}"
 
 def commands():
     """
-    Set the environment variables for silex_maya
+    Définir les variables d’environnement pour silex_maya
     """
     env.SILEX_ACTION_CONFIG.prepend("{root}/silex_maya/config")
     env.PYTHONPATH.append("{root}")
@@ -160,7 +160,7 @@ def commands():
 @late()
 def requires():
     """
-    Manage versions
+    Gestion des versions
     """
     major = str(this.version.major)
     silex_requirement = ["silex_client"]

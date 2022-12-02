@@ -1,8 +1,14 @@
-For explanation about namespace usage for Socket.io see: [Socket.io/namespaces](https://socket.io/docs/v4/namespaces/)
+---
+id: namespace
+title: Namespace
+sidebar_position: 50
+---
 
-In simple way : Namespaces in like a route for your request, to sort them.
+Pour des explication sur l'utilisation des namespace pour Socket.io voir : [Socket.io/namespaces](https://socket.io/docs/v4/namespaces/)
 
-## Files Structure
+De manière simple : Namespaces est comme une route pour votre requête, pour les trier.
+
+## Structure des Fichiers
 
 ```
 📦namespaces
@@ -14,14 +20,14 @@ In simple way : Namespaces in like a route for your request, to sort them.
  ┃ ┗ 📜ui.js
 ```
 
-To add a new namespaces your have create a .js file under the namespaces directory of the project. In the file structure example, we have 4 namespaces:
+Pour ajouter de nouveaux namespaces, vous devez créer un fichier .js sous le répertoire namespaces du projet. Dans l'exemple de structure de fichier, nous avons 4 namespaces :
 
 - /dcc
 - /dcc/action
 - /ui
 - /ui/action
 
-## Code example
+## Exemple de Code
 
 ```javascript
 const ui = (io) => {
@@ -31,9 +37,9 @@ const ui = (io) => {
 module.exports = ui;
 ```
 
-this will simply return the output object of io.of("/ui")
+Cela retournera simplement l'objet de sortie de io.of("/ui")
 
-## Usage:
+## Utilisation :
 
 ```javascript
 // listeners/dcc.js
@@ -49,5 +55,5 @@ module.exports = function (io) {
     ...
 ```
 
-**Client side for Namespace connection**:
+**Côté client pour la connexion au Namespace**:
 clientDcc = new Client(`http://localhost:${port}/dcc`)
