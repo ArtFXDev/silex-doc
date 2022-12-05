@@ -9,25 +9,17 @@ sidebar_position: 10
 <details>
   <summary>Comment vous allez ?</summary>
   <div>
-    <div>En vrai ça va</div>
-  </div>
-</details>
-
-<details>
-  <summary>Les questions présentes sont-elles vraiment nécéssaire ?</summary>
-  <div>
-    <div>Absolument pas, mais il faut bien faire des test</div>
-  </div>
-</details>
-
-<details>
-  <summary>Asynchronous, c'est un bon choix de mot pour la donc mais j'ai pas de dictionnaire avec</summary>
-  <div>
-    <div>J'ai eu la réponse, merci</div>
+    <div>Pas très bien maintenant que vous me le demandez ..</div>
   </div>
 </details>
 
 ### Problème doc
+<details>
+  <summary>J'ai une question quelconque par rapport à la doc où puis-je la poser ?</summary>
+  <div>
+    <div>Il faut contacter un TD, il vaudrait mieux même si vous venez nous voir de nous envoyer un mail ou un message chat sur google, ou sur discord, cela nous permet de garder une trace écrite des questions récurrentes ou non</div>
+  </div>
+</details>
 <details>
   <summary>Pourquoi la doc est pas finit ?</summary>
   <div>
@@ -35,16 +27,10 @@ sidebar_position: 10
   </div>
 </details>
 
+### Problème Silex/Renderfarm
 <details>
-  <summary>Pourquoi je ne peux pas faire une question de plus de ### ?</summary>
+  <summary>J'ai un problème avec Silex ou la renderfarm que faire ?</summary>
   <div>
-    <div>Parce que sinon elle n'est plus référencée comme une section à droite</div>
-  </div>
-</details>
-
-<details>
-  <summary>Comment faire pour que la FAQ soit plus lisible ?</summary>
-  <div>
-    <div>Il faudrait faire ajouter du style</div>
+    <div>Il faut contacter un TD, il vaudrait mieux même si vous venez nous voir de nous envoyer un mail ou un message chat sur google, ou sur discord, cela nous permet de garder une trace écrite des bugs récurrentes ou non</div>
   </div>
 </details>
