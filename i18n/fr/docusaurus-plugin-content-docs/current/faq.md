@@ -3,9 +3,11 @@ id: faq
 title: FAQ
 sidebar_position: 10
 ---
+
 ---
 
 ### S'enquérir du bien être des autres
+
 <details>
   <summary>Comment vous allez ?</summary>
   <div>
@@ -14,6 +16,7 @@ sidebar_position: 10
 </details>
 
 ### Problème doc
+
 <details>
   <summary>J'ai une question quelconque par rapport à la doc où puis-je la poser ?</summary>
   <div>
@@ -28,6 +31,7 @@ sidebar_position: 10
 </details>
 
 ### Problème Silex/Renderfarm
+
 <details>
   <summary>J'ai un problème avec Silex ou la renderfarm que faire ?</summary>
   <div>
