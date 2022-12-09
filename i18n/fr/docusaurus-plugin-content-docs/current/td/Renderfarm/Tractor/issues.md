@@ -5,7 +5,7 @@ sidebar_position: 30
 
 ## Kill correctement une task sur Windows
 
-Sur la render farm, nous utilisons [Rez](https://github.com/AcademySoftwareFoundation/rez). Rez est très pratique mais le problème est que lors du lancement d'une commande, il génère un sous-processus dans un sous-shell.
+Sur la render farm, nous utilisons [Rez](https://github.com/AcademySoftwareFoundation/rez). Rez est très pratique, mais le problème est que lors du lancement d'une commande, il génère un sous-processus dans un sous-shell.
 
 Ceci est problématique lorsque Tractor ou le NIMBY veulent kill le processus sur une Blade parce que le PID visible est celui de la Rez, pas le processus worker. Donc on a fini par kill Rez et le processus de V-Ray tournait toujours sur la machine...
 
@@ -32,7 +32,7 @@ Cette approche est également utilisée du côté de l'utilisateur, le NIMBY s'e
 :::
 
 :::note
-Il semble résoudre ce problème J'ai posté : https://renderman.pixar.com/forum/showthread.php?s=&threadid=45707 (plusieurs propriétaires de task même si max slots est à 1)
+Il semble résoudre ce problème. J'ai posté : https://renderman.pixar.com/forum/showthread.php?s=&threadid=45707 (plusieurs propriétaires de task même si max slots est à 1)
 :::
 
 ## Le problème `"No Free Slots"`
@@ -43,7 +43,7 @@ Par défaut, chaque blade de la farm a une capacité de slot maximale de `1` ce 
 
 The issue we saw rising was blades that had the no free slots thing even thought **no tasks were running on the blade**.
 
-Nous avons corrigé cela en kill les noms de processus spécifiques sur les blades affectées dans [Harvest](../harvest):
+Nous avons corrigé cela en kill les noms de processus spécifiques sur les blades affectées dans [Harvest](../harvest) :
 
 https://github.com/ArtFXDev/harvest-api/blob/master/src/schedule/nofreeslots.ts
 
@@ -101,7 +101,7 @@ Il résout également ce problème que j'ai posté : https://renderman.pixar.com
 ## Clear blade data
 
 :::caution
-Soyez prudent lorsque vous cliquez avec le bouton droit sur les blades dans l'interface et appuyez sur `"Clear earlier blade data"`(`"Effacer les données de la blade préédente"`) car il pourrait mettre toutes les blades en mode `No Free Slots` instantanément lorsque vous ** le faites sur une grande quantité de blades**.
+Soyez prudent lorsque vous cliquez avec le bouton droit sur les blades dans l'interface et appuyez sur `"Clear earlier blade data"`(`"Effacer les données de la blade précédente"`) car il pourrait mettre toutes les blades en mode `No Free Slots` instantanément lorsque vous **le faites sur une grande quantité de blades**.
 
-Filed this bug here: https://renderman.pixar.com/forum/showthread.php?s=&threadid=45857
+Filed this bug here : https://renderman.pixar.com/forum/showthread.php?s=&threadid=45857
 :::

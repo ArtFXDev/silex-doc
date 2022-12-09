@@ -6,7 +6,7 @@ sidebar_position: 10
 
 ---
 
-### S'enquérir du bien être des autres
+### S'enquérir du bien-être des autres
 
 <details>
   <summary>Comment vous allez ?</summary>
@@ -24,9 +24,9 @@ sidebar_position: 10
   </div>
 </details>
 <details>
-  <summary>Pourquoi la doc est pas finit ?</summary>
+  <summary>Pourquoi la doc n'est pas fini ?</summary>
   <div>
-    <div>C'est long à faire</div>
+    <div>'' Une documentation n'est jamais vraiment fini ''</div>
   </div>
 </details>
 
@@ -35,6 +35,6 @@ sidebar_position: 10
 <details>
   <summary>J'ai un problème avec Silex ou la renderfarm que faire ?</summary>
   <div>
-    <div>Il faut contacter un TD, il vaudrait mieux même si vous venez nous voir de nous envoyer un mail ou un message chat sur google, ou sur discord, cela nous permet de garder une trace écrite des bugs récurrentes ou non</div>
+    <div>Il faut contacter un TD, il vaudrait mieux même si vous venez nous voir de nous envoyer un mail ou un message chat sur google, ou sur discord, cela nous permet de garder une trace écrite des bugs récurrents ou non</div>
   </div>
 </details>

@@ -16,10 +16,10 @@ Paramètres globaux pour l'engine.
 Quelques paramètres utiles à modifier :
 
 - `EngineOwner`: changer le propriétaire de service du processus (mieux en tant qu'utilisateur non-root)
-- `EngineDiscovery`: paramètres DNS pour les blades lors de l'interrogation de l'engine, laissez-le vide pour ne pas multicast (peut flood(innonder) le réseau autrement)
+- `EngineDiscovery`: paramètres DNS pour les blades lors de l'interrogation de l'engine, laissez-le vide pour ne pas multicast (peu flood(inonder) le réseau autrement)
 - `SiteCmdLogRetrievalURL`: url pour récupérer les logs (voir [logging blade](#blade-log-access))
 - `SiteMaxListReplyCount`: limite le nombre d'enregistrements de liste que vous pouvez obtenir à partir de l'API
-- `JobSchedulingMode`: changer le mode de planification des job (nous utilisons principalement `P+ATCL+RR`, voir la [documentation](https://rmanwiki.pixar.com/display/TRA/Scheduling+Modes))
+- `JobSchedulingMode`: changer le mode de planification des jobs (nous utilisons principalement `P+ATCL+RR`, voir la [documentation](https://rmanwiki.pixar.com/display/TRA/Scheduling+Modes))
 - `CmdAutoRetryAttempts`: définit le nombre de tentatives automatiques pour les commandes qui échouent
 - `CmdAutoRetryStopCodes`: exclure le code de retour de réessayer automatiquement la task (utile lorsque vous savez qu'il y a une erreur)
 - `EngineWorkerThreads`: définit le nombre de threads et workers de l'engine (conseillé d'être : `10 + (number_of_blades / 100)`)
@@ -58,13 +58,13 @@ Pour plus d'informations, voir la [documentation](https://rmanwiki.pixar.com/dis
 
 ### Accès au log blade
 
-De la [documentation sur les logging](https://rmanwiki.pixar.com/display/TRA/Logging#Logging-directwritesLoggingCommandOutputtoaCentralFileserver):
+De la [documentation sur les loggings](https://rmanwiki.pixar.com/display/TRA/Logging#Logging-directwritesLoggingCommandOutputtoaCentralFileserver) :
 
 > Logging Tractor command output to a central fileserver should be considered a best-practice technique, especially for large production sites.
 
 > Écrire directement sur un partage de réseau haute performance en utilisant des opérations de fichier "locales" peut être presque aussi bon, et offre de nombreux avantages supplémentaires en termes d'accès et de gestion des logs.
 
-> Il y a plusieurs avantages à utiliser un serveur web standard pour livrer ces logs de commande à Tractor Dashboard, et d'autres requestors. Le premier est qu'il peut décharger ce type de fichier i/o de Tractor Engine lui-même. Plus important encore, il peut également permettre aux utilisateurs de parcourir les logs directement à partir d'un navigateur web générique en parcourant simplement les listes de répertoires de job fournies par le serveur web. Évidemment, le serveur de fichiers partagé sous-jacent lui-même fournit un accès similaire aux logs à partir d'utilitaires et de scripts arbitraires utilisant des operations.
+> Il y a plusieurs avantages à utiliser un serveur web standard pour livrer ces logs de commande à Tractor Dashboard, et d'autres requestors. Le premier est qu'il peut décharger ce type de fichier i/o de Tractor Engine lui-même. Plus important encore, il peut également permettre aux utilisateurs de parcourir les logs directement à partir d'un navigateur web générique en parcourant simplement les listes de répertoires de job fournies par le serveur web. Évidemment, le serveur de fichiers partagés sous-jacents lui-même fournit un accès similaire aux logs à partir d'utilitaires et de scripts arbitraires utilisant des opérations.
 
 Dans l'objet `ProfileDefaults`, nous avons modifié la key suivante pour indiquer aux blades où elles doivent écrire les logs.
 
@@ -77,7 +77,7 @@ Dans l'objet `ProfileDefaults`, nous avons modifié la key suivante pour indique
 }
 ```
 
-Pour ce faire, le dossier doit être accessible en tant qu'emblacement réseau Samba avec accès en écriture.
+Pour ce faire, le dossier doit être accessible en tant qu'emplacement réseau Samba avec accès en écriture.
 
 Modifiez également la configuration pour récupérer les logs dans le fichier `tractor.config` pour qu'il soit l'URL du serveur web hébergeant les fichiers statiques :
 
@@ -97,7 +97,7 @@ Spécifiez Administrateur, Wrangler et ValidLogins.
 - `ValidLogins` -> pour l'authentification NIMBY
 
 :::info
-Pour utiliser l'authentication utilisateur personnalisée, spécifiez-la:
+Pour utiliser l'authentification utilisateur personnalisée, spécifiez-la :
 
 ```json
 {
@@ -111,12 +111,12 @@ Pour utiliser l'authentication utilisateur personnalisée, spécifiez-la:
 
 Spécifiez des limites pour les tasks et les jobs sur la render farm. Vous pouvez limiter un certain type de job à exécuter uniquement sur max X machines.
 
-Vous précisez également les limites à l'utilisation qu'un project peut faire de la farm.
+Vous précisez également les limites à l'utilisation qu'un projet peut faire de la farm.
 
 > Consulter : https://rmanwiki.pixar.com/display/TRA/Limits+Configuration
 
 :::note
-Les priorités de job sont parfois plus efficaces que de limiter un project à un pourcentage maximal d'utilisation à la farm.
+Les priorités de job sont parfois plus efficaces que de limiter un projet à un pourcentage maximal d'utilisation à la farm.
 :::
 
 ## `shared.xxxxx.envkeys`
@@ -163,7 +163,7 @@ Puis l'utiliser partout sur les profils pour hériter de ceux :
 
 ## `trSiteLoginValidator.py`
 
-Nous permet de nous authentifier auprès du backend Zou pour la gestion des utilisateur.
+Nous permet de nous authentifier auprès du backend Zou pour la gestion des utilisateurs.
 
 Nous faisons une demande à l'API en fournissant l'utilisateur brut et mot de passe.
 
