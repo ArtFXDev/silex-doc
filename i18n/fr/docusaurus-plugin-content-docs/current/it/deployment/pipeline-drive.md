@@ -11,7 +11,7 @@ Seulement pour les machines de 5RN.
 
 ## Pourquoi ?
 
-Nous avons besoin de créér un alias de drive **_P:_** monté sur **_D:/PIPELINE_**, pour que le repath soit transparent entre farm et machine local.<br/>
+Nous avons besoin de créer un alias de drive **_P:_** monté sur **_D:/PIPELINE_**, pour que le repath soit transparent entre farm et machine locale.<br/>
 Quand une tache est envoyée à une blade, la première commande exécutée est celle du montage du P: sur tars ou ana, en fonction du projet.
 
 ```

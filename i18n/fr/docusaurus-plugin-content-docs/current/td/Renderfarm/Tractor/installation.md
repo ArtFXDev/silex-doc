@@ -10,7 +10,7 @@ Tractor était destiné à être installé sur une distribution Linux basée sur
 Le package que vous obtenez de la [page de téléchargement](https://renderman.pixar.com/forum/download.php) est un package [`.rpm`](https://en.wikipedia.org/wiki/RPM_Package_Manager) que vous ne pouvez installer que sur RHEL distros.
 Cependant, si vous prévoyez de l'installer sur une machine basée sur [Debian](https://en.wikipedia.org/wiki/Debian), la configuration est un peu différente.
 
-Pour convertir un `.rpm` en package `.deb`, utilisez [Alien](https://github.com/mildred/alien):
+Pour convertir un `.rpm` en package `.deb`, utilisez [Alien](https://github.com/mildred/alien) :
 
 ```shell
 $ sudo apt install alien
@@ -23,7 +23,7 @@ $ sudo dpkg -i tractor_2.42091325-1_amd64.deb
 ```
 
 :::info
-Répétez cette procédure pour que le serveur de Licence Pixar (Utilitaires de License) installe la licence. (par exemple `PixarLicense-LA-24.0_2172149-linuxRHEL7_gcc63icc190.x86_64.rpm`)
+Répétez cette procédure pour que le serveur de Licence Pixar (Utilitaires de Licence) installe la licence. (par exemple `PixarLicense-LA-24.0_2172149-linuxRHEL7_gcc63icc190.x86_64.rpm`)
 :::
 
 ### Serveur de Licence

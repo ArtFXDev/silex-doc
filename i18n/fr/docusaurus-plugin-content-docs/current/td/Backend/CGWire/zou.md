@@ -3,11 +3,12 @@ id: zou
 title: Zou
 sidebar_position: 10
 ---
+
 ---
 
 [Zou](https://zou.cg-wire.com/) est la base de données de l'écosystème CGWire.
 
-Il nous permet de **stocker les données de production** pour les films, y compris les séquences, les shots, les assets, les utilisateurs, les templates de fichiers, les custom entities...
+Il nous permet de **stocker les données de production** pour les films, y compris les séquences, les shots, les assets, les utilisateurs, les templates de fichiers, les customs entities...
 
 ## Configuration
 
@@ -52,9 +53,9 @@ Voir la [documentation](https://zou.cg-wire.com/file_trees/) sur les arbres de f
 :::
 
 :::caution
-Assurez-vous d'ajouter un champs `nas` dans le champ de `données` d'un project. Cela contiendra le NAS où le projet est situé. (ceci est ajouté dans `zou-deploy`)
+Assurez-vous d'ajouter un champ `nas` dans le champ de `données` d'un projet. Cela contiendra le NAS où le projet est situé. (ceci est ajouté dans `zou-deploy`)
 
-Par exemple:
+Par exemple :
 
 ```json
 {
@@ -90,7 +91,7 @@ _(exemple : [`file_tree_marvin.json`](https://github.com/ArtFXDev/zou-deploy/blo
 
 Zou a une API REST disponible à http://kitsu.prod.silex.artfx.fr/api/ (par exemple).
 
-Voir les [routes disponible dans la documentation](https://zou.cg-wire.com/api/).
+Voir les [routes disponibles dans la documentation](https://zou.cg-wire.com/api/).
 
 ### GraphQL
 
@@ -103,5 +104,5 @@ Utilisez l'url `/api/graphql` pour obtenir un éditeur [GraphiQL](https://github
 Sinon, vous pouvez utiliser le grand GraphQL IDE appelé [client Altair](https://altair.sirmuel.design/).
 
 :::info
-Notez que l'API GraphQL n'est **disponible que pour la récupératin de données** pour l'instant. Le support pour les [mutations](https://graphql.org/learn/queries/#mutations) pourrait être ajouté à l'avenir.
+Notez que l'API GraphQL n'est **disponible que pour la récupération de données** pour l'instant. Le support pour les [mutations](https://graphql.org/learn/queries/#mutations) pourrait être ajouté à l'avenir.
 :::

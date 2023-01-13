@@ -15,7 +15,7 @@ Maya --> _silex_maya_
 
 Houdini --> _silex_houdini_
 
-Lorsque vous ouvrez un DCC à partir de silex, le repository du DCC's est utilisé. Il ajoute des features spéciales dans un shelf **Silex**, et combine toutes les features de  silex_client en plus des features spécifique au DCC.
+Lorsque vous ouvrez un DCC à partir de silex, le repository du DCC's est utilisé. Il ajoute des features spéciales dans un shelf **Silex**, et combine toutes les features de silex_client en plus des features spécifique au DCC.
 
 ---
 

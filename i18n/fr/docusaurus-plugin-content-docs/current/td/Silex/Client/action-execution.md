@@ -3,6 +3,7 @@ id: action-execution
 title: Exécution d'action
 sidebar_position: 20
 ---
+
 ---
 
 Une action est un ensemble d'instructions qui seront exécutées séquentiellement. Pour en savoir plus à leur sujet, lisez la page du guide de l'utilisateur sur les actions.
@@ -24,7 +25,7 @@ Vous pouvez spécifier la tâche en utilisant l'argument `--task-id` avec l'ID s
 
 Les actions Silex invitent parfois l'utilisateur avec des paramètres. Vous pouvez définir les paramètres à l'avance avec l'argument `--parameters`. La valeur attendue est `<parameter-path>=<parameter-value>` le paramètre sera automatiquement inclus dans le type de paramètre attendu. Pour définir plusieurs paramètres, utilisez cet argument plusieurs fois.
 
-#### Mode Batch 
+#### Mode Batch
 
 Parfois vous voulez exécuter des actions en mode headless (sur la renderfarm ou sur ssh), dans ce cas vous n'avez pas accès à l'interface silex et quand l'utilisateur sera invité, l'exécution de l'action sera bloquée en attendant une entrée dans l'interface. Pour éviter cela, vous pouvez utiliser `--batch` pour dire à Silex de ne pas essayer de se connecter à l'interface utilisateur via websocket. Tous les paramètres qui nécessitent une entrée utilisateur conserveront leurs valeurs par défaut.
 
