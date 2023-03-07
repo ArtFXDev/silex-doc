@@ -4,7 +4,7 @@ title: Architecture
 sidebar_position: 5
 ---
 
-![](/img/Silex/silex_architecture.png)
+![](/img/silex/silex_architecture.png)
 
 ## User space
 
