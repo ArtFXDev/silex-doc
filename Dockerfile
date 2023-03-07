@@ -7,5 +7,6 @@ COPY . .
 RUN yarn build
 
 FROM nginx:alpine
+ENV BASE_URL=/
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /home/build /usr/share/nginx/html
