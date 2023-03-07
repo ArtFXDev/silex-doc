@@ -33,7 +33,9 @@ jobs:
       - run: yarn
 
       - name: Build
-        run: yarn build
+        run: yarn docusaurus build
+        env:
+          BASE_URL: /silex-doc/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
