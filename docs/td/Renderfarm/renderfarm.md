@@ -20,6 +20,12 @@ A **Job** is the top level workload on a render farm, it is described with a _na
 
 Usually a **job** is composed of **tasks** which are smaller units of work to be done. For example one computer might render the frames from `1-10` and another one from `11-20`.
 
+### Workers
+Workers are the computer on which tasks are sent and executed. Each worker is part of a group and a pool, which enables them to be located and their use adapted. 
+
+For example:
+**PC 2017-mh-01** is in room 213, which is a classroom. The worker 2017-mh-01 is in the group "classrooms", "213" and in the pool "wspool". Workers in the classrooms group are not active during the day, but are automatically triggered at 8pm until 8am.
+
 ### Command
 
 A **task** then has **commands** which are sent to the computer through a [Shell](<https://en.wikipedia.org/wiki/Shell_(computing)>) (for example `bash` in case of Linux or `cmd.exe` for Windows) or directly interpreted by the computer.
@@ -56,6 +62,6 @@ The **engine** is the program running on the main server on the network. Its job
 
 ## What to read next
 
-- At ArtFX we are using [Tractor](./tractor) which is Pixar's render farm system.
+- At ArtFX we are using [Deadline](./deadline) as render farm system.
 - See the [Submit](../Silex/commonactions/submit) action to find how we submit jobs.
 - [Harvest](./harvest) is a statistics interface and API for Tractor.
