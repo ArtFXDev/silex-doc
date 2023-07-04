@@ -4,51 +4,9 @@
     "type": "split",
     "children": [
       {
-        "id": "a84ad6156a69db7a",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "45a8e5e5a8f15b8b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/td/Renderfarm/Deadline/deadline.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "8c6ed78937bc6397",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/td/Renderfarm/Deadline/repository.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "f1083c616d7beb38",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/td/Renderfarm/Deadline/custom-plugin.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          }
-        ],
-        "currentTab": 2
-      },
-      {
         "id": "c83f027468737bc1",
         "type": "tabs",
+        "dimension": 50,
         "children": [
           {
             "id": "a6ad613a51545c83",
@@ -56,7 +14,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/td/Silex/Client/action-execution.md",
+                "file": "docs/td/Silex/CommonActions/Submit/submit.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "d69923050d885139",
+        "type": "tabs",
+        "dimension": 50,
+        "children": [
+          {
+            "id": "6c2eeb0e39d1a4fd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/td/Silex/CommonActions/Submit/implementsubmitter.md",
                 "mode": "source",
                 "source": true
               }
@@ -107,6 +84,14 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "2a97f018396f1c5e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
@@ -128,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/td/Renderfarm/Deadline/custom-plugin.md",
+                "file": "docs/td/Silex/CommonActions/Submit/implementsubmitter.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -145,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/td/Renderfarm/Deadline/custom-plugin.md",
+                "file": "docs/td/Silex/CommonActions/Submit/implementsubmitter.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -168,7 +153,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/td/Renderfarm/Deadline/custom-plugin.md"
+                "file": "docs/td/Silex/CommonActions/Submit/implementsubmitter.md"
               }
             }
           }
@@ -189,14 +174,16 @@
       "command-palette:Ouvrir la palette de commandes": false
     }
   },
-  "active": "f1083c616d7beb38",
+  "active": "6c2eeb0e39d1a4fd",
   "lastOpenFiles": [
+    "docs/td/Silex/CommonActions/Submit/submit.md",
+    "docs/td/Renderfarm/Deadline/deadline.md",
+    "docs/td/Renderfarm/Deadline/submitter-silex.md",
+    "docs/td/Silex/Client/action-execution.md",
     "docs/td/Renderfarm/Deadline/repository.md",
     "docs/td/Renderfarm/Deadline/custom-plugin.md",
-    "docs/td/Silex/Client/action-execution.md",
     "docs/td/Renderfarm/Tractor/tractor.md",
     "docs/td/Renderfarm/renderfarm.md",
-    "docs/td/Renderfarm/Deadline/deadline.md",
     "docs/td/Renderfarm/Tractor/issues.md",
     "docs/td/Renderfarm/Tractor/installation.md",
     "docs/td/Renderfarm/Tractor/configuration.md",
