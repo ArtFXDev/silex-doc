@@ -1,5 +1,5 @@
 ---
 id: publish
-title: Publsih
+title: Publish
 sidebar_position: 10
 ---

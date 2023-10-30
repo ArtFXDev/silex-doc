@@ -9,7 +9,7 @@ const config = {
   title: "Silex Docs",
   tagline: "User guide for TD and artists",
   url: "http://localhost:3000",
-  baseUrl: process.env.BASE_URL,
+  baseUrl: process.env.BASE_URL || '/',
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/silex_logo.png",
