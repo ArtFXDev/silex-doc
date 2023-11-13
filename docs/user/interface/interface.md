@@ -43,7 +43,7 @@ This section displays your account avatar, the Nimby status, access to the list 
 
 1- Hamberger menu.
 
-2- Update button : Reload the interface (useful if some newly created files don't show or if new features don't appear). You can use the **very precious** CTRL + R [shortcut](shortcuts) to trigger the same result.
+2- Update button : Reload the interface (useful if some newly created files don't show or if new features don't appear). You can use the **very precious** CTRL + R  [shortcuts](../shortcuts.md)to trigger the same result.
 
 3- List of running software :
 
