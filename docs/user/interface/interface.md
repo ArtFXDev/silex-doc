@@ -5,15 +5,7 @@ sidebar_position: 30
 ---
 
 ## Home page
-
-![](/img/silex_logo.png)
-
 ---
-
-Hello newbies ! 🖖
-
-Welcome to Silex, a pipeline application which gives you access to the render farm and allows you to browse through your shots and assets, and many other things ! (you'll see, it's very fun)
-
 When opening Silex, you just need to connect with your Kitsu acount.
 after that, the home page will be displayed.
 
@@ -51,15 +43,13 @@ This section displays your account avatar, the Nimby status, access to the list 
 
 1- Hamberger menu.
 
-2- Update button : Reload the interface (useful if some newly created files don't show or if new features don't appear). You can use the **very precious** CTRL + R [shortcut](../shortcuts.md) to trigger the same result.
+2- Update button : Reload the interface (useful if some newly created files don't show or if new features don't appear). You can use the **very precious** CTRL + R [shortcut](shortcuts) to trigger the same result.
 
 3- List of running software :
 
 ![](/img/user_guide/home_page/silex_home_page_running_software.png)
 
-4- Nimby : allows you to turn on/off the [nimby](nimby.md).
-
-5- Account profile :
+4- Account profile :
 
 ![](/img/user_guide/home_page/silex_home_page_profile.png)
 
@@ -76,12 +66,4 @@ This menu gives you acces to all the services on Silex.
 - **Project explorer** : This is a [file explorer](file-explorer.md) that let you browse through the files in your projects.
 - **Actions** : This shows all running [actions](../basic-concepts/actions/actions.md) on you computer.
 
-- **Statistics** : This represents the rendered frames progression of each team through the year. Try and reach the top as fast as you can 📈.
-
-- **Arcade** : Here you can find flappy-bird like games, inspired by promo2022 movies. Play them to win some Silex coins ! (But not to much)
-
-- **Tractor** : Tractor is the school [renderfarm](../renderfarm/renderfarm.md).
-
-- **Harvest** : This will redirect you to [Harvest](../harvest/harvest.md). A statistic tool relaying different information on the renderfarm.
-
-- **Ticket** : Access to the ticket system. see with the TDs if they are using it.
+- **Ticket** : Access to the [tickets](tickets.md) system.

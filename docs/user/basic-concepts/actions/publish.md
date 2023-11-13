@@ -1,10 +1,10 @@
 ---
 id: publish
 title: Publish
-sidebar_position: 10
+sidebar_position: 30
 ---
-**Publish** is the action of sending a version of your files to a shared space.
-To share your files with colleagues, you need to publish them. In fact, it's not your work files that will be shared, but a copy or export of them that will be saved on the network.
+**Publish** is the action of sending a version of your files to a shared space. Basicaly, it's **exporting files for the next step in the pipeline.**
+In fact, it's not your work files that will be shared, but a copy or export of them that will be saved on the network.
 To use the renderfarm, all you files submitted must have been published.
 
 ## In Houdini
