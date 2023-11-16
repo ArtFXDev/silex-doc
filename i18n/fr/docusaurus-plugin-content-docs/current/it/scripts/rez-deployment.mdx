@@ -1,0 +1,39 @@
+---
+id: rez-deployment
+title: Rez Deployment
+type: doc
+sidebar_position: 60
+---
+
+---
+
+import CodeSnippet from "@site/src/components/codeSnippetComponent";
+
+# Rez
+
+## Test for py3
+
+Dans le pipeline on utilise rez avec la version 3.7.9 de python.
+Nous avons donc besoin de la version de python sur chaque machine de la farm.
+La première étape de ce script est de tester la version de python installer, et d'installer la bonne version de python au besoin.
+
+Pour installer python via un script on copie simplement une installation de python embeddable.
+Dans les releases python officiel embeddable, les installe ne comprennent pas le package venv qui est indispensable pour rez, nous n'utilisons donc pas les versions embeddable officielles mais une version de python installé depuis scoop.
+
+## Installation de rez
+
+Dans chaque machine rez est installé dans C:/rez
+./ **install** contient l'install local de rez
+./ packages contient les packages locaux, ils sont également copiés grace aux scripts en local.
+Le path vers l'exécutable de rez est également ajouté à la variable d'environnement PATH.
+Le path vers le fichier de configuration rez est situé ici `\\192.168.2.112\rez\windows\config\rezconfig.py` et est ajouté à la variable REZ_CONFIG_FILE
+
+## Scripts
+
+Scripts du snapin:
+
+<CodeSnippet
+  rawUrl="https://raw.githubusercontent.com/ArtFXDev/silex_fog_snapin/main/rez/rez-install.ps1"
+  langage="batch"
+  fileName="rez-install.ps1"
+/>

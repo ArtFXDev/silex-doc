@@ -1,0 +1,64 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+
+  "sidebar.td.category.Coding workflow": {
+    "message": "Codage workflow",
+    "description": "The label for category Coding workflow in sidebar td"
+  },
+  "sidebar.td.category.Silex": {
+    "message": "Silex",
+    "description": "The label for category Silex in sidebar td"
+  },
+  "sidebar.td.category.Architecture": {
+    "message": "Architecture",
+    "description": "The label for category Architecture in sidebar td"
+  },
+  "sidebar.td.category.Client": {
+    "message": "Client",
+    "description": "The label for category Client in sidebar td"
+  },
+  "sidebar.td.category.Common Actions": {
+    "message": "Common Actions",
+    "description": "The label for category Common Actions in sidebar td"
+  },
+  "sidebar.td.category.Submit": {
+    "message": "Submit",
+    "description": "The label for category Submit in sidebar td"
+  },
+  "sidebar.td.category.Plugins": {
+    "message": "Plugins",
+    "description": "The label for category Plugins in sidebar td"
+  },
+  "sidebar.td.category.SocketService": {
+    "message": "SocketService",
+    "description": "The label for category SocketService in sidebar td"
+  },
+  "sidebar.td.category.Backend": {
+    "message": "Backend",
+    "description": "The label for category Backend in sidebar td"
+  },
+  "sidebar.td.category.CGWire": {
+    "message": "CGWire",
+    "description": "The label for category CGWire in sidebar td"
+  },
+  "sidebar.td.category.Renderfarm": {
+    "message": "Renderfarm",
+    "description": "The label for category Renderfarm in sidebar td"
+  },
+  "sidebar.td.category.Tractor": {
+    "message": "Tractor",
+    "description": "The label for category Tractor in sidebar td"
+  },
+
+  "sidebar.it.category.deployment": {
+    "message": "Déploiment",
+    "description": "The label for category Deployment in sidebar it"
+  },
+  "sidebar.it.category.scripts": {
+    "message": "Scripts",
+    "description": "The label for category Scripts in sidebar it"
+  }
+}
