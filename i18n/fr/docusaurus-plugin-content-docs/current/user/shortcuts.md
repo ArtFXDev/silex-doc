@@ -1,5 +1,6 @@
 ---
 id: shortcuts
-title: Raccourcis
-sidebar_position: 50
+title: Shortcuts
+sidebar_position: 30
 ---
+**\[ctrl\] + \[R\]** : refresh silex desktop interface.
