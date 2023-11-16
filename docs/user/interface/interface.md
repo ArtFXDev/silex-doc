@@ -37,13 +37,13 @@ This icones represent different applications you can acces in Silex. They will b
 
 ### The top bar :
 
-This section displays your account avatar, the Nimby status, access to the list of currently running applications, an update button and the hamberger menu (previously mentioned).
+This section displays your account avatar, access to the list of currently running applications, an update button and the hamberger menu (previously mentioned).
 
 ![](/img/user_guide/home_page/silex_home_page_frame_top.png)
 
 1- Hamberger menu.
 
-2- Update button : Reload the interface (useful if some newly created files don't show or if new features don't appear). You can use the **very precious** CTRL + R [shortcuts](shortcuts.md) to trigger the same result.
+2- Update button : Reload the interface (useful if some newly created files don't show or if new features don't appear). You can use the **very precious** CTRL + R [shortcuts](../shortcuts.md) to trigger the same result.
 
 3- List of running software :
 
