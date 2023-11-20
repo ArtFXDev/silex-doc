@@ -61,7 +61,7 @@ describe("silex_socket_service_dcc", () => {
       (response) => {
         assert.equal(response.status, 200); // validate reception
         done(); // <== done() are called to validate your test
-      }
+      },
     );
   });
 });

@@ -3,9 +3,11 @@ id: faq
 title: FAQ
 sidebar_position: 10
 ---
+
 ---
 
 ### S'enquérir du bien être des autres
+
 <details>
   <summary>Comment vous allez ?</summary>
   <div>
@@ -28,6 +30,7 @@ sidebar_position: 10
 </details>
 
 ### Problème doc
+
 <details>
   <summary>Pourquoi la doc est pas finit ?</summary>
   <div>

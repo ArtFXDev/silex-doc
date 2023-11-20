@@ -3,6 +3,7 @@ id: task_thumbnail
 title: Change tasks thumbnail
 sidebar_position: 30
 ---
+
 In Silex, thumbnail are automatically generate by the action [publish](../basic-concepts/actions/publish.md).
 ![](../../../static/img/user_guide/kitsu/silex_thumbnail_prev.png)
 But, at the beginning, when you've never published before, your [file explorer](../interface/file-explorer.md) will be filled with gray squares. If you'd like to find your way around better and post your own thumbnails, here's how:
@@ -11,7 +12,7 @@ But, at the beginning, when you've never published before, your [file explorer](
 
 ![](../../../static/img/user_guide/kitsu/kitsu_change_thumbnail.gif)
 
-2 : In the file explorer, go to the asset or shot you want to add a thumbnail. 
+2 : In the file explorer, go to the asset or shot you want to add a thumbnail.
 
 3 : Click on the task where you want to add a thumbnail.
 
