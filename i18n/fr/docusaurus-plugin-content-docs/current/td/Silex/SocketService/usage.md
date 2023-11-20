@@ -1,16 +1,10 @@
----
-id: usage
-title: Usage
-sidebar_position: 90
----
+## Example of Usage
 
-## Exemple d'Utilisation
+Example of usage of Silex Socket Service in Silex-front.
 
-Exemple d'utilisation de Silex Socket Service dans Silex-front.
+Create a Socket-io connection with Socket-io (on 5118 by default for silex socket service)
 
-Créer une connexion Socket-io avec Socket-io (sur 5118 par défaut pour le service silex socket)
-
-Tout d'abord, dans la connexion Socket-io, vous devez mettre le bon namespace que vous voulez utiliser comme ceci.
+First of all, in the Socket-io connection you need to put the right namespace you want to use like this.
 
 ```js
 export const socketInstance = io(
@@ -19,7 +13,7 @@ export const socketInstance = io(
 );
 ```
 
-Par exemple si vous voulez envoyer l'event 'clearAction' sur SilexSocketService :
+For example if you want to send the event 'clearAction' on SilexSocketService:
 
 ```js
 // Cancel or clear the action

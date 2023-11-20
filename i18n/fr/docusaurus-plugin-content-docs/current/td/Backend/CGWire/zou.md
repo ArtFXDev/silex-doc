@@ -4,25 +4,23 @@ title: Zou
 sidebar_position: 10
 ---
 
----
+[Zou](https://zou.cg-wire.com/) is the database of the CGWire ecosystem.
 
-[Zou](https://zou.cg-wire.com/) est la base de données de l'écosystème CGWire.
-
-Il nous permet de **stocker les données de production** pour les films, y compris les séquences, les shots, les assets, les utilisateurs, les templates de fichiers, les customs entities...
+It allows us to **store the production data** for movies including sequences, shots, assets, users, file templates, custom entities...
 
 ## Configuration
 
 ### `zou-deploy`
 
-[`zou-deploy`](https://github.com/ArtFXDev/zou-deploy) est me repository qui contient des scripts pour remplir automatiquement la base de données Zou avec des utilisateurs, des projets et d'autres entités.
+[`zou-deploy`](https://github.com/ArtFXDev/zou-deploy) is the repository that hold scripts to automatically fill the Zou database with users, projects and other entities.
 
-Il s'appuie sur les fichiers de configuration `.csv` et JSON pour remplir la base de données.
+It relies on `.csv` and JSON configuration files to fill the database.
 
-### Arborescence de fichiers
+### File tree
 
-Chaque chemin du pipeline est défini par une configuration `JSON` qui décrit comment un chemin pour une certaine entité doit être construit.
+Each path of the pipeline is defined by a `JSON` configuration that describes how a path for a certain entity should be built.
 
-Un exemple concerne les fichiers **published** :
+An example is for **published** files:
 
 ```json
 {
@@ -49,13 +47,13 @@ Un exemple concerne les fichiers **published** :
 ```
 
 :::tip
-Voir la [documentation](https://zou.cg-wire.com/file_trees/) sur les arbres de fichiers pour voir quelles entités vous pouvez utiliser.
+See the [documentation](https://zou.cg-wire.com/file_trees/) about file trees to see which entities you can use.
 :::
 
 :::caution
-Assurez-vous d'ajouter un champ `nas` dans le champ de `données` d'un projet. Cela contiendra le NAS où le projet est situé. (ceci est ajouté dans `zou-deploy`)
+Make sure to add a `nas` field in the `data` field of a project. This will contain the NAS where the project is located. (this is added in `zou-deploy`)
 
-Par exemple :
+For example:
 
 ```json
 {
@@ -65,13 +63,13 @@ Par exemple :
 }
 ```
 
-Il est utilisé lors du rendering sur la [render farm](../../Silex/CommonActions/Submit/implementsubmitter#wrapping-with-the-mount-command).
+It is used when rendering on the [render farm](../../Silex/CommonActions/Submit/implementsubmitter#wrapping-with-the-mount-command).
 
 :::
 
-#### Accès réseau direct aux fichiers
+#### Direct network access to files
 
-Si vous voulez mettre un projet sur un lecteur réseau et accéder aux fichiers directement, changez la clé `mountpoint` dans le template de fichier `//server/...` comme :
+If you want to put a project on a network drive and access the files directly, change the `mountpoint` key in the file template to `//server/...` like:
 
 ```json
 {
@@ -83,26 +81,26 @@ Si vous voulez mettre un projet sur un lecteur réseau et accéder aux fichiers 
 }
 ```
 
-_(exemple : [`file_tree_marvin.json`](https://github.com/ArtFXDev/zou-deploy/blob/main/data/file_tree_marvin.json) pour le projet spécial FranceTV)_
+_(example: [`file_tree_marvin.json`](https://github.com/ArtFXDev/zou-deploy/blob/main/data/file_tree_marvin.json) for FranceTV special project)_
 
 ## API
 
 ### REST
 
-Zou a une API REST disponible à http://kitsu.prod.silex.artfx.fr/api/ (par exemple).
+Zou has a REST API available at http://kitsu.prod.silex.artfx.fr/api/ (for example).
 
-Voir les [routes disponibles dans la documentation](https://zou.cg-wire.com/api/).
+See the [available routes in the documentation](https://zou.cg-wire.com/api/).
 
 ### GraphQL
 
-Parce que nous avons forked Zou, nous avons ajouté une [API GraphQL](https://graphql.org/) utilisant [`graphene-python`](https://graphene-python.org/). Il est très utile pour la récupération de données front-end puisque vous pouvez interroger ce que vous voulez.
+Because we forked Zou, we added a [GraphQL API](https://graphql.org/) using [`graphene-python`](https://graphene-python.org/). It is very useful for front-end data fetching since you can query what you want.
 
-Utilisez l'url `/api/graphql` pour obtenir un éditeur [GraphiQL](https://github.com/graphql/graphiql) intégré :
+Use the `/api/graphql` url to get an intergrated [GraphiQL](https://github.com/graphql/graphiql) editor:
 
 ![](/img/graphiql.png)
 
-Sinon, vous pouvez utiliser le grand GraphQL IDE appelé [client Altair](https://altair.sirmuel.design/).
+Otherwise you can use the great GraphQL IDE called [Altair client](https://altair.sirmuel.design/).
 
 :::info
-Notez que l'API GraphQL n'est **disponible que pour la récupération de données** pour l'instant. Le support pour les [mutations](https://graphql.org/learn/queries/#mutations) pourrait être ajouté à l'avenir.
+Note that the GraphQL API is for **data fetching only** for now. Support for [mutations](https://graphql.org/learn/queries/#mutations) could be added in the future.
 :::

@@ -3,7 +3,6 @@ id: silex
 title: Silex
 sidebar_position: 40
 ---
----
 
 ## Intro :
 

@@ -1,12 +1,6 @@
----
-id: tests
-title: Tests
-sidebar_position: 80
----
+[Mocha](https://mochajs.org/#hooks) is used tu make unit tests.
 
-Le [mocha](https://mochajs.org/#hooks) est utilisé pour les test unitaires.
-
-## Structure de Fichiers
+## Files Structure
 
 ```
 📦test
@@ -18,11 +12,11 @@ Le [mocha](https://mochajs.org/#hooks) est utilisé pour les test unitaires.
  ┗ 📜index.js
 ```
 
-La commande mocha dans package.json scanne et exécute tous les fichiers dans /test. Par conséquent, pour créer un nouveau test, il vous suffit de créer votre nouveau testfile.js sous /test.
+the Mocha command in package.json scans and executes all files in /test. Therefore, to create a new test, you just have to create your new testfile.js under /test.
 
-/index.js est utilisé pour démarrer l'application principale avant tous les tests.
+/index.js is used to start main app before all tests.
 
-## Exemple de Code
+## Code Example
 
 ```javascript
 const Client = require("socket.io-client"); // <== import socket.io-client lib
@@ -73,6 +67,6 @@ describe("silex_socket_service_dcc", () => {
 });
 ```
 
-## Utilisation
+## Usage
 
 `npm run mocha `

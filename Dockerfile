@@ -2,6 +2,9 @@ FROM node:lts-alpine AS build
 WORKDIR /home/
 RUN mkdir -p /home/build
 COPY package.json yarn.lock ./
+
+RUN apk add --no-cache autoconf
+
 RUN yarn
 COPY . .
 RUN yarn build

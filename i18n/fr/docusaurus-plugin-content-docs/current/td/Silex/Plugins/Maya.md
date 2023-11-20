@@ -7,11 +7,11 @@ title: Maya
 
 ---
 
-### Démarrage
+### Startup
 
-Toutes les features sont ajoutées au démarrage.
+Every feature are added at startup.
 
-Le script Maya _userSetup.py_ se trouve dans le dossier **startup**. Il importe et appelle plusieurs scripts localisés dans la même root.
+The Maya _userSetup.py_ script is in the **startup** folder. It imports and calls multiple scripts localized in the same root.
 
 - startup
   - create_shelf.py
@@ -19,10 +19,10 @@ Le script Maya _userSetup.py_ se trouve dans le dossier **startup**. Il importe 
   - load_plugins.py
   - userSetup.py
 
-Si vous devez ajouter un nouveau script au démarrage, ajoutez-le au dossier **startup** et **importez**-le dans _userSetup.py_. Silex utilise le gestionnaire d'environnement [REZ](../../Workflow/Rez/Rez.mdx), et exécute les scripts dans le dossier **startup** au lieu de celui localisé dans le dossier d'installation Maya.
+If you need to add a new script at startup, add it to the **startup** folder and **import** it in _userSetup.py_. Silex uses [REZ](../../Workflow/Rez/Rez.mdx) environnement manager, and execute the scripts in the **startup** folder instead of the one localized in the Maya installation folder.
 
-### Scripts de démarrage
+### Startup scripts
 
-1. _create_shelf.py_ : Crée et remplit le shelf **Silex**.
-2. _custom_save.py_ : Ajout de raccourcis pour l'enregistrement. (Appelle des actions silex au lieu de Maya save)
-3. _load_plugins.py_ : Charge les plugins nécessaires.
+1. _create_shelf.py_ : Creates and populate the **Silex** shelf.
+2. _custom_save.py_ : Add shortcuts for saving. (Calls silex actions instead of Maya save)
+3. _load_plugins.py_ : Load necessary plugins.

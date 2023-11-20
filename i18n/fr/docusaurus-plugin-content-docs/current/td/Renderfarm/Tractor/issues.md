@@ -1,17 +1,17 @@
 ---
-title: Problèmes et solutions
+title: Issues and solutions
 sidebar_position: 30
 ---
 
-## Kill correctement une task sur Windows
+## Properly killing a task on Windows
 
-Sur la render farm, nous utilisons [Rez](https://github.com/AcademySoftwareFoundation/rez). Rez est très pratique, mais le problème est que lors du lancement d'une commande, il génère un sous-processus dans un sous-shell.
+On the render farm, we use [Rez](https://github.com/AcademySoftwareFoundation/rez). Rez is very handy but the problem is that when launching a command, it spawns a subprocess in a sub shell.
 
-Ceci est problématique lorsque Tractor ou le NIMBY veulent kill le processus sur une Blade parce que le PID visible est celui de la Rez, pas le processus worker. Donc on a fini par kill Rez et le processus de V-Ray tournait toujours sur la machine...
+This is problematic when Tractor or the NIMBY want to kill the process on a Blade because the visible PID is Rez's one, not the worker process. So we ended up killing Rez and the V-Ray process was still running on the machine...
 
-Vous pouvez lire plus de détails sur cette discussion GitHub : https://github.com/AcademySoftwareFoundation/rez/discussions/1250
+You can read additional details on this GitHub discussion: https://github.com/AcademySoftwareFoundation/rez/discussions/1250
 
-La solution était de modifier le code blade spécifiquement sur Windows pour kill l'arbre de processus en utilisant `Powershell`:
+The solution was to modify the blade code specifically on Windows to kill the process tree using `Powershell`:
 
 ```python
 # TrSubprocess.py
@@ -21,10 +21,10 @@ def send_signal(self, sig):
     subprocess.call(['taskkill', '/F', '/T', '/PID', str(self.pid)])
 ```
 
-Voir les fichiers patchés ici : https://github.com/ArtFXDev/tractor-blade-patch
+See the patched files here: https://github.com/ArtFXDev/tractor-blade-patch
 
 :::info
-Cette approche est également utilisée du côté de l'utilisateur, le NIMBY s'exécutant dans `silex-desktop`. Il envoie une requête au `silex_GoKillProcess`, un service spécial exécuté sur chaque ordinateur utilisé pour kill un pid dans la session système :
+This approach is also used on the user side with the NIMBY running in `silex-desktop`. It sends a request to the `silex_GoKillProcess`, a special service running on every computer used to kill a pid in system session:
 
 - https://github.com/ArtFXDev/silex_GoKillProcess/blob/a03a61f31beddc714d87483b51d7ee3fd1391110/utils/terminate.go#L8
 - https://github.com/ArtFXDev/silex-desktop/blob/3676ba99a58f4951ad1cdaad408883448114d31b/src/utils/blade.js#L47
@@ -32,18 +32,18 @@ Cette approche est également utilisée du côté de l'utilisateur, le NIMBY s'e
 :::
 
 :::note
-Il semble résoudre ce problème. J'ai posté : https://renderman.pixar.com/forum/showthread.php?s=&threadid=45707 (plusieurs propriétaires de task même si max slots est à 1)
+It seems to fix this issue I posted: https://renderman.pixar.com/forum/showthread.php?s=&threadid=45707 (multiple task owners even if max slots is at 1)
 :::
 
-## Le problème `"No Free Slots"`
+## The `"No Free Slots"` problem
 
-Le `No Free Slots` question est un classique dans l'histoire du pipeline ArtFX (salut Sylvain et Bruno).
+The `No Free Slots` issue is a classic in ArtFX's pipeline history (hi Sylvain and Bruno).
 
-Par défaut, chaque blade de la farm a une capacité de slot maximale de `1` ce qui signifie qu'elle ne peut exécuter `1` task simultanément. Lorsque cela se produit, le champ de `note` de la blade passe à `no free slots (1) / aucun slot libre (1)`, ce qui signifie que la blade ne peut pas accepter une autre task.
+By default every blade on the farm has a max slot capacity of `1` which means it can only run up to `1` task concurrently. When it happens, the `note` field of the blade changes to `no free slots (1)` which means that the blade can't accept another task.
 
-The issue we saw rising was blades that had the no free slots thing even thought **no tasks were running on the blade**.
+The issue we saw rising was blades that had the no free slots thing even though **no tasks were running on the blade**.
 
-Nous avons corrigé cela en kill les noms de processus spécifiques sur les blades affectées dans [Harvest](../harvest) :
+We hard fixed that by killing specific process names on the affected blades in [Harvest](../harvest):
 
 https://github.com/ArtFXDev/harvest-api/blob/master/src/schedule/nofreeslots.ts
 
@@ -65,23 +65,23 @@ export async function clearNoFreeSlots() {
 }
 ```
 
-## Exécution de plusieurs commandes sur la même blade
+## Running multiple commands on the same blade
 
-Une task a plusieurs commandes. Vous pourriez penser qu'une task signifie un ordinateur et ainsi les commandes sont exécutées sur la même blade, **vous avez tort !**
+A task has multiple commands. You might think that one task means one computer and so commands are executed on the same blade, **you are wrong!**
 
-Puisque nous voulons monter le NAS du projet avant de faire un rendu, nous voulons le faire en deux commandes. Pendant longtemps, nous avons eu des problèmes parce qu'il montait le lecteur réseau sur une autre machine et donc il n'avait pas accès aux fichiers publish...
+Since we want to mount the project's NAS before doing any rendering we want to do this in two commands. For a long time we had issues because it was mounting the network drive on another machine and therefore it didn't have access to the published files...
 
-Nous avions aussi des blades bloquées parce qu'elles aillaient NIMBY ON entre les deux commandes.
+We also had blades blocked because they were going NIMBY ON between the two commands.
 
-Voir ce thread pour plus d'informations : https://renderman.pixar.com/forum/showthread.php?s=&threadid=45603
+See this thread for more information: https://renderman.pixar.com/forum/showthread.php?s=&threadid=45603
 
-Actuellement ce problème est résolu en utilisant un wrapper de commande que j'ai écrit dans Rust (pour apprendre le langage, si vous voulez aussi [le faire en Python](https://github.com/ArtFXDev/silex-rez/tree/prod/packages/utils/command_wrapper) ça ne devrait pas être trop dur) :
+Currently this problem is solved using a command wrapper I wrote in Rust (to learn the language, if you want too [do it in Python](https://github.com/ArtFXDev/silex-rez/tree/prod/packages/utils/command_wrapper) it shouldn't be too hard):
 
 https://github.com/johhnry/cmd-wrapper/
 
-Il est compilé sous forme de `.exe` et mis sur le réseau dans les packages Rez.
+It's compiled as an `.exe` and put on the network in the Rez packages.
 
-Il nous permet de faire ce qui suit en une seule commande :
+It allows us to do the following in a single command:
 
 ```shell
 rez env cmd_wrapper -- cmd-wrapper
@@ -94,14 +94,14 @@ rez env cmd_wrapper -- cmd-wrapper
         -f 1001;1002;1003;1004;1005;1006;1007;1008"
 ```
 
-En passant des commandes sous forme de strings, il lancera toutes les commandes `--pre`, la commande `--cmd` et même si elle échoue, les commandes `--post`.
+By passing commands as strings it will launch all the `--pre` commands, the `--cmd` command and then even if it fails, the `--post` commands.
 
-Il résout également ce problème que j'ai posté : https://renderman.pixar.com/forum/showthread.php?s=&threadid=45739 (à propos de l'ajout d'une task de nettoyage sur Tractor utilisant `task.addCleanup`)
+It also solves this issue I posted: https://renderman.pixar.com/forum/showthread.php?s=&threadid=45739 (about adding a task cleanup on Tractor using `task.addCleanup`)
 
 ## Clear blade data
 
 :::caution
-Soyez prudent lorsque vous cliquez avec le bouton droit sur les blades dans l'interface et appuyez sur `"Clear earlier blade data"`(`"Effacer les données de la blade précédente"`) car il pourrait mettre toutes les blades en mode `No Free Slots` instantanément lorsque vous **le faites sur une grande quantité de blades**.
+Be careful when right clicking on the blades in the interface and pressing `"Clear earlier blade data"` because it might put all the blades in `No Free Slots` mode instantly when **doing it on a large amount of blades**.
 
-Filed this bug here : https://renderman.pixar.com/forum/showthread.php?s=&threadid=45857
+Filed this bug here: https://renderman.pixar.com/forum/showthread.php?s=&threadid=45857
 :::

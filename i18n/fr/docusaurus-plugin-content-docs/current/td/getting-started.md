@@ -1,28 +1,28 @@
 ---
 id: getting-started
-title: Mise en route
+title: Getting started
 sidebar_position: 20
 ---
 
-Ce guide vous guidera dans l'installation de Silex en étant un nouveau développeur.
+This guide will walk you through the installation of Silex for a new developer.
 
-Cela signifie être en mesure de **contribuer** et de mettre ne œuvre de **nouvelles fonctionnalités**.
+This means being able to **contribute** and **implement new features**.
 
 :::info
-Ce guide suppose que vous travaillez dans un **environnement Windows**.
+This guide is assuming that you are working in a **Windows environment**.
 :::
 
-## Prérequis
+## Prerequisites
 
-- Faire partie de l'organisation [ArtFXDev](https://github.com/ArtFXDev) Github
-- Les services backend fonctionnent soit sur un serveur partagé soit [localement](./Backend) (`zou`, `silex-front`)
-- Avoir un compte sur la base pipeline (Zou) en allant sur http://kitsu.prod.silex.artfx.fr
+- Be part of the [ArtFXDev](https://github.com/ArtFXDev) Github organization
+- The backend services are running either on a shared server or [locally](./Backend) (`zou`, `silex-front`)
+- Have an account on the pipeline database (Zou) by going to http://kitsu.prod.silex.artfx.fr
 
-## Installer Scoop
+## Install Scoop
 
-Nous allons commencer par installer [Scoop](https://scoop.sh/), un gestionnaire de paquets qui peut facilement installer, supprimer et mettre à jour le logiciel **sans casser les choses**.
+We will start by installing [Scoop](https://scoop.sh/), a package manager that can easily install, remove and update software **without breaking stuff**.
 
-À partir d'un terminal PowerShell terminal, exécuter :
+From a PowerShell terminal, run:
 
 ```powershell
 $ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -30,9 +30,9 @@ $ irm get.scoop.sh | iex
 $ scoop --version
 ```
 
-## Installer Python et Rez
+## Install Python and Rez
 
-Si ce n'est pas déjà fait, vous pouvez installer **git** avec Scoop (vous en aurez besoin pour les prochaines étapes):
+If not already, you can install **git** with Scoop (you will need it for the next steps):
 
 ```shell
 $ scoop install git
@@ -40,43 +40,43 @@ $ scoop install git
 
 ### Python
 
-En ce qui concerne le pipeline 2021-2022, Python **3.7.x** est nécessaire. Voir [VFX Reference Platform](http://vfxplatform.com/) pour la version Windows Python.
+As for the 2021-2022 pipeline, Python **3.7.x** is needed. See the [VFX Reference Platform](http://vfxplatform.com/) for the Windows Python version target.
 
-Installez-le avec Scoop:
+Install it with Scoop:
 
 ```shell
-$ scoop bucket add versions # Ajout version bucket
+$ scoop bucket add versions # Add versions bucket
 $ scoop install python37
-$ scoop reset python37 # Vérfier que les shims sont créées
+$ scoop reset python37 # Make sure shims are created
 $ python --version
 ```
 
 ### Rez
 
-Rez est le résolveur d'environnement de paquet, pour l'installer cloner le GitHub:
+Rez is the package environment resolver, to install it clone it from GitHub:
 
 ```shell
 $ git clone https://github.com/AcademySoftwareFoundation/rez
 $ cd rez
-$ python ./install.py -v C:/rez/__install__ # spécifie le répertoire d'installation, -v : verbose
+$ python ./install.py -v C:/rez/__install__ # specify the installation directory, -v : verbose
 ```
 
-Ajoutez ensuite ce chemin à la variable d'environnement `$PATH` afin que l'exécutable soit reconnu :
+Then add that path to the `$PATH` environment variable so the executable is recognized:
 
 ```
 C:\rez\__install__\Scripts\rez
 ```
 
-Lancez un nouveau terminal et vous devriez pouvoir exécuter Rez:
+Launch a new terminal and you should be able to run Rez:
 
 ```shell
 $ rez --version
 # Rez 2.111.1 from c:\rez\__install__\lib\site-packages\rez (python 3.7)
 ```
 
-Rez a besoin d'un fichier de configuration, puisque nous voulons qu'il soit sur le réseau, dites à Rez où le trouver en créant un `REZ_CONFIG_FILE` pointant vers : `\\prod.silex.artfx.fr/rez/windows/config/rezconfig.py` (changez-le avec l'emplacement réel).
+Rez needs a configuration file, since we want it to be on the network, tell Rez where to find it by creating a `REZ_CONFIG_FILE` pointing to: `\\prod.silex.artfx.fr/rez/windows/config/rezconfig.py` (change it with the real location).
 
-Il devrait changer la façon dont les paquets sont recherchés sur le réseau :
+It should change the way packages are searched on the network:
 
 ```shell
 $ rez config packages_path
@@ -103,39 +103,39 @@ $ rez config local_packages_path
 ```
 
 :::caution
-Les chemins ci-dessus peuvent changer en fonction de la configuration du réseau et des chemins `rezconfig.py`.
+The above paths might change depending on the network configuration and the `rezconfig.py` paths.
 :::
 
-## Configurer Rez
+## Configure Rez
 
-Le fichier de configuration `rezconfig.py` décrit l'emplacement où Rez doit trouver les packages.
+The `rezconfig.py` configuration file describes the location where Rez should find packages.
 
-Dans la configuration actuelle, voici les principaux emplacements :
+In the current configuration, these are the main locations:
 
 ```python
 root_packages_path = [
-    r"D:\rez\dev_packages", # Pour vos propres packages Silex dev
-    r"C:\rez\packages", # Pour les packages de production locale
-    r"\\prod.silex.artfx.fr\rez\packages", # Package réseau
+    r"D:\rez\dev_packages", # For your own Silex dev packages
+    r"C:\rez\packages", # For local production packages
+    r"\\prod.silex.artfx.fr\rez\packages", # Network packages
 ]
 ```
 
 :::tip
-Lorsque Rez résout un package, les packages ont la priorité sur les autres en fonction de l'ordre du `root_packages_path`. Les packages dev sont donc les premiers.
+When Rez resolves a package, packages have priority over others depending of the order of the `root_packages_path`. So dev packages are first.
 :::
 
-### Packages de base : `silex-rez`
+### Basic packages: `silex-rez`
 
-Clonez d'abord le dépôt [`silex-rez`](https://github.com/ArtFXDev/silex-rez) pour obtenir les packages de base :
+First clone the [`silex-rez`](https://github.com/ArtFXDev/silex-rez) repository to get basic packages:
 
 ```powershell
 $ mkdir D:\rez\dev_packages
 $ cd D:\rez\dev_packages
-$ New-Item -ItemType File -Name .rez # Dites à Rez de chercher dans ce répertoire
-$ git clone --recurse-submodules -j8 https://github.com/ArtFXDev/silex-rez.git # Cloner récursivement
+$ New-Item -ItemType File -Name .rez # Tell Rez to search in this directory
+$ git clone --recurse-submodules -j8 git@github.com:ArtFXDev/silex-rez.git # Clone recursively
 ```
 
-Maintenant, la résolution de `houdini` en tant que package devrait utiliser la version locale:
+Now resolving `houdini` as a package should use the local version:
 
 ```shell
 $ rez env houdini
@@ -145,19 +145,19 @@ $ rez env houdini
 # platform-windows  c:\rez\packages\lib\platform\windows
 ```
 
-### Configuration de développement pour `silex_client`
+### Dev setup for `silex_client`
 
-Pour développer localement et utiliser vos propres packages, procédez comme suit :
+In order to develop locally and use your own packages, do the following:
 
 ```shell
 $ cd D:\rez\dev_packages
 $ mkdir silex; cd silex
 $ New-Item -ItemType File -Name .rez
 $ mkdir silex_client; cd silex_client
-$ git clone https://github.com/ArtFXDev/silex_client.git dev.1.0.0
+$ git clone git@github.com:ArtFXDev/silex_client.git dev.1.0.0
 ```
 
-Cela clonera une version locale de `silex_client` dans un dossier de version `dev`, de sorte que vous devriez avoir cette structure :
+This will clone a local version of `silex_client` in a `dev` version folder so you should have this structure:
 
 ```
 .
@@ -171,7 +171,7 @@ Cela clonera une version locale de `silex_client` dans un dossier de version `de
     └── ...
 ```
 
-Et maintenant Rez devrait résoudre vos packages local :
+And now Rez should resolve your local package:
 
 ```shell
 $ rez env silex_client-dev
@@ -181,56 +181,56 @@ $ rez env silex_client-dev
 # ...
 ```
 
-## Installer `silex-desktop`
+## Install `silex-desktop`
 
-`silex-desktop` est l'application de bureau qui utilise Electron. Elle utilise JavaScript.
+`silex-desktop` is the desktop application using Electron. It uses JavaScript.
 
-Installer Node.JS en utilisant scoop:
+Install Node.JS using scoop:
 
 ```shell
 $ scoop install nodejs-lts
-$ npm install --global yarn # Installer le gestionnaire de package Yarn
+$ npm install --global yarn # Install the Yarn package manager
 ```
 
-Puis cloner le repository `silex-desktop` :
+Then clone `silex-desktop` repository:
 
 ```shell
 $ git clone git@github.com:ArtFXDev/silex-desktop.git
 ```
 
-Puisque `silex-desktop` utilise [`silex-socket-service`](https://github.com/ArtFXDev/silex-socket-service) comme dépendance directe et qu'il héberge dans le registre NPM de GitHub, vous avez besoin d'un token d'accès personnel pour le récupérer.
+Since `silex-desktop` uses [`silex-socket-service`](https://github.com/ArtFXDev/silex-socket-service) as a direct dependency and it's hosted on GitHub's NPM registry, you need a personal access token to fetch it.
 
-Créer un fichier `.npmrc` dans le dossier racine `silex-desktop` avec ce contenu :
+Create a `.npmrc` file in the `silex-desktop` root folder with that content:
 
 ```text title="silex-desktop/.npmrc"
 //npm.pkg.github.com/:_authToken=<YOUR_GITHUB_TOKEN>
 @artfxdev:registry=https://npm.pkg.github.com/
 ```
 
-Remplacez `<YOUR_GITHUB_TOKEN>` par votre token d'accès GitHub.
-(Voir [ici](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) pour obtenir des instructions.)
+Replace `<YOUR_GITHUB_TOKEN>` with your GitHub access token.
+(See [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for instructions.)
 
-Enfin installer les dépendances avec Yarn:
+Finally install the dependencies with Yarn:
 
 ```shell
 $ yarn install
 ```
 
-## Exécuter and tester
+## Run and test
 
-1. Lancer l'application de bureau:
+1. Launch the desktop application:
 
 ```shell
 $ cd silex-desktop
 $ yarn start
 ```
 
-2. Ensuite, connectez-vous avec votre compte Silex.
+2. Then login with your Silex account.
 
-3. Lancer l'action `tester` depuis un autre terminal :
+3. Launch the `tester` action from another terminal:
 
 ```shell
 $ rez env silex_client-dev -- silex action tester -c dev
 ```
 
-> Félicitation vous êtes maintenant prêt à contribuer à Silex! 🎉🎉
+> Congratulations you are now ready to contribute to Silex! 🎉🎉

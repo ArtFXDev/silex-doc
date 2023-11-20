@@ -1,17 +1,18 @@
 ---
 id: action-definition
-title: Définir les action
+title: Action definition
 sidebar_position: 30
 ---
 
 import { PROD_ROOT } from "@site/src/constants";
 
-Les actions sont définies avec les fichiers YAML
+Actions are defined with YAML files
 
-## Où dois-je placer mon yaml ?
+## Where do I place my yaml ?
 
-Silex cherchera des définitions d'action à l'aide de la variable d'environment `SILEX_ACTION_CONFIG`.
-Le yaml doit être dans une catégorie. La catégorie par défaut est la catégorie `actions`. Lorsque vous appelez une action, si vous ne spécifiez pas une catégorie, silex cherchera le yaml dans le dossier actions
+Silex will look for action definitions using the `SILEX_ACTION_CONFIG` environment variable.
+The yaml must be under a category. The default category is the `actions` category. When calling an action, if you don't
+specify a category, silex will look for the yaml in the actions folder
 
 ```
 📦config
@@ -21,112 +22,119 @@ Le yaml doit être dans une catégorie. La catégorie par défaut est la catégo
    ┗ 📜your_action.yml
 ```
 
-## Schéma de définitions d'action
+## Action definition schema
 
-L'action est organisée en hiérarchie. Uneaction est composée d'étapes, une étape est composée de commandes et une commande est composée de paramètres.
+Actions are organized in hierarchy. An action is composed of steps, a step is composed of commands and a command is composed of parameters.
 
-- L'`action` contient des `étapes`, c'est l'entité de niveau supérieur avec quelques informations globales
-- Les `étapes` sont ici pour grouper les `commandes`. Ils ne détiennent pas beaucoup de données, ils ont un index attributs qui est très important. L'ordre d'exécution dépend de cet index, l'utilisation d'une structure de données clé/valeur au lieu d'un simple tableau permet d'insérer facilement des étapes entre les autres. Lorsqu'une action hérite d'une autre, elle peut insérer une étape en la définissant avec un index qui se trouve entre deux autres étapes. C'est pourquoi nous augmentons habituellement les étapes de 10 ou 100 pour permettre des insertions potentielles plus tard
-- La `commande` est liée à un morceau de code à exécuter, elle contient des `paramètres` et est responsable d'appeler le code en fournissant la valeur de ses `paramètres`. Il contient également la sortie de l'exécution
-- Le `paramètre` peut soit stocker une valeur brute ou être connecté à une sortie de `commande`. Il a un type et assure-vous que le type fourni est correct. Atention, pour les types invalides, silex va essayer de lancer la valeur, il est utile dans la plupart des cas, mais parfois il peut se traduire par des résultats étranges.
+- The `action` holds `steps`, it's the top level entity with some global information
+- The `steps` is here to group `commands`. They don't hold much data, they have a index attributes wich is very important. The order of execution depends on this index, using a key/value datastructure instead of a simple array allows to insert steps between others easly. When an action inherit from an other, it can insert a step by defining one with an index that sits between two other steps. That's why we usually increment the steps by 10 or 100 to allows potential insertions later
+- The `command` is linked to a piece of code to execute, it holds `parameters` and is responsible to call the code by providing the value of its `parameters`. It also holds the output of the execution
+- The `parameter` can either store a raw value or be connected to a `command` output. It has a type and make sure that the provided type is right. Be carefull, for invalid types, silex will try to cast the value, it's usefull in most case but sometimes it can result into weird results.
 
 :::tip
-Vous devez être prudant avec YAML, Une indentation peut rendre votre action entière fausse. Et l'erreur est très cryptique
+You must be carefull with YAML, one indentation can make your entire action wrong. And the error will be very cryptic.
 :::
 
-Voici à quoi devrait ressembler une définition d'action :
+Here is what an action definition should look like:
 
 ```yml
 <action_name>:
-  # L’étiquette est juste pour l’affichage, vous pouvez l’omettre, dans ce cas le nom sera utilisé (la clé qui est dans l'action)
+  # The label is just for display, you can omit it, in this case the name will be used (the key if this action)
   label: "<string> (default: value in the key)"
-  # Spécifiez si cette action doit être affichée sur l’interface utilisateur, certaines actions n’ont pas besoin d’une interface avec une fenêtre contextuelle
+  # Specify if this action should be displayed on the UI, some actions don't need to have an interface with a pop up
   hide: "<boolean> (default: false)"
-  # Un peu d’aide qui sera affichée sur l’interface utilisateur
+  # Little help that will be displayed on the UI
   tooltip: "<string> || null (default: null)"
 
   steps:
     <step_name>:
-      # L’étiquette est juste pour l’affichage, vous pouvez l’omettre, dans ce cas le nom sera utilisé (la clé qui est dans l'étape)
+      # The label is just for display, you can omit it, in this case the name will be used (the key if this step)
       label: "<string> (default: value in the key)"
-      # Préciser si cette étape doit être affichée sur l’interface utilisateur
+      # Specify if this step should be displayed on the UI
       hide: "<boolean> (default: false)"
-      # Un peu d’aide qui sera affichée sur l’interface utilisateur
+      # Little help that will be displayed on the UI
       tooltip: "<string> || null (default: null)"
-      # L’index est utilisé pour définir l’ordre d’exécution, on incrémente habituellement 10 par 10 pour pouvoir insérer des étapes plus tard si une autre action hérite de celle-ci
+      # The index is used to define the order of execution, we usually increment 10 by 10 to be able to insert steps later if an other action inherit from this one
       index: "<int> (default: 0)"
 
       commands:
         <command_name>:
-          # Le libellé est juste pour l’affichage, vous pouvez l’omettre, dans ce cas le nom sera utilisé (la clé qui est dans cette commande)
+          # The label is just for display, you can omit it, in this case the name will be used (the key if this command)
           label: "<string> (default: value in the key)"
-          # Spécifier si cette commande doit être affichée sur l’interface utilisateur
+          # Specify if this command should be displayed on the UI
           hide: "<boolean> (default: false)"
-          # Un peu d’aide qui sera affichée sur l’interface utilisateur
+          # Little help that will be displayed on the UI
           tooltip: "<string> || null (default: null)"
-          # Le chemin qui mène à la commande python à exécuter, le format est comme une important python régulière (ex: 'silex_plugin.commands.my_command.MyCommand'). Voir la page de définition de commande pour plus d'informations)
+          # The path that lead to the python command to execute, the format is like a regular python import (ex: 'silex_plugin.commands.my_command.MyCommand'). See the Command definition page for more information, see the command definition page)
           path: "<string> (default: '')"
-          # Préciser si l’exécution doit s’arrêter avant cette commande, et demander à l’utilisateur de modifier les paramètres
+          # Specify if the execution should stop before this command, and prompt the user for any parameter modifications
           ask_user: "<boolean> (default: false)"
 
           parameters:
             <parameter_name>:
-              # L’étiquette est juste pour l’affichage, vous pouvez l’omettre, dans ce cas le nom sera utilisé (la clé qui est dans ce paramètre)
+              # The label is just for display, you can omit it, in this case the name will be used (the key if this parameter)
               label: "<string> (default: value in the key)"
-              # Préciser si ce paramètre doit être affiché sur l’interface utilisateur
+              # Specify if this parameter should be displayed on the UI
               hide: "<boolean> (default: false)"
-              # Un peu d’aide qui sera affichée sur l’interface utilisateur
+              # Little help that will be displayed on the UI
               tooltip: "<string> || null (default: null)"
-              # La valeur par défaut de ce paramètre
+              # The default value of this parameter
               value: "<any> (default: null)"
 ```
 
-## Connexions
+## Connections
 
-Vous pouvez connecter la sortie d'une commande à l'entrée d'un paramètre. Pour ce faire, utilisez le tag `!command-output` avec un string spécifiant le chemin de la commande (ex: `value: !command-output "<step_name>:<command_name>"`)
-Si la commande retourne un dictionnaire, vous pouvez obtenir une valeur spécifique de ce dictionnaire en ajoutant plus de clés au chemin.
+You can connect the output of a command into the input of a parameter. To do so, use the `!command-output` tag
+with a string specifying the path of the command (ex: `value: !command-output "<step_name>:<command_name>"`)
+If the command is returning a dictionnary, you can get a specific value of that dictionary by adding more keys to the path.
 
-Par exemple, si la commande retourne `{"foo": {"bar": "baz"}}` vous pouvez accéder au string `baz` en définissant le chemin sur `"<step_name>:<command_name>:foo:bar"`.
+For example, if the command returns `{"foo": {"bar": "baz"}}` you can access the `baz` string by setting the path to `"<step_name>:<command_name>:foo:bar"`.
 
 :::info
-Nous utilisons les dictionnaires comme moyen pour les commandes d'avoir plusieurs sorties, c'est pourquoi il est toujours bon de sortir un dictionnaire dans les commandes même s'il n'y a qu'une sortie, juste au cas où nous le mettions à jour plus tard avec plus de sorties.
+We use dictionaries as a way for commands to have multiple outputs, thats why it is always good to output a dictionnary in commands even if there
+is only one output, just in case we update it later with more outputs.
 :::
 
-## Héritage
+## Inheritance
 
-Certaines actions sont très similaire, pour éviter d'avoir à refaire les même choses encore et encore, vous pouvez utiliser l'héritage. Pour utiliser l'héritage, vous devez d'abord comprendre comment silex résout une action à partir de son nom. Il utilise la variable d'environment `SILEX_ACTION_CONFIG`, qui consiste en une liste de chemin, il suffit de lister la variable `PATH`.
+Some actions are very similar, to avoid having to redo the same things over and over, you can use inheritance. To use inheritance, you must first understand how Silex
+resolves an action from it's name. It uses the `SILEX_ACTION_CONFIG` environment variable, which consists of a list of path, just list the `PATH` variable.
 
-Par exemple:
+For example:
 
 - <span>\\{PROD_ROOT}\rez\packages\test_pipe</span>
 - <span>\\{PROD_ROOT}\rez\packages\silex_maya</span>
 - <span>\\{PROD_ROOT}\rez\packages\silex_client</span>
 
-Ici, le [contexte](./context.md) a silex_client chargé et 2 plugins, silex_maya et test_pipe. L'ordre dans lequel les plugins sont chargés importe beaucoup. Lorsque silex cherche une action, il regarde de haut en bas de la liste. Vous devez le savoir si vous utilisez l'héritage parce qu'une action ne peut **hériter que d'une autre action qui est dans le niveau actuel ou inférieur**.
+Here, the [context](./context.md) has silex_client loaded and 2 plugins, silex_maya and test_pipe. The order in which the plugins are loaded matters a lot. When silex looks for an action, it will look
+from top to bottom in the list. You must know this if you use inheritance because an action can **only inherit from an other action that is in the current level or under**.
 
-La syntaxe pour l'héritage est :
+The syntax for inheritance is:
 
 ```yml
 my_action: !inherit
-  # Le nom de l'action dont vous voulez hériter. Vous pouvez ajouter un '.' devant le nom si vous voulez que silex commence à chercher des actions au niveau actuel
-  # Si vous ne mettez pas un . silex commencera à chercher l'action en commençant au niveau sous le niveau actuel.
+  # The name of the action you wan to inherit from. You can add a '.' in front of the name if you want Silex to start looking for actions at the current level
+  # If you don't put a . Silex will start looking for the action starting at the level under the current one.
   parent: "<string> (default: null)"
-  # Si vous souhaitez hériter d’une partie spécifique de l’action, utilisez la clé pour la spécifier
+  # If you want to inherit of a specific part of the action, use the key to specify it
   key: "<string> (default: <same value as the parent>)"
-  # Le nom de la catégorie de l’action dont vous souhaitez hériter
+  # The name of the category of the action you want to inherit from
   category: "<string> (default: <same value as the current category>)"
 ```
 
-Vous n'avez pas à hériter d'une action entière, une partie de votre action peut hériter d'une partie d'une autre action.
-Dans l'exemple ci-dessous, le tag `!inherit` est utilisée à la racine de l'action. Mais vous pouvez aussi l'utiliser à la clé d'une étape ou d'une commande.
-Si vous le faites, vous devez utiliser l'option `key` et l'utiliser pour spécifier quelle partie de l'action vous voulez insérer (exemple: `action_name.step_name` si vous voulez une étape qui hérite d'une étape spécifique)
+You don't have to inherit from an entire action, a part of your action can inherit from a part of an other action.
+In the example above, the `!inherit` tag is used at the root key of the action. But you can also use it at the key of a step or a command.
+If you do so, you must use the `key` option and use it to specify what part of the action you want to insert
+(example: `action_name.step_name` if you want a step that inherit from a specific step)
 
 :::info
-Le cas d'utilisateur pour l'héritage est généralement de réduire la répétition ou de personnaliser le comportement d'une action pour un [contexte](./context.md) spécifique. Par exemple, vous pouvez créer un plugin pour un projet et personnaliser le comportement de cette action pour les contextes qui incluent spécifiquement ce projet.
+The use case for inheritance is usually to reduce repetition or customise the behaviour of an action for a specific [context](./context.md). For example,
+you can create a plugin for a projects and customise the behaviour of that action for the contexts that includes this project specifically.
 :::
 
-Pour override une valeur, ajoutez seulement les keys pour la valeur que vous voulez override. Par exemple, nous avons ici une action vrscene (un publish vrscene)
-qui est personnalisée pour un certain projet, nous définissions le paramètre merge à true (ui est un paramètre caché) uniquement pour les contextes où ce plugin est chargé.
+To override a value, only add the keys for the value you want to override. For example, we have here a vrscene action (a vrscene publish)
+which is customised for a certain project, we set the merge parameter to true (which is a hidden parameter) only for the contexts where that
+plugin is loaded.
 
 ```yml
 vrscene: !inherit
@@ -140,12 +148,12 @@ vrscene: !inherit
             merge: true
 ```
 
-## Ordre d'override de valeur
+## Value overrides order
 
-Du point où l'action est définie au point où elle est exécutée, la valeur de certains champs peut changer de multiples façons. Voici l'ordre dans lequel une valeur de paramètre sera définie :
+From the point where the action is defined to the point where it is executed, some fields value can change in multiple ways. Here is the order in which a parameter value will me set:
 
-1. La valeur par défaut du paramètre est définie dans la définition de la commande
-2. Il peut alors overriden dans la définition YAML de l'action qui uilise cette commande
-3. Lorsque l'action est créée, la valeur peut alors être modifiée avec l'argument `set_parameter` ou `--parameter`
-4. Lorsque l'action est exécutée, si la commande est définie sur `ask_user: true`, l'utilisateur mettra à jour la valeur avant l'exécution
-5. Juste après que l'utilisateur change la valeur, la méthode `setup` est appelée qui pourrait définir une dernière fois la valeur. (voir la page de définition de la commande)
+1. The default value of the parameter is set in the command definition
+2. It might then be overriden in the YAML definition of the action that uses that command
+3. When the action is created the value can then be modified with `set_parameter` or the `--parameter` argument
+4. When the action is executed, if the command is set to `ask_user: true`, the user will update the value before execution
+5. Right after the user changes the value, the `setup` method is called which might set one last time the value. (see the command definition page)

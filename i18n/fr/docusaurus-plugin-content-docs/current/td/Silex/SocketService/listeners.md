@@ -1,14 +1,8 @@
----
-id: listeners
-title: Listeners
-sidebar_position: 40
----
+Link between routes and events. They are automatically executed from index.js.
 
-Lien entre les routes et les events. Ils sont automatiquement exécutés à partir de index.js.
+So, if you want to add a new listener, you just have to create a new js files under the listener directory.
 
-Donc, si vous voulez ajouter un nouvel listeners, il vous suffit de créer un nouveau fichier js sous le répertoire listener.
-
-## Structure des Fichiers
+## Files structure
 
 ```
 📦listeners
@@ -17,18 +11,18 @@ Donc, si vous voulez ajouter un nouvel listeners, il vous suffit de créer un no
  ┗ 📜ui.js
 ```
 
-## Exemple de Code
+## Code Example
 
 ```javascript
-module.exports = function (io) {                                  // <== le code commence ici
-  myNamespace(io).on("connection", function (socket) {            // <== dccNamespace(io)... sera exécuté par index.js
-    myevent(socket)                                               // Sur l'event "connection", nous exécutons sur socket object tous les events ci-dessous
+module.exports = function (io) {                                  // <== the code starts here
+  myNamespace(io).on("connection", function (socket) {            // <== dccNamespace(io)... will be executed by index.js
+    myevent(socket)                                               // On "connection" event, we execute on socket object all below events
     mySecondEvent(socket, io)
     myLastEvent(socket, io)
   })
 ```
 
-**Deuxième exemple d'utilisation réel :**
+**Second example with a real usage:**
 
 ```javascript
 /** NAMESPACE  */

@@ -6,25 +6,25 @@ sidebar_position: 60
 
 # Render farm
 
-La render farm est un élément clé du pipeline. Il permet aux artistes de rendre leurs images en utilisant divers moteurs de rendu comme V-Ray, Redshift ou Arnold.
+The render farm is a key piece of the pipeline. It allows artists to render their images using various render engines like V-Ray, Redshift or Arnold.
 
-Après qu'un artiste a [conforme](../Silex/commonactions/conform)/[publish](../Silex/commonactions/publish) tous les fichiers nécessaires liés à une scène et la scène elle-même, il peut **submit** un job à la render farm.
+After an artist has [conformed](../Silex/commonactions/conform)/[published](../Silex/commonactions/publish) all the necessary files linked to a scene and the scene itself, he can **submit** a job to the render farm.
 
 ## Concepts
 
 ### Job
 
-Un **job** est le top level workload sur une render farm, elle est décrite avec un _nom_, une _priorité_ et la plupart du temps la spécification des ordinateurs à exécuter.
+A **Job** is the top level workload on a render farm, it is described with a _name_, a _priority_ and most of the time the specification of computers to run on.
 
 ### Task
 
-Habituellement, un **job** est composé de **tasks** qui sont de plus petites unités de travail à effectuer. Parr exemple un ordinateur peut rendre les frames de `1-10` et un autre de `11-20`.
+Usually a **job** is composed of **tasks** which are smaller units of work to be done. For example one computer might render the frames from `1-10` and another one from `11-20`.
 
-### Commande
+### Command
 
-Une **task** a alors des **commandes** qui sont envoyées à l'ordinateur par un [Shell](<https://en.wikipedia.org/wiki/Shell_(computing)>) (par exemple `bash` dans le cas de Linux or `cmd.exe` pour Windows) ou directement interprétées par l'ordinateur.
+A **task** then has **commands** which are sent to the computer through a [Shell](<https://en.wikipedia.org/wiki/Shell_(computing)>) (for example `bash` in case of Linux or `cmd.exe` for Windows) or directly interpreted by the computer.
 
-Par exemple:
+For example:
 
 ```shell
 rez env vray test_pipe -- vray
@@ -41,21 +41,21 @@ rez env vray test_pipe -- vray
 ```
 
 :::tip
-La commande ci-dessus utilise [Rez](https://github.com/nerdvegas/rez/) qui est utilisé pour résoudre les **environnements**dynamiquement en définissant les **packages** et les variables d'environnement. Il est très utile dans une configuration de render farm puisque nous avons divers software packages et différentes **versions**.
+The above command uses [Rez](https://github.com/nerdvegas/rez/) which is used to resolve **environments** dynamically by defining **packages** and environment variables. It's very useful in a render farm setup since we have various software packages and different **versions**.
 :::
 
 ### Blade
 
-Un **blade** est un ordinateur qui travaille sur la render farm. Il reçoit une **task** du master engine et exécute des commandes.
+A **blade** is a computer working on the render farm. It receives a **task** from the master engine and executes commands.
 
-Le blade stocke et envoie les logs et mises à jour à l'engine.
+The blade store and sends logs and status update to the engine.
 
 ### Engine
 
-L'**engine** est le programme fonctionnant sur le serveur principal sur le réseau. Son job est de recevoir des demandes de jobs et d'envoyer et dispatch des tasks aux blades connectées. Il gère la priorité, les logs et une base de données où il stocke des informations sur ce qui se passe.
+The **engine** is the program running on the main server on the network. Its job is to receive job orders dispatch tasks to the connected blades. It handles priority, logs and a database where it stores information about what is happenning.
 
-## Que lire ensuite
+## What to read next
 
-- Chez ArtFX, nous utilisons [Tractor](./tractor) qui est le système de render farm de Pixar.
-- Consultez l'action [Submit](../Silex/commonactions/submit) pour savoir comment nous submittons les jobs.
-- [Harvest](./harvest) est une interface statistique et API pour Tractor.
+- At ArtFX we are using [Tractor](./tractor) which is Pixar's render farm system.
+- See the [Submit](../Silex/commonactions/submit) action to find how we submit jobs.
+- [Harvest](./harvest) is a statistics interface and API for Tractor.

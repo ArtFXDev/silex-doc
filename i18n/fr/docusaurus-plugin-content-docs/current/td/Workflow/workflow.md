@@ -1,5 +1,5 @@
 ---
 id: workflow
-title: Codage workflow
+title: Coding workflow
 sidebar_position: 30
 ---

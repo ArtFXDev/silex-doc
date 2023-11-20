@@ -7,11 +7,11 @@ title: Houdini
 
 ---
 
-### Démarrage
+### Startup
 
-Toutes les features et tools sont ajoutés au démarrage.
+Every features and tools are added at startup.
 
-Les scripts Houdini _123.py_ et _456.py_ sont dans le dossier **startup\script\\**. _123.py_ importe et appelle plusieurs scripts localisés dans la même root. _456.py_ importe actuellement _123.py_.
+The Houdini _123.py_ and _456.py_ scripts are in the **startup\script\\** folder. _123.py_ imports and calls multiple scripts localized in the same root. _456.py_ currently imports _123.py_.
 
 - startup
   - scripts
@@ -20,9 +20,9 @@ Les scripts Houdini _123.py_ et _456.py_ sont dans le dossier **startup\script\\
     - create_shelf.py
     - custom_save.py
 
-Si vous devez ajouter un nouveau au démarrage, ajoutez-le au dossier **startup\script\\** et **importez**-le en _123.py_ ou _456.py_. Silex utilise le gestionnaire d'environnement [REZ](../../Workflow/Rez/Rez.mdx), et exécute les scripts dans le dossier **startup** au lieu de celui localisé dans le dossier d'installation Houdini.
+If you need to add a new script at startup, add it to the **startup\script\\** folder and **import** it in _123.py_ or _456.py_. Silex uses [REZ](../../Workflow/Rez/Rez.mdx) environnement manager, and execute the scripts in the **startup** folder instead of the one localized in the Houdini installation folder.
 
-### Scripts de démarrage
+### Startup scripts
 
-1. Crée et remplit le shelf **Silex**.
-2. Ajoute des raccourcis pour enregistrer. (Appelle des actions silex au lieu de Maya save).
+1. Creates and populates the **Silex** shelf.
+2. Add shortcuts for saving. (Calls silex actions instead of Maya save).

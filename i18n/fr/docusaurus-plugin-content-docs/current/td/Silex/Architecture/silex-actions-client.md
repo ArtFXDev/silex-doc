@@ -1,7 +1,6 @@
 ---
 id: silex-actions-client
-title: Serveur client
-sidebar_position: 10
+title: Client server
 ---
 
 ![](/img/silex/silex_client_architecture.png)

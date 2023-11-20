@@ -3,36 +3,36 @@ title: Configuration
 sidebar_position: 20
 ---
 
-Les fichiers de configuration de Tractor se trouvent dans `/opt/pixar/Tractor-<major>.<minor>`.
+The configuration files of Tractor are located in `/opt/pixar/Tractor-<major>.<minor>`.
 
-Il y a un repository GitHub sur ArtFXDev qui stocke la configuration pour l'année 2022 : https://github.com/ArtFXDev/tractor-config
+There is a GitHub repository on ArtFXDev storing the configuration for the year 2022: https://github.com/ArtFXDev/tractor-config
 
-Vous pouvez également vérifier la configuration de 2021 : https://github.com/ArtFXDev/tractor-2020
+You can also check the 2021 configuration: https://github.com/ArtFXDev/tractor-2020
 
 ## `tractor.config`
 
-Paramètres globaux pour l'engine.
+Global settings for the engine.
 
-Quelques paramètres utiles à modifier :
+Some useful settings to change:
 
-- `EngineOwner`: changer le propriétaire de service du processus (mieux en tant qu'utilisateur non-root)
-- `EngineDiscovery`: paramètres DNS pour les blades lors de l'interrogation de l'engine, laissez-le vide pour ne pas multicast (peu flood(inonder) le réseau autrement)
-- `SiteCmdLogRetrievalURL`: url pour récupérer les logs (voir [logging blade](#blade-log-access))
-- `SiteMaxListReplyCount`: limite le nombre d'enregistrements de liste que vous pouvez obtenir à partir de l'API
-- `JobSchedulingMode`: changer le mode de planification des jobs (nous utilisons principalement `P+ATCL+RR`, voir la [documentation](https://rmanwiki.pixar.com/display/TRA/Scheduling+Modes))
-- `CmdAutoRetryAttempts`: définit le nombre de tentatives automatiques pour les commandes qui échouent
-- `CmdAutoRetryStopCodes`: exclure le code de retour de réessayer automatiquement la task (utile lorsque vous savez qu'il y a une erreur)
-- `EngineWorkerThreads`: définit le nombre de threads et workers de l'engine (conseillé d'être : `10 + (number_of_blades / 100)`)
+- `EngineOwner`: change the service owner of the process (better as non-root user)
+- `EngineDiscovery`: DNS settings for blades when querying the engine, leave it blank to not multicast (can flood the network otherwise)
+- `SiteCmdLogRetrievalURL`: url to retrieve the logs (see [blade logging](#blade-log-access))
+- `SiteMaxListReplyCount`: limit the number of list records you can get from the API
+- `JobSchedulingMode`: change the job scheduling mode (we mainly use `P+ATCL+RR`, see the [docs](https://rmanwiki.pixar.com/display/TRA/Scheduling+Modes))
+- `CmdAutoRetryAttempts`: set the number of auto retry for commands that fail
+- `CmdAutoRetryStopCodes`: exclude return code from auto retrying the task (useful when you know that there's a fatal error)
+- `EngineWorkerThreads`: set the number of threads and workers of the engine (advised to be: `10 + (number_of_blades / 100)`)
 
 ## `blade.config`
 
-Décrit les profils de blade (groupe d'ordinateurs).
+Describes the blade profiles (group of computers).
 
 :::info
-Les profils sont exclusifs et attribués de haut en bas. Utilisez la liste `Provides` pour attribuer plusieurs tags(étiquettes) aux blades.
+The profiles are exclusive and assigned from top to bottom. Use the `Provides` list to assign multiple tags to blades instead.
 :::
 
-Voici un exemple d'un profil correspondant aux blades qui ont un GPU `NVIDIA` :
+Here is an example of a profile matching blades that have a `NVIDIA` GPU:
 
 ```json
 // blade.config
@@ -53,20 +53,20 @@ Voici un exemple d'un profil correspondant aux blades qui ont un GPU `NVIDIA` :
 ```
 
 :::tip
-Pour plus d'informations, voir la [documentation](https://rmanwiki.pixar.com/display/TRA/Server+Profiles) officielle
+For more information, see the official [documentation](https://rmanwiki.pixar.com/display/TRA/Server+Profiles)
 :::
 
-### Accès au log blade
+### Blade log access
 
-De la [documentation sur les loggings](https://rmanwiki.pixar.com/display/TRA/Logging#Logging-directwritesLoggingCommandOutputtoaCentralFileserver) :
+From the [documentation on logging](https://rmanwiki.pixar.com/display/TRA/Logging#Logging-directwritesLoggingCommandOutputtoaCentralFileserver):
 
 > Logging Tractor command output to a central fileserver should be considered a best-practice technique, especially for large production sites.
 
-> Écrire directement sur un partage de réseau haute performance en utilisant des opérations de fichier "locales" peut être presque aussi bon, et offre de nombreux avantages supplémentaires en termes d'accès et de gestion des logs.
+> Writing directly to a high-performance network share using "local" file operations can be nearly as good, and provides many additional benefits in terms of log access and management.
 
-> Il y a plusieurs avantages à utiliser un serveur web standard pour livrer ces logs de commande à Tractor Dashboard, et d'autres requestors. Le premier est qu'il peut décharger ce type de fichier i/o de Tractor Engine lui-même. Plus important encore, il peut également permettre aux utilisateurs de parcourir les logs directement à partir d'un navigateur web générique en parcourant simplement les listes de répertoires de job fournies par le serveur web. Évidemment, le serveur de fichiers partagés sous-jacents lui-même fournit un accès similaire aux logs à partir d'utilitaires et de scripts arbitraires utilisant des opérations.
+> There are several benefits to using a standard web server to deliver these command logs to Tractor Dashboard, and other requestors. The first is that it can offload this type of file i/o from Tractor Engine itself. More importantly, it can also allow users to browse logs directly from a generic web browser by simply traversing the job directory listings delivered by the web server. Obviously, the underlying shared fileserver itself provides similar access to logs from arbitrary utilities and scripts using plain file read operations.
 
-Dans l'objet `ProfileDefaults`, nous avons modifié la key suivante pour indiquer aux blades où elles doivent écrire les logs.
+In the `ProfileDefaults` object, we changed the following key to indicate to the blades where they should write the logs.
 
 ```json
 // blade.config
@@ -77,9 +77,9 @@ Dans l'objet `ProfileDefaults`, nous avons modifié la key suivante pour indique
 }
 ```
 
-Pour ce faire, le dossier doit être accessible en tant qu'emplacement réseau Samba avec accès en écriture.
+To do that the folder needs to be accessible as a Samba network location with write access.
 
-Modifiez également la configuration pour récupérer les logs dans le fichier `tractor.config` pour qu'il soit l'URL du serveur web hébergeant les fichiers statiques :
+Also change the configuration to retrieve the logs in the `tractor.config` file to be the URL of the web server hosting the static files:
 
 ```json
 // tractor.config
@@ -90,14 +90,14 @@ Modifiez également la configuration pour récupérer les logs dans le fichier `
 
 ## `crews.config`
 
-Spécifiez Administrateur, Wrangler et ValidLogins.
+Specify Administrator, Wrangler and ValidLogins.
 
-- `Administrator` -> peut reload(recharger) la configuration sur l'interface
-- `Wrangler` -> peut modifier les jobs des autres (utile pour le responsable technique de l'équipe)
-- `ValidLogins` -> pour l'authentification NIMBY
+- `Administrator` -> can reload the configuration on the interface
+- `Wrangler` -> can modify others jobs (useful for team's tech lead)
+- `ValidLogins` -> for NIMBY authentication
 
 :::info
-Pour utiliser l'authentification utilisateur personnalisée, spécifiez-la :
+To use the custom user authentication, specify it:
 
 ```json
 {
@@ -109,21 +109,21 @@ Pour utiliser l'authentification utilisateur personnalisée, spécifiez-la :
 
 ## `limits.config`
 
-Spécifiez des limites pour les tasks et les jobs sur la render farm. Vous pouvez limiter un certain type de job à exécuter uniquement sur max X machines.
+Specify limits for tasks and jobs on the render farm. You can limit a certain type of job to run only on max X machines.
 
-Vous précisez également les limites à l'utilisation qu'un projet peut faire de la farm.
+You also specify limits to how much a project can use the farm.
 
-> Consulter : https://rmanwiki.pixar.com/display/TRA/Limits+Configuration
+> See: https://rmanwiki.pixar.com/display/TRA/Limits+Configuration
 
 :::note
-Les priorités de job sont parfois plus efficaces que de limiter un projet à un pourcentage maximal d'utilisation à la farm.
+Job priorities are sometimes more effective than limiting a project to a maximum percentage usage on the farm.
 :::
 
 ## `shared.xxxxx.envkeys`
 
-Liste des variables d'environnement pouvant être incluses dans la configuration du profil `blade.config`.
+List of environment variables than can be included in the `blade.config` profile configuration.
 
-Un exemple de fichier peut être :
+An example file can be:
 
 ```json
 // shared.windows.envkeys
@@ -147,7 +147,7 @@ Un exemple de fichier peut être :
 ]
 ```
 
-Puis l'utiliser partout sur les profils pour hériter de ceux :
+Then use it everywhere on the profiles to inherit from those:
 
 ```json
 // blade.config
@@ -163,9 +163,9 @@ Puis l'utiliser partout sur les profils pour hériter de ceux :
 
 ## `trSiteLoginValidator.py`
 
-Nous permet de nous authentifier auprès du backend Zou pour la gestion des utilisateurs.
+Allows us to authenticate to the Zou backend for user managment.
 
-Nous faisons une demande à l'API en fournissant l'utilisateur brut et mot de passe.
+We make a request to the API by providing the raw user and password.
 
 ```python
 # trSiteLoginValidator.py
@@ -198,9 +198,9 @@ if __name__ == "__main__":
 ```
 
 :::info
-Remarquez la connexion spéciale `"nimby"` pour que le NIMBY se connecte sans mot de passe à l'engine
+Notice the `"nimby"` special login for the NIMBY to connect without password to the engine
 :::
 
 :::caution
-Les mots de passe ne sont pas actuellement hashed, ils peuvent donc être stockés en texte clair dans la base de données...
+The passwords are not currently hashed so they might be stored in clear text in the database...
 :::

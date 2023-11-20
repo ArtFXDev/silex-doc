@@ -5,10 +5,10 @@ sidebar_position: 10
 
 ## Introduction
 
-[Tractor](https://renderman.pixar.com/tractor) est le logiciel de Pixar pour la distribution des job et le rendering de réseau. Tractor est un logiciel payant.
+[Tractor](https://renderman.pixar.com/tractor) is Pixar's software for job distribution and network rendering. Tractor is a paid software.
 
-Pour en savoir plus, consultez la [documentation](https://rmanwiki.pixar.com/display/TRA/About+Tractor) de Tractor.
+To read more, see Tractor's [documentation](https://rmanwiki.pixar.com/display/TRA/About+Tractor).
 
 ## Forum
 
-Si vous avez des problèmes et des questions, vous pouvez poster un message sur leur [forum](https://renderman.pixar.com/forum).
+If you have any issues and questions, you can post a message on their [forum](https://renderman.pixar.com/forum).

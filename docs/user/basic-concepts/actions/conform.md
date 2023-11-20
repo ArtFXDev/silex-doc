@@ -3,7 +3,7 @@ id: conform
 title: Conform
 sidebar_position: 10
 ---
-To conform = Include your scenes and assets in the pipeline.
+To conform = Include your scenes and assets in the pipeline. This action rename you file and put it in the right folder. **It does not run any quality checks or check dependencies.**
 ## In Silex
 ![](../../../../static/img/user_guide/home_page/home_interface_conform.png)
 Conform button is in the home page.

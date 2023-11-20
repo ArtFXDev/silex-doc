@@ -2,31 +2,31 @@
 title: Submit
 ---
 
-**Submit** est l'action de lancer un job sur la [render farm](../../../Renderfarm).
+**Submit** is the action of launching a job on the [render farm](../../../Renderfarm).
 
-## Objectif
+## Purpose
 
-Le but du submitter est de pouvoir lancer des jobs de rendu avec **différents moteur de rendu (render engines)** et outils.
+The goal of the submitter is to be able to launch render jobs with **different render engines** and tools.
 
-Il doit être suffisamment **flexible** pour construire différents types de commandes utilisées pour le rendu.
+It must be **flexible** enough to construct different kind of commands used for rendering.
 
-Nous soutenons actuellement :
+We currently support:
 
 - V-Ray `.vrscene` files
 - Blender `.blend` files
-- [Husk](https://www.sidefx.com/docs/houdini/ref/utils/husk.html) (rendu fichier USD avec Houdini Karma ou un autre délégué Hydra)
-- [Kick](https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=36110428) (ligne de commande Arnold) `.ass` sequences
+- [Husk](https://www.sidefx.com/docs/houdini/ref/utils/husk.html) (render USD files with Houdini's Karma or other Hydra delegate)
+- [Kick](https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=36110428) (Arnold command line) `.ass` sequences
 - Houdini scenes `.hip*`
 - Maya scenes `.ma/mb`
 - Nuke scripts `.nk`
 
 ## Architecture
 
-Voici un exemple d'un submitter de **V-Ray** :
+This is an example of the **V-Ray** submitter:
 
 ![](/img/silex/vray_submit_action.jpg)
 
-<details><summary><code>submit.yml</code> définition de l’action</summary>
+<details><summary><code>submit.yml</code> action definition</summary>
 
 <p>
 
@@ -71,7 +71,7 @@ submit:
 
 </details>
 
-<details><summary><code>vray.yml</code>définition de l’action</summary>
+<details><summary><code>vray.yml</code> action definition</summary>
 
 <p>
 
@@ -149,10 +149,10 @@ vray:
 
 </details>
 
-Les étapes sont les suivantes :
+The steps are:
 
-1. Nous lançons l'action définie par `submit.yml`. C'est l'action de base
-2. `append_submit_actions` utilise la commande [`InsertAction`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/insert_action.py#L21) pour insérer le submitter approprié en fonction de la saisie de l'utilisateur. Nous indiquons la catégorie de `submit` pour regarder les définitions d'action du submitter [`config/submit/xxxx.yml`](https://github.com/ArtFXDev/silex_client/tree/dev/silex_client/config/submit).
-3. Le submitter est inséré et nous construisons le chemin de sortie des fichiers images pour le rendu
-4. `build_vray_tasks` construit des tâches et des commandes en fonction de la `task_size` et d'autres entrées de l'utilisateur. Il renvoie une liste de tasks dans un [modèle de données abstrait](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/farm.py).
-5. `submit_to_tractor` reçoit ces tasks et [les convertit dans son propre modèle de données Tractor](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/tractor.py#L14). Il [envoie ensuite le job](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/farm/submit_to_tractor.py#L130) avec l'utilisateur, les pools, les besoins en RAM et la priorité. Pour cela, nous utilisons notre propre [bibliothèque Python de Tractor](https://github.com/ArtFXDev/tractor_lib) mais patché pour Python 3.x.
+1. We launch the action defined by `submit.yml`. This is the base action.
+2. `append_submit_actions` is using the [`InsertAction`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/insert_action.py#L21) command to insert the appropriate submitter based on the user input. We specify the `submit` category to look at the [`config/submit/xxxx.yml`](https://github.com/ArtFXDev/silex_client/tree/dev/silex_client/config/submit) submitter action definitions.
+3. The submitter is inserted and we build the output path of the image files for the render
+4. `build_vray_tasks` constructs tasks and commands based on the `task_size` and other user input. It returns a list of tasks in an [abstract data model](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/farm.py).
+5. `submit_to_tractor` receives those tasks and [convert them in Tractor's own data model](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/tractor.py#L14). It then [sends the job](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/commands/farm/submit_to_tractor.py#L130) with the user, pools, RAM requirement and priority. For that we use our own [Tractor's Python library](https://github.com/ArtFXDev/tractor_lib) but patched for Python 3.x.

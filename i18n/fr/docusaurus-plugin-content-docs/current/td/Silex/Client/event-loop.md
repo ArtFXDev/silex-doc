@@ -1,42 +1,46 @@
 ---
 id: event-loop
-title: Boucle d'événement
+title: Event loop
 sidebar_position: 50
 ---
 
-Silex exécute une boucle d'événement dans un thread secondaire. Cette boucle d'événement est utilisée pour exécuter la connexion websocket, et les multiples actions en cours d'exécution.
+Silex is running an event loop in a secondary thread. This event loop is used to run the websocket connection, and the multiple running actions.
 
-## Problèmes que vous pourriez rencontrer
+## Problems you might encounter
 
-- Puisque les actions silex et la connexion websocket sont exécutées dans la même boucle d'événement, si une action retient l'attention
-  de la boucle d'événement pendant trop longtemps, la connexion websocket pourrait se rompre. Ce n'est en fait pas un problème puisque socketio gère la déconnexion
-  et la reconnexion automatiquement, mais vous recevrez un message d'avertissement dans l'interface silex. Pour éviter cela, assurez-vous de séparer votre logique
-  d'action en plusieurs coroutines.
+- Since the Silex actions and the websocket connection are running in the same event loop, if an action is holding the attention
+  of the event loop for too long, the websocket connection might break. It's actually not a problem since socketio handles disconnection
+  and reconnection automaticaly, but you will get a warning message in the silex UI. To prevent this, make sure to separate your action
+  logic into multiple coroutines.
 
-- Certaines instructions peuvent prendre du temps et ne sont pas attendues (comme les appels système). Pour éviter cela,
-  silex a la fonction [execute_in_thread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py).
-  L'utilisation de [execute_in_thread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) exécutera
-  l'exécution dans un thread différent et retournera un futur avec le résultat.
+- Some instructions can take times and are not awaitable (like system calls). To prevent this,
+  silex has the [execute_in_thread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) function.
+  Using [execute_in_thread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) will run
+  the execution in a different thread and return a future with the result.
 
-## Intéraction avec les DCCs
+## Interaction with the DCCs
 
-La plupart des DCCs ne gèrent pas très bien la lecture réciproque, et aucun d'eux n'est utilisable avec asyncio. Pour rendre toutes les fonctions DCCs attendues, nous avons fait de la classe
-[ExecutionInThread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) une classe appelable afin que chaque DCC
-puisse la personnaliser pour travailler avec ses fonctionnalités de threading. (voir la page Silex Plugins pour plus d'infos)
+Most DCCs do not handle mutlithreading very well, plus none of them are usable with asyncio. To make all the DCCs function awaitable, we made the class
+[ExecutionInThread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) a callable class so each DCC
+can customise it to work with its threading features. (see the Silex Plugins page for more infos)
 
-Par exemple, maya fournit la méthode [`executeDefered` et `executeInMainThreadWithResult`](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Scripting/files/GUID-9B5AECBB-B212-4C92-959A-22599760E91A-htm.html) qui prend un callable comme paramètre.
+For example, Maya provides the method [`executeDefered` and `executeInMainThreadWithResult`](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Scripting/files/GUID-9B5AECBB-B212-4C92-959A-22599760E91A-htm.html)
+wich both takes a callable as a parameter.
 
-- `executeDefered` n'est pas bloquant, il s'agit simplement d'ajouter la boucle d'événement propre à maya sans renvoyer le résultat.
-- `executeInMainThreadWithResult` bloque, l'appel bloque la boucle d'événement jusqu'à ce que la fonction soit exécutée et renvoie le résultat.
+- `executeDefered` is not blocking, it's juste adding the callable to Maya's own event loop without returning the result.
+- `executeInMainThreadWithResult` is blocking, the call will block the event loop until the function is executed and then return the result.
 
-Dans notre cas, nous ne voulons pas utiliser `executeInMainThreadWithResult`, puisqu'il est bloquant, si la commande prend du temps il n'y a aucun moyen pour la boucle d'événement de faire autre chose en attendant le résultat, la connexion websocket se cassera, et si d'autres actions sont exécutées en même temps elle seront toutes bloquées.
+In our case, we don't want to to use `executeInMainThreadWithResult`, since it is blocking, if the command takes time there is no way for the event loop
+to do something else while waiting for the result, the websocket connection will break, and if other actions are running at the same time they will all be stuck 😔
 
-C'est pourquoi nous utilisons `executeDefered`. De cette façon, l'appel n'est pas bloquant, mais il y a toujours un problème : comment obtenir le résultat ?
+That's why we use `executeDefered`. That way, the call is not blocking, but there is still a problem: how do we get the result ?
 
-La class [ExecutionInThread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) est en fait en train de wrapping `executeDefered` dans une fonction qui renvoie un futur asyncio stockant le résultat.
-The future peut alors être attendu pour que la boucle d'événements continue à fonctionner sur d'autres task jusqu'à ce que le résultat soit prêt.
+The [ExecutionInThread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) class is actually
+wrapping `executeDefered` into a function that returns an asyncio future storing the result.
+The future can then be awaited so the event loop will keep running on other tasks until the result is ready.
 
 :::info
-Si vous implémentez un nouveau DCC qui ne supporte pas l'asyncio dans son API (ce qui est le plus susceptible de se produire), vous devrez réimplanter cette classe [ExecutionInThread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) pour l'API de threading de ce DCC.
-Pour plus de détails, consultez [l'implémentation faite pour maya](https://github.com/ArtFXDev/silex_maya/blob/dev/silex_maya/utils/thread.py)
+If you implement a new DCC that does not support asyncio in its API (which is most likely to happen), you will have to reimplement this
+[ExecutionInThread](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/thread.py) class for the threading API of that DCC.
+For more details, checkout the [implementation done for maya](https://github.com/ArtFXDev/silex_maya/blob/dev/silex_maya/utils/thread.py)
 :::

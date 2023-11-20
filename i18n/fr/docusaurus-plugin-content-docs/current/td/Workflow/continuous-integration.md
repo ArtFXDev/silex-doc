@@ -1,5 +1,5 @@
 ---
 id: continuous-integration
-title: Intégration continue
+title: Continuous integration
 sidebar_position: 0
 ---

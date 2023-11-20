@@ -1,14 +1,8 @@
----
-id: events
-title: Events
-sidebar_position: 30
----
+Events are not a socket.io object, it's just custom object to structure this app.
 
-Event n'est pas un objet socket.io, c'est juste un object personnalisé pour structurer cette application.
+An event contains the "real" code executed, is the main core of each behaviour.
 
-Un event contient le code "réel" exécuté, est le noyau principal de chaque comportement.
-
-## Structure de fichier
+## File structure
 
 ```
 📦events
@@ -25,9 +19,9 @@ Un event contient le code "réel" exécuté, est le noyau principal de chaque co
  ┃ ┗ 📜initialization.js
 ```
 
-Pour ajouter un nouvel event, il vous suffit de créer votre event.js ci-dessous /events.
+To add a new event you just have to create your event.js below /events.
 
-## Exemple de Code
+## Code Example
 
 ```javascript
 // events/dcc/disconnect/js
@@ -49,7 +43,7 @@ const disconnect = (socket, io) => {
 module.exports = disconnect;
 ```
 
-## Utilisation
+## Usage
 
 ```javascript
 

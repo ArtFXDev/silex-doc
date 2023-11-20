@@ -4,8 +4,8 @@ title: Introduction
 sidebar_position: 10
 ---
 
-**Silex** est le nom donné à un ensemble d'applications de pipeline ici à ArtFX.
+**Silex** (pronounced /ˈsaɪlɛks/) is the name given to a set of pipeline applications here at ArtFX.
 
-Il comprend une [bibliothèque d'exécution d'action Python](https://github.com/ArtFXDev/silex_client/), une [application de bureau](https://github.com/ArtFXDev/silex-desktop), une [interface utilisateur](https://github.com/ArtFXDev/silex-front) et [diverses intégrations DCC](https://github.com/ArtFXDev/?q=silex_&type=all&language=python&sort=)...
+It includes a [Python action execution library](https://github.com/ArtFXDev/silex_client/), a [desktop application](https://github.com/ArtFXDev/silex-desktop), a [user interface](https://github.com/ArtFXDev/silex-front) and [various DCC integrations](https://github.com/ArtFXDev/?q=silex_&type=all&language=python&sort=)...
 
-Il a été créé à l'origine par les TD pour la promotion 2021-2022.
+It was originally created for the 2021-2022 promotion.

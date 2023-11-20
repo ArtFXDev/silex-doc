@@ -5,49 +5,49 @@ title: Publish
 
 ---
 
-## Intro :
+## Intro:
 
-Le publish est l'une des actions les plus importante dans Silex.
+The publish is one of the most improtant actions in Silex.
 
-Chaque scène envoyée à la renderfarm doit être dans un dossier de publish (qui est synchronisé avec le serveur : voir [introduction Silex](../Silex.md)) ainsi que ses références. De cette façon, les _blades_ (ordinateurs dans la renderfarm) peuvent accéder à tous les fichiers nécessaire au rendering.
+Every scene sent to the renderfarm must be in a publish folder (which is synchronised with the server : see [Silex introdution](../Silex.md)) as well as its references. This way, the _blades_ (computers in the renderfarm) can access all the files needed for rendering.
 
-## Objectif :
+## Purpose :
 
-L'action **Publish** est le moyen de sauvegarder vos scènes et références dans le **dossier de publish**. Il exporte plusieurs formats, vérifie que toutes les références sont dans un dossier de publish et renomme le fichier exporté en conséquence avec la convention de nommage.
+The **Publish** action is the way to save your scenes and references in the **publish folder**. It exports multiple formats, checks that all references are in a publish folder and renames the exported file accordingly with the naming convention.
 
-Le but du **publish** est de s'assurer que chaque job soumis à la [Renderfarm](../../Renderfarm/renderfarm.md) est restituable, et que toutes les références et textures peuvent être atteintes par n'importe quelle _blade_ du réseau. Pour ce faire, l'action appelle l'action [Conform](./conform.md) action. Si les références trouvées dans la scène doivent être [conformes](./conform.md) au pipeline, et ne peuvent pas être accessibles depuis le serveur. L'action **Publish** vous demandera de vous [conformer](./conform.md) à ces références.
+The purpose of the **publish** is to ensure that every job submited to the [Renderfarm](../../Renderfarm/renderfarm.md) is renderable, and all references and textures can be reached by any _blade_ on the network. For doing so, the action calls for the [Conform](./conform.md) action. If the references found in the scene need to be [conformed](./conform.md) to the pipeline, and cannot be accessed from the server, the **Publish** action will prompt you to [conform](./conform.md) these references.
 
-### Utilisation étape par étape du publish :
+### Step by step use of the publish :
 
-1- Sélectionnez un type de publish.
+1- Select a publish type.
 
-2- Sélectionner ou taper un nom de fichier.
+2- Select or type a filename
 
-3- Paramètres de processus spécifiques à la commande appelée pour le type de publish choisi.
+3- Process parameters specific to the command called for the chosen publish type.
 
-4- La commande exporte la scène ou la sélection dans un dossier temporaire.
+4- The comand exports the scene or the selection in a temporary folder.
 
-5- Une commande de **déplacement** à partir de silex_client est appelée pour déplacer le fichier exporté vers le bon emplacement.
+5- A **move** command from silex_client is called to move the exported file to the right location.
 
 ---
 
 ## Architecture :
 
-Le publish vous permet d'exporter dans un large éventail de formats. Vous pouvez trouver la liste dans le code dans le dossier :
+The publish allows you to export in a wide range of formats. you can find the list in the code in the folder:
 
 - command
   - config
     - publish
 
-(voir plus d'infos sur l'architecture du repository : [Plugins](../Plugins/Plugins.md)) 🧭
+(see for more info on repository architecture : [Plugins](../Plugins/Plugins.md)) 🧭
 
 ---
 
 ### Yummy YAMLs : 🎂
 
-Le publish du fichier [YAML](../Client/action-definition.mdx) dans [silex_client](../Client/client.md) appelle d'autres [YAML](../Client/action-definition.mdx) depuis le dossier commande **command/config/publish** dans les repositories de plugin. Ici, les [YAML](../Client/action-definition.mdx) ont le même nom que l'extension associée au type de publish.
+The publish [YAML](../Client/action-definition.mdx) file in the [silex_client](../Client/client.md) calls for other [YAML](../Client/action-definition.mdx)s from the **command/config/publish** folder in the plugin repositories. In here, [YAML](../Client/action-definition.mdx)s have the same name as the extension associated to the publish type.
 
-Par exemple, dans [silex_maya](../Plugins/Maya.md) dans **command/config/publish** :
+For instance, in [silex_maya](../Plugins/Maya.md) in **command/config/publish** :
 
 - publish
   - abc.yaml
@@ -57,14 +57,14 @@ Par exemple, dans [silex_maya](../Plugins/Maya.md) dans **command/config/publish
   - ...
   - xgen.yaml
 
-Un fichier [YAML](../Client/action-definition.mdx) de publish ressemble à ceci :
+A publish [YAML](../Client/action-definition.mdx) file looks like this :
 
 ```yaml title="ma.yaml"
-# Le root doit avoir le même nom que le fichier YAML.
+# the root has to have the same name as the YAML file.
 ma:
   steps:
-    # Cherche des références et vérifie que tout est conform.
-    # Sinon, utilise une action conform
+    # Look for references and check that everything is conform.
+    # If not, use conform action
     check_references:
       label: "Check references"
       index: 30
@@ -110,7 +110,7 @@ ma:
               value: !command-output "check_references:conform_references"
               hide: true
 
-    # Exporte dans le bon format, dans un dossier temporaire à côté de l'emplacement final.
+    # Export in the proper format, in a temporary folder next to the final location.
     export:
       label: "Export"
       index: 50
@@ -126,7 +126,7 @@ ma:
               value: !command-output "setup:build_output_path:file_name"
               hide: true
 
-    # Déplace le fichier exporté de l'emplacement temporaire à l'emplacement final
+    # move exported file from temporary location to final location
     move:
       label: "Move"
       index: 60
@@ -149,7 +149,7 @@ ma:
               value: !command-output "setup:build_output_path:temp_directory"
               hide: true
 
-    # Invite l'utilisateur à prévisualiser l'image dans l'explorateur Silex.
+    # Prompt user for a preview image in Silex explorer.
     preview:
       label: "Upload Preview"
       index: 70
@@ -176,13 +176,13 @@ ma:
               hide: true
 ```
 
-Comme vous pouvez le voir, il y a plusieurs étapes que le publish, comme le contrôle de conform, comme mentionné précédemment, et la capture d'aperçu.
+As you can see, there are multiple steps that the publish goes through, like the conform check, as mentioned before, and the preview capture.
 
-Parfois, vous pouvez voir un chemin avec un root **setup** comme : `"setup:build_output_path:directory"`
+Sometimes, you can see a path with a **setup** root like : `"setup:build_output_path:directory"`
 
-Cela fait référence au fichier publish.yaml dans le repository [silex_client](../Client/client.md), qui appelle le YAML spécifique (dans ce cas ma.yaml) dans le repository plugin. Dans notre exemple, avant d'exécuter le fichier ma.yaml, le fichier publish exécute un tas d'autres commandes, dont la plus importante est **build_output_path**.
+This refers to the publish.yaml file in the [silex_client](../Client/client.md) repository, that calls this the specific YAML (in this case ma.yaml) in the plugin repository. In the case of our example, before executing the ma.yaml file, the publish file executes a bunch of other commands, the most important of wich is the **build_output_path**.
 
-Voici le fichier publish.yaml dans **silex_lcient/command/config/action/** :
+Here is the publish.yaml in **silex_lcient/command/config/action/** :
 
 ```yaml title="publish.yaml"
 publish: !inherit
@@ -252,21 +252,21 @@ publish: !inherit
           path: "silex_client.commands.user.silex_coins.AddSilexCoinsCommand"
 ```
 
-La commande **build_output_path.py** retourne le chemin de sortie du publish en suivant la convention de nommage.
+The **build_output_path.py** command returns the output path of the publish following the naming convention.
 
-## Rédigez votre propre publish : 🏆
+## Write your own publish : 🏆
 
-Habituellement, pour implémenter un nouveau publish, vous pouvez écrire une nouvelle [commande](../Client/command-definition.md) pour exporter votre format et utiliser cet exemple YAML comme template. Vous n'avez qu'à changer la [commande](../Client/command-definition.md) dans l'étape **Export** pour le nom de votre nouvelle [commande](../Client/command-definition.md) d'export.
+Usually, to implement a new publish, you can write a new [command](../Client/command-definition.md) to export your format and use this YAML example as a template. You only need to change the [command](../Client/command-definition.md) in the **Export** step to the name of your new export [command](../Client/command-definition.md).
 
 :::tip 🦉
-Dans de nombreux cas, une commande exportera le fichier published vers un dossier temporaire passé à partir du chemin **build_output_path**. Par la suite, il devra passer le ou les fichiers nouvellement crées à l'étape de déplacement afin que la fonction de déplacement puisse les copier à l'emplacement final.
-**Ainsi, les exigences de commande sont :**
+In many cases, a command will export the published file to a temporary folder passed from the **build_output_path**. Afterwards, it will need to pass the newly created file(s) to the move step so the move function can copy it/them to the final location.
+**So, the command requirements are :**
 
-1- Prendre un répertoire export comme paramètre.
+1- Take an export directory as a parameter.
 
-2- Retourne la liste de tous les fichiers dans le dossier temporaire.
+2- Return the list of all files in the temporary folder.
 :::
 
-Si vous le souhaitez, vous pouvez personnaliser ce template de publish en ajoutant ou en supprimant des étapes.
+If you want, you can customize this publish template by adding or deleting steps.
 
-Si vous n'avez pas lu la documentation sur la définition de YAML, vous pouvez cliquer ici [action definition](../Client/action-definition.mdx). 🧭
+If you haven't read the documentation on the YAML definition, you can click here [action definition](../Client/action-definition.mdx). 🧭

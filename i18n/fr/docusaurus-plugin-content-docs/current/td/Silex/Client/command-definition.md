@@ -1,14 +1,15 @@
 ---
 id: command-definition
-title: Définition de commande
+title: Command definition
 sidebar_position: 40
 ---
 
-Les commandes sont définies comme des classes python qui héritent de [`CommandBase`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/action/command_base.py)
+Commands are defined as python classes that inherit from [`CommandBase`](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/action/command_base.py)
 
-## Où dois-je placer mes commandes ?
+## Where do I place my command ?
 
-Où vous voulez tant que c'est importable par python. Donc pour rendre votre classe importable, vous devez ajouter le dossier racine à la variable d'environnement `PYTHONPATH`, comme une bibliothèque python normale. Cependant, nous utilisons une convention uniquement à des fins d'organisation :
+Anywhere you want as long as it is importable by python. So to make your class importable, you must add the root folder to the `PYTHONPATH` environment variable,
+just like a regular python library. However, we use a convention just for organisation purpose:
 
 ```
 📦my_plugin
@@ -19,10 +20,10 @@ Où vous voulez tant que c'est importable par python. Donc pour rendre votre cla
    ┃ ┗ 📜your_command.py
 ```
 
-## Schéma de définition des commandes
+## Command definition schema
 
-La définition de commande suivante n'a pas d'indice de type pour simplifier. En production, vous devez taper tous les paramètres.
-Tous les attributs/méthodes qui sont définis sont optionnels, si vous ne les implémentez pas, ils ne feront rien et auront des valeurs vides
+The following command definition does not have type hints for simplification. In production, you should type every parameters.
+All the attributes/methods overrides that are defined are optional, if you don't implement them they will just do nothing or have empty values
 
 ```python
 from silex_client.action.command_base import CommandBase
@@ -32,40 +33,40 @@ class MyCommand(CommandBase):
     Small description about my command
     """
 
-    # L’attribut parameters définit la liste des paramètres de la commande
+    # The parameters attribute defines the list of parameters of the command
     parameters = {
         "my_parameter": {
-            # Le label est juste pour l'affichage, vous pouvez l’omettre, dans ce cas le nom sera utilisé (la key de cette commande)
+            # The label is just for display, you can omit it, in this case the name will be used (the key if this command)
             "label": "<string> (default: value in the key)",
-            # Le type de valeur attendu pour ce paramètre (voir la section types de paramètres plus bas)
+            # The expected value type for this parameter (see the parameter types section)
             "type": "<type> (default: NoneType)",
-            # La valeur par défaut de ce paramètre
+            # The default value for this parameter
             "value": "<any> (default: None)",
-            # Un peu d’aide qui sera affichée sur l’interface utilisateur
+            # Little help that will be displayed on the UI
             "tooltip": "<string> || null (default: null)"
-            # Préciser si ce paramètre doit être affiché sur l’interface utilisateur
+            # Specify if this parameter should be displayed on the UI
             hide: "<boolean> (default: false)"
         },
     }
 
     @CommandBase.conform_command()
     async def __call__(self, parameters, action_query, logger):
-        # Code à exécuter lorsque la commande sera exécutée
+        # Code to run when the command will be executed
 
     async def undo(self, parameters, action_query, logger):
-        # Code à exécuter lorsque la commande est annulée
+        # Code to run when the command is undo
 
     async def setup(self, parameters, action_query, logger):
-        # Code à exécuter chaque fois qu’un paramètre change
+        # Code to run every time a parameter changes
 ```
 
-Les trois méthodes disponibles prennent les mêmes trois paramètres :
+The three availables methods take all the same three parameters:
 
-- parameter: Un dictionnaire contenant le nom et une **copie** de la valeur du paramètre (Le fait qu'il s'agisse d'une copie est très important).
-- action_query: La requête d'action qui appelle cette commande, vous pouvez accéder à toutes les commandes de celui-ci
-- logger: Utilisez cet enregistreur au lieu de l'enregistreur global. Cet enregistreur stocke les logs dans la commande elle-même et l'affiche à l'utilisateur dans la section de debug de l'interface utilisateur
+- parameter: A dictionary holding the name and a **copy** of the parameter value (The fact that it is a copy is very important).
+- action_query: The action query that is calling this command, you can acccess all the commands from it
+- logger: Use this logger instead of the global one. This logger will store the logs into the command itself and show it to the user in the UI's debug section
 
-La méthode de configuration, doit être rapide à exécuter, il est utilisé pour les entrées utilisateur de post-traitement ou pour modifier dynamiquement certaines valeurs en fonction de l'entrée. Par exemple :
+The setup method, must be fast to execute, it is used for post processing user inputs or dynamically change some values according the the input. For example:
 
 ```python
 async def setup(self, parameters, action_query, logger):
@@ -73,12 +74,12 @@ async def setup(self, parameters, action_query, logger):
     task_parameter.hide = parameters.["use_current_context"]
 ```
 
-Ici, lorsque l'utilisateur bascule sur le paramètre `use_current_context`, le paramètre `task` se cachera dynamiquement
+Here when the user will toggle the `use_current_context` parameter, the `task` parameter will hide dynamically
 
-## Types de paramètres
+## Parameter types
 
-Le type de paramètre peut être n'importe quelle définition de classe, `"type": str`, `"type": list`, `"type": int` sont tous des types valides.
-Cependant, pour des paramètres plus complexes comme un menu déroulant ou un sélecteur de fichiers, vous pouvez utiliser certains paramètres spéciaux trouvés dans le [module des types de paramètres](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/parameter_types.py).
+The parameter type can be any class definition, `"type": str`, `"type": list`, `"type": int` are all valid types.
+However for more complex parameters like a dropdown or a file picker you can use some special parameters found in the [parameter types module](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/parameter_types.py).
 
 ```python
 from silex_client.utils.parameter_types import SelectParameterMeta
@@ -91,8 +92,9 @@ class MyCommand(CommandBase):
     }
 ```
 
-Ici nous utilisons le SelectParameterMeta, qui est une liste déroulante qui renvoie un string (la valeur sélectionnée). Ces paramètres sont différents car ce sont en fait des fonctions qui prennent des paramètres. La liste complète ne sera pas détaillée ici, vous pouvez jeter un oeil au [module des types de paramètres](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/parameter_types.py) pour la liste complète des types de paramètres spéciaux.
+Here we use the SelectParameterMeta, wich is a dropdown that will return a string (the selected value). These parameters are different because they
+are actually functions that take parameters. The full list won't be detailed here, you can take a look at the [parameter types module](https://github.com/ArtFXDev/silex_client/blob/dev/silex_client/utils/parameter_types.py) for the full list of special parameter types.
 
-## Héritage de commande
+## Command inheritance
 
-Il est possible d'hériter d'une autre commande. Il fonctionne comme un héritage normal en python, sauf que le paramètre sera fusionné (merge) avec les paramètres des enfants. Pour les overrides de méthode, vous pouvez simplement utiliser `super()` comme dans l'héritage python normal.
+It is possible to inherit from an other command. It works just like normal inheritance in python exept that the parameter will be merged with the parameters of the children. For the method overrides, you can just use `super()` like in normal python inheritance.

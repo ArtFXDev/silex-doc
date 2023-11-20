@@ -1,19 +1,18 @@
 ---
 id: rez
 title: Rez
-sidebar_position: 10
 ---
 
 import { PROD_ROOT, PROD_SSH } from "@site/src/constants";
 
 ---
 
-Rez est un gestionnaire d'environment qui nous permet de lancer des DCCs dans des contextes isolés, y compris les bibliothèques obligatoires, de définir des variables d'environment propres à cet environment ou de définir des cas spéciaux pour chaque équipe de l'école.
+Rez is an environment manager that allows us to launch DCCs in isolated contexts including mandatory libraries only, define environment variables specific to this environment or define special cases for each team in the school.
 
-Tout se trouve dans la documentation sur GitHub : [https://github.com/AcademySoftwareFoundation/rez](https://github.com/AcademySoftwareFoundation/rez)
+Everything can be found in the documentation on GitHub : [https://github.com/AcademySoftwareFoundation/rez](https://github.com/AcademySoftwareFoundation/rez)
 
 <span>
-  Dans le pipeline, les packages REZ sont localisés sur le serveur dans{" "}
+  In the pipeline, the REZ packages are localized on the server in{" "}
   <code>
     \\{PROD_ROOT}
     \rez\{" "}
@@ -24,7 +23,7 @@ Tout se trouve dans la documentation sur GitHub : [https://github.com/AcademySof
 <br />
 
 <span>
-  Les packages DCC et ceux d'équipe se trouvent dans{" "}
+  The DCC packages and team packages can be found in{" "}
   <code>
     \\{PROD_ROOT}
     \rez\packages\silex-rez\packages\
@@ -39,11 +38,11 @@ Tout se trouve dans la documentation sur GitHub : [https://github.com/AcademySof
   - dcc
 
 :::tip 🦉
-Les packages d'équipe (5rn) sont généralement des shells vides, ils nécessitent initialement le package render engine utilisé par l'équipe et la config aces. Mais vous pouvez ajouter des outils ou des environnements spécifiques à leurs besoins spécifiques.
+The team packages (5rn) are usually empty shells, they initially requires the render engine package used by the team and the aces config. But you can add specific tools or environnements to their specific needs.
 
-**Exemple** :
+**Example** :
 
-Dans ce cas, nous associons une nouvelle configuration à la variable d'environment SILEX_ACTION_CONFIG afin que l'équipe **Quit_smoking** ait un vrscene spécial [action YAML](../../Silex/Client/action-definition.mdx) spécifique à ses besoins.
+In this case, we link a new config to the SILEX_ACTION_CONFIG environnement variable so the team **Quit_smoking** has a special vrscene [action YAML](../../Silex/Client/action-definition.mdx) specific to their needs.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -74,7 +73,7 @@ def commands():
 
 :::
 
-Voici un exemple de package REZ pour Maya [Plugin](../../Silex/Plugins/Maya.md) :
+Here is an example of REZ package for the Maya [Plugin](../../Silex/Plugins/Maya.md) :
 
 ```python title="dcc/maya/package.py"
 name = "maya"
@@ -107,7 +106,7 @@ def commands():
 
 ```
 
-Les repositories [Plugins](../../Silex/Plugins/Plugins.md) et [silex_client](../../Silex/Client/client.md) se trouvent dans :
+The [Plugins](../../Silex/Plugins/Plugins.md) repositories and [silex_client](../../Silex/Client/client.md) can be found in :
 
 <span>
   <code>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</code>
@@ -124,9 +123,9 @@ Les repositories [Plugins](../../Silex/Plugins/Plugins.md) et [silex_client](../
   - silex_maya
   - silex_nuke
 
-  Voici un exemple de package du repository package.py :
+  Here is an example of repository package.py :
 
-  La variable d'environment SILEX_ACTION_CONFIG est expliquée dans la documentation [Action definition](../../Silex/Client/action-definition.mdx).
+  The SILEX_ACTION_CONFIG environnement variable is explained in the [Action definition](../../Silex/Client/action-definition.mdx) doctumentation.
 
 ```python title="silex/silex_maya:package.py"
 # pylint: skip-file
@@ -136,8 +135,8 @@ version = "0.1.0"
 authors = ["ArtFx TD gang"]
 
 description = """
-   Ensemble de module python et de configuration maya pour intégrer maya dans le pipeline silex
-    Partie de l’écosystème Silex
+    Set of python module and maya config to integrate maya in the silex pipeline
+    Part of the Silex ecosystem
     """
 
 vcs = "git"
@@ -146,7 +145,7 @@ build_command = "python {root}/script/build.py {install}"
 
 def commands():
     """
-    Définir les variables d’environnement pour silex_maya
+    Set the environment variables for silex_maya
     """
     env.SILEX_ACTION_CONFIG.prepend("{root}/silex_maya/config")
     env.PYTHONPATH.append("{root}")
@@ -160,7 +159,7 @@ def commands():
 @late()
 def requires():
     """
-    Gestion des versions
+    Manage versions
     """
     major = str(this.version.major)
     silex_requirement = ["silex_client"]
@@ -172,9 +171,9 @@ def requires():
 
 ```
 
-### Mise à jour des repositories
+### Updating the repositories
 
-Les repositories sont la base de Silex. Si vous modifiez les plugins ou le [silex_client](../../Silex/Client/client.md) vous pouvez vous connecter au serveur prod en utilisant ssh :
+The rez repositories are the back bone of Silex. If you make any changes to the plugins or the [silex_client](../../Silex/Client/client.md) you can connect to the prod server by ssh using :
 
 <code>
   <span>ssh {PROD_SSH}</span>
@@ -183,20 +182,20 @@ Les repositories sont la base de Silex. Si vous modifiez les plugins ou le [sile
 <br />
 <br />
 
-Puis mettre à jour les repositories en utilisant la commande git :
+Then update the the repositories using the git command :
 
 <code>git submodule update --remote</code>
 
 <br />
 <br />
 
-L'élève sera en mesure de profiter de vos nouvelles features ! \_(^^)/
+The student will be able to enjoy your awsome new features ! \_(^^)/
 
-### Beta et Prod
+### Beta and Prod
 
 <span>
-  Dans <code>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</code>
+  In <code>\\{PROD_ROOT}\rez\packages\silex-rez\packages\silex\</code>
 </span>
-, si vous regardez dans l'un des silex_folder, vous pourrez voir un dossier **beta**
-et un **prod**. Ils contiennent tous les deux la branche du même nom dans le repository,
-et sont mis à jour en fonction de ces branches.
+, if you look in any of the silex_folder, you will be able to see a **beta** and
+a **prod** folder. They both contain the branch of the same name in the repository,
+and are updated according to these branches.

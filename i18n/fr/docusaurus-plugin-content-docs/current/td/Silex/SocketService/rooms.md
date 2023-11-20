@@ -1,16 +1,10 @@
----
-id: rooms
-title: Rooms
-sidebar_position: 60
----
+For explanation about namespace usage for Socket.io see: [Socket.io/rooms](https://socket.io/docs/v4/rooms/)
 
-Pour des explication sur l'utilisation des namespace pour Socket.io voir : [Socket.io/rooms](https://socket.io/docs/v4/rooms/)
+Rooms are used here to split socket ui client and socket DCC client.
 
-Les rooms sont utilisées ici pour diviser les socket d'interface client et les socket DCC client.
+You can broadcast event to all client present in rooms, which is very useful.
 
-Vous pouvez diffuser l'event à tous les clients présents dans les rooms, ce qui est très utile.
-
-## Structure de Fichier
+## File Structure
 
 ```
 📦rooms
@@ -18,28 +12,28 @@ Vous pouvez diffuser l'event à tous les clients présents dans les rooms, ce qu
  ┗ 📜ui.js
 ```
 
-Pour créer une nouvelle room, il vous suffit de créer des fichers .js sous le répertoire /rooms
+To create a new room, you juste have to create .js files under /rooms directory
 
-## Exemple de Code
+## Code Example
 
 ```javascript
 const dccNamespace = require("../namespaces/dcc/dcc");
 
 const dccRoomJoin = (socket) => {
-  // vous avez 2 fonction principale pour une room : join et to
+  // you have 2 main function for a room : join and to
   console.log("join dccRoom"); // join need the socket client
   return socket.join("dccRoom");
 };
 
 const dccRoomTo = (io) => {
   // <== "to" need the object server : io
-  return dccNamespace(io).to("dccRoom"); // <== vous pouvez lier votre room à un namespace comme ceci
+  return dccNamespace(io).to("dccRoom"); // <== you can bind your room to a namespace like this
 };
 
-module.exports = { dccRoomJoin, dccRoomTo }; // <== exporter ces 2 méthodes
+module.exports = { dccRoomJoin, dccRoomTo }; // <== export these 2 methods
 ```
 
-## Utilisation
+## Usage
 
 ```javascript
 // listeners/dcc.js

@@ -1,7 +1,7 @@
 ---
 id: publish
 title: Publish
-sidebar_position: 30
+sidebar_position: 40
 ---
 **Publish** is the action of sending a version of your files to a shared space. Basicaly, it's **exporting files for the next step in the pipeline.**
 In fact, it's not your work files that will be shared, but a copy or export of them that will be saved on the network.

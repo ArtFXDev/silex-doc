@@ -3,15 +3,15 @@ id: td-gokillprocess
 title: Gokillprocess
 ---
 
-## Présentation
+## Presentation
 
-Gokillprocess est utilisé pour obtenir des listes de processus en cours d'exécution, des services, kill un processus en cours avec PID et redémarrer un service avec son nom, via une requête HTTP.
+Gokillprocess is used to get lists of process running, services, kill a running process with PID and restart a services with its name, throught HTTP request.
 
-## Déploiement
+## Deploiement
 
 Vous pouvez retrouver la partie déploiement dans la doc IT [ici](/docs/it/scripts/deploy-gokillprocess).
 
-## Structure de Projet
+## Project Structure
 
 ```
 📦go_killprocessbywebserver
@@ -29,20 +29,20 @@ Vous pouvez retrouver la partie déploiement dans la doc IT [ici](/docs/it/scrip
  ┗ 📜main.go
 ```
 
-## Middlewares Package
+## Package Middlewares
 
-- Définir facilement les en-têtes de demande dans les routes
+- To easily set headers of request in routes
 
 ## Package Responses
 
-- Méthodes pour retourner un message formaté
+- Methods to return formatted message
 
-## Serveur de Package
+## Package Server
 
-- Controllers.go: Recevoir les requêtes http et les traiter.
-- Routes.go: Routes http de l'application.
-- Server.go: Définit l'objet Server et contient l'exécution de la fonction principale de serveur
+- Controllers.go: Receive http request and process them.
+- Routes.go: Http Routes of app.
+- Server.go: Define the Server object and contains the mains function execution of server
 
 ## main.go
 
-- Main de l'application
+- Main of the app
