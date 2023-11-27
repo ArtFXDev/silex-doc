@@ -3,6 +3,7 @@ id: create_new_scene
 title: Create a new working scene
 sidebar_position: 10
 ---
+
 # Create a new scene
 
 Situation : You are an animator and you have to start to animate a shot.

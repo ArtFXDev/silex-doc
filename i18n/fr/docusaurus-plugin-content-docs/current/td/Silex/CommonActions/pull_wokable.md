@@ -23,7 +23,6 @@ The purpose of the **pull_workable** command is to open published scene shot and
 
 ## Operation
 
-After validate the pull_wokable command, rez command is send of type launch to the silex_ [DCC] Handler which automaticly send a silex command to client handler to rename the oppened scene.
-
+After validate the pull*wokable command, rez command is send of type launch to the silex* [DCC] Handler which automaticly send a silex command to client handler to rename the oppened scene.
 
 ---
