@@ -30,7 +30,7 @@ If **Auto select the conform type** is enable, Silex will automatically set your
 ## Backup scene with conform
 
 You can use the conform action to simply send your scenes to the server for a quick backup.
-If your file format is not supported by silex (.nk, .ztl, etc.), you can use the **default** conform type. This will create a default/<conform name\> folder and put your file in it.
+If your file format is not supported by silex (.ma, .hip, .nk, .ztl, etc.), you can use the **backup** conform type. This will create a backup/<conform name\> folder and put your file in it.
 :::note
 This type of conform executes no quality checks, checks no dependencies, etc. All it does is copy your file to the right place on the server with the right nomenclature. Use it only if you want to have a copy of your scene backed up on the server.
 :::
