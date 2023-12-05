@@ -9,7 +9,7 @@ First of all, in the Socket-io connection you need to put the right namespace yo
 ```js
 export const socketInstance = io(
   "http://localhost:5118/ui", // <== pass the namespace here
-  { reconnectionDelay: 2000 },
+  { reconnectionDelay: 2000 }
 );
 ```
 
