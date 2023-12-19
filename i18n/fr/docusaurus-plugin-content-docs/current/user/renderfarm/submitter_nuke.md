@@ -19,7 +19,7 @@ Clic on *FarmRender* opens the submitter interface:
 ![](../../../static/img/user_guide/renderfarm/submitter_nuke.png)
 - *Job Name*: the name of your job in the Deadline Monitor.
 - *Comment* & *Department*: you can write detail to specify your job. Not required.
-- *Pool*: set always to **wspool**.
+- *Pool*: set always to **defaultpool** in pool and **wspool** in secondary pool.
 - *Group*: You can choose a group of workers if you want to render on a particular group. If you want your jobs to be rendered on the whole farm, choose the group "none".
 - *Frame List*: Specify the frame range.
 
