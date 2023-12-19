@@ -15,9 +15,9 @@ To acces the submitter, go to Render>Render to Deadline
     - *Job name* is automatically set by silex. 
     - But you can add some comment and description in *Comment* and *Department*. This texts will show up in the deadline Monitor.
 - **Job options** : 
-    - *Pool* and *Group* allow you to specify on which machines you want to run jobs. If you want to send to the whole farm, just leave "wspool" in the pool. Otherwise, specify a secondary pool and/or a worker group.
+    - *Pool* and *Group* allow you to specify on which machines you want to run jobs. If you want to send to the whole farm, set "defaultpool" in pool and "wspool" in secondary pool.
     - *Priority* is automatically set to 50 by Silex.
-    - *Task Timeout* is 90 minutes. Above that, your job will be auto-killed.
+    - *Task Timeout* is 90 minutes per frame. Above that, your job will be auto-killed.
 - **Render options** : 
     - In *Rop To render*, you can choose wich ROP you want to render (you can choose several ROP in a same submit). 
     - *Override Frames* allows when toggled to specify a frame range. If it is disable, the rop frame range will be used instead. 
